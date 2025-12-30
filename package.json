@@ -1,0 +1,58 @@
+{
+  "name": "@messai-io/mess-parameters",
+  "version": "0.1.0",
+  "description": "The definitive parameter standard for Microbial Electrochemical Systems (MES) research",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./parameters": {
+      "import": "./parameters/index.json"
+    }
+  },
+  "files": [
+    "dist",
+    "parameters",
+    "schemas"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "validate": "node scripts/validate.js",
+    "validate:single": "node scripts/validate-single.js",
+    "test": "vitest",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build && npm run validate"
+  },
+  "keywords": [
+    "parameters",
+    "standards",
+    "mes",
+    "mfc",
+    "microbial-fuel-cell",
+    "electrochemistry",
+    "fair-data"
+  ],
+  "author": "MESSAI Community",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Messai-io/MESS-Parameters.git"
+  },
+  "homepage": "https://github.com/Messai-io/MESS-Parameters",
+  "bugs": {
+    "url": "https://github.com/Messai-io/MESS-Parameters/issues"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ajv": "^8.0.0",
+    "eslint": "^8.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
