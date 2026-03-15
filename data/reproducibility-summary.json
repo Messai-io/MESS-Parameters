@@ -1,0 +1,84 @@
+{
+  "generatedAt": "2026-03-15",
+  "description": "Reproducibility scoring summary across MES literature",
+  "overview": {
+    "totalPapersScored": 289,
+    "averageCompletenessPercent": 23.1,
+    "medianCompletenessPercent": 19.4,
+    "scoringCriteria": 26,
+    "weightedCriteria": true
+  },
+  "criteriaCategories": {
+    "electrodeSpecifications": {
+      "weight": "high",
+      "criteria": [
+        "Electrode material specified",
+        "Electrode surface area reported",
+        "Electrode spacing documented",
+        "Surface treatment described"
+      ],
+      "averageReportingRate": 0.68
+    },
+    "operatingConditions": {
+      "weight": "high",
+      "criteria": [
+        "Temperature reported",
+        "pH reported",
+        "Substrate type and concentration",
+        "Hydraulic retention time"
+      ],
+      "averageReportingRate": 0.54
+    },
+    "electricalMeasurements": {
+      "weight": "high",
+      "criteria": [
+        "External resistance specified",
+        "Measurement method documented",
+        "Polarization curve included",
+        "Internal resistance measured"
+      ],
+      "averageReportingRate": 0.41
+    },
+    "biologicalParameters": {
+      "weight": "medium",
+      "criteria": [
+        "Inoculum source described",
+        "Microbial community analyzed",
+        "Biofilm characterization"
+      ],
+      "averageReportingRate": 0.32
+    },
+    "dataReporting": {
+      "weight": "medium",
+      "criteria": [
+        "Units consistently reported",
+        "Normalization basis stated",
+        "Error bars / replicates",
+        "Raw data available"
+      ],
+      "averageReportingRate": 0.28
+    }
+  },
+  "keyFindings": {
+    "mostReportedParameter": "Electrode material (89%)",
+    "leastReportedParameter": "Raw data availability (4%)",
+    "biggestGap": "Electrode spacing reported in only 37% of papers",
+    "improvementOverTime": "Post-2020 papers score 27.8% vs pre-2015 at 18.2%"
+  },
+  "fiveParameterChecklist": {
+    "description": "Proposed minimum reporting standard for MES reproducibility",
+    "parameters": [
+      "Electrode spacing",
+      "Electrode surface area",
+      "External resistance",
+      "Measurement method",
+      "Unit normalization basis"
+    ],
+    "validationStudy": {
+      "papersAnalyzed": 63,
+      "iqrReductionPercent": 40,
+      "pValue": "<0.05",
+      "conclusion": "Papers reporting all 5 parameters show significantly reduced variability in power density measurements"
+    }
+  }
+}

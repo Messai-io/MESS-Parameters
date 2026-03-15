@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-03-15",
+  "description": "MESSAI pipeline extraction statistics — snapshot from production database",
+  "corpus": {
+    "totalPapers": 21895,
+    "papersWithAbstracts": 9049,
+    "papersWithPDFs": 14743,
+    "papersWithFullText": 3535
+  },
+  "extraction": {
+    "totalExtractions": 70296,
+    "extractedParameterDataRows": 62043,
+    "paperParameterMappings": 8397,
+    "papersWithStructuredParameters": 5261,
+    "parameterDefinitions": 687,
+    "categories": 13,
+    "subcategories": 119
+  },
+  "quality": {
+    "papersWithReproducibilityScores": 289,
+    "averageReproducibilityCompleteness": 0.231,
+    "papersWithEconomicMetrics": 243,
+    "papersWithComputationalTags": 678,
+    "papersWithAISummaries": 8395
+  },
+  "systemTypes": {
+    "MFC": 12450,
+    "MEC": 3210,
+    "MDC": 980,
+    "MES_general": 5255
+  },
+  "methodology": {
+    "pdfProcessing": "Nougat (Meta) for OCR, regex + LLM for structured extraction",
+    "parameterMapping": "687-definition ontology with 13 categories and 119 subcategories",
+    "qualityScoring": "Reproducibility checklist with 26 weighted criteria"
+  }
+}

@@ -67,4 +67,5 @@ npm run validate:single -- parameters/electrochemical/your_param.json
 
 ## Recognition
 
-All contributors are listed in CONTRIBUTORS.md and receive DOI credit in Zenodo releases.
+All contributors are listed in CONTRIBUTORS.md and receive DOI credit in Zenodo
+releases.
