@@ -1,0 +1,268 @@
+{
+  "generatedAt": "2026-03-09T14:10:50.169Z",
+  "totalPapersAnalyzed": 862,
+  "totalCorrelations": 14,
+  "significantCorrelations": 2,
+  "topCorrelations": [
+    {
+      "parameter": "Reproducibility Score",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.567,
+      "sampleSize": 36,
+      "pValue": 0,
+      "trend": "positive",
+      "strength": "moderate"
+    },
+    {
+      "parameter": "ec:coulombicEfficiency",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.557,
+      "sampleSize": 55,
+      "pValue": 0,
+      "trend": "positive",
+      "strength": "moderate"
+    },
+    {
+      "parameter": "bio:substrateRemovalEfficiency",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.274,
+      "sampleSize": 15,
+      "pValue": 0.4246,
+      "trend": "positive",
+      "strength": "weak"
+    },
+    {
+      "parameter": "ec:maxPowerDensity",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.175,
+      "sampleSize": 49,
+      "pValue": 0.4133,
+      "trend": "positive",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxCurrentDensity",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.136,
+      "sampleSize": 63,
+      "pValue": 0.5608,
+      "trend": "negative",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:volume",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.105,
+      "sampleSize": 15,
+      "pValue": 0.8432,
+      "trend": "negative",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxCurrentDensity",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.095,
+      "sampleSize": 20,
+      "pValue": 0.7363,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:chambers",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.082,
+      "sampleSize": 81,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Reproducibility Score",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.065,
+      "sampleSize": 284,
+      "pValue": 0.5436,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:chambers",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.057,
+      "sampleSize": 67,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxPowerDensity",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": 0.044,
+      "sampleSize": 286,
+      "pValue": 0.9814,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Year",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": 0.032,
+      "sampleSize": 289,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Year",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.016,
+      "sampleSize": 493,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:volume",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.009,
+      "sampleSize": 41,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    }
+  ],
+  "allCorrelations": [
+    {
+      "parameter": "Reproducibility Score",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.567,
+      "sampleSize": 36,
+      "pValue": 0,
+      "trend": "positive",
+      "strength": "moderate"
+    },
+    {
+      "parameter": "ec:coulombicEfficiency",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.557,
+      "sampleSize": 55,
+      "pValue": 0,
+      "trend": "positive",
+      "strength": "moderate"
+    },
+    {
+      "parameter": "bio:substrateRemovalEfficiency",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.274,
+      "sampleSize": 15,
+      "pValue": 0.4246,
+      "trend": "positive",
+      "strength": "weak"
+    },
+    {
+      "parameter": "ec:maxPowerDensity",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.175,
+      "sampleSize": 49,
+      "pValue": 0.4133,
+      "trend": "positive",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxCurrentDensity",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.136,
+      "sampleSize": 63,
+      "pValue": 0.5608,
+      "trend": "negative",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:volume",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.105,
+      "sampleSize": 15,
+      "pValue": 0.8432,
+      "trend": "negative",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxCurrentDensity",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.095,
+      "sampleSize": 20,
+      "pValue": 0.7363,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:chambers",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.082,
+      "sampleSize": 81,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Reproducibility Score",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": -0.065,
+      "sampleSize": 284,
+      "pValue": 0.5436,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:chambers",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": 0.057,
+      "sampleSize": 67,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "ec:maxPowerDensity",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": 0.044,
+      "sampleSize": 286,
+      "pValue": 0.9814,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Year",
+      "metric": "Power Output (mW/m²)",
+      "pearsonR": 0.032,
+      "sampleSize": 289,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "Year",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.016,
+      "sampleSize": 493,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    },
+    {
+      "parameter": "reactor:volume",
+      "metric": "Coulombic Efficiency (%)",
+      "pearsonR": -0.009,
+      "sampleSize": 41,
+      "pValue": 1,
+      "trend": "none",
+      "strength": "negligible"
+    }
+  ],
+  "summary": {
+    "strongPositive": 0,
+    "strongNegative": 0,
+    "moderate": 2,
+    "weak": 1
+  }
+}

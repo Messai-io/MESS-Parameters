@@ -1,13 +1,18 @@
 {
   "metadata": {
-    "version": "3.1.0",
-    "lastUpdated": "2025-07-15",
+    "version": "3.2.0",
+    "lastUpdated": "2026-03-15",
     "totalParameters": 667,
+    "totalParametersInDatabase": 687,
     "majorCategories": 11,
+    "majorCategoriesInDatabase": 13,
     "subcategories": 85,
+    "subcategoriesInDatabase": 119,
+    "note": "This file contains 667 of 687 parameters defined in the MESSAI database. Additional parameters (analytical, application-specific) are available in the category subdirectories and on messai.io.",
     "sources": {
       "unified": "Merged from JSON extraction and TypeScript parameters",
-      "generator": "merge-with-existing.js v1.0.0"
+      "generator": "merge-with-existing.js v1.0.0",
+      "database": "MESSAI production PostgreSQL (687 ParameterDefinition rows)"
     }
   },
   "categories": [

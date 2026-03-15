@@ -1,41 +1,38 @@
 {
   "name": "@messai-io/mess-parameters",
-  "version": "0.1.0",
-  "description": "The definitive parameter standard for Microbial Electrochemical Systems (MES) research",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "version": "0.2.0",
+  "description": "Standardized parameter ontology and analysis tools for Microbial Electrochemical Systems (MES) research — 687 parameters across 13 categories",
+  "main": "parameters/index.json",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./parameters/index.json"
     },
     "./parameters": {
       "import": "./parameters/index.json"
     }
   },
   "files": [
-    "dist",
     "parameters",
-    "schemas"
+    "schemas",
+    "data",
+    "standards"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "validate": "node scripts/validate.js",
-    "validate:single": "node scripts/validate-single.js",
-    "test": "vitest",
-    "lint": "eslint src --ext .ts",
-    "prepublishOnly": "npm run build && npm run validate"
+    "validate": "node scripts/validate.js"
   },
   "keywords": [
     "parameters",
     "standards",
     "mes",
     "mfc",
+    "mec",
+    "mdc",
     "microbial-fuel-cell",
+    "microbial-electrolysis",
     "electrochemistry",
-    "fair-data"
+    "bioelectrochemistry",
+    "fair-data",
+    "reproducibility"
   ],
   "author": "MESSAI Community",
   "license": "CC-BY-4.0",
@@ -46,13 +43,5 @@
   "homepage": "https://github.com/Messai-io/MESS-Parameters",
   "bugs": {
     "url": "https://github.com/Messai-io/MESS-Parameters/issues"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "ajv": "^8.0.0",
-    "eslint": "^8.0.0",
-    "tsup": "^8.0.0",
-    "typescript": "^5.0.0",
-    "vitest": "^1.0.0"
   }
 }
