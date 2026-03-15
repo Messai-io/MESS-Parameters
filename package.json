@@ -18,7 +18,10 @@
     "standards"
   ],
   "scripts": {
-    "validate": "node scripts/validate.js"
+    "validate": "node scripts/validate.js",
+    "site:dev": "cd site && npm run dev",
+    "site:build": "cd site && npm run build",
+    "site:preview": "cd site && npm run preview"
   },
   "keywords": [
     "parameters",
