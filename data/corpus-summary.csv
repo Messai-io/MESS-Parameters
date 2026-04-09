@@ -1,11 +1,11 @@
 ﻿metric,value,section
-totalPapers,21895,corpus
+totalPapers,23332,corpus
 papersWithAbstracts,9049,corpus
 papersWithPDFs,14743,corpus
 papersWithFullText,3535,corpus
-totalExtractions,70296,extraction
-extractedParameterDataRows,62043,extraction
-paperParameterMappings,8397,extraction
+totalExtractions,487064,extraction
+extractedParameterDataRows,487064,extraction
+paperParameterMappings,19820,extraction
 papersWithStructuredParameters,5261,extraction
 parameterDefinitions,687,extraction
 categories,13,extraction
@@ -19,6 +19,7 @@ MFC,12450,systemTypes
 MEC,3210,systemTypes
 MDC,980,systemTypes
 MES_general,5255,systemTypes
+other,1437,systemTypes
 pdfProcessing,"Nougat (Meta) for OCR, regex + LLM for structured extraction",methodology
 parameterMapping,687-definition ontology with 13 categories and 119 subcategories,methodology
 qualityScoring,Reproducibility checklist with 26 weighted criteria,methodology

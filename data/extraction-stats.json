@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-03-15",
+  "generatedAt": "2026-04-09",
   "description": "MESSAI pipeline extraction statistics — snapshot from production database",
   "corpus": {
-    "totalPapers": 21895,
+    "totalPapers": 23332,
     "papersWithAbstracts": 9049,
     "papersWithPDFs": 14743,
     "papersWithFullText": 3535
   },
   "extraction": {
-    "totalExtractions": 70296,
-    "extractedParameterDataRows": 62043,
-    "paperParameterMappings": 8397,
+    "totalExtractions": 487064,
+    "extractedParameterDataRows": 487064,
+    "paperParameterMappings": 19820,
     "papersWithStructuredParameters": 5261,
     "parameterDefinitions": 687,
     "categories": 13,
@@ -27,7 +27,8 @@
     "MFC": 12450,
     "MEC": 3210,
     "MDC": 980,
-    "MES_general": 5255
+    "MES_general": 5255,
+    "other": 1437
   },
   "methodology": {
     "pdfProcessing": "Nougat (Meta) for OCR, regex + LLM for structured extraction",
