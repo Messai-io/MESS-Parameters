@@ -1,0 +1,86 @@
+﻿category_id,category_name,subcategory_id,subcategory_name,parameter_count
+biological,Biological Parameters,biofilm-parameters,Biofilm Parameters,9
+biological,Biological Parameters,biofilm-properties,Biofilm Properties,1
+biological,Biological Parameters,kinetics,Kinetics,3
+biological,Biological Parameters,metabolic-parameters,Metabolic Parameters,4
+biological,Biological Parameters,microbial-kinetics,Microbial Kinetics,8
+biological,Biological Parameters,microbial-selection,Microbial Selection,4
+biological,Biological Parameters,microorganism-database,Microorganism Database,22
+biological,Biological Parameters,substrate-parameters,Substrate Parameters,6
+chemical,Chemical Parameters,chemical-properties,Chemical Properties,5
+chemical,Chemical Parameters,electrolyte-composition,Electrolyte Composition,8
+chemical,Chemical Parameters,ion-concentrations,Ion Concentrations,7
+economic,Economic Parameters,capital-cost-parameters,Capital Cost Parameters,9
+economic,Economic Parameters,economic-performance-indicators,Economic Performance Indicators,10
+economic,Economic Parameters,life-cycle-assessment-parameters,Life Cycle Assessment Parameters,9
+economic,Economic Parameters,operating-cost-parameters,Operating Cost Parameters,9
+economic,Economic Parameters,social-impact-parameters,Social Impact Parameters,8
+electrical,Electrical Parameters,efficiency,Efficiency,2
+electrical,Electrical Parameters,electrochemical-properties,Electrochemical Properties,5
+electrical,Electrical Parameters,impedance,Impedance,6
+electrical,Electrical Parameters,output-performance,Output Performance,7
+environmental,Environmental Parameters,air-quality,Air Quality,2
+environmental,Environmental Parameters,atmospheric-ambient-conditions,Atmospheric Ambient Conditions,26
+environmental,Environmental Parameters,atmospheric-conditions,Atmospheric Conditions,1
+environmental,Environmental Parameters,light-conditions,Light Conditions,3
+environmental,Environmental Parameters,light-radiation-parameters,Light Radiation Parameters,17
+environmental,Environmental Parameters,physical-environmental-factors,Physical Environmental Factors,18
+materials,Materials Parameters,3d-printing-additive-manufacturing,3d Printing Additive Manufacturing,9
+materials,Materials Parameters,anode-materials,Anode Materials,12
+materials,Materials Parameters,cathode-materials,Cathode Materials,9
+materials,Materials Parameters,digital-twin-technology,Digital Twin Technology,7
+materials,Materials Parameters,electrode-geometry,Electrode Geometry,6
+materials,Materials Parameters,electrode-materials,Electrode Materials,7
+materials,Materials Parameters,membrane-separator,Membrane Separator,6
+materials,Materials Parameters,membrane-separator-materials,Membrane Separator Materials,5
+materials,Materials Parameters,nanomaterial-integration,Nanomaterial Integration,9
+materials,Materials Parameters,quantum-effects,Quantum Effects,4
+materials,Materials Parameters,structural-materials,Structural Materials,2
+materials,Materials Parameters,surface-properties,Surface Properties,3
+materials,Materials Parameters,synthetic-biology-integration,Synthetic Biology Integration,9
+monitoring,Monitoring Parameters,ai-ml-integration,Ai Ml Integration,9
+monitoring,Monitoring Parameters,alarm-settings,Alarm Settings,2
+monitoring,Monitoring Parameters,automation-scada,Automation Scada,10
+monitoring,Monitoring Parameters,control-algorithms,Control Algorithms,9
+monitoring,Monitoring Parameters,data-acquisition,Data Acquisition,10
+monitoring,Monitoring Parameters,data-logging,Data Logging,2
+monitoring,Monitoring Parameters,real-time-monitoring,Real Time Monitoring,4
+monitoring,Monitoring Parameters,sensor-specifications,Sensor Specifications,17
+operational,Operational Parameters,agricultural-integration,Agricultural Integration,9
+operational,Operational Parameters,biosensor-applications,Biosensor Applications,9
+operational,Operational Parameters,carbon-capture-applications,Carbon Capture Applications,3
+operational,Operational Parameters,circuit-conditions,Circuit Conditions,4
+operational,Operational Parameters,control-parameters,Control Parameters,3
+operational,Operational Parameters,desalination-applications,Desalination Applications,4
+operational,Operational Parameters,flow-conditions,Flow Conditions,4
+operational,Operational Parameters,grid-integration,Grid Integration,9
+operational,Operational Parameters,hybrid-system-integration,Hybrid System Integration,8
+operational,Operational Parameters,infrastructure-requirements,Infrastructure Requirements,8
+operational,Operational Parameters,maintenance-parameters,Maintenance Parameters,3
+operational,Operational Parameters,medical-device-applications,Medical Device Applications,9
+operational,Operational Parameters,multi-scale-integration,Multi Scale Integration,8
+operational,Operational Parameters,network-effects,Network Effects,7
+operational,Operational Parameters,operating-modes,Operating Modes,15
+operational,Operational Parameters,process-control-parameters,Process Control Parameters,11
+operational,Operational Parameters,space-applications,Space Applications,8
+operational,Operational Parameters,startup-shutdown,Startup Shutdown,9
+operational,Operational Parameters,wastewater-treatment-applications,Wastewater Treatment Applications,13
+performance,Performance Parameters,chemical-production-metrics,Chemical Production Metrics,11
+performance,Performance Parameters,electrical-performance,Electrical Performance,14
+performance,Performance Parameters,treatment-performance,Treatment Performance,11
+physical,Physical Parameters,cell-electrode-configuration,Cell Electrode Configuration,9
+physical,Physical Parameters,cell-geometry-dimensions,Cell Geometry Dimensions,21
+physical,Physical Parameters,cell-performance-metrics,Cell Performance Metrics,5
+physical,Physical Parameters,cell-specific-operational-parameters,Cell Specific Operational Parameters,4
+physical,Physical Parameters,industrial-scale-parameters,Industrial Scale Parameters,3
+physical,Physical Parameters,mechanical-properties,Mechanical Properties,2
+physical,Physical Parameters,multi-cell-stack-configuration,Multi Cell Stack Configuration,11
+physical,Physical Parameters,reactor-control-systems,Reactor Control Systems,12
+physical,Physical Parameters,reactor-geometry,Reactor Geometry,6
+physical,Physical Parameters,reactor-system-components,Reactor System Components,10
+physical,Physical Parameters,thermal-properties,Thermal Properties,3
+safety,Safety Parameters,regulatory-compliance,Regulatory Compliance,14
+safety,Safety Parameters,risk-assessment-parameters,Risk Assessment Parameters,8
+safety,Safety Parameters,safety-limits,Safety Limits,3
+safety,Safety Parameters,safety-parameters,Safety Parameters,15
+safety,Safety Parameters,safety-systems,Safety Systems,1

@@ -1,0 +1,668 @@
+﻿id,name,description,unit,type,category,subcategory,default,range_min,range_max,range_typical,tags
+biofilm_conductivity,Biofilm Conductivity,Electrical conductivity,S/m,number,biological,biofilm-parameters,0.01,0.001,1,0.01,biological|biofilm-parameters
+biofilm_coverage,Biofilm Coverage,Electrode surface coverage,%,number,biological,biofilm-parameters,70,0,100,70,biological|biofilm-parameters
+biofilm_density,Biofilm Density,Biofilm dry density,g/L,number,biological,biofilm-parameters,50,10,200,50,biological|biofilm-parameters
+biofilm_porosity,Biofilm Porosity,Void fraction in biofilm,%,number,biological,biofilm-parameters,80,50,95,80,biological|biofilm-parameters
+biofilm_roughness,Biofilm Roughness,Surface roughness,μm,number,biological,biofilm-parameters,20,0,100,20,biological|biofilm-parameters
+biofilm_thickness,Biofilm Thickness,Average biofilm thickness on electrode surface,μm,number,biological,biofilm-parameters,10,1,1000,10,biological|biofilm-parameters
+electron_transfer_rate,Electron Transfer Rate,Direct electron transfer rate,A/m²,number,biological,biofilm-parameters,5,0,50,5,biological|biofilm-parameters
+mediator_concentration,Mediator Concentration,Electron mediator concentration,mM,number,biological,biofilm-parameters,0.1,0,10,0.1,biological|biofilm-parameters
+metabolic_activity,Metabolic Activity,Active biomass fraction,%,number,biological,biofilm-parameters,80,0,100,80,biological|biofilm-parameters
+biofilm_adhesion_strength,Biofilm Adhesion Strength,Force required to detach biofilm from electrode,N/m²,number,biological,biofilm-properties,,,,,biological|biofilm-properties
+doubling_time,Cell Doubling Time,Time required for cell population to double,hours,number,biological,kinetics,,,,,biological|kinetics
+growth_rate,Microbial Growth Rate,Specific growth rate of microorganisms,h⁻¹,number,biological,kinetics,,,,,biological|kinetics
+substrate_utilization_rate,Substrate Utilization Rate,Rate of substrate consumption by microbes,mg/L·h,number,biological,kinetics,,,,,biological|kinetics
+atp_concentration,ATP Concentration,Intracellular ATP concentration,μM,number,biological,metabolic-parameters,,,,,biological|metabolic-parameters
+enzyme_activity,Enzyme Activity,Activity of key metabolic enzymes,U/mg protein,number,biological,metabolic-parameters,,,,,biological|metabolic-parameters
+metabolic_rate,Metabolic Rate,Overall metabolic activity of microorganisms,μmol O₂/mg·h,number,biological,metabolic-parameters,,,,,biological|metabolic-parameters
+respiration_rate,Cellular Respiration Rate,Rate of cellular respiration,mg O₂/L·h,number,biological,metabolic-parameters,,,,,biological|metabolic-parameters
+decay_rate,Decay Rate,Endogenous decay,1/h,number,biological,microbial-kinetics,0.01,0.001,0.1,0.01,biological|microbial-kinetics
+half_saturation_constant,Half Saturation Constant,Ks for substrate,g/L,number,biological,microbial-kinetics,0.1,0.001,10,0.1,biological|microbial-kinetics
+inhibition_constant,Inhibition Constant,Substrate inhibition,g/L,number,biological,microbial-kinetics,10,0.1,100,10,biological|microbial-kinetics
+maintenance_coefficient,Maintenance Coefficient,Maintenance energy,1/h,number,biological,microbial-kinetics,0.02,0.001,0.1,0.02,biological|microbial-kinetics
+maximum_growth_rate,Maximum Growth Rate,μmax,1/h,number,biological,microbial-kinetics,0.2,0.01,2,0.2,biological|microbial-kinetics
+substrate_affinity,Substrate Affinity,Substrate affinity,L/g/h,number,biological,microbial-kinetics,10,0.1,100,10,biological|microbial-kinetics
+substrate_uptake_rate,Substrate Uptake Rate,Specific uptake rate,g/g/h,number,biological,microbial-kinetics,1,0.01,10,1,biological|microbial-kinetics
+yield_coefficient,Yield Coefficient,Biomass yield,g/g,number,biological,microbial-kinetics,0.4,0.1,0.8,0.4,biological|microbial-kinetics
+dominant_species_fraction,Dominant Species Fraction,Fraction of dominant microbial species,%,number,biological,microbial-selection,,,,,biological|microbial-selection
+inoculum_concentration,Inoculum Concentration,Initial microbial concentration for startup,cells/mL,number,biological,microbial-selection,,,,,biological|microbial-selection
+microbial_diversity,Microbial Diversity Index,Shannon diversity index of microbial community,,number,biological,microbial-selection,,,,,biological|microbial-selection
+microbial_species,Microbial Species,Primary microbial species in the fuel cell,,select,biological,microbial-selection,Geobacter sulfurreducens,,,,biological|microbial-selection
+chlamydomonas_reinhardtii,Chlamydomonas Reinhardtii,Model green alga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+chlorella_vulgaris,Chlorella Vulgaris,Green microalga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+clostridium_butyricum,Clostridium Butyricum,Fermentative bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+desulfovibrio_desulfuricans,Desulfovibrio Desulfuricans,Sulfate-reducing bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+dunaliella_salina,Dunaliella Salina,Halophilic alga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+e_coli_engineered,E Coli Engineered,Engineered E. coli strains,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+enterobacter_aerogenes,Enterobacter Aerogenes,H₂ producer,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+geobacter_sulfurreducens,Geobacter Sulfurreducens,Metal-reducing bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+klebsiella_pneumoniae,Klebsiella Pneumoniae,Facultative anaerobe,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+methanobacterium_formicicum,Methanobacterium Formicicum,Formate-utilizing methanogen,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+methanobrevibacter_smithii,Methanobrevibacter Smithii,Hydrogenotrophic methanogen,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+methanococcus_maripaludis,Methanococcus Maripaludis,Marine methanogen,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+methanosarcina_acetivorans,Methanosarcina Acetivorans,Acetoclastic methanogen,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+ochrobactrum_anthropi,Ochrobactrum Anthropi,Heavy metal tolerant,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+pseudomonas_aeruginosa,Pseudomonas Aeruginosa,Biofilm-forming bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+rhodobacter_sphaeroides,Rhodobacter Sphaeroides,Purple non-sulfur bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+rhodoferax_ferrireducens,Rhodoferax Ferrireducens,Psychrotolerant electroactive,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+rhodopseudomonas_palustris,Rhodopseudomonas Palustris,Metabolically versatile,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+scenedesmus_obliquus,Scenedesmus Obliquus,Robust green alga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+shewanella_oneidensis,Shewanella Oneidensis,Versatile electroactive bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+spirulina_platensis,Spirulina Platensis,Cyanobacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+synthetic_consortium,Synthetic Consortium,Designed microbial community,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
+bod_concentration,BOD Concentration,Biological oxygen demand of substrate,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+c_n_ratio,C/N Ratio,Carbon to nitrogen ratio in substrate,,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+cod_concentration,COD Concentration,Chemical oxygen demand of the substrate,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+substrate_concentration,Substrate Concentration,Concentration of organic substrate in the feed,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+substrate_loading_rate,Substrate Loading Rate,Rate of substrate addition to reactor,kg COD/m³·d,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+substrate_type,Substrate Type,Type of organic substrate used,,select,biological,substrate-parameters,Acetate,,,,biological|substrate-parameters
+chemical_stability,Chemical Stability,Stability of electrolyte composition over time,days,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+corrosivity,Corrosivity Index,Corrosive potential of electrolyte,,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+oxidation_reduction_potential,Oxidation-Reduction Potential,ORP of the electrolyte solution,mV vs SHE,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+surface_tension,Surface Tension,Surface tension of electrolyte solution,mN/m,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+viscosity,Dynamic Viscosity,Viscosity of the electrolyte solution,cP,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+buffer_concentration,Buffer Concentration,Concentration of pH buffer in solution,mM,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+buffer_type,Buffer Type,Type of pH buffer system used,,select,chemical,electrolyte-composition,Phosphate buffer,,,,chemical|electrolyte-composition
+conductivity,Electrolyte Conductivity,Electrical conductivity of the electrolyte,mS/cm,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+dissolved_oxygen,Dissolved Oxygen,Concentration of dissolved oxygen in electrolyte,mg/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+ionic_strength,Ionic Strength,Total ionic strength of electrolyte,M,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+ph_level,pH Level,pH of the electrolyte solution,,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+salt_concentration,Salt Concentration,Ionic strength of the electrolyte,g/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+total_dissolved_solids,Total Dissolved Solids,Total concentration of dissolved substances,mg/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+calcium_concentration,Calcium Ion Concentration,Concentration of Ca²⁺ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+chloride_concentration,Chloride Ion Concentration,Concentration of Cl- ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+magnesium_concentration,Magnesium Ion Concentration,Concentration of Mg²⁺ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+phosphate_concentration,Phosphate Ion Concentration,Concentration of PO4³⁻ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+potassium_concentration,Potassium Ion Concentration,Concentration of K+ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+sodium_concentration,Sodium Ion Concentration,Concentration of Na+ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+sulfate_concentration,Sulfate Ion Concentration,Concentration of SO4²⁻ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
+civil_works_cost,Civil Works Cost,Site preparation cost,$,number,economic,capital-cost-parameters,10000,0,1000000,10000,economic|capital-cost-parameters
+commissioning_cost,Commissioning Cost,Startup and testing cost,$,number,economic,capital-cost-parameters,5000,0,100000,5000,economic|capital-cost-parameters
+control_system_cost,Control System Cost,Automation cost,$,number,economic,capital-cost-parameters,5000,100,100000,5000,economic|capital-cost-parameters
+electrode_cost,Electrode Cost,Electrode material cost,$/m²,number,economic,capital-cost-parameters,100,10,1000,100,economic|capital-cost-parameters
+installation_factor,Installation Factor,Installation cost multiplier,-,number,economic,capital-cost-parameters,1.5,1.2,3,1.5,economic|capital-cost-parameters
+membrane_cost,Membrane Cost,Separator cost,$/m²,number,economic,capital-cost-parameters,50,10,500,50,economic|capital-cost-parameters
+reactor_cost,Reactor Cost,Reactor vessel cost,$,number,economic,capital-cost-parameters,5000,50,1000000,5000,economic|capital-cost-parameters
+specific_capital_cost,Specific Capital Cost,Cost per kW capacity,$/kW,number,economic,capital-cost-parameters,1000,100,10000,1000,economic|capital-cost-parameters
+total_capital_cost,Total Capital Cost,Total CAPEX,$,number,economic,capital-cost-parameters,10000,100,10000000,10000,economic|capital-cost-parameters
+byproduct_revenue,Byproduct Revenue,Chemical product value,$/kg,number,economic,economic-performance-indicators,10,0,100,10,economic|economic-performance-indicators
+carbon_credit_revenue,Carbon Credit Revenue,Carbon credit value,$/tCO₂,number,economic,economic-performance-indicators,20,0,100,20,economic|economic-performance-indicators
+discount_rate,Discount Rate,Financial discount rate,%,number,economic,economic-performance-indicators,8,0,20,8,economic|economic-performance-indicators
+electricity_revenue,Electricity Revenue,Electricity sale price,$/kWh,number,economic,economic-performance-indicators,0.1,0,0.5,0.1,economic|economic-performance-indicators
+hydrogen_revenue,Hydrogen Revenue,H₂ sale price,$/kg,number,economic,economic-performance-indicators,2,0,10,2,economic|economic-performance-indicators
+internal_rate_return,Internal Rate Return,IRR,%,number,economic,economic-performance-indicators,15,-20,50,15,economic|economic-performance-indicators
+levelized_cost_energy,Levelized Cost Energy,LCOE,$/kWh,number,economic,economic-performance-indicators,0.2,0.01,10,0.2,economic|economic-performance-indicators
+net_present_value,Net Present Value,NPV at discount rate,$,number,economic,economic-performance-indicators,100000,-1000000,10000000,100000,economic|economic-performance-indicators
+payback_period,Payback Period,Simple payback time,years,number,economic,economic-performance-indicators,5,0.5,20,5,economic|economic-performance-indicators
+treatment_revenue,Treatment Revenue,Wastewater treatment fee,$/m³,number,economic,economic-performance-indicators,5,0,50,5,economic|economic-performance-indicators
+acidification_potential,Acidification Potential,Acidification impact,g SO₂-eq/kWh,number,economic,life-cycle-assessment-parameters,1,0,10,1,economic|life-cycle-assessment-parameters
+carbon_footprint,Carbon Footprint,GHG emissions,kg CO₂-eq/kWh,number,economic,life-cycle-assessment-parameters,0.1,0,1,0.1,economic|life-cycle-assessment-parameters
+eutrophication_potential,Eutrophication Potential,Eutrophication impact,g PO₄-eq/kWh,number,economic,life-cycle-assessment-parameters,0.5,0,5,0.5,economic|life-cycle-assessment-parameters
+land_footprint,Land Footprint,Land use impact,m²·year/kWh,number,economic,life-cycle-assessment-parameters,0.1,0,1,0.1,economic|life-cycle-assessment-parameters
+material_circularity,Material Circularity,Recycled content,%,number,economic,life-cycle-assessment-parameters,50,0,100,50,economic|life-cycle-assessment-parameters
+renewable_energy_fraction,Renewable Energy Fraction,Renewable energy use,%,number,economic,life-cycle-assessment-parameters,30,0,100,30,economic|life-cycle-assessment-parameters
+waste_diversion_rate,Waste Diversion Rate,Waste diverted from landfill,%,number,economic,life-cycle-assessment-parameters,80,0,100,80,economic|life-cycle-assessment-parameters
+water_footprint,Water Footprint,Water consumption,L/kWh,number,economic,life-cycle-assessment-parameters,10,0,100,10,economic|life-cycle-assessment-parameters
+water_reuse_rate,Water Reuse Rate,Water recycling rate,%,number,economic,life-cycle-assessment-parameters,50,0,100,50,economic|life-cycle-assessment-parameters
+chemical_cost,Chemical Cost,Chemical consumption cost,$/m³,number,economic,operating-cost-parameters,10,0,100,10,economic|operating-cost-parameters
+disposal_cost,Disposal Cost,Waste disposal cost,$/kg,number,economic,operating-cost-parameters,0.1,0,1,0.1,economic|operating-cost-parameters
+energy_cost,Energy Cost,Electricity cost,$/kWh,number,economic,operating-cost-parameters,0.1,0,0.5,0.1,economic|operating-cost-parameters
+insurance_cost,Insurance Cost,% of CAPEX for insurance,%/year,number,economic,operating-cost-parameters,2,0.5,5,2,economic|operating-cost-parameters
+labor_cost,Labor Cost,Annual labor cost,$/year,number,economic,operating-cost-parameters,50000,0,1000000,50000,economic|operating-cost-parameters
+maintenance_cost,Maintenance Cost,% of CAPEX for maintenance,%/year,number,economic,operating-cost-parameters,5,1,10,5,economic|operating-cost-parameters
+overhead_cost,Overhead Cost,Administrative overhead,%/year,number,economic,operating-cost-parameters,10,5,20,10,economic|operating-cost-parameters
+substrate_cost,Substrate Cost,Feedstock cost (negative if waste),$/kg,number,economic,operating-cost-parameters,0.1,-0.1,10,0.1,economic|operating-cost-parameters
+water_cost,Water Cost,Process water cost,$/m³,number,economic,operating-cost-parameters,1,0,10,1,economic|operating-cost-parameters
+community_acceptance,Community Acceptance,Community support score,-,number,economic,social-impact-parameters,7,1,10,7,economic|social-impact-parameters
+jobs_created,Jobs Created,Employment generation,jobs/MW,number,economic,social-impact-parameters,5,0,50,5,economic|social-impact-parameters
+local_content,Local Content,Local sourcing percentage,%,number,economic,social-impact-parameters,50,0,100,50,economic|social-impact-parameters
+noise_level,Noise Level,Operational noise level,dB,number,economic,social-impact-parameters,60,0,100,60,economic|social-impact-parameters
+odor_units,Odor Units,Odor emission level,OU/m³,number,economic,social-impact-parameters,10,0,1000,10,economic|social-impact-parameters
+safety_incidents,Safety Incidents,Annual safety incidents,/year,number,economic,social-impact-parameters,0,0,10,0,economic|social-impact-parameters
+training_hours,Training Hours,Worker training provided,h/year,number,economic,social-impact-parameters,100,0,1000,100,economic|social-impact-parameters
+visual_impact,Visual Impact,Visual impact score,-,number,economic,social-impact-parameters,3,1,10,3,economic|social-impact-parameters
+faradaic_efficiency,Faradaic Efficiency,Efficiency of electrochemical reactions,%,number,electrical,efficiency,,,,,electrical|efficiency
+power_efficiency,Power Efficiency,Electrical power output efficiency,%,number,electrical,efficiency,,,,,electrical|efficiency
+exchange_current_density,Exchange Current Density,Current density at equilibrium potential,A/cm²,number,electrical,electrochemical-properties,,,,,electrical|electrochemical-properties
+limiting_current,Limiting Current,Maximum current limited by mass transport,mA/cm²,number,electrical,electrochemical-properties,,,,,electrical|electrochemical-properties
+overpotential,Overpotential,Voltage loss due to kinetic limitations,mV,number,electrical,electrochemical-properties,,,,,electrical|electrochemical-properties
+redox_potential,Redox Potential,Standard reduction potential of electrode reactions,V vs SHE,number,electrical,electrochemical-properties,,,,,electrical|electrochemical-properties
+tafel_slope,Tafel Slope,Slope of Tafel plot for electrode kinetics,mV/decade,number,electrical,electrochemical-properties,,,,,electrical|electrochemical-properties
+capacitance,Double Layer Capacitance,Electrochemical double layer capacitance,μF/cm²,number,electrical,impedance,,,,,electrical|impedance
+charge_transfer_resistance,Charge Transfer Resistance,Resistance to electron transfer at electrode interface,Ω·cm²,number,electrical,impedance,,,,,electrical|impedance
+diffusion_resistance,Diffusion Resistance,Mass transport resistance in biofilm,Ω·cm²,number,electrical,impedance,,,,,electrical|impedance
+impedance_magnitude,Impedance Magnitude,Total impedance magnitude at 1 Hz,Ω,number,electrical,impedance,,,,,electrical|impedance
+internal_resistance,Internal Resistance,Internal resistance of the fuel cell,Ω,number,electrical,impedance,,,,,electrical|impedance
+ohmic_resistance,Ohmic Resistance,Resistance due to electrolyte and electrode materials,Ω·cm²,number,electrical,impedance,,,,,electrical|impedance
+cell_voltage,Cell Voltage,Operating voltage of the fuel cell,V,number,electrical,output-performance,,,,,electrical|output-performance
+current_density,Current Density,Current per unit electrode area,mA/cm²,number,electrical,output-performance,,,,,electrical|output-performance
+energy_density,Energy Density,Energy storage capacity per unit volume,Wh/L,number,electrical,output-performance,,,,,electrical|output-performance
+maximum_power_density,Maximum Power Density,Peak power density achievable by the system,mW/cm²,number,electrical,output-performance,,,,,electrical|output-performance
+peak_current,Peak Current,Maximum current output of the system,mA,number,electrical,output-performance,,,,,electrical|output-performance
+power_density,Power Density,Power output per unit volume or area,mW/cm²,number,electrical,output-performance,,,,,electrical|output-performance
+voltage_stability,Voltage Stability,Standard deviation of voltage over time,mV,number,electrical,output-performance,,,,,electrical|output-performance
+air_flow_rate,Air Flow Rate,Ventilation air flow rate around system,m³/h,number,environmental,air-quality,,,,,environmental|air-quality
+co2_concentration,Ambient CO₂ Concentration,Carbon dioxide concentration in air,ppm,number,environmental,air-quality,,,,,environmental|air-quality
+absolute_humidity,Absolute Humidity,Water vapor content in air,g/m³,number,environmental,atmospheric-ambient-conditions,10,0,50,10,environmental|atmospheric-ambient-conditions
+absolute_pressure,Absolute Pressure,Total absolute pressure,kPa,number,environmental,atmospheric-ambient-conditions,101.325,0,1100,101.325,environmental|atmospheric-ambient-conditions
+ambient_temperature,Ambient Temperature,Ambient air temperature,°C,number,environmental,atmospheric-ambient-conditions,25,-50,60,25,environmental|atmospheric-ambient-conditions
+atmospheric_pressure,Atmospheric Pressure,Ambient atmospheric pressure,kPa,number,environmental,atmospheric-ambient-conditions,101.325,50,110,101.325,environmental|atmospheric-ambient-conditions
+carbon_dioxide_concentration,Carbon Dioxide Concentration,CO₂ concentration,ppm,number,environmental,atmospheric-ambient-conditions,415,0,50000,415,environmental|atmospheric-ambient-conditions
+dew_point,Dew Point,Dew point temperature,°C,number,environmental,atmospheric-ambient-conditions,15,-50,50,15,environmental|atmospheric-ambient-conditions
+diurnal_temperature_range,Diurnal Temperature Range,Day-night temperature difference,°C,number,environmental,atmospheric-ambient-conditions,5,0,30,5,environmental|atmospheric-ambient-conditions
+gauge_pressure,Gauge Pressure,Pressure relative to atmospheric,kPa,number,environmental,atmospheric-ambient-conditions,0,-100,1000,0,environmental|atmospheric-ambient-conditions
+hydrostatic_pressure,Hydrostatic Pressure,Pressure from liquid column,bar,number,environmental,atmospheric-ambient-conditions,1,0,1000,1,environmental|atmospheric-ambient-conditions
+nitrogen_concentration,Nitrogen Concentration,N₂ concentration,%,number,environmental,atmospheric-ambient-conditions,78.08,0,100,78.08,environmental|atmospheric-ambient-conditions
+operating_temperature,Operating Temperature,Cell/reactor operating temperature,°C,number,environmental,atmospheric-ambient-conditions,30,4,80,30,environmental|atmospheric-ambient-conditions
+oxygen_concentration,Oxygen Concentration,O₂ concentration in gas phase,%,number,environmental,atmospheric-ambient-conditions,20.95,0,100,20.95,environmental|atmospheric-ambient-conditions
+partial_pressure_ch4,Partial Pressure CH4,Methane partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,0,0,100,0,environmental|atmospheric-ambient-conditions
+partial_pressure_co2,Partial Pressure CO2,Carbon dioxide partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,0.04,0,100,0.04,environmental|atmospheric-ambient-conditions
+partial_pressure_h2,Partial Pressure H2,Hydrogen partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,0,0,100,0,environmental|atmospheric-ambient-conditions
+partial_pressure_n2,Partial Pressure N2,Nitrogen partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,79.1,0,100,79.1,environmental|atmospheric-ambient-conditions
+partial_pressure_o2,Partial Pressure O2,Oxygen partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,21.2,0,100,21.2,environmental|atmospheric-ambient-conditions
+relative_humidity,Relative Humidity,Relative humidity of air,%,number,environmental,atmospheric-ambient-conditions,60,0,100,60,environmental|atmospheric-ambient-conditions
+temperature_fluctuation,Temperature Fluctuation,Temporal temperature variation,°C,number,environmental,atmospheric-ambient-conditions,2,0,20,2,environmental|atmospheric-ambient-conditions
+temperature_gradient,Temperature Gradient,Spatial temperature variation,°C/cm,number,environmental,atmospheric-ambient-conditions,0.1,0,10,0.1,environmental|atmospheric-ambient-conditions
+temperature_ramp_rate,Temperature Ramp Rate,Rate of temperature change,°C/min,number,environmental,atmospheric-ambient-conditions,0.5,0.1,10,0.5,environmental|atmospheric-ambient-conditions
+trace_gas_h2s,Trace Gas H2S,Hydrogen sulfide concentration,ppm,number,environmental,atmospheric-ambient-conditions,0,0,1000,0,environmental|atmospheric-ambient-conditions
+trace_gas_nh3,Trace Gas NH3,Ammonia concentration,ppm,number,environmental,atmospheric-ambient-conditions,0,0,1000,0,environmental|atmospheric-ambient-conditions
+trace_gas_voc,Trace Gas VOC,Volatile organic compounds,ppm,number,environmental,atmospheric-ambient-conditions,0,0,1000,0,environmental|atmospheric-ambient-conditions
+vapor_pressure,Vapor Pressure,Water vapor partial pressure,kPa,number,environmental,atmospheric-ambient-conditions,2.34,0,10,2.34,environmental|atmospheric-ambient-conditions
+wet_bulb_temperature,Wet Bulb Temperature,Wet bulb temperature,°C,number,environmental,atmospheric-ambient-conditions,20,-20,50,20,environmental|atmospheric-ambient-conditions
+thermal_conductivity,Thermal Conductivity,Heat transfer coefficient of reactor materials,W/m·K,number,environmental,atmospheric-conditions,,,,,environmental|atmospheric-conditions
+light_intensity,Light Intensity,Illumination intensity for photosynthetic processes,μmol/m²·s,number,environmental,light-conditions,,,,,environmental|light-conditions
+light_wavelength,Light Wavelength,Dominant wavelength of illumination,nm,number,environmental,light-conditions,,,,,environmental|light-conditions
+photoperiod,Photoperiod,Duration of light exposure per day,hours,number,environmental,light-conditions,,,,,environmental|light-conditions
+blue_light_ratio,Blue Light Ratio,Blue light (400-500 nm) percentage,%,number,environmental,light-radiation-parameters,20,0,100,20,environmental|light-radiation-parameters
+dark_duration,Dark Duration,Hours of darkness per day,h,number,environmental,light-radiation-parameters,24,0,24,24,environmental|light-radiation-parameters
+dawn_duration,Dawn Duration,Sunrise simulation duration,min,number,environmental,light-radiation-parameters,0,0,120,0,environmental|light-radiation-parameters
+dusk_duration,Dusk Duration,Sunset simulation duration,min,number,environmental,light-radiation-parameters,0,0,120,0,environmental|light-radiation-parameters
+far_red_light_ratio,Far Red Light Ratio,Far-red light (700-800 nm) percentage,%,number,environmental,light-radiation-parameters,15,0,100,15,environmental|light-radiation-parameters
+green_light_ratio,Green Light Ratio,Green light (500-600 nm) percentage,%,number,environmental,light-radiation-parameters,35,0,100,35,environmental|light-radiation-parameters
+infrared_intensity,Infrared Intensity,IR radiation (>800 nm),W/m²,number,environmental,light-radiation-parameters,0,0,1000,0,environmental|light-radiation-parameters
+light_cycle_type,Light Cycle Type,Type of light cycle,-,select,environmental,light-radiation-parameters,continuous,,,,environmental|light-radiation-parameters
+light_duration,Light Duration,Hours of light per day,h,number,environmental,light-radiation-parameters,0,0,24,0,environmental|light-radiation-parameters
+light_intensity_lux,Light Intensity Lux,Illuminance in lux,lux,number,environmental,light-radiation-parameters,0,0,100000,0,environmental|light-radiation-parameters
+photon_flux_density,Photon Flux Density,Photon flux density,μmol/m²/s,number,environmental,light-radiation-parameters,0,0,3000,0,environmental|light-radiation-parameters
+photosynthetic_active_radiation,Photosynthetic Active Radiation,PAR for photosynthetic organisms,μmol/m²/s,number,environmental,light-radiation-parameters,0,0,2000,0,environmental|light-radiation-parameters
+red_light_ratio,Red Light Ratio,Red light (600-700 nm) percentage,%,number,environmental,light-radiation-parameters,30,0,100,30,environmental|light-radiation-parameters
+total_solar_irradiance,Total Solar Irradiance,Total solar radiation,W/m²,number,environmental,light-radiation-parameters,0,0,1400,0,environmental|light-radiation-parameters
+uv_a_intensity,Uv A Intensity,UV-A (315-400 nm) intensity,W/m²,number,environmental,light-radiation-parameters,0,0,100,0,environmental|light-radiation-parameters
+uv_b_intensity,Uv B Intensity,UV-B (280-315 nm) intensity,W/m²,number,environmental,light-radiation-parameters,0,0,10,0,environmental|light-radiation-parameters
+uv_c_intensity,Uv C Intensity,UV-C (100-280 nm) intensity,W/m²,number,environmental,light-radiation-parameters,0,0,5,0,environmental|light-radiation-parameters
+centrifugal_acceleration,Centrifugal Acceleration,Centrifugal force,g,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
+electric_field_strength,Electric Field Strength,Electric field strength,V/m,number,environmental,physical-environmental-factors,0,0,10000,0,environmental|physical-environmental-factors
+electromagnetic_frequency,Electromagnetic Frequency,EM radiation frequency,MHz,number,environmental,physical-environmental-factors,0,0,3000,0,environmental|physical-environmental-factors
+electromagnetic_power,Electromagnetic Power,EM power density,W/m²,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
+gravitational_acceleration,Gravitational Acceleration,Gravitational acceleration,g,number,environmental,physical-environmental-factors,1,0,10,1,environmental|physical-environmental-factors
+magnetic_field_frequency,Magnetic Field Frequency,AC magnetic field frequency,Hz,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
+magnetic_field_strength,Magnetic Field Strength,Magnetic field strength,mT,number,environmental,physical-environmental-factors,0.05,0,1000,0.05,environmental|physical-environmental-factors
+mechanical_shock,Mechanical Shock,Mechanical shock magnitude,g,number,environmental,physical-environmental-factors,0,0,100,0,environmental|physical-environmental-factors
+microgravity_level,Microgravity Level,Microgravity conditions,μg,number,environmental,physical-environmental-factors,1000000,0,1000,1000000,environmental|physical-environmental-factors
+shear_stress,Shear Stress,Fluid shear stress,Pa,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
+sound_frequency,Sound Frequency,Audible sound frequency,Hz,number,environmental,physical-environmental-factors,0,20,20000,0,environmental|physical-environmental-factors
+sound_intensity,Sound Intensity,Sound pressure level,dB,number,environmental,physical-environmental-factors,30,0,140,30,environmental|physical-environmental-factors
+ultrasound_duration,Ultrasound Duration,Ultrasound exposure time,min,number,environmental,physical-environmental-factors,0,0,60,0,environmental|physical-environmental-factors
+ultrasound_frequency,Ultrasound Frequency,Ultrasonic frequency,kHz,number,environmental,physical-environmental-factors,0,20,1000,0,environmental|physical-environmental-factors
+ultrasound_power,Ultrasound Power,Ultrasonic power density,W/cm²,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
+vibration_acceleration,Vibration Acceleration,Vibration acceleration,g,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
+vibration_amplitude,Vibration Amplitude,Vibration amplitude,mm,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
+vibration_frequency,Vibration Frequency,Vibration frequency,Hz,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
+bed_temperature,Bed Temperature,Build plate temperature,°C,number,materials,3d-printing-additive-manufacturing,60,20,150,60,materials|3d-printing-additive-manufacturing
+conductivity_printed,Conductivity Printed,Printed conductivity,S/m,number,materials,3d-printing-additive-manufacturing,100,0,10000,100,materials|3d-printing-additive-manufacturing
+curing_method,Curing Method,Solidification method,-,select,materials,3d-printing-additive-manufacturing,thermal,,,,materials|3d-printing-additive-manufacturing
+layer_resolution,Layer Resolution,Layer thickness,μm,number,materials,3d-printing-additive-manufacturing,100,10,1000,100,materials|3d-printing-additive-manufacturing
+material_viscosity,Material Viscosity,Printing ink viscosity,Pa·s,number,materials,3d-printing-additive-manufacturing,100,0.001,10000,100,materials|3d-printing-additive-manufacturing
+nozzle_temperature,Nozzle Temperature,Extruder temperature,°C,number,materials,3d-printing-additive-manufacturing,200,20,400,200,materials|3d-printing-additive-manufacturing
+printing_speed,Printing Speed,Print head speed,mm/s,number,materials,3d-printing-additive-manufacturing,50,1,500,50,materials|3d-printing-additive-manufacturing
+printing_technology,Printing Technology,3D printing method,-,select,materials,3d-printing-additive-manufacturing,FDM,,,,materials|3d-printing-additive-manufacturing
+shrinkage_rate,Shrinkage Rate,Post-printing shrinkage,%,number,materials,3d-printing-additive-manufacturing,5,0,20,5,materials|3d-printing-additive-manufacturing
+activated_carbon,Activated Carbon,High surface area carbon,-,object,materials,anode-materials,-,,,,materials|anode-materials
+ammonia_treatment,Ammonia Treatment,NH₃ plasma treatment,-,object,materials,anode-materials,-,,,,materials|anode-materials
+carbon_cloth,Carbon Cloth,Woven carbon fabric,-,object,materials,anode-materials,-,,,,materials|anode-materials
+carbon_felt,Carbon Felt,Non-woven carbon material,-,object,materials,anode-materials,-,,,,materials|anode-materials
+carbon_nanotubes,Carbon Nanotubes,CNT materials,-,object,materials,anode-materials,-,,,,materials|anode-materials
+carbon_paper,Carbon Paper,Thin carbon sheet,-,object,materials,anode-materials,-,,,,materials|anode-materials
+graphene_oxide,Graphene Oxide,GO sheets,-,object,materials,anode-materials,-,,,,materials|anode-materials
+graphite_brush,Graphite Brush,Graphite fiber brush,-,object,materials,anode-materials,-,,,,materials|anode-materials
+nb2ctx_mxene,Nb2ctx Mxene,Niobium carbide MXene,-,object,materials,anode-materials,-,,,,materials|anode-materials
+polymer_coating,Polymer Coating,Conductive polymer,-,object,materials,anode-materials,-,,,,materials|anode-materials
+ti3c2tx_mxene,Ti3c2tx Mxene,Titanium carbide MXene,-,object,materials,anode-materials,-,,,,materials|anode-materials
+v2ctx_mxene,V2ctx Mxene,Vanadium carbide MXene,-,object,materials,anode-materials,-,,,,materials|anode-materials
+catalyst_layer,Catalyst Layer,Catalyst layer,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+cobalt_oxide,Cobalt Oxide,Co-based catalyst,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+copper_cathode,Copper Cathode,Cu-based cathode,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+gas_diffusion_layer,Gas Diffusion Layer,GDL properties,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+iron_oxide,Iron Oxide,Fe-based catalyst,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+manganese_oxide,Manganese Oxide,MnO₂ catalyst,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+nickel_foam,Nickel Foam,Ni foam cathode,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+platinum_cathode,Platinum Cathode,Pt catalyst,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+stainless_steel,Stainless Steel,SS cathode,-,object,materials,cathode-materials,-,,,,materials|cathode-materials
+anomaly_detection,Anomaly Detection,Fault detection enabled,-,boolean,materials,digital-twin-technology,true,,,,materials|digital-twin-technology
+computation_time,Computation Time,Simulation cycle time,s,number,materials,digital-twin-technology,1,0.001,3600,1,materials|digital-twin-technology
+model_accuracy,Model Accuracy,Twin prediction accuracy,%,number,materials,digital-twin-technology,90,50,99.9,90,materials|digital-twin-technology
+parameter_count,Parameter Count,Model parameters,-,number,materials,digital-twin-technology,100,10,10000,100,materials|digital-twin-technology
+predictive_horizon,Predictive Horizon,Prediction time range,h,number,materials,digital-twin-technology,24,0.1,720,24,materials|digital-twin-technology
+scenario_count,Scenario Count,Parallel scenarios,-,number,materials,digital-twin-technology,10,1,1000,10,materials|digital-twin-technology
+update_latency,Update Latency,Data synchronization delay,ms,number,materials,digital-twin-technology,100,1,10000,100,materials|digital-twin-technology
+electrode_configuration,Electrode Configuration,Physical arrangement of electrodes,,select,materials,electrode-geometry,Parallel plates,,,,materials|electrode-geometry
+electrode_diameter,Electrode Diameter,Diameter for cylindrical electrodes,cm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
+electrode_spacing,Electrode Spacing,Distance between anode and cathode,cm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
+electrode_surface_area,Electrode Surface Area,Total surface area of the electrode,cm²,number,materials,electrode-geometry,,,,,materials|electrode-geometry
+electrode_thickness,Electrode Thickness,Thickness of the electrode material,mm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
+specific_surface_area,Specific Surface Area,Surface area per unit mass of electrode,m²/g,number,materials,electrode-geometry,,,,,materials|electrode-geometry
+anode_material,Anode Material,Material composition of the anode electrode,,select,materials,electrode-materials,Carbon cloth,,,,materials|electrode-materials
+catalyst_loading,Catalyst Loading,Amount of catalyst per unit electrode area,mg/cm²,number,materials,electrode-materials,,,,,materials|electrode-materials
+cathode_material,Cathode Material,Material composition of the cathode electrode,,select,materials,electrode-materials,Carbon cloth with Pt,,,,materials|electrode-materials
+electrical_conductivity,Material Electrical Conductivity,Electrical conductivity of electrode material,S/m,number,materials,electrode-materials,,,,,materials|electrode-materials
+pore_size,Average Pore Size,Mean pore diameter in electrode material,μm,number,materials,electrode-materials,,,,,materials|electrode-materials
+porosity,Electrode Porosity,Void fraction in electrode material,%,number,materials,electrode-materials,,,,,materials|electrode-materials
+surface_roughness,Electrode Surface Roughness,Surface roughness factor of electrode material,,number,materials,electrode-materials,,,,,materials|electrode-materials
+membrane_conductivity,Membrane Proton Conductivity,Proton conductivity of membrane material,S/cm,number,materials,membrane-separator,,,,,materials|membrane-separator
+membrane_pore_size,Membrane Pore Size,Average pore diameter in membrane,nm,number,materials,membrane-separator,,,,,materials|membrane-separator
+membrane_selectivity,Membrane Ion Selectivity,Selectivity for target ions,,number,materials,membrane-separator,,,,,materials|membrane-separator
+membrane_thickness,Membrane Thickness,Thickness of the separator membrane,μm,number,materials,membrane-separator,,,,,materials|membrane-separator
+membrane_type,Membrane Type,Type of proton exchange membrane,,select,materials,membrane-separator,Nafion 117,,,,materials|membrane-separator
+membrane_water_uptake,Membrane Water Uptake,Water absorption capacity of membrane,%,number,materials,membrane-separator,,,,,materials|membrane-separator
+anion_exchange_membrane,Anion Exchange Membrane,AEM properties,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
+bipolar_membrane,Bipolar Membrane,BPM properties,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
+ceramic_separator,Ceramic Separator,Ceramic membrane,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
+polymer_separator,Polymer Separator,Polymer membrane,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
+proton_exchange_membrane,Proton Exchange Membrane,PEM properties,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
+dispersion_quality,Dispersion Quality,Dispersion uniformity,-,number,materials,nanomaterial-integration,8,1,10,8,materials|nanomaterial-integration
+interface_strength,Interface Strength,Matrix-filler adhesion,MPa,number,materials,nanomaterial-integration,20,1,100,20,materials|nanomaterial-integration
+loading_percentage,Loading Percentage,Nanomaterial loading,wt%,number,materials,nanomaterial-integration,5,0.1,50,5,materials|nanomaterial-integration
+nanoparticle_shape,Nanoparticle Shape,Particle morphology,-,select,materials,nanomaterial-integration,sphere,,,,materials|nanomaterial-integration
+nanoparticle_size,Nanoparticle Size,Average particle size,nm,number,materials,nanomaterial-integration,50,1,1000,50,materials|nanomaterial-integration
+percolation_threshold,Percolation Threshold,Electrical percolation,wt%,number,materials,nanomaterial-integration,1,0.01,10,1,materials|nanomaterial-integration
+size_distribution,Size Distribution,Size polydispersity,%,number,materials,nanomaterial-integration,20,5,50,20,materials|nanomaterial-integration
+surface_charge,Surface Charge,Zeta potential,mV,number,materials,nanomaterial-integration,-30,-100,100,-30,materials|nanomaterial-integration
+surface_functionalization,Surface Functionalization,Surface groups,-,select,materials,nanomaterial-integration,none,,,,materials|nanomaterial-integration
+coherence_time,Coherence Time,Quantum coherence duration,ps,number,materials,quantum-effects,10,0.1,1000,10,materials|quantum-effects
+entanglement_efficiency,Entanglement Efficiency,Quantum entanglement,%,number,materials,quantum-effects,5,0,100,5,materials|quantum-effects
+quantum_yield,Quantum Yield,Quantum efficiency,%,number,materials,quantum-effects,50,0,100,50,materials|quantum-effects
+tunneling_distance,Tunneling Distance,Electron tunneling range,nm,number,materials,quantum-effects,1,0.1,10,1,materials|quantum-effects
+connector_material,Electrical Connector Material,Material for electrical connections,,select,materials,structural-materials,Copper wire,,,,materials|structural-materials
+gasket_material,Gasket Material,Sealing material for reactor joints,,select,materials,structural-materials,Silicone rubber,,,,materials|structural-materials
+contact_angle,Water Contact Angle,Hydrophobicity of electrode surface,degrees,number,materials,surface-properties,,,,,materials|surface-properties
+surface_energy,Surface Energy,Surface energy of electrode material,mJ/m²,number,materials,surface-properties,,,,,materials|surface-properties
+surface_treatment,Electrode Surface Treatment,Chemical or physical surface modification,,select,materials,surface-properties,None,,,,materials|surface-properties
+cofactor_regeneration,Cofactor Regeneration,Cofactor recycling,-,boolean,materials,synthetic-biology-integration,true,,,,materials|synthetic-biology-integration
+copy_number,Copy Number,Gene copies per cell,-,number,materials,synthetic-biology-integration,10,1,1000,10,materials|synthetic-biology-integration
+expression_stability,Expression Stability,Stable expression rate,%,number,materials,synthetic-biology-integration,90,0,100,90,materials|synthetic-biology-integration
+flux_balance,Flux Balance,Pathway balance,%,number,materials,synthetic-biology-integration,80,50,100,80,materials|synthetic-biology-integration
+metabolic_burden,Metabolic Burden,Growth rate reduction,%,number,materials,synthetic-biology-integration,10,0,50,10,materials|synthetic-biology-integration
+pathway_length,Pathway Length,Number of enzymes,enzymes,number,materials,synthetic-biology-integration,5,1,20,5,materials|synthetic-biology-integration
+product_toxicity_threshold,Product Toxicity Threshold,Toxic concentration,g/L,number,materials,synthetic-biology-integration,10,0.1,100,10,materials|synthetic-biology-integration
+promoter_strength,Promoter Strength,Expression level,-,select,materials,synthetic-biology-integration,medium,,,,materials|synthetic-biology-integration
+vector_type,Vector Type,Gene delivery method,-,select,materials,synthetic-biology-integration,plasmid,,,,materials|synthetic-biology-integration
+convergence_criteria,Convergence Criteria,Convergence tolerance,%,number,monitoring,ai-ml-integration,1,0.01,10,1,monitoring|ai-ml-integration
+feature_count,Feature Count,Number of input features,-,number,monitoring,ai-ml-integration,10,1,100,10,monitoring|ai-ml-integration
+ml_model_type,Ml Model Type,ML algorithm type,-,select,monitoring,ai-ml-integration,regression,,,,monitoring|ai-ml-integration
+model_update_trigger,Model Update Trigger,Update trigger,-,select,monitoring,ai-ml-integration,performance,,,,monitoring|ai-ml-integration
+optimization_algorithm,Optimization Algorithm,Optimization method,-,select,monitoring,ai-ml-integration,genetic,,,,monitoring|ai-ml-integration
+optimization_frequency,Optimization Frequency,Optimization interval,h,number,monitoring,ai-ml-integration,24,1,168,24,monitoring|ai-ml-integration
+optimization_objective,Optimization Objective,Optimization goal,-,select,monitoring,ai-ml-integration,multi,,,,monitoring|ai-ml-integration
+prediction_confidence,Prediction Confidence,Confidence threshold,%,number,monitoring,ai-ml-integration,95,0,100,95,monitoring|ai-ml-integration
+training_data_size,Training Data Size,Training dataset size,samples,number,monitoring,ai-ml-integration,10000,100,1000000,10000,monitoring|ai-ml-integration
+alarm_threshold_temperature,Temperature Alarm Threshold,Temperature that triggers alarm,°C,number,monitoring,alarm-settings,,,,,monitoring|alarm-settings
+alarm_threshold_voltage,Voltage Alarm Threshold,Voltage level that triggers alarm,V,number,monitoring,alarm-settings,,,,,monitoring|alarm-settings
+alarm_priority_levels,Alarm Priority Levels,Alarm categories,-,number,monitoring,automation-scada,3,1,5,3,monitoring|automation-scada
+automation_level,Automation Level,Automation degree,-,select,monitoring,automation-scada,semi-auto,,,,monitoring|automation-scada
+bandwidth_requirement,Bandwidth Requirement,Network bandwidth needed,kbps,number,monitoring,automation-scada,100,10,1000,100,monitoring|automation-scada
+cybersecurity_level,Cybersecurity Level,Security measures,-,select,monitoring,automation-scada,standard,,,,monitoring|automation-scada
+historian_retention,Historian Retention,Data retention period,days,number,monitoring,automation-scada,365,30,3650,365,monitoring|automation-scada
+hmi_update_rate,Hmi Update Rate,Display refresh rate,s,number,monitoring,automation-scada,1,0.1,10,1,monitoring|automation-scada
+plc_scan_time,Plc Scan Time,PLC cycle time,ms,number,monitoring,automation-scada,100,10,1000,100,monitoring|automation-scada
+remote_access,Remote Access,Remote access enabled,-,boolean,monitoring,automation-scada,true,,,,monitoring|automation-scada
+telemetry_protocol,Telemetry Protocol,Data transmission protocol,-,select,monitoring,automation-scada,MQTT,,,,monitoring|automation-scada
+update_frequency,Update Frequency,Remote update interval,min,number,monitoring,automation-scada,15,1,1440,15,monitoring|automation-scada
+anti_windup,Anti Windup,Integral anti-windup,-,boolean,monitoring,control-algorithms,true,,,,monitoring|control-algorithms
+control_horizon,Control Horizon,MPC control horizon,steps,number,monitoring,control-algorithms,5,1,50,5,monitoring|control-algorithms
+control_interval,Control Interval,Control update period,s,number,monitoring,control-algorithms,1,0.1,100,1,monitoring|control-algorithms
+control_strategy,Control Strategy,Control algorithm,-,select,monitoring,control-algorithms,PID,,,,monitoring|control-algorithms
+derivative_time,Derivative Time,Td value,s,number,monitoring,control-algorithms,0,0,100,0,monitoring|control-algorithms
+integral_time,Integral Time,Ti value,s,number,monitoring,control-algorithms,100,0,1000,100,monitoring|control-algorithms
+model_update_frequency,Model Update Frequency,Model adaptation rate,h,number,monitoring,control-algorithms,24,0.1,168,24,monitoring|control-algorithms
+prediction_horizon,Prediction Horizon,MPC prediction horizon,steps,number,monitoring,control-algorithms,10,1,100,10,monitoring|control-algorithms
+proportional_gain,Proportional Gain,Kp value,-,number,monitoring,control-algorithms,1,0,100,1,monitoring|control-algorithms
+channel_count,Channel Count,Number of input channels,-,number,monitoring,data-acquisition,16,1,128,16,monitoring|data-acquisition
+communication_protocol,Communication Protocol,Communication type,-,select,monitoring,data-acquisition,Modbus,,,,monitoring|data-acquisition
+data_logger_type,Data Logger Type,DAQ system type,-,select,monitoring,data-acquisition,PC-based,,,,monitoring|data-acquisition
+data_validation,Data Validation,Automatic validation,-,boolean,monitoring,data-acquisition,true,,,,monitoring|data-acquisition
+filter_type,Filter Type,Signal filtering,-,select,monitoring,data-acquisition,moving_average,,,,monitoring|data-acquisition
+filter_window,Filter Window,Filter window size,samples,number,monitoring,data-acquisition,10,1,100,10,monitoring|data-acquisition
+missing_data_handling,Missing Data Handling,Missing data method,-,select,monitoring,data-acquisition,interpolate,,,,monitoring|data-acquisition
+outlier_detection,Outlier Detection,Outlier method,-,select,monitoring,data-acquisition,zscore,,,,monitoring|data-acquisition
+resolution,Resolution,ADC resolution,bit,number,monitoring,data-acquisition,16,8,24,16,monitoring|data-acquisition
+sampling_rate,Sampling Rate,Data sampling frequency,Hz,number,monitoring,data-acquisition,1,0.1,10000,1,monitoring|data-acquisition
+data_backup_frequency,Data Backup Frequency,How often data is backed up,hours,number,monitoring,data-logging,,,,,monitoring|data-logging
+data_storage_capacity,Data Storage Capacity,Amount of data that can be stored,MB,number,monitoring,data-logging,,,,,monitoring|data-logging
+current_monitoring_interval,Current Monitoring Interval,Frequency of current measurements,seconds,number,monitoring,real-time-monitoring,,,,,monitoring|real-time-monitoring
+ph_monitoring_interval,pH Monitoring Interval,Frequency of pH measurements,minutes,number,monitoring,real-time-monitoring,,,,,monitoring|real-time-monitoring
+temperature_monitoring_interval,Temperature Monitoring Interval,Frequency of temperature measurements,seconds,number,monitoring,real-time-monitoring,,,,,monitoring|real-time-monitoring
+voltage_monitoring_interval,Voltage Monitoring Interval,Frequency of voltage measurements,seconds,number,monitoring,real-time-monitoring,,,,,monitoring|real-time-monitoring
+ch4_sensor_type,Ch4 Sensor Type,CH₄ sensor,-,select,monitoring,sensor-specifications,infrared,,,,monitoring|sensor-specifications
+co2_sensor_type,Co2 Sensor Type,CO₂ sensor,-,select,monitoring,sensor-specifications,NDIR,,,,monitoring|sensor-specifications
+conductivity_range,Conductivity Range,Conductivity range,mS/cm,array,monitoring,sensor-specifications,"[0, 100]",,,,monitoring|sensor-specifications
+do_response_time,Do Response Time,DO response time,s,number,monitoring,sensor-specifications,10,1,60,10,monitoring|sensor-specifications
+do_sensor_type,Do Sensor Type,DO sensor type,-,select,monitoring,sensor-specifications,optical,,,,monitoring|sensor-specifications
+flow_sensor_accuracy,Flow Sensor Accuracy,Flow measurement accuracy,%,number,monitoring,sensor-specifications,2,0.5,5,2,monitoring|sensor-specifications
+gas_sensor_response,Gas Sensor Response,Gas sensor response time,s,number,monitoring,sensor-specifications,10,1,60,10,monitoring|sensor-specifications
+h2_detection_limit,H2 Detection Limit,H₂ detection limit,ppm,number,monitoring,sensor-specifications,10,1,1000,10,monitoring|sensor-specifications
+h2_sensor_type,H2 Sensor Type,H₂ sensor,-,select,monitoring,sensor-specifications,electrochemical,,,,monitoring|sensor-specifications
+level_sensor_type,Level Sensor Type,Level sensor,-,select,monitoring,sensor-specifications,ultrasonic,,,,monitoring|sensor-specifications
+orp_range,Orp Range,ORP measurement range,mV,array,monitoring,sensor-specifications,"[-500, 500]",,,,monitoring|sensor-specifications
+ph_accuracy,Ph Accuracy,pH accuracy,pH,number,monitoring,sensor-specifications,0.02,0.01,0.1,0.02,monitoring|sensor-specifications
+ph_sensor_type,Ph Sensor Type,pH sensor type,-,select,monitoring,sensor-specifications,glass,,,,monitoring|sensor-specifications
+pressure_accuracy,Pressure Accuracy,Pressure accuracy,%,number,monitoring,sensor-specifications,1,0.1,5,1,monitoring|sensor-specifications
+pressure_sensor_type,Pressure Sensor Type,Pressure sensor,-,select,monitoring,sensor-specifications,piezoresistive,,,,monitoring|sensor-specifications
+temperature_accuracy,Temperature Accuracy,Temperature accuracy,°C,number,monitoring,sensor-specifications,0.1,0.01,1,0.1,monitoring|sensor-specifications
+temperature_sensor_type,Temperature Sensor Type,Temperature sensor,-,select,monitoring,sensor-specifications,RTD,,,,monitoring|sensor-specifications
+cation_exchange,Cation Exchange,CEC enhancement,meq/100g,number,operational,agricultural-integration,10,0,50,10,operational|agricultural-integration
+ec_adjustment,Ec Adjustment,Electrical conductivity,mS/cm,number,operational,agricultural-integration,2,0,5,2,operational|agricultural-integration
+nutrient_release_k,Nutrient Release K,Potassium release rate,mg/L/d,number,operational,agricultural-integration,20,0,100,20,operational|agricultural-integration
+nutrient_release_n,Nutrient Release N,Nitrogen release rate,mg/L/d,number,operational,agricultural-integration,10,0,100,10,operational|agricultural-integration
+nutrient_release_p,Nutrient Release P,Phosphorus release rate,mg/L/d,number,operational,agricultural-integration,5,0,50,5,operational|agricultural-integration
+ph_buffering,Ph Buffering,pH stabilization,-,boolean,operational,agricultural-integration,true,,,,operational|agricultural-integration
+root_zone_placement,Root Zone Placement,Depth of placement,cm,number,operational,agricultural-integration,30,0,100,30,operational|agricultural-integration
+soil_compatibility,Soil Compatibility,Compatible soil types,-,select,operational,agricultural-integration,all,,,,operational|agricultural-integration
+water_retention,Water Retention,Water holding improvement,%,number,operational,agricultural-integration,20,0,50,20,operational|agricultural-integration
+calibration_frequency,Calibration Frequency,Calibration interval,days,number,operational,biosensor-applications,7,1,90,7,operational|biosensor-applications
+detection_limit,Detection Limit,Lower detection limit,μg/L,number,operational,biosensor-applications,1,0.001,1000,1,operational|biosensor-applications
+detection_range,Detection Range,Measurement range,-,array,operational,biosensor-applications,"[1, 1000]",,,,operational|biosensor-applications
+measurement_mode,Measurement Mode,Operating mode,-,select,operational,biosensor-applications,continuous,,,,operational|biosensor-applications
+regeneration_method,Regeneration Method,Sensor regeneration,-,select,operational,biosensor-applications,electrochemical,,,,operational|biosensor-applications
+selectivity,Selectivity,Analyte selectivity,-,number,operational,biosensor-applications,8,1,10,8,operational|biosensor-applications
+signal_type,Signal Type,Output signal,-,select,operational,biosensor-applications,current,,,,operational|biosensor-applications
+stability,Stability,Sensor lifetime,days,number,operational,biosensor-applications,30,1,365,30,operational|biosensor-applications
+target_analyte,Target Analyte,Detection target,-,select,operational,biosensor-applications,BOD,,,,operational|biosensor-applications
+co2_capture_rate,Co2 Capture Rate,CO₂ capture rate,g/m²/d,number,operational,carbon-capture-applications,10,0,100,10,operational|carbon-capture-applications
+co2_conversion_product,Co2 Conversion Product,Main product,-,select,operational,carbon-capture-applications,HCOOH,,,,operational|carbon-capture-applications
+faradaic_efficiency_co2,Faradaic Efficiency Co2,CO₂ reduction efficiency,%,number,operational,carbon-capture-applications,70,0,100,70,operational|carbon-capture-applications
+circuit_configuration,Circuit Configuration,Electrical circuit arrangement,,select,operational,circuit-conditions,Single cell,,,,operational|circuit-conditions
+external_load,External Load,External resistance connected to the circuit,Ω,number,operational,circuit-conditions,,,,,operational|circuit-conditions
+load_variation,Load Variation Pattern,Pattern of external load changes,,select,operational,circuit-conditions,Constant load,,,,operational|circuit-conditions
+switching_frequency,Load Switching Frequency,Frequency of load changes,Hz,number,operational,circuit-conditions,,,,,operational|circuit-conditions
+operation_mode,Operation Mode,Mode of fuel cell operation,,select,operational,control-parameters,Continuous,,,,operational|control-parameters
+sampling_frequency,Data Sampling Frequency,Frequency of data collection,Hz,number,operational,control-parameters,,,,,operational|control-parameters
+shutdown_procedure,Shutdown Procedure,Method for system shutdown,,select,operational,control-parameters,Gradual reduction,,,,operational|control-parameters
+current_efficiency,Current Efficiency,Current utilization,%,number,operational,desalination-applications,80,50,100,80,operational|desalination-applications
+energy_per_volume,Energy Per Volume,Energy per m³ water,kWh/m³,number,operational,desalination-applications,1,0,5,1,operational|desalination-applications
+membrane_pairs,Membrane Pairs,Ion exchange membrane pairs,-,number,operational,desalination-applications,10,1,100,10,operational|desalination-applications
+salt_removal,Salt Removal,Desalination efficiency,%,number,operational,desalination-applications,90,0,99,90,operational|desalination-applications
+flow_rate,Flow Rate,Flow rate of the electrolyte,mL/min,number,operational,flow-conditions,,,,,operational|flow-conditions
+flow_velocity,Flow Velocity,Linear velocity of fluid through reactor,cm/s,number,operational,flow-conditions,,,,,operational|flow-conditions
+mixing_intensity,Mixing Intensity,Degree of mixing in reactor,rpm,number,operational,flow-conditions,,,,,operational|flow-conditions
+recirculation_ratio,Recirculation Ratio,Ratio of recirculated to fresh feed,,number,operational,flow-conditions,,,,,operational|flow-conditions
+charge_rate,Charge Rate,Charge rate,C,number,operational,grid-integration,1,0.1,10,1,operational|grid-integration
+discharge_rate,Discharge Rate,Discharge rate,C,number,operational,grid-integration,1,0.1,10,1,operational|grid-integration
+grid_synchronization,Grid Synchronization,Grid sync required,-,boolean,operational,grid-integration,true,,,,operational|grid-integration
+grid_voltage,Grid Voltage,Grid connection voltage,V,number,operational,grid-integration,400,100,100000,400,operational|grid-integration
+harmonic_distortion,Harmonic Distortion,THD percentage,%,number,operational,grid-integration,3,0,10,3,operational|grid-integration
+islanding_protection,Islanding Protection,Anti-islanding protection,-,boolean,operational,grid-integration,true,,,,operational|grid-integration
+power_factor,Power Factor,Power factor,-,number,operational,grid-integration,0.95,0.5,1,0.95,operational|grid-integration
+storage_capacity,Storage Capacity,Battery capacity,kWh,number,operational,grid-integration,100,0,10000,100,operational|grid-integration
+storage_efficiency,Storage Efficiency,Round-trip efficiency,%,number,operational,grid-integration,85,50,99,85,operational|grid-integration
+carbon_recovery,Carbon Recovery,Carbon capture rate,%,number,operational,hybrid-system-integration,60,0,99,60,operational|hybrid-system-integration
+heat_recovery,Heat Recovery,Waste heat utilization,%,number,operational,hybrid-system-integration,50,0,90,50,operational|hybrid-system-integration
+hybrid_control_mode,Hybrid Control Mode,Control strategy,-,select,operational,hybrid-system-integration,maximize_renewable,,,,operational|hybrid-system-integration
+nutrient_recovery,Nutrient Recovery,Nutrient recycling,%,number,operational,hybrid-system-integration,70,0,99,70,operational|hybrid-system-integration
+renewable_fraction,Renewable Fraction,Renewable energy share,%,number,operational,hybrid-system-integration,30,0,100,30,operational|hybrid-system-integration
+solar_capacity,Solar Capacity,Solar PV capacity,kW,number,operational,hybrid-system-integration,100,0,10000,100,operational|hybrid-system-integration
+water_recovery,Water Recovery,Water reuse rate,%,number,operational,hybrid-system-integration,80,0,99,80,operational|hybrid-system-integration
+wind_capacity,Wind Capacity,Wind turbine capacity,kW,number,operational,hybrid-system-integration,50,0,10000,50,operational|hybrid-system-integration
+access_road_width,Access Road Width,Access road requirements,m,number,operational,infrastructure-requirements,5,3,10,5,operational|infrastructure-requirements
+building_footprint,Building Footprint,Building area,m²,number,operational,infrastructure-requirements,200,10,10000,200,operational|infrastructure-requirements
+land_area,Land Area,Total site area,m²,number,operational,infrastructure-requirements,1000,10,100000,1000,operational|infrastructure-requirements
+natural_gas,Natural Gas,Gas requirement,m³/h,number,operational,infrastructure-requirements,0,0,1000,0,operational|infrastructure-requirements
+power_connection,Power Connection,Electrical service size,kVA,number,operational,infrastructure-requirements,100,10,10000,100,operational|infrastructure-requirements
+utility_connections,Utility Connections,Required utilities,-,array,operational,infrastructure-requirements,"[power, water, sewer]",,,,operational|infrastructure-requirements
+wastewater_discharge,Wastewater Discharge,Wastewater generation,m³/d,number,operational,infrastructure-requirements,5,0,1000,5,operational|infrastructure-requirements
+water_supply,Water Supply,Water requirement,m³/d,number,operational,infrastructure-requirements,10,1,1000,10,operational|infrastructure-requirements
+cleaning_frequency,Cleaning Frequency,How often system is cleaned,days,number,operational,maintenance-parameters,,,,,operational|maintenance-parameters
+electrode_replacement_interval,Electrode Replacement Interval,Time between electrode replacements,months,number,operational,maintenance-parameters,,,,,operational|maintenance-parameters
+membrane_replacement_interval,Membrane Replacement Interval,Time between membrane replacements,months,number,operational,maintenance-parameters,,,,,operational|maintenance-parameters
+biocompatibility_iso,Biocompatibility Iso,ISO standard met,-,select,operational,medical-device-applications,10993-5,10993,5,10993-5,operational|medical-device-applications
+device_volume,Device Volume,Implant volume,mm³,number,operational,medical-device-applications,100,1,10000,100,operational|medical-device-applications
+flexibility,Flexibility,Device flexibility,%,number,operational,medical-device-applications,50,0,100,50,operational|medical-device-applications
+lifetime_target,Lifetime Target,Device lifetime,years,number,operational,medical-device-applications,10,1,20,10,operational|medical-device-applications
+moisture_resistance,Moisture Resistance,Ingress protection,-,select,operational,medical-device-applications,IP65,,,,operational|medical-device-applications
+power_requirement,Power Requirement,Power needed,μW,number,operational,medical-device-applications,50,1,1000,50,operational|medical-device-applications
+skin_contact_area,Skin Contact Area,Contact area,cm²,number,operational,medical-device-applications,10,1,100,10,operational|medical-device-applications
+sterilization_method,Sterilization Method,Sterilization type,-,select,operational,medical-device-applications,gamma,,,,operational|medical-device-applications
+wireless_range,Wireless Range,Communication range,m,number,operational,medical-device-applications,10,0.1,100,10,operational|medical-device-applications
+interconnection_loss,Interconnection Loss,Module connection losses,%,number,operational,multi-scale-integration,5,0,20,5,operational|multi-scale-integration
+lab_to_pilot_factor,Lab To Pilot Factor,Lab to pilot scale-up,-,number,operational,multi-scale-integration,100,10,1000,100,operational|multi-scale-integration
+module_size,Module Size,Standard module capacity,kW,number,operational,multi-scale-integration,10,0.1,1000,10,operational|multi-scale-integration
+modules_per_system,Modules Per System,Number of modules,-,number,operational,multi-scale-integration,10,1,1000,10,operational|multi-scale-integration
+pilot_to_industrial_factor,Pilot To Industrial Factor,Pilot to industrial,-,number,operational,multi-scale-integration,100,10,1000,100,operational|multi-scale-integration
+redundancy_level,Redundancy Level,Backup capacity,%,number,operational,multi-scale-integration,20,0,100,20,operational|multi-scale-integration
+scale_cost_factor,Scale Cost Factor,Economy of scale factor,-,number,operational,multi-scale-integration,0.7,0.5,1,0.7,operational|multi-scale-integration
+scale_efficiency_loss,Scale Efficiency Loss,Performance loss on scale-up,%,number,operational,multi-scale-integration,20,0,50,20,operational|multi-scale-integration
+communication_latency,Communication Latency,Network latency,ms,number,operational,network-effects,50,1,1000,50,operational|network-effects
+data_throughput,Data Throughput,Data transfer rate,Mbps,number,operational,network-effects,10,0.1,1000,10,operational|network-effects
+load_balancing,Load Balancing,Load distribution,-,select,operational,network-effects,dynamic,,,,operational|network-effects
+network_efficiency,Network Efficiency,Overall network efficiency,%,number,operational,network-effects,85,50,100,85,operational|network-effects
+network_reliability,Network Reliability,Uptime percentage,%,number,operational,network-effects,99.9,90,99.999,99.9,operational|network-effects
+network_topology,Network Topology,Network structure,-,select,operational,network-effects,parallel,,,,operational|network-effects
+reactor_count,Reactor Count,Reactors in network,-,number,operational,network-effects,10,2,1000,10,operational|network-effects
+batch_duration,Batch Duration,Batch cycle time,h,number,operational,operating-modes,24,1,1000,24,operational|operating-modes
+batch_volume,Batch Volume,Batch size,L,number,operational,operating-modes,10,0.1,10000,10,operational|operating-modes
+dilution_rate,Dilution Rate,D = 1/HRT,1/h,number,operational,operating-modes,0.042,0.001,10,0.042,operational|operating-modes
+drain_time,Drain Time,Time to empty reactor,min,number,operational,operating-modes,5,1,60,5,operational|operating-modes
+feed_rate,Feed Rate,Feeding rate,L/h,number,operational,operating-modes,0.5,0.01,100,0.5,operational|operating-modes
+feed_trigger,Feed Trigger,Feed control trigger,-,select,operational,operating-modes,time,,,,operational|operating-modes
+feeding_strategy,Feeding Strategy,Feed profile,-,select,operational,operating-modes,exponential,,,,operational|operating-modes
+fill_time,Fill Time,Time to fill reactor,min,number,operational,operating-modes,5,1,60,5,operational|operating-modes
+final_volume,Final Volume,Final volume,L,number,operational,operating-modes,10,0.2,10000,10,operational|operating-modes
+hydraulic_retention_time,Hydraulic Retention Time,HRT,h,number,operational,operating-modes,24,0.1,1000,24,operational|operating-modes
+idle_time,Idle Time,Time between batches,min,number,operational,operating-modes,30,0,1440,30,operational|operating-modes
+initial_volume,Initial Volume,Starting volume,L,number,operational,operating-modes,5,0.1,1000,5,operational|operating-modes
+recycle_ratio,Recycle Ratio,Recycle flow/feed flow,-,number,operational,operating-modes,0,0,10,0,operational|operating-modes
+startup_time,Startup Time,Time to reach steady state,h,number,operational,operating-modes,72,1,1000,72,operational|operating-modes
+steady_state_criteria,Steady State Criteria,Variation for steady state,%,number,operational,operating-modes,1,0.1,10,1,operational|operating-modes
+flow_control_mode,Flow Control Mode,Control strategy,-,select,operational,process-control-parameters,PID,,,,operational|process-control-parameters
+flow_control_valve,Flow Control Valve,Valve type,-,select,operational,process-control-parameters,globe,,,,operational|process-control-parameters
+flow_measurement,Flow Measurement,Flow sensor type,-,select,operational,process-control-parameters,magnetic,,,,operational|process-control-parameters
+flow_setpoint,Flow Setpoint,Target flow rate,L/h,number,operational,process-control-parameters,10,0,1000,10,operational|process-control-parameters
+mixer_power,Mixer Power,Mixing power input,W/m³,number,operational,process-control-parameters,50,0,1000,50,operational|process-control-parameters
+mixer_speed,Mixer Speed,Mixer rotation speed,rpm,number,operational,process-control-parameters,200,0,2000,200,operational|process-control-parameters
+mixing_time,Mixing Time,Time for complete mixing,s,number,operational,process-control-parameters,60,1,3600,60,operational|process-control-parameters
+mixing_type,Mixing Type,Mixing method,-,select,operational,process-control-parameters,mechanical,,,,operational|process-control-parameters
+pump_capacity,Pump Capacity,Maximum pump flow,L/h,number,operational,process-control-parameters,100,0,10000,100,operational|process-control-parameters
+pump_type,Pump Type,Pump type,-,select,operational,process-control-parameters,peristaltic,,,,operational|process-control-parameters
+reynolds_number_mixing,Reynolds Number Mixing,Mixing Reynolds number,-,number,operational,process-control-parameters,10000,1,100000,10000,operational|process-control-parameters
+bubble_management,Bubble Management,Gas-liquid separation,-,select,operational,space-applications,capillary,,,,operational|space-applications
+fluid_containment,Fluid Containment,Liquid containment,-,select,operational,space-applications,membrane,,,,operational|space-applications
+gravity_level,Gravity Level,Gravity acceleration,g,number,operational,space-applications,0.000001,0,1,0.000001,operational|space-applications
+launch_survival_g,Launch Survival G,Launch acceleration tolerance,g,number,operational,space-applications,10,0,20,10,operational|space-applications
+orientation_independence,Orientation Independence,Works in any orientation,-,boolean,operational,space-applications,true,,,,operational|space-applications
+radiation_tolerance,Radiation Tolerance,Radiation dose tolerance,Gy,number,operational,space-applications,100,0,1000,100,operational|space-applications
+thermal_cycling,Thermal Cycling,Thermal cycle tolerance,cycles,number,operational,space-applications,1000,0,10000,1000,operational|space-applications
+vacuum_compatibility,Vacuum Compatibility,Vacuum operation,-,boolean,operational,space-applications,false,,,,operational|space-applications
+acclimation_time,Acclimation Time,Microbial adaptation time,d,number,operational,startup-shutdown,7,1,60,7,operational|startup-shutdown
+flush_cycles,Flush Cycles,System flush cycles,-,number,operational,startup-shutdown,3,0,10,3,operational|startup-shutdown
+initial_substrate_conc,Initial Substrate Conc,Starting substrate level,g/L,number,operational,startup-shutdown,1,0.1,10,1,operational|startup-shutdown
+inoculum_source,Inoculum Source,Inoculum type,-,select,operational,startup-shutdown,enriched,,,,operational|startup-shutdown
+inoculum_volume,Inoculum Volume,Inoculum percentage,%,number,operational,startup-shutdown,10,1,50,10,operational|startup-shutdown
+preservation_method,Preservation Method,Biomass preservation,-,select,operational,startup-shutdown,continuous_feed,,,,operational|startup-shutdown
+shutdown_mode,Shutdown Mode,Shutdown type,-,select,operational,startup-shutdown,normal,,,,operational|startup-shutdown
+startup_mode,Startup Mode,Startup type,-,select,operational,startup-shutdown,cold,,,,operational|startup-shutdown
+storage_temperature,Storage Temperature,Storage temperature,°C,number,operational,startup-shutdown,4,-80,40,4,operational|startup-shutdown
+biogas_production,Biogas Production,Biogas from WW,L/g COD,number,operational,wastewater-treatment-applications,0.2,0,0.5,0.2,operational|wastewater-treatment-applications
+hydraulic_loading,Hydraulic Loading,Surface loading rate,m³/m²/d,number,operational,wastewater-treatment-applications,1,0.1,10,1,operational|wastewater-treatment-applications
+influent_bod,Influent Bod,Influent BOD,mg/L,number,operational,wastewater-treatment-applications,250,50,5000,250,operational|wastewater-treatment-applications
+influent_cod,Influent Cod,Influent COD,mg/L,number,operational,wastewater-treatment-applications,500,100,10000,500,operational|wastewater-treatment-applications
+influent_ph,Influent Ph,WW pH,-,number,operational,wastewater-treatment-applications,7,4,10,7,operational|wastewater-treatment-applications
+influent_temperature,Influent Temperature,WW temperature,°C,number,operational,wastewater-treatment-applications,20,5,40,20,operational|wastewater-treatment-applications
+influent_tn,Influent Tn,Total nitrogen,mg/L,number,operational,wastewater-treatment-applications,40,10,200,40,operational|wastewater-treatment-applications
+influent_tp,Influent Tp,Total phosphorus,mg/L,number,operational,wastewater-treatment-applications,8,1,50,8,operational|wastewater-treatment-applications
+influent_tss,Influent Tss,Total suspended solids,mg/L,number,operational,wastewater-treatment-applications,200,50,1000,200,operational|wastewater-treatment-applications
+organic_loading,Organic Loading,Volumetric loading,kg COD/m³/d,number,operational,wastewater-treatment-applications,2,0.1,20,2,operational|wastewater-treatment-applications
+pathogen_removal,Pathogen Removal,Pathogen reduction,log,number,operational,wastewater-treatment-applications,3,0,6,3,operational|wastewater-treatment-applications
+sludge_production,Sludge Production,Sludge yield,kg/kg COD,number,operational,wastewater-treatment-applications,0.1,0,0.5,0.1,operational|wastewater-treatment-applications
+wastewater_type,Wastewater Type,WW source,-,select,operational,wastewater-treatment-applications,domestic,,,,operational|wastewater-treatment-applications
+biogas_yield,Biogas Yield,Biogas per g substrate,L/g,number,performance,chemical-production-metrics,0.5,0,1,0.5,performance|chemical-production-metrics
+ch4_content_biogas,Ch4 Content Biogas,CH₄ in biogas,%,number,performance,chemical-production-metrics,65,0,100,65,performance|chemical-production-metrics
+ch4_production_rate,Ch4 Production Rate,CH₄ production rate,L/m²/d,number,performance,chemical-production-metrics,5,0,50,5,performance|chemical-production-metrics
+conversion_efficiency,Conversion Efficiency,Substrate to product,%,number,performance,chemical-production-metrics,50,0,100,50,performance|chemical-production-metrics
+h2_production_rate,H2 Production Rate,H₂ production rate,L/m²/d,number,performance,chemical-production-metrics,10,0,100,10,performance|chemical-production-metrics
+h2_purity,H2 Purity,Hydrogen gas purity,%,number,performance,chemical-production-metrics,95,0,100,95,performance|chemical-production-metrics
+h2_yield,H2 Yield,Moles H₂ per mole substrate,mol/mol,number,performance,chemical-production-metrics,2,0,4,2,performance|chemical-production-metrics
+product_concentration,Product Concentration,Product concentration,g/L,number,performance,chemical-production-metrics,10,0,100,10,performance|chemical-production-metrics
+product_selectivity,Product Selectivity,Target product selectivity,%,number,performance,chemical-production-metrics,80,0,100,80,performance|chemical-production-metrics
+production_rate,Production Rate,Volumetric productivity,g/L/h,number,performance,chemical-production-metrics,1,0,10,1,performance|chemical-production-metrics
+specific_h2_production,Specific H2 Production,H₂ per kg substrate,m³/kg,number,performance,chemical-production-metrics,1,0,10,1,performance|chemical-production-metrics
+coulombic_efficiency,Coulombic Efficiency,Ratio of electrons recovered as current to electrons available from substrate oxidation,%,number,performance,electrical-performance,20,0,100,20,performance|electrical-performance
+current_density_max,Current Density Max,Maximum current density,A/m²,number,performance,electrical-performance,20,0,100,20,performance|electrical-performance
+energy_efficiency,Energy Efficiency,Overall energy efficiency,%,number,performance,electrical-performance,40,0,100,40,performance|electrical-performance
+exergy_efficiency,Exergy Efficiency,Thermodynamic efficiency,%,number,performance,electrical-performance,30,0,100,30,performance|electrical-performance
+fill_factor,Fill Factor,(P_max)/(I_sc × V_oc),-,number,performance,electrical-performance,0.7,0,1,0.7,performance|electrical-performance
+maximum_power_point,Maximum Power Point,Peak power output,W,number,performance,electrical-performance,10,0,10000,10,performance|electrical-performance
+open_circuit_voltage,Open Circuit Voltage,OCV,V,number,performance,electrical-performance,0.8,0,2,0.8,performance|electrical-performance
+operating_voltage,Operating Voltage,Voltage under load,V,number,performance,electrical-performance,0.5,0,1.5,0.5,performance|electrical-performance
+power_density_areal,Power Density Areal,Power per electrode area,W/m²,number,performance,electrical-performance,10,0,100,10,performance|electrical-performance
+power_density_normalized,Power Density Normalized,Power per kg catalyst,W/kg,number,performance,electrical-performance,20,0,500,20,performance|electrical-performance
+power_density_volumetric,Power Density Volumetric,Power per reactor volume,W/m³,number,performance,electrical-performance,50,0,1000,50,performance|electrical-performance
+power_stability,Power Stability,Power degradation rate,%/d,number,performance,electrical-performance,-0.5,-10,0,-0.5,performance|electrical-performance
+short_circuit_current,Short Circuit Current,Short circuit current,A,number,performance,electrical-performance,1,0,100,1,performance|electrical-performance
+voltage_efficiency,Voltage Efficiency,Voltage utilization,%,number,performance,electrical-performance,60,0,100,60,performance|electrical-performance
+ammonia_recovery,Ammonia Recovery,Ammonia recovery efficiency,%,number,performance,treatment-performance,80,0,100,80,performance|treatment-performance
+bod_removal,Bod Removal,Biological oxygen demand removal,%,number,performance,treatment-performance,85,0,100,85,performance|treatment-performance
+cod_removal,Cod Removal,Chemical oxygen demand removal,%,number,performance,treatment-performance,80,0,100,80,performance|treatment-performance
+metal_deposition_rate,Metal Deposition Rate,Metal deposition rate,mg/cm²/h,number,performance,treatment-performance,1,0,10,1,performance|treatment-performance
+metal_recovery_purity,Metal Recovery Purity,Recovered metal purity,%,number,performance,treatment-performance,95,0,100,95,performance|treatment-performance
+metal_removal_efficiency,Metal Removal Efficiency,Metal removal percentage,%,number,performance,treatment-performance,90,0,100,90,performance|treatment-performance
+nitrogen_removal,Nitrogen Removal,Total nitrogen removal,%,number,performance,treatment-performance,70,0,100,70,performance|treatment-performance
+nutrient_recovery_form,Nutrient Recovery Form,Recovery product form,-,select,performance,treatment-performance,struvite,,,,performance|treatment-performance
+phosphorus_recovery,Phosphorus Recovery,Phosphorus recovery,%,number,performance,treatment-performance,60,0,100,60,performance|treatment-performance
+specific_removal_rate,Specific Removal Rate,Removal per electrode area,g/m²/d,number,performance,treatment-performance,20,0,100,20,performance|treatment-performance
+toc_removal,Toc Removal,Total organic carbon removal,%,number,performance,treatment-performance,75,0,100,75,performance|treatment-performance
+anode_area_cell,Anode Area Cell,Anode surface area in cell,cm²,number,physical,cell-electrode-configuration,10,0.1,100,10,physical|cell-electrode-configuration
+cathode_area_cell,Cathode Area Cell,Cathode surface area in cell,cm²,number,physical,cell-electrode-configuration,10,0.1,100,10,physical|cell-electrode-configuration
+contact_resistance,Contact Resistance,Electrical contact resistance,mΩ,number,physical,cell-electrode-configuration,5,0.1,100,5,physical|cell-electrode-configuration
+current_collector_type,Current Collector Type,Current collector material,-,select,physical,cell-electrode-configuration,titanium,,,,physical|cell-electrode-configuration
+electrode_arrangement_cell,Electrode Arrangement Cell,Electrode configuration,-,select,physical,cell-electrode-configuration,parallel,,,,physical|cell-electrode-configuration
+electrode_spacing_cell,Electrode Spacing Cell,Anode-cathode separation,mm,number,physical,cell-electrode-configuration,20,1,100,20,physical|cell-electrode-configuration
+electrode_thickness_cell,Electrode Thickness Cell,Electrode material thickness,mm,number,physical,cell-electrode-configuration,2,0.1,10,2,physical|cell-electrode-configuration
+terminal_type,Terminal Type,Electrical terminal type,-,select,physical,cell-electrode-configuration,screw,,,,physical|cell-electrode-configuration
+wire_gauge,Wire Gauge,Connection wire gauge,AWG,number,physical,cell-electrode-configuration,20,10,30,20,physical|cell-electrode-configuration
+cell_diameter,Cell Diameter,Cell diameter (cylindrical),mm,number,physical,cell-geometry-dimensions,80,10,500,80,physical|cell-geometry-dimensions
+cell_height,Cell Height,Cell height,mm,number,physical,cell-geometry-dimensions,100,10,1000,100,physical|cell-geometry-dimensions
+cell_length,Cell Length,Cell length (rectangular),mm,number,physical,cell-geometry-dimensions,150,10,1000,150,physical|cell-geometry-dimensions
+cell_material,Cell Material,Cell housing material,-,select,physical,cell-geometry-dimensions,acrylic,,,,physical|cell-geometry-dimensions
+cell_type,Cell Type,Cell geometry type,-,select,physical,cell-geometry-dimensions,cylindrical,,,,physical|cell-geometry-dimensions
+cell_volume,Cell Volume,Total cell volume,mL,number,physical,cell-geometry-dimensions,250,10,5000,250,physical|cell-geometry-dimensions
+cell_width,Cell Width,Cell width (rectangular),mm,number,physical,cell-geometry-dimensions,100,10,500,100,physical|cell-geometry-dimensions
+chamber_volume,Chamber Volume,Working chamber volume,μL,number,physical,cell-geometry-dimensions,500,100,1000,500,physical|cell-geometry-dimensions
+channel_depth,Channel Depth,Microfluidic channel depth,μm,number,physical,cell-geometry-dimensions,100,20,500,100,physical|cell-geometry-dimensions
+channel_width,Channel Width,Microfluidic channel width,μm,number,physical,cell-geometry-dimensions,200,50,1000,200,physical|cell-geometry-dimensions
+chemical_resistance,Chemical Resistance,Chemical resistance rating,-,number,physical,cell-geometry-dimensions,8,1,10,8,physical|cell-geometry-dimensions
+electrode_spacing_micro,Electrode Spacing Micro,Micro-electrode separation,μm,number,physical,cell-geometry-dimensions,1000,100,5000,1000,physical|cell-geometry-dimensions
+headspace_volume,Headspace Volume,Gas headspace volume,mL,number,physical,cell-geometry-dimensions,50,0,500,50,physical|cell-geometry-dimensions
+pressure_rating,Pressure Rating,Maximum pressure rating,bar,number,physical,cell-geometry-dimensions,5,1,50,5,physical|cell-geometry-dimensions
+slide_length,Slide Length,Microscope slide length,mm,number,physical,cell-geometry-dimensions,75,50,100,75,physical|cell-geometry-dimensions
+slide_thickness,Slide Thickness,Slide material thickness,mm,number,physical,cell-geometry-dimensions,3,1,5,3,physical|cell-geometry-dimensions
+slide_width,Slide Width,Microscope slide width,mm,number,physical,cell-geometry-dimensions,25,20,30,25,physical|cell-geometry-dimensions
+temperature_limit,Temperature Limit,Maximum temperature,°C,number,physical,cell-geometry-dimensions,80,20,200,80,physical|cell-geometry-dimensions
+transparency,Transparency,Material transparency,%,number,physical,cell-geometry-dimensions,90,0,100,90,physical|cell-geometry-dimensions
+wall_thickness,Wall Thickness,Cell wall thickness,mm,number,physical,cell-geometry-dimensions,5,2,20,5,physical|cell-geometry-dimensions
+working_volume,Working Volume,Active/working volume,mL,number,physical,cell-geometry-dimensions,200,5,4500,200,physical|cell-geometry-dimensions
+current_density_cell,Current Density Cell,Current per electrode area,A/m²,number,physical,cell-performance-metrics,10,0,100,10,physical|cell-performance-metrics
+internal_resistance_cell,Internal Resistance Cell,Cell internal resistance,Ω,number,physical,cell-performance-metrics,50,0.1,1000,50,physical|cell-performance-metrics
+open_circuit_voltage_cell,Open Circuit Voltage Cell,Cell OCV,V,number,physical,cell-performance-metrics,0.8,0,2,0.8,physical|cell-performance-metrics
+operating_voltage_cell,Operating Voltage Cell,Cell voltage under load,V,number,physical,cell-performance-metrics,0.5,0,1.5,0.5,physical|cell-performance-metrics
+power_density_cell,Power Density Cell,Power per cell volume,W/m³,number,physical,cell-performance-metrics,50,0,1000,50,physical|cell-performance-metrics
+flow_mode_cell,Flow Mode Cell,Cell operation mode,-,select,physical,cell-specific-operational-parameters,batch,,,,physical|cell-specific-operational-parameters
+flow_rate_cell,Flow Rate Cell,Flow rate through cell,mL/min,number,physical,cell-specific-operational-parameters,0,0,100,0,physical|cell-specific-operational-parameters
+mixing_mode_cell,Mixing Mode Cell,Mixing method in cell,-,select,physical,cell-specific-operational-parameters,none,,,,physical|cell-specific-operational-parameters
+residence_time_cell,Residence Time Cell,Hydraulic residence time,h,number,physical,cell-specific-operational-parameters,24,0.1,100,24,physical|cell-specific-operational-parameters
+dead_zone_fraction,Dead Zone Fraction,Fraction of dead volume,%,number,physical,industrial-scale-parameters,5,0,50,5,physical|industrial-scale-parameters
+reynolds_number,Reynolds Number,Flow regime indicator,-,number,physical,industrial-scale-parameters,2000,1,100000,2000,physical|industrial-scale-parameters
+scale_factor,Scale Factor,Scale-up from lab,-,number,physical,industrial-scale-parameters,100,1,10000,100,physical|industrial-scale-parameters
+structural_integrity,Structural Integrity Factor,Mechanical stability rating,,number,physical,mechanical-properties,,,,,physical|mechanical-properties
+system_weight,Total System Weight,Total weight of reactor system,kg,number,physical,mechanical-properties,,,,,physical|mechanical-properties
+cells_per_stack,Cells Per Stack,Number of cells in stack,-,number,physical,multi-cell-stack-configuration,10,2,100,10,physical|multi-cell-stack-configuration
+current_sharing,Current Sharing,Current distribution uniformity,%,number,physical,multi-cell-stack-configuration,95,80,100,95,physical|multi-cell-stack-configuration
+inter_cell_spacing,Inter Cell Spacing,Space between cells,mm,number,physical,multi-cell-stack-configuration,5,1,50,5,physical|multi-cell-stack-configuration
+stack_arrangement,Stack Arrangement,Electrical connection,-,select,physical,multi-cell-stack-configuration,series,,,,physical|multi-cell-stack-configuration
+stack_compression,Stack Compression,Stack compression force,N/cm²,number,physical,multi-cell-stack-configuration,10,0,100,10,physical|multi-cell-stack-configuration
+stack_current,Stack Current,Total stack current,A,number,physical,multi-cell-stack-configuration,10,0,1000,10,physical|multi-cell-stack-configuration
+stack_footprint,Stack Footprint,Stack base area,cm²,number,physical,multi-cell-stack-configuration,400,100,10000,400,physical|multi-cell-stack-configuration
+stack_height,Stack Height,Total stack height,mm,number,physical,multi-cell-stack-configuration,500,50,2000,500,physical|multi-cell-stack-configuration
+stack_power,Stack Power,Total stack power output,W,number,physical,multi-cell-stack-configuration,50,0,10000,50,physical|multi-cell-stack-configuration
+stack_voltage,Stack Voltage,Total stack voltage,V,number,physical,multi-cell-stack-configuration,5,0,100,5,physical|multi-cell-stack-configuration
+voltage_balancing,Voltage Balancing,Active voltage balancing,-,boolean,physical,multi-cell-stack-configuration,false,,,,physical|multi-cell-stack-configuration
+acid_type,Acid Type,Acid for pH control,-,select,physical,reactor-control-systems,HCl,,,,physical|reactor-control-systems
+base_type,Base Type,Base for pH control,-,select,physical,reactor-control-systems,NaOH,,,,physical|reactor-control-systems
+buffer_capacity,Buffer Capacity,Buffer capacity,mmol/L/pH,number,physical,reactor-control-systems,10,0,100,10,physical|reactor-control-systems
+cooling_capacity,Cooling Capacity,Cooling system capacity,kW,number,physical,reactor-control-systems,10,0,100,10,physical|reactor-control-systems
+heating_capacity,Heating Capacity,Heating system capacity,kW,number,physical,reactor-control-systems,5,0,100,5,physical|reactor-control-systems
+ph_control_type,Ph Control Type,pH control method,-,select,physical,reactor-control-systems,buffer,,,,physical|reactor-control-systems
+ph_deadband,Ph Deadband,pH control deadband,-,number,physical,reactor-control-systems,0.2,0.05,1,0.2,physical|reactor-control-systems
+ph_setpoint,Ph Setpoint,Target pH,-,number,physical,reactor-control-systems,7,2,12,7,physical|reactor-control-systems
+temperature_control_type,Temperature Control Type,Temperature control method,-,select,physical,reactor-control-systems,jacket,,,,physical|reactor-control-systems
+temperature_deadband,Temperature Deadband,Control deadband,°C,number,physical,reactor-control-systems,1,0.1,5,1,physical|reactor-control-systems
+temperature_ramp_rate_max,Temperature Ramp Rate Max,Maximum temperature change rate,°C/min,number,physical,reactor-control-systems,2,0.1,10,2,physical|reactor-control-systems
+temperature_setpoint,Temperature Setpoint,Target temperature,°C,number,physical,reactor-control-systems,30,4,80,30,physical|reactor-control-systems
+chamber_configuration,Chamber Configuration,Number and arrangement of reactor chambers,,select,physical,reactor-geometry,Dual chamber,,,,physical|reactor-geometry
+reactor_height,Reactor Height,Internal height dimension of reactor,cm,number,physical,reactor-geometry,,,,,physical|reactor-geometry
+reactor_length,Reactor Length,Internal length dimension of reactor,cm,number,physical,reactor-geometry,,,,,physical|reactor-geometry
+reactor_volume,Reactor Volume,Total internal volume of the reactor,mL,number,physical,reactor-geometry,,,,,physical|reactor-geometry
+reactor_width,Reactor Width,Internal width dimension of reactor,cm,number,physical,reactor-geometry,,,,,physical|reactor-geometry
+surface_area_to_volume,Surface Area to Volume Ratio,Ratio of reactor surface area to volume,cm⁻¹,number,physical,reactor-geometry,,,,,physical|reactor-geometry
+aspect_ratio,Aspect Ratio,Height to diameter ratio,-,number,physical,reactor-system-components,2,0.5,10,2,physical|reactor-system-components
+baffles_present,Baffles Present,Internal baffles present,-,boolean,physical,reactor-system-components,false,,,,physical|reactor-system-components
+distribution_channels,Distribution Channels,Number of distribution channels,-,number,physical,reactor-system-components,10,1,50,10,physical|reactor-system-components
+flow_uniformity,Flow Uniformity,Flow distribution uniformity,%,number,physical,reactor-system-components,90,50,100,90,physical|reactor-system-components
+inlet_diameter,Inlet Diameter,Main inlet pipe diameter,mm,number,physical,reactor-system-components,25,5,100,25,physical|reactor-system-components
+manifold_type,Manifold Type,Flow manifold design,-,select,physical,reactor-system-components,parallel,,,,physical|reactor-system-components
+pressure_drop_manifold,Pressure Drop Manifold,Manifold pressure drop,kPa,number,physical,reactor-system-components,5,0,100,5,physical|reactor-system-components
+reactor_material,Reactor Material,Reactor construction material,-,select,physical,reactor-system-components,SS316,,,,physical|reactor-system-components
+reactor_shape,Reactor Shape,Reactor geometry,-,select,physical,reactor-system-components,cylindrical,,,,physical|reactor-system-components
+reactor_volume_total,Reactor Volume Total,Total reactor volume,L,number,physical,reactor-system-components,100,1,10000,100,physical|reactor-system-components
+heat_transfer_coefficient,Heat Transfer Coefficient,Overall heat transfer coefficient,W/m²·K,number,physical,thermal-properties,,,,,physical|thermal-properties
+insulation_factor,Thermal Insulation Factor,Heat retention capability,,number,physical,thermal-properties,,,,,physical|thermal-properties
+thermal_mass,Thermal Mass,Heat capacity of reactor system,J/K,number,physical,thermal-properties,,,,,physical|thermal-properties
+audit_frequency,Audit Frequency,Compliance audits,/year,number,safety,regulatory-compliance,2,1,12,2,safety|regulatory-compliance
+certification_required,Certification Required,Required certifications,-,array,safety,regulatory-compliance,"[ISO14001, ISO45001]",,,,safety|regulatory-compliance
+co2_emission_limit,Co2 Emission Limit,CO₂ emission standard,kg/MWh,number,safety,regulatory-compliance,400,0,1000,400,safety|regulatory-compliance
+compliance_reporting,Compliance Reporting,Reporting period,-,select,safety,regulatory-compliance,quarterly,,,,safety|regulatory-compliance
+effluent_bod_limit,Effluent Bod Limit,BOD discharge limit,mg/L,number,safety,regulatory-compliance,30,0,200,30,safety|regulatory-compliance
+effluent_cod_limit,Effluent Cod Limit,COD discharge limit,mg/L,number,safety,regulatory-compliance,100,0,500,100,safety|regulatory-compliance
+effluent_tn_limit,Effluent Tn Limit,Total N limit,mg/L,number,safety,regulatory-compliance,15,0,50,15,safety|regulatory-compliance
+effluent_tp_limit,Effluent Tp Limit,Total P limit,mg/L,number,safety,regulatory-compliance,2,0,10,2,safety|regulatory-compliance
+effluent_tss_limit,Effluent Tss Limit,TSS discharge limit,mg/L,number,safety,regulatory-compliance,30,0,100,30,safety|regulatory-compliance
+monitoring_frequency,Monitoring Frequency,Sampling frequency,-,select,safety,regulatory-compliance,weekly,,,,safety|regulatory-compliance
+noise_limit_day,Noise Limit Day,Daytime noise limit,dB,number,safety,regulatory-compliance,65,40,80,65,safety|regulatory-compliance
+noise_limit_night,Noise Limit Night,Nighttime noise limit,dB,number,safety,regulatory-compliance,55,30,70,55,safety|regulatory-compliance
+particulate_limit,Particulate Limit,PM emission limit,mg/m³,number,safety,regulatory-compliance,10,0,50,10,safety|regulatory-compliance
+voc_emission_limit,Voc Emission Limit,VOC emission limit,mg/m³,number,safety,regulatory-compliance,20,0,100,20,safety|regulatory-compliance
+alarm_types,Alarm Types,Alarm systems,-,array,safety,risk-assessment-parameters,"[gas, fire, pressure]",,,,safety|risk-assessment-parameters
+containment_volume,Containment Volume,Spill containment capacity,m³,number,safety,risk-assessment-parameters,110,0,1000,110,safety|risk-assessment-parameters
+control_effectiveness,Control Effectiveness,Risk control efficiency,%,number,safety,risk-assessment-parameters,80,0,100,80,safety|risk-assessment-parameters
+evacuation_time,Evacuation Time,Site evacuation time,min,number,safety,risk-assessment-parameters,10,1,30,10,safety|risk-assessment-parameters
+hazard_probability,Hazard Probability,Occurrence probability,-,number,safety,risk-assessment-parameters,2,1,5,2,safety|risk-assessment-parameters
+hazard_severity,Hazard Severity,Consequence severity,-,number,safety,risk-assessment-parameters,3,1,5,3,safety|risk-assessment-parameters
+response_time,Response Time,Emergency response time,min,number,safety,risk-assessment-parameters,5,1,60,5,safety|risk-assessment-parameters
+risk_score,Risk Score,Risk matrix score,-,number,safety,risk-assessment-parameters,6,1,25,6,safety|risk-assessment-parameters
+gas_detection_threshold,Gas Detection Threshold,Concentration threshold for gas detection,ppm,number,safety,safety-limits,,,,,safety|safety-limits
+maximum_operating_pressure,Maximum Operating Pressure,Safety limit for operating pressure,bar,number,safety,safety-limits,,,,,safety|safety-limits
+maximum_operating_temperature,Maximum Operating Temperature,Safety limit for operating temperature,°C,number,safety,safety-limits,,,,,safety|safety-limits
+antibiotic_resistance_risk,Antibiotic Resistance Risk,ARG risk level,-,select,safety,safety-parameters,low,,,,safety|safety-parameters
+bioaerosol_control,Bioaerosol Control,Aerosol containment,-,boolean,safety,safety-parameters,true,,,,safety|safety-parameters
+biosafety_level,Biosafety Level,Biosafety classification,-,select,safety,safety-parameters,BSL-1,,,,safety|safety-parameters
+corrosivity_class,Corrosivity Class,Corrosion hazard,-,select,safety,safety-parameters,mild,,,,safety|safety-parameters
+emergency_shutdown_time,Emergency Shutdown Time,ESD response time,s,number,safety,safety-parameters,30,1,300,30,safety|safety-parameters
+explosion_limit_lower,Explosion Limit Lower,LEL for H₂,%,number,safety,safety-parameters,4,0,20,4,safety|safety-parameters
+explosion_limit_upper,Explosion Limit Upper,UEL for H₂,%,number,safety,safety-parameters,75,0,100,75,safety|safety-parameters
+flammability_rating,Flammability Rating,NFPA flammability,-,number,safety,safety-parameters,1,0,4,1,safety|safety-parameters
+max_operating_ph,Max Operating Ph,Maximum safe pH,-,number,safety,safety-parameters,12,7,14,12,safety|safety-parameters
+max_operating_pressure,Max Operating Pressure,Maximum safe pressure,bar,number,safety,safety-parameters,5,1,50,5,safety|safety-parameters
+max_operating_temperature,Max Operating Temperature,Maximum safe temperature,°C,number,safety,safety-parameters,80,20,150,80,safety|safety-parameters
+min_operating_ph,Min Operating Ph,Minimum safe pH,-,number,safety,safety-parameters,2,0,7,2,safety|safety-parameters
+pathogen_reduction,Pathogen Reduction,Log reduction of pathogens,log,number,safety,safety-parameters,3,0,6,3,safety|safety-parameters
+reactivity_rating,Reactivity Rating,NFPA reactivity,-,number,safety,safety-parameters,0,0,4,0,safety|safety-parameters
+toxicity_rating,Toxicity Rating,NFPA health hazard,-,number,safety,safety-parameters,1,0,4,1,safety|safety-parameters
+safety_interlock_status,Safety Interlock Status,Status of safety interlock systems,,select,safety,safety-systems,Active,,,,safety|safety-systems

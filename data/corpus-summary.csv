@@ -1,0 +1,24 @@
+﻿metric,value,section
+totalPapers,21895,corpus
+papersWithAbstracts,9049,corpus
+papersWithPDFs,14743,corpus
+papersWithFullText,3535,corpus
+totalExtractions,70296,extraction
+extractedParameterDataRows,62043,extraction
+paperParameterMappings,8397,extraction
+papersWithStructuredParameters,5261,extraction
+parameterDefinitions,687,extraction
+categories,13,extraction
+subcategories,119,extraction
+papersWithReproducibilityScores,289,quality
+averageReproducibilityCompleteness,0.231,quality
+papersWithEconomicMetrics,243,quality
+papersWithComputationalTags,678,quality
+papersWithAISummaries,8395,quality
+MFC,12450,systemTypes
+MEC,3210,systemTypes
+MDC,980,systemTypes
+MES_general,5255,systemTypes
+pdfProcessing,"Nougat (Meta) for OCR, regex + LLM for structured extraction",methodology
+parameterMapping,687-definition ontology with 13 categories and 119 subcategories,methodology
+qualityScoring,Reproducibility checklist with 26 weighted criteria,methodology

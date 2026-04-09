@@ -1,0 +1,20 @@
+﻿category,weight,criterion,average_reporting_rate
+Electrode Specifications,high,Electrode material specified,0.68
+Electrode Specifications,high,Electrode surface area reported,0.68
+Electrode Specifications,high,Electrode spacing documented,0.68
+Electrode Specifications,high,Surface treatment described,0.68
+Operating Conditions,high,Temperature reported,0.54
+Operating Conditions,high,pH reported,0.54
+Operating Conditions,high,Substrate type and concentration,0.54
+Operating Conditions,high,Hydraulic retention time,0.54
+Electrical Measurements,high,External resistance specified,0.41
+Electrical Measurements,high,Measurement method documented,0.41
+Electrical Measurements,high,Polarization curve included,0.41
+Electrical Measurements,high,Internal resistance measured,0.41
+Biological Parameters,medium,Inoculum source described,0.32
+Biological Parameters,medium,Microbial community analyzed,0.32
+Biological Parameters,medium,Biofilm characterization,0.32
+Data Reporting,medium,Units consistently reported,0.28
+Data Reporting,medium,Normalization basis stated,0.28
+Data Reporting,medium,Error bars / replicates,0.28
+Data Reporting,medium,Raw data available,0.28

@@ -19,6 +19,8 @@
   ],
   "scripts": {
     "validate": "node scripts/validate.js",
+    "export:csv": "npx tsx scripts/generate-csv-exports.ts",
+    "export:all": "npx tsx scripts/export-all-data.ts",
     "site:dev": "cd site && npm run dev",
     "site:build": "cd site && npm run build",
     "site:preview": "cd site && npm run preview"

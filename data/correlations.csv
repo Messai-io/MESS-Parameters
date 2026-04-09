@@ -1,0 +1,15 @@
+﻿parameter,metric,pearson_r,sample_size,p_value,trend,strength,ci_95_lower,ci_95_upper,sample_size_adequate,p_value_note
+Reproducibility Score,Coulombic Efficiency (%),0.567,36,0.0000,positive,moderate,0.293,0.755,yes,Reported as 0 due to approximation; recompute from r and N
+ec:coulombicEfficiency,Coulombic Efficiency (%),0.557,55,0.0000,positive,moderate,0.342,0.716,yes,Reported as 0 due to approximation; recompute from r and N
+bio:substrateRemovalEfficiency,Coulombic Efficiency (%),0.274,15,0.4246,positive,weak,-0.277,0.689,no,
+ec:maxPowerDensity,Coulombic Efficiency (%),0.175,49,0.4133,positive,negligible,-0.112,0.435,yes,
+ec:maxCurrentDensity,Power Output (mW/m²),-0.136,63,0.5608,negative,negligible,-0.371,0.116,yes,
+reactor:volume,Power Output (mW/m²),-0.105,15,0.8432,negative,negligible,-0.586,0.430,no,
+ec:maxCurrentDensity,Coulombic Efficiency (%),-0.095,20,0.7363,none,negligible,-0.516,0.363,no,
+reactor:chambers,Power Output (mW/m²),-0.082,81,1.0000,none,negligible,-0.295,0.139,yes,Clamped to 1.0; true p-value may differ
+Reproducibility Score,Power Output (mW/m²),-0.065,284,0.5436,none,negligible,-0.180,0.052,yes,
+reactor:chambers,Coulombic Efficiency (%),0.057,67,1.0000,none,negligible,-0.186,0.293,yes,Clamped to 1.0; true p-value may differ
+ec:maxPowerDensity,Power Output (mW/m²),0.044,286,0.9814,none,negligible,-0.072,0.159,yes,
+Year,Power Output (mW/m²),0.032,289,1.0000,none,negligible,-0.084,0.147,yes,Clamped to 1.0; true p-value may differ
+Year,Coulombic Efficiency (%),-0.016,493,1.0000,none,negligible,-0.104,0.072,yes,Clamped to 1.0; true p-value may differ
+reactor:volume,Coulombic Efficiency (%),-0.009,41,1.0000,none,negligible,-0.316,0.299,yes,Clamped to 1.0; true p-value may differ
