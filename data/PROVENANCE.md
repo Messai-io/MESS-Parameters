@@ -22,21 +22,26 @@ This document describes the origin, scope, and limitations of the data in this r
 
 ---
 
-## What Requires MESSAI Database Access
+## Raw Data Now Included
 
-The following datasets reside in the MESSAI production PostgreSQL database and are **not included** in this repository:
+As of 2026-04-09, the following datasets have been exported from the MESSAI production database and are included in this repository:
 
-| Dataset | Records | Description |
-|---------|---------|-------------|
-| Paper metadata | 21,895 records | DOIs, titles, authors, publication dates, journal, system type |
-| Extracted parameter values | 62,043 rows | Individual parameter measurements extracted from papers |
-| Paper-parameter mappings | 8,397 records | Links between papers and the parameters they report |
-| Reproducibility scores (per-paper) | 289 records | Individual paper completeness scores (0-100%) |
-| AI-generated summaries | 8,395 records | LLM-generated paper summaries and key findings |
-| Economic metrics (per-paper) | 243 records | Extracted cost, ROI, and payback data |
-| Full-text extractions | 3,535 records | Structured text from OCR-processed PDFs |
+| Dataset | File | Rows | Size |
+|---------|------|------|------|
+| Extracted parameter data | `extracted-parameter-data.csv` | ~487K | 45 MB |
+| Paper metadata | `paper-metadata.csv` | ~23.4K | 4.4 MB |
+| Paper-parameter mappings | `paper-parameter-values.csv` | ~19.8K | 3.9 MB |
+| Parameter definitions (full) | `parameter-definitions-full.csv` | 687 | 82 KB |
 
-**Why these are not included:** The full dataset contains copyrighted abstracts and derived text from published papers. Distribution requires data sharing agreements to comply with publisher terms.
+## What Still Requires MESSAI Database Access
+
+| Dataset | Description |
+|---------|-------------|
+| AI-generated summaries | LLM-generated paper summaries and key findings (contains derived text) |
+| Full-text extractions | Structured text from OCR-processed PDFs (copyright-restricted) |
+| Paper abstracts | Raw abstract text (publisher copyright) |
+
+**Why these are not included:** These datasets contain copyrighted text from published papers. Distribution requires data sharing agreements with publishers.
 
 ---
 

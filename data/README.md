@@ -30,7 +30,100 @@ const allParams = parameters.categories.flatMap(c =>
 
 ## File Descriptions
 
-### CSV Exports (Researcher-Friendly)
+### Raw Research Data (from MESSAI Database)
+
+#### extracted-parameter-data.csv (45 MB, ~487K rows)
+
+The core dataset: every parameter value extracted from MES publications by the MESSAI pipeline. This is the raw data behind the ontology.
+
+| Column | Type | Description | Example |
+|--------|------|-------------|---------|
+| `id` | string | Unique extraction ID | `20b843a5-...` |
+| `paper_doi` | string | Paper DOI (if available) | `10.1016/j.biortech.2020.123456` |
+| `paper_year` | integer | Publication year | `2021` |
+| `system_type` | string | MES system type | `MFC` |
+| `parameter_name` | string | Extracted parameter name | `Power Density` |
+| `parameter_category` | string | Parameter category | `ELECTROCHEMICAL` |
+| `value` | string | Raw extracted value (as text) | `1.2 W/m2` |
+| `numeric_value` | float | Parsed numeric value (if applicable) | `1.2` |
+| `unit` | string | Unit of measurement | `W/m2` |
+| `uncertainty` | string | Reported uncertainty (if any) | `+/- 0.1` |
+| `measurement_method` | string | How the value was measured | `LSV` |
+| `confidence` | float | Extraction confidence score (0-1) | `0.85` |
+| `validation_status` | string | AUTO_VALIDATED, PENDING, VERIFIED, REJECTED | `AUTO_VALIDATED` |
+| `source_context` | string | Text context from the paper | `Table: Performance metrics...` |
+
+#### paper-parameter-values.csv (3.9 MB, ~19.8K rows)
+
+Validated parameter-paper mappings linking specific parameters from the ontology to the papers that report them.
+
+| Column | Type | Description | Example |
+|--------|------|-------------|---------|
+| `id` | string | Unique mapping ID | `cbddd923-...` |
+| `paper_doi` | string | Paper DOI | `10.1021/es0605016` |
+| `paper_title` | string | Paper title | `Microbial Fuel Cells: Methodology and Technology` |
+| `paper_year` | integer | Publication year | `2006` |
+| `system_type` | string | MES system type | `MFC` |
+| `parameter_name` | string | Parameter definition name | `Power Density` |
+| `parameter_category` | string | Parameter category | `ELECTROCHEMICAL` |
+| `parameter_subcategory` | string | Parameter subcategory | `Output Performance` |
+| `extracted_value` | string | Extracted value as text | `1200` |
+| `numeric_value` | float | Parsed numeric value | `1200` |
+| `parameter_unit` | string | Unit from parameter definition | `mW/m2` |
+| `confidence` | float | Extraction confidence (0-1) | `1.0` |
+| `extraction_method` | string | NLP, HYBRID, REGEX, TABLE, MANUAL | `NLP` |
+| `source_section` | string | Paper section where found | `Results` |
+| `is_verified` | boolean | Whether manually verified | `false` |
+
+#### paper-metadata.csv (4.4 MB, ~23.4K rows)
+
+Metadata for every paper in the MESSAI corpus, including performance metrics and quality scores.
+
+| Column | Type | Description | Example |
+|--------|------|-------------|---------|
+| `id` | string | Internal paper ID | `3c47dac5-...` |
+| `doi` | string | DOI | `10.1021/es0605016` |
+| `title` | string | Full title | `Microbial Fuel Cells...` |
+| `year` | integer | Publication year | `2006` |
+| `journal` | string | Journal name | `Environmental Science & Technology` |
+| `system_type` | string | MES system type | `MFC` |
+| `power_output` | float | Reported power output (mW/m^2) | `1200` |
+| `efficiency` | float | Reported efficiency (%) | `45.2` |
+| `anode_materials` | string | Anode material description | `Carbon cloth` |
+| `cathode_materials` | string | Cathode material description | `Pt-coated carbon paper` |
+| `reproducibility_score` | float | Weighted completeness (0-100%) | `42.5` |
+| `parameter_completeness` | float | Parameter reporting completeness | `0.35` |
+| `quality_score` | float | Overall quality score | `0.8` |
+| `ai_confidence` | float | AI processing confidence | `0.75` |
+| `has_abstract` | boolean | Abstract available | `true` |
+| `has_economic_data` | boolean | Economic metrics extracted | `false` |
+| `citation_count` | integer | Citation count (if available) | `1543` |
+| `parameter_count` | integer | Number of extracted parameters | `5` |
+
+#### parameter-definitions-full.csv (82 KB, 687 rows)
+
+All 687 parameter definitions from the MESSAI database, including the 20 parameters not in `index.json`, with usage counts showing how many papers reference each parameter.
+
+| Column | Type | Description | Example |
+|--------|------|-------------|---------|
+| `id` | string | Internal parameter ID | `cme1qna7n...` |
+| `category` | string | Parameter category | `ELECTROCHEMICAL` |
+| `subcategory` | string | Subcategory | `Output Performance` |
+| `name` | string | Parameter name | `Power Density` |
+| `unit` | string | Unit | `mW/m2` |
+| `data_type` | string | NUMBER, STRING, BOOLEAN | `NUMBER` |
+| `description` | string | Parameter description | `Power output per unit area` |
+| `min_value` | float | Minimum valid value | `0` |
+| `max_value` | float | Maximum valid value | `10000` |
+| `is_required` | boolean | Required for completeness scoring | `false` |
+| `is_active` | boolean | Active in current ontology | `true` |
+| `priority` | float | Parameter importance priority | `0` |
+| `version` | integer | Definition version | `1` |
+| `usage_count` | integer | Papers referencing this parameter | `284` |
+
+---
+
+### Ontology Exports (from index.json)
 
 #### parameters-full.csv
 

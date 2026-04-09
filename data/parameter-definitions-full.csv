@@ -1,0 +1,688 @@
+id,category,subcategory,name,unit,data_type,description,min_value,max_value,is_required,is_active,priority,version,usage_count
+cme1qna7n00d6lllg19l2x0er,ENVIRONMENTAL,Electromagnetic Fields,Electric Field Strength,V/m,NUMBER,Electric field strength,0,10000,f,t,,1,0
+cme1qnafm00d9lllgk1zp5hqq,ENVIRONMENTAL,Electromagnetic Fields,Electromagnetic Frequency,MHz,NUMBER,EM radiation frequency,0,3000,f,t,,1,6
+cme1qnanu00dclllg1h4feliq,ENVIRONMENTAL,Electromagnetic Fields,Electromagnetic Power,W/m²,NUMBER,EM power density,0,1000,f,t,,1,0
+cme1qnb4600dilllgc1wy4njw,ENVIRONMENTAL,Electromagnetic Fields,Magnetic Field Frequency,Hz,NUMBER,AC magnetic field frequency,0,1000,f,t,,1,32
+cme1qnbc300dllllgtyfebex0,ENVIRONMENTAL,Electromagnetic Fields,Magnetic Field Strength,mT,NUMBER,Magnetic field strength,0,1000,f,t,,1,9
+cme1qn038009llllgp0o3y298,ENVIRONMENTAL,Gas Composition,Carbon Dioxide Concentration,ppm,NUMBER,CO₂ concentration,0,50000,f,t,,1,0
+cme1qn18n00a0lllg8r59jzw5,ENVIRONMENTAL,Gas Composition,Nitrogen Concentration,%,NUMBER,N₂ concentration,0,100,f,t,,1,23
+cme1qn1op00a6lllg3fzqesnu,ENVIRONMENTAL,Gas Composition,Oxygen Concentration,%,NUMBER,O₂ concentration in gas phase,0,100,f,t,,1,7
+cme1qn3yn00b0lllgaj2hu6se,ENVIRONMENTAL,Gas Composition,Trace Gas H2S,ppm,NUMBER,Hydrogen sulfide concentration,0,1000,f,t,,1,0
+cme1qn46t00b3lllg081t8zb0,ENVIRONMENTAL,Gas Composition,Trace Gas NH3,ppm,NUMBER,Ammonia concentration,0,1000,f,t,,1,0
+cme1qn4f200b6lllg5dg2sr5t,ENVIRONMENTAL,Gas Composition,Trace Gas VOC,ppm,NUMBER,Volatile organic compounds,0,1000,f,t,,1,0
+cme1qn9ze00d3lllgfh8wzcnl,ENVIRONMENTAL,Gravity & Acceleration,Centrifugal Acceleration,g,NUMBER,Centrifugal force,0,1000,f,t,,1,411
+cme1qnaw400dflllgzls5z2ib,ENVIRONMENTAL,Gravity & Acceleration,Gravitational Acceleration,g,NUMBER,Gravitational acceleration,0,10,f,t,,1,0
+cme1qnbs900drlllg5e8pn047,ENVIRONMENTAL,Gravity & Acceleration,Microgravity Level,μg,NUMBER,Microgravity conditions,0,1000,f,t,,1,0
+cme1qmz6c0099lllg1fkrp44a,ENVIRONMENTAL,Humidity Parameters,Absolute Humidity,g/m³,NUMBER,Water vapor content in air,0,50,f,t,,1,0
+cme1qn0bg009olllgtr7qxhb2,ENVIRONMENTAL,Humidity Parameters,Dew Point,°C,NUMBER,Dew point temperature,-50,50,f,t,,1,5
+cme1qn31r00aolllgbjatwwnq,ENVIRONMENTAL,Humidity Parameters,Relative Humidity,%,NUMBER,Relative humidity of air,0,100,f,t,,1,29
+cme1qn4pz00b9lllgjlrvb1at,ENVIRONMENTAL,Humidity Parameters,Vapor Pressure,kPa,NUMBER,Water vapor partial pressure,0,10,f,t,,1,0
+cme1qn4y500bclllgaaqdix39,ENVIRONMENTAL,Humidity Parameters,Wet Bulb Temperature,°C,NUMBER,Wet bulb temperature,-20,50,f,t,,1,0
+cme1qn86b00cflllgh6cy6la3,ENVIRONMENTAL,Light Intensity,Light Intensity Lux,lux,NUMBER,Illuminance in lux,0,100000,f,t,,1,10
+cme1qn8ee00cilllg9ncxsrns,ENVIRONMENTAL,Light Intensity,Photon Flux Density,μmol/m²/s,NUMBER,Photon flux density,0,3000,f,t,,1,0
+cme1qn8mo00cllllghokcb8zs,ENVIRONMENTAL,Light Intensity,Photosynthetic Active Radiation,μmol/m²/s,NUMBER,PAR for photosynthetic organisms,0,2000,f,t,,1,0
+cme1qn92y00crlllgo9ikk2in,ENVIRONMENTAL,Light Intensity,Total Solar Irradiance,W/m²,NUMBER,Total solar radiation,0,1400,f,t,,1,12
+cme1qn65z00brlllgbmc0nzcl,ENVIRONMENTAL,Light Spectrum,Blue Light Ratio,%,NUMBER,Blue light (400-500 nm) percentage,0,100,f,t,,1,1719
+cme1qn72j00c3lllg8eg383p2,ENVIRONMENTAL,Light Spectrum,Far Red Light Ratio,%,NUMBER,Far-red light (700-800 nm) percentage,0,100,f,t,,1,0
+cme1qn7f900c6lllgisvyjuzy,ENVIRONMENTAL,Light Spectrum,Green Light Ratio,%,NUMBER,Green light (500-600 nm) percentage,0,100,f,t,,1,17
+cme1qn7o800c9lllg9haa50wd,ENVIRONMENTAL,Light Spectrum,Infrared Intensity,W/m²,NUMBER,IR radiation (>800 nm),0,1000,f,t,,1,0
+cme1qn8ur00colllggttqdgdl,ENVIRONMENTAL,Light Spectrum,Red Light Ratio,%,NUMBER,Red light (600-700 nm) percentage,0,100,f,t,,1,0
+cme1qn9b400culllgakiffpff,ENVIRONMENTAL,Light Spectrum,Uv A Intensity,W/m²,NUMBER,UV-A (315-400 nm) intensity,0,100,f,t,,1,0
+cme1qn9j400cxlllg50qx5e2y,ENVIRONMENTAL,Light Spectrum,Uv B Intensity,W/m²,NUMBER,UV-B (280-315 nm) intensity,0,10,f,t,,1,0
+cme1qn9r900d0lllgxabusrkv,ENVIRONMENTAL,Light Spectrum,Uv C Intensity,W/m²,NUMBER,UV-C (100-280 nm) intensity,0,5,f,t,,1,0
+cme1qn6ea00bulllgarhh7ol8,ENVIRONMENTAL,Photoperiod,Dark Duration,h,NUMBER,Hours of darkness per day,0,24,f,t,,1,238
+cme1qn6mi00bxlllgiy3c30ie,ENVIRONMENTAL,Photoperiod,Dawn Duration,min,NUMBER,Sunrise simulation duration,0,120,f,t,,1,272
+cme1qn6ui00c0lllg7duracv7,ENVIRONMENTAL,Photoperiod,Dusk Duration,min,NUMBER,Sunset simulation duration,0,120,f,t,,1,0
+cme1rbusq0000llb8okl75o73,ENVIRONMENTAL,Photoperiod,Light Cycle Type,,SELECT,Type of light cycle,,,f,t,,1,0
+cme1qn7ya00cclllgk4fzil3h,ENVIRONMENTAL,Photoperiod,Light Duration,h,NUMBER,Hours of light per day,0,24,f,t,,1,0
+cme1qmzec009clllgulvya7bc,ENVIRONMENTAL,Pressure Parameters,Absolute Pressure,kPa,NUMBER,Total absolute pressure,0,1100,f,t,,1,7
+cme1qmzux009illlgoki8d82l,ENVIRONMENTAL,Pressure Parameters,Atmospheric Pressure,kPa,NUMBER,Ambient atmospheric pressure,50,110,f,t,,1,0
+cme1qn0s2009ulllgf5i21e87,ENVIRONMENTAL,Pressure Parameters,Gauge Pressure,kPa,NUMBER,Pressure relative to atmospheric,-100,1000,f,t,,1,0
+cme1qn10b009xlllgcfmqt49b,ENVIRONMENTAL,Pressure Parameters,Hydrostatic Pressure,bar,NUMBER,Pressure from liquid column,0,1000,f,t,,1,35
+cme1qn1ww00a9lllgcwplbnge,ENVIRONMENTAL,Pressure Parameters,Partial Pressure CH4,kPa,NUMBER,Methane partial pressure,0,100,f,t,,1,0
+cme1qn25200aclllg0mjptr1z,ENVIRONMENTAL,Pressure Parameters,Partial Pressure CO2,kPa,NUMBER,Carbon dioxide partial pressure,0,100,f,t,,1,0
+cme1qn2db00aflllgr8xvowuo,ENVIRONMENTAL,Pressure Parameters,Partial Pressure H2,kPa,NUMBER,Hydrogen partial pressure,0,100,f,t,,1,0
+cme1qn2lm00ailllggm5shz3y,ENVIRONMENTAL,Pressure Parameters,Partial Pressure N2,kPa,NUMBER,Nitrogen partial pressure,0,100,f,t,,1,0
+cme1qn2ts00allllg2ls9hu85,ENVIRONMENTAL,Pressure Parameters,Partial Pressure O2,kPa,NUMBER,Oxygen partial pressure,0,100,f,t,,1,0
+cme1qnc8r00dxlllg9ittmbcd,ENVIRONMENTAL,Sound & Ultrasound,Sound Frequency,Hz,NUMBER,Audible sound frequency,20,20000,f,t,,1,27
+cme1qnch200e0lllgmby2xaei,ENVIRONMENTAL,Sound & Ultrasound,Sound Intensity,dB,NUMBER,Sound pressure level,0,140,f,t,,1,5
+cme1qncp200e3lllgwj8gz1zx,ENVIRONMENTAL,Sound & Ultrasound,Ultrasound Duration,min,NUMBER,Ultrasound exposure time,0,60,f,t,,1,0
+cme1qncxd00e6lllgc8qllfcc,ENVIRONMENTAL,Sound & Ultrasound,Ultrasound Frequency,kHz,NUMBER,Ultrasonic frequency,20,1000,f,t,,1,71
+cme1qnd5m00e9lllgu46yx5x4,ENVIRONMENTAL,Sound & Ultrasound,Ultrasound Power,W/cm²,NUMBER,Ultrasonic power density,0,10,f,t,,1,0
+cme1qmzmj009flllgm26od0t3,ENVIRONMENTAL,Temperature Parameters,Ambient Temperature,°C,NUMBER,Ambient air temperature,-50,60,f,t,,1,412
+cme1qn0jn009rlllge1t89qe2,ENVIRONMENTAL,Temperature Parameters,Diurnal Temperature Range,°C,NUMBER,Day-night temperature difference,0,30,f,t,,1,24
+cme1qn1gp00a3lllgv7v2cx6u,ENVIRONMENTAL,Temperature Parameters,Operating Temperature,°C,NUMBER,Cell/reactor operating temperature,4,80,f,t,,1,23
+cme1qn39x00arlllgtq14o2it,ENVIRONMENTAL,Temperature Parameters,Temperature Fluctuation,°C,NUMBER,Temporal temperature variation,0,20,f,t,,1,0
+cme1qn3ia00aulllgdrdsqe8z,ENVIRONMENTAL,Temperature Parameters,Temperature Gradient,°C/cm,NUMBER,Spatial temperature variation,0,10,f,t,,1,0
+cme1qn3qg00axlllg142bigek,ENVIRONMENTAL,Temperature Parameters,Temperature Ramp Rate,°C/min,NUMBER,Rate of temperature change,0.1,10,f,t,,1,1
+cme1qnbk600dolllgxhs4brfq,ENVIRONMENTAL,Vibration & Mechanical,Mechanical Shock,g,NUMBER,Mechanical shock magnitude,0,100,f,t,,1,0
+cme1qnc0o00dulllgu7gu7b1u,ENVIRONMENTAL,Vibration & Mechanical,Shear Stress,Pa,NUMBER,Fluid shear stress,0,1000,f,t,,1,18
+cme1qnddn00eclllg24wd2mc8,ENVIRONMENTAL,Vibration & Mechanical,Vibration Acceleration,g,NUMBER,Vibration acceleration,0,10,f,t,,1,0
+cme1qndlr00eflllgq7s0z184,ENVIRONMENTAL,Vibration & Mechanical,Vibration Amplitude,mm,NUMBER,Vibration amplitude,0,10,f,t,,1,449
+cme1qndun00eilllg06mvwg2e,ENVIRONMENTAL,Vibration & Mechanical,Vibration Frequency,Hz,NUMBER,Vibration frequency,0,1000,f,t,,1,0
+cme1qmyng0093lllgw8trwzdg,ENVIRONMENTAL,,Air Flow Rate,m³/h,NUMBER,Ventilation air flow rate around system,,,f,t,,1,20
+cme1qmyy90096lllggy6mfj74,ENVIRONMENTAL,,Ambient CO₂ Concentration,ppm,NUMBER,Carbon dioxide concentration in air,,,f,t,,1,64
+cme1qn5ew00billlg21vuvml2,ENVIRONMENTAL,,Light Intensity,μmol/m²·s,NUMBER,Illumination intensity for photosynthetic processes,,,f,t,,1,4
+cme1qn5n100bllllgt1l6onam,ENVIRONMENTAL,,Light Wavelength,nm,NUMBER,Dominant wavelength of illumination,,,f,t,,1,395
+cmduprix0000bg3ncjoo8oj0l,ENVIRONMENTAL,,pH,,NUMBER,pH level of the medium,,,f,t,,1,601
+cme1qn5v000bolllg878r0578,ENVIRONMENTAL,,Photoperiod,hours,NUMBER,Duration of light exposure per day,,,f,t,,1,62
+cme1qn56900bflllgie3n93il,ENVIRONMENTAL,,Thermal Conductivity,W/m·K,NUMBER,Heat transfer coefficient of reactor materials,,,f,t,,1,0
+cme1qmc84002clllghj678hir,BIOLOGICAL,Algae - Photosynthetic Organisms,Chlamydomonas Reinhardtii,,OBJECT,Model green alga,,,f,t,,1,0
+cme1qmcgh002flllg785znrij,BIOLOGICAL,Algae - Photosynthetic Organisms,Chlorella Vulgaris,,OBJECT,Green microalga,,,f,t,,1,0
+cme1qmd52002olllg1on4vxyo,BIOLOGICAL,Algae - Photosynthetic Organisms,Dunaliella Salina,,OBJECT,Halophilic alga,,,f,t,,1,0
+cme1qmgd3003ulllg6h0whiyk,BIOLOGICAL,Algae - Photosynthetic Organisms,Scenedesmus Obliquus,,OBJECT,Robust green alga,,,f,t,,1,0
+cme1qmgti0040lllgm8y3jcb7,BIOLOGICAL,Algae - Photosynthetic Organisms,Spirulina Platensis,,OBJECT,Cyanobacterium,,,f,t,,1,0
+cme1qmeaa0033lllgqiepkgfm,BIOLOGICAL,Archaea - Methanogens,Methanobacterium Formicicum,,OBJECT,Formate-utilizing methanogen,,,f,t,,1,0
+cme1qmeip0036lllgjqenu5sl,BIOLOGICAL,Archaea - Methanogens,Methanobrevibacter Smithii,,OBJECT,Hydrogenotrophic methanogen,,,f,t,,1,0
+cme1qmequ0039lllgprhf9ahv,BIOLOGICAL,Archaea - Methanogens,Methanococcus Maripaludis,,OBJECT,Marine methanogen,,,f,t,,1,0
+cme1qmez3003clllg7pkkj4xk,BIOLOGICAL,Archaea - Methanogens,Methanosarcina Acetivorans,,OBJECT,Acetoclastic methanogen,,,f,t,,1,0
+cme1qmcoq002illlg34dhgi14,BIOLOGICAL,Bacteria - Electroactive Species,Clostridium Butyricum,,OBJECT,Fermentative bacterium,,,f,t,,1,0
+cme1qmcwv002llllgdax30de6,BIOLOGICAL,Bacteria - Electroactive Species,Desulfovibrio Desulfuricans,,OBJECT,Sulfate-reducing bacterium,,,f,t,,1,0
+cme1qmdlc002ulllg7ivrbz1g,BIOLOGICAL,Bacteria - Electroactive Species,Enterobacter Aerogenes,,OBJECT,H₂ producer,,,f,t,,1,0
+cme1qmdto002xlllgfm5ke68d,BIOLOGICAL,Bacteria - Electroactive Species,Geobacter Sulfurreducens,,OBJECT,Metal-reducing bacterium,,,f,t,,1,0
+cme1qme1z0030lllg1w9r39hb,BIOLOGICAL,Bacteria - Electroactive Species,Klebsiella Pneumoniae,,OBJECT,Facultative anaerobe,,,f,t,,1,0
+cme1qmf7e003flllgtnjhqibg,BIOLOGICAL,Bacteria - Electroactive Species,Ochrobactrum Anthropi,,OBJECT,Heavy metal tolerant,,,f,t,,1,0
+cme1qmffp003illlgsmqf2new,BIOLOGICAL,Bacteria - Electroactive Species,Pseudomonas Aeruginosa,,OBJECT,Biofilm-forming bacterium,,,f,t,,1,0
+cme1qmfw6003olllgrwiwd6n3,BIOLOGICAL,Bacteria - Electroactive Species,Rhodoferax Ferrireducens,,OBJECT,Psychrotolerant electroactive,,,f,t,,1,0
+cme1qmgld003xlllgrittsn8a,BIOLOGICAL,Bacteria - Electroactive Species,Shewanella Oneidensis,,OBJECT,Versatile electroactive bacterium,,,f,t,,1,0
+cme1qm5oa0000lllgddq7ywa7,BIOLOGICAL,Biofilm Activity,Biofilm Conductivity,S/m,NUMBER,Electrical conductivity,0.001,1,f,t,,1,0
+cme1qm771000illlg9ell3yjp,BIOLOGICAL,Biofilm Activity,Electron Transfer Rate,A/m²,NUMBER,Direct electron transfer rate,0,50,f,t,,1,0
+cme1qm7f3000llllg76cg495k,BIOLOGICAL,Biofilm Activity,Mediator Concentration,mM,NUMBER,Electron mediator concentration,0,10,f,t,,1,50
+cme1qm7ne000olllgqi6hm67r,BIOLOGICAL,Biofilm Activity,Metabolic Activity,%,NUMBER,Active biomass fraction,0,100,f,t,,1,19
+cme1qm6250003lllghwd4zg9l,BIOLOGICAL,Biofilm Structure,Biofilm Coverage,%,NUMBER,Electrode surface coverage,0,100,f,t,,1,10
+cme1qm6aa0006lllgbsthrt1e,BIOLOGICAL,Biofilm Structure,Biofilm Density,g/L,NUMBER,Biofilm dry density,10,200,f,t,,1,84
+cme1qm6ii0009lllgbmknzphz,BIOLOGICAL,Biofilm Structure,Biofilm Porosity,%,NUMBER,Void fraction in biofilm,50,95,f,t,,1,18
+cme1qm6ql000clllggzad3gbn,BIOLOGICAL,Biofilm Structure,Biofilm Roughness,μm,NUMBER,Surface roughness,0,100,f,t,,1,0
+cme1qm6yu000flllg7qzb8wah,BIOLOGICAL,Biofilm Structure,Biofilm Thickness,μm,NUMBER,Average biofilm thickness,1,1000,f,t,,1,0
+cme1qmdd9002rlllgeyd9ln35,BIOLOGICAL,Engineered Strains,E Coli Engineered,,OBJECT,Engineered E. coli strains,,,f,t,,1,0
+cme1qmh1p0043lllgk80gzuuk,BIOLOGICAL,Engineered Strains,Synthetic Consortium,,OBJECT,Designed microbial community,,,f,t,,1,0
+cme1qm9pf001flllgydg10jn8,BIOLOGICAL,Growth Kinetics,Decay Rate,1/h,NUMBER,Endogenous decay,0.001,0.1,f,t,,1,0
+cme1qm9xt001illlg5o84anam,BIOLOGICAL,Growth Kinetics,Half Saturation Constant,g/L,NUMBER,Ks for substrate,0.001,10,f,t,,1,0
+cme1qmaeg001olllgloyxjj7y,BIOLOGICAL,Growth Kinetics,Maintenance Coefficient,1/h,NUMBER,Maintenance energy,0.001,0.1,f,t,,1,0
+cme1qmams001rlllgj6awzusr,BIOLOGICAL,Growth Kinetics,Maximum Growth Rate,1/h,NUMBER,μmax,0.01,2,f,t,,1,0
+cme1qmbbk0020lllg1ned7muu,BIOLOGICAL,Growth Kinetics,Yield Coefficient,g/g,NUMBER,Biomass yield,0.1,0.8,f,t,,1,13
+cme1qmfnw003llllg58ten47s,BIOLOGICAL,Photosynthetic Bacteria,Rhodobacter Sphaeroides,,OBJECT,Purple non-sulfur bacterium,,,f,t,,1,0
+cme1qmg4q003rlllgzno5tukf,BIOLOGICAL,Photosynthetic Bacteria,Rhodopseudomonas Palustris,,OBJECT,Metabolically versatile,,,f,t,,1,0
+cme1qma63001llllgmlw2hqos,BIOLOGICAL,Substrate Utilization,Inhibition Constant,g/L,NUMBER,Substrate inhibition,0.1,100,f,t,,1,0
+cme1qmav4001ulllgm5ikbc4t,BIOLOGICAL,Substrate Utilization,Substrate Affinity,L/g/h,NUMBER,Substrate affinity,0.1,100,f,t,,1,0
+cme1qmb3d001xlllg7hck38rn,BIOLOGICAL,Substrate Utilization,Substrate Uptake Rate,g/g/h,NUMBER,Specific uptake rate,0.01,10,f,t,,1,0
+cme1qm8rz0013lllgozfilcdr,BIOLOGICAL,,ATP Concentration,μM,NUMBER,Intracellular ATP concentration,,,f,t,,1,4
+cme1qm7vh000rlllgx73x0pyb,BIOLOGICAL,,Biofilm Adhesion Strength,N/m²,NUMBER,Force required to detach biofilm from electrode,,,f,t,,1,1
+cme1o1lre0006llkjnoyxmea3,BIOLOGICAL,,biofilmThickness,μm,NUMBER,Biofilm thickness,,,f,t,,1,0
+cme1qmhfs0046lllgaxitz0l1,BIOLOGICAL,,BOD Concentration,mg/L,NUMBER,Biological oxygen demand of substrate,,,f,t,,1,367
+cme1qmhny0049lllglt0kurie,BIOLOGICAL,,C/N Ratio,,NUMBER,Carbon to nitrogen ratio in substrate,,,f,t,,1,188
+cme1qm83m000ulllgjxwhvsl9,BIOLOGICAL,,Cell Doubling Time,hours,NUMBER,Time required for cell population to double,,,f,t,,1,26
+cme1qm9h4001clllgqfplnbox,BIOLOGICAL,,Cellular Respiration Rate,mg O₂/L·h,NUMBER,Rate of cellular respiration,,,f,t,,1,0
+cme1qmhwa004clllg90sbuhnr,BIOLOGICAL,,COD Concentration,mg/L,NUMBER,Chemical oxygen demand of the substrate,,,f,t,,1,326
+cme1qmbjn0023lllgl5lc5aaf,BIOLOGICAL,,Dominant Species Fraction,%,NUMBER,Fraction of dominant microbial species,,,f,t,,1,1
+cme1qm9050016lllgq6pu8ckx,BIOLOGICAL,,Enzyme Activity,U/mg protein,NUMBER,Activity of key metabolic enzymes,,,f,t,,1,14
+cme1qmbrx0026lllg1bltenb3,BIOLOGICAL,,Inoculum Concentration,cells/mL,NUMBER,Initial microbial concentration for startup,,,f,t,,1,17
+cmduprb1i0000g3nc5wkhzue1,BIOLOGICAL,,inoculumSource,,STRING,Source of inoculum for microbial culture,,,f,t,,1,14
+cme1qm98f0019lllgsqobxdvy,BIOLOGICAL,,Metabolic Rate,μmol O₂/mg·h,NUMBER,Overall metabolic activity of microorganisms,,,f,t,,1,0
+cme1qmc000029lllg2gwrlokk,BIOLOGICAL,,Microbial Diversity Index,,NUMBER,Shannon diversity index of microbial community,,,f,t,,1,0
+cme1qm8bp000xlllg63esyk8x,BIOLOGICAL,,Microbial Growth Rate,h⁻¹,NUMBER,Specific growth rate of microorganisms,,,f,t,,1,0
+cmduprc1m0001g3nc3eujv2ey,BIOLOGICAL,,substrate,,STRING,Substrate type used in the experiment,,,f,t,,1,2489
+cme1qmi4i004flllggdx2jgo9,BIOLOGICAL,,Substrate Concentration,mg/L,NUMBER,Concentration of organic substrate in the feed,,,f,t,,1,10
+cme1qmicj004illlgpn802jt6,BIOLOGICAL,,Substrate Loading Rate,kg COD/m³·d,NUMBER,Rate of substrate addition to reactor,,,f,t,,1,4
+cme1qm8jr0010lllgfb0pt3x1,BIOLOGICAL,,Substrate Utilization Rate,mg/L·h,NUMBER,Rate of substrate consumption by microbes,,,f,t,,1,0
+cme1o1lx10007llkjxm6hxfiv,BIOLOGICAL,,substrateRemovalRate,%,NUMBER,Substrate removal rate,,,f,t,,1,0
+cme1o1kd90001llkje141ozpk,ELECTROCHEMICAL,,avgPowerDensity,mW/m²,NUMBER,Average power density,,,f,t,,1,0
+cmduprdzu0003g3nck34rdsia,ELECTROCHEMICAL,,coulombicEfficiency,%,NUMBER,Coulombic efficiency percentage,,,f,t,,1,428
+cmduprfgi0005g3nc8wwt2qwy,ELECTROCHEMICAL,,currentDensity,mA/m²,NUMBER,Current density measurement,,,f,t,,1,0
+cme1o1kr50002llkj3ip6kw2d,ELECTROCHEMICAL,,energyRecoveryEfficiency,%,NUMBER,Energy recovery efficiency,,,f,t,,1,0
+cme1o1kwq0003llkjr80sqt0l,ELECTROCHEMICAL,,internalResistance,Ω,NUMBER,Internal resistance,,,f,t,,1,0
+cme1o1k4x0000llkj1tbrf1h8,ELECTROCHEMICAL,,maxPowerDensity,mW/m²,NUMBER,Maximum power density achieved,,,f,t,,1,261
+cmduprexx0004g3nc4pigxshz,ELECTROCHEMICAL,,powerDensity,mW/m²,NUMBER,Power density measurement,,,f,t,,1,6
+cmduprgmj0007g3nc5vedss0m,ELECTROCHEMICAL,,scanRate,mV/s,NUMBER,Scan rate for voltammetry,,,f,t,,1,116
+cmduprdi10002g3ncp3c2h79u,ELECTROCHEMICAL,,voltage,V,NUMBER,Voltage measurement or setting,,,f,t,,1,500
+cmduprg2m0006g3ncplqc5io7,ELECTROCHEMICAL,,voltammetryType,,STRING,Type of voltammetry used,,,f,t,,1,10
+cme1qngpp00filllgvf642apx,MATERIALS,Advanced Carbon Materials,Carbon Nanotubes,,OBJECT,CNT materials,,,f,t,,1,2
+cme1qnh6i00folllgfizs934a,MATERIALS,Advanced Carbon Materials,Graphene Oxide,,OBJECT,GO sheets,,,f,t,,1,4
+cme1qnijj00g6lllg7k4kt5b5,MATERIALS,Air Cathodes,Catalyst Layer,,OBJECT,Catalyst layer,,,f,t,,1,4
+cme1qnj8800gflllgfslbh5b3,MATERIALS,Air Cathodes,Gas Diffusion Layer,,OBJECT,GDL properties,,,f,t,,1,0
+cme1qnfy000f9lllgosljof4w,MATERIALS,Anode Modifications,Ammonia Treatment,,OBJECT,NH₃ plasma treatment,,,f,t,,1,0
+cme1qnhv800fxlllgn0qebhb8,MATERIALS,Anode Modifications,Polymer Coating,,OBJECT,Conductive polymer,,,f,t,,1,0
+cme1qnfpy00f6lllg3rwjyrp6,MATERIALS,Carbon-Based Anodes,Activated Carbon,,OBJECT,High surface area carbon,,,f,t,,1,4
+cme1qng8z00fclllgegkuqp6g,MATERIALS,Carbon-Based Anodes,Carbon Cloth,,OBJECT,Woven carbon fabric,,,f,t,,1,0
+cme1qnghb00fflllgg6zb4dnr,MATERIALS,Carbon-Based Anodes,Carbon Felt,,OBJECT,Non-woven carbon material,,,f,t,,1,6
+cme1qngy100fllllgc5bbnwz6,MATERIALS,Carbon-Based Anodes,Carbon Paper,,OBJECT,Thin carbon sheet,,,f,t,,1,0
+cme1qnhes00frlllg6tdcm05y,MATERIALS,Carbon-Based Anodes,Graphite Brush,,OBJECT,Graphite fiber brush,,,f,t,,1,0
+cme1qnpqd00irlllgqkxi9rv9,MATERIALS,Ion Exchange Membranes,Anion Exchange Membrane,,OBJECT,AEM properties,,,f,t,,1,0
+cme1qnpyr00iulllgu8dmp1j1,MATERIALS,Ion Exchange Membranes,Bipolar Membrane,,OBJECT,BPM properties,,,f,t,,1,0
+cme1qnqnq00j3lllg3r0yl4zc,MATERIALS,Ion Exchange Membranes,Proton Exchange Membrane,,OBJECT,PEM properties,,,f,t,,1,102
+cme1qnirs00g9lllgyxrs7o86,MATERIALS,Metal Oxide Cathodes,Cobalt Oxide,,OBJECT,Co-based catalyst,,,f,t,,1,0
+cme1qnjgf00gilllgqrmiett5,MATERIALS,Metal Oxide Cathodes,Iron Oxide,,OBJECT,Fe-based catalyst,,,f,t,,1,0
+cme1qnjoj00gllllgjk92vvod,MATERIALS,Metal Oxide Cathodes,Manganese Oxide,,OBJECT,MnO₂ catalyst,,,f,t,,1,0
+cme1qnizu00gclllg5x1nsazk,MATERIALS,Metal-Based Cathodes,Copper Cathode,,OBJECT,Cu-based cathode,,,f,t,,1,0
+cme1qnjws00golllgdgi831hg,MATERIALS,Metal-Based Cathodes,Nickel Foam,,OBJECT,Ni foam cathode,,,f,t,,1,0
+cme1qnk4w00grlllgpnc948sl,MATERIALS,Metal-Based Cathodes,Platinum Cathode,,OBJECT,Pt catalyst,,,f,t,,1,0
+cme1qnkd100gulllgndgdfzk9,MATERIALS,Metal-Based Cathodes,Stainless Steel,,OBJECT,SS cathode,,,f,t,,1,2
+cme1qnhn000fulllgrv3hgstz,MATERIALS,MXene Materials,Nb2ctx Mxene,,OBJECT,Niobium carbide MXene,,,f,t,,1,0
+cme1qni3a00g0lllg92lzyt1e,MATERIALS,MXene Materials,Ti3c2tx Mxene,,OBJECT,Titanium carbide MXene,,,f,t,,1,0
+cme1qnibd00g3lllgfqrfuao8,MATERIALS,MXene Materials,V2ctx Mxene,,OBJECT,Vanadium carbide MXene,,,f,t,,1,0
+cme1qnq6v00ixlllgytagk1so,MATERIALS,Porous Separators,Ceramic Separator,,OBJECT,Ceramic membrane,,,f,t,,1,0
+cme1qnqfc00j0lllg1n265yf0,MATERIALS,Porous Separators,Polymer Separator,,OBJECT,Polymer membrane,,,f,t,,1,0
+cmduprlju000gg3ncmll06ata,MATERIALS,,anodeArea,cm²,NUMBER,Anode surface area,,,f,t,,1,1
+cme1o1m2h0008llkjsf41g3k8,MATERIALS,,anodeMaterial,,STRING,Anode material,,,f,t,,1,0
+cme1qnnt600i3lllgei0g1wvl,MATERIALS,,Average Pore Size,μm,NUMBER,Mean pore diameter in electrode material,,,f,t,,1,21
+cme1qmjxx0050lllg1qiaj4j4,MATERIALS,,Buffer Concentration,mM,NUMBER,Concentration of pH buffer in solution,,,f,t,,1,3
+cme1qmlmc005llllgr0h9qicc,MATERIALS,,Calcium Ion Concentration,mM,NUMBER,Concentration of Ca²⁺ ions in solution,,,f,t,,1,0
+cme1qnnd000hxlllgm4z3n0ax,MATERIALS,,Catalyst Loading,mg/cm²,NUMBER,Amount of catalyst per unit electrode area,,,f,t,,1,1
+cme1o1m7u0009llkje3wlejmk,MATERIALS,,cathodeMaterial,,STRING,Cathode material,,,f,t,,1,0
+cme1qmx1q008illlgh8917pzi,MATERIALS,,Cell Voltage,V,NUMBER,Operating voltage of the fuel cell,,,f,t,,1,2
+cme1o1mzp000ellkjppaogtqo,MATERIALS,,chamberConfiguration,,STRING,Chamber configuration,,,f,t,,1,0
+cmduprm2r000hg3ncvmfbia3k,MATERIALS,,chamberType,,STRING,Type of reactor chamber,,,f,t,,1,0
+cme1qmvx00083lllg5hohdixi,MATERIALS,,Charge Transfer Resistance,Ω·cm²,NUMBER,Resistance to electron transfer at electrode interface,,,f,t,,1,66
+cme1qmikx004llllgrz4nwxvb,MATERIALS,,Chemical Stability,days,NUMBER,Stability of electrolyte composition over time,,,f,t,,1,171
+cme1qmluq005olllg2njmojcv,MATERIALS,,Chloride Ion Concentration,mM,NUMBER,Concentration of Cl- ions in solution,,,f,t,,1,0
+cme1qmivt004olllga8gsfs52,MATERIALS,,Corrosivity Index,,NUMBER,Corrosive potential of electrolyte,,,f,t,,1,0
+cme1qmx9u008llllgtkaxr9do,MATERIALS,,Current Density,mA/cm²,NUMBER,Current per unit electrode area,,,f,t,,1,22
+cme1qo25400n9lllg7du6gh1c,MATERIALS,,Current Monitoring Interval,seconds,NUMBER,Frequency of current measurements,,,f,t,,1,1
+cme1qo1or00n3lllgictxiwx4,MATERIALS,,Data Backup Frequency,hours,NUMBER,How often data is backed up,,,f,t,,1,0
+cme1qo1wx00n6lllg0wzgpflm,MATERIALS,,Data Storage Capacity,MB,NUMBER,Amount of data that can be stored,,,f,t,,1,1
+cmduprjha000cg3ncrfjudafb,MATERIALS,,design,,STRING,Reactor design type,,,f,t,,1,126
+cme1qmw580086lllggtptlxix,MATERIALS,,Diffusion Resistance,Ω·cm²,NUMBER,Mass transport resistance in biofilm,,,f,t,,1,0
+cme1qmkh00056lllgc5k1f5jy,MATERIALS,,Dissolved Oxygen,mg/L,NUMBER,Concentration of dissolved oxygen in electrolyte,,,f,t,,1,40
+cme1qmvox0080lllgunji0ynq,MATERIALS,,Double Layer Capacitance,μF/cm²,NUMBER,Electrochemical double layer capacitance,,,f,t,,1,0
+cme1qmjp8004xlllg4jwqyvh3,MATERIALS,,Dynamic Viscosity,cP,NUMBER,Viscosity of the electrolyte solution,,,f,t,,1,0
+cme1qnm7k00hilllg1btkqtca,MATERIALS,,Electrode Diameter,cm,NUMBER,Diameter for cylindrical electrodes,,,f,t,,1,553
+cme1qno1600i6lllgqq02ymr6,MATERIALS,,Electrode Porosity,%,NUMBER,Void fraction in electrode material,,,f,t,,1,16
+cme1qnmfv00hllllggoia9g96,MATERIALS,,Electrode Spacing,cm,NUMBER,Distance between anode and cathode,,,f,t,,1,1
+cme1qnmo100holllgyxbmhajz,MATERIALS,,Electrode Surface Area,cm²,NUMBER,Total surface area of the electrode,,,f,t,,1,9
+cme1qnocg00i9lllg4j2y9uba,MATERIALS,,Electrode Surface Roughness,,NUMBER,Surface roughness factor of electrode material,,,f,t,,1,0
+cme1qnmw300hrlllgdmsxr7md,MATERIALS,,Electrode Thickness,mm,NUMBER,Thickness of the electrode material,,,f,t,,1,66
+cme1o1mip000bllkjgan841hs,MATERIALS,,electrodeArea,cm²,NUMBER,Electrode surface area,,,f,t,,1,2
+cme1qmk650053lllgxpqoyc5b,MATERIALS,,Electrolyte Conductivity,mS/cm,NUMBER,Electrical conductivity of the electrolyte,,,f,t,,1,5
+cme1qmxhx008olllg4mkoqip6,MATERIALS,,Energy Density,Wh/L,NUMBER,Energy storage capacity per unit volume,,,f,t,,1,0
+cme1qmuk1007llllg7o8v6qu4,MATERIALS,,Exchange Current Density,A/cm²,NUMBER,Current density at equilibrium potential,,,f,t,,1,0
+cme1qmu3t007flllgso4ttqov,MATERIALS,,Faradaic Efficiency,%,NUMBER,Efficiency of electrochemical reactions,,,f,t,,1,165
+cme1qqtqc00anll61i3nfuwu4,MATERIALS,,Gas Detection Threshold,ppm,NUMBER,Concentration threshold for gas detection,,,f,t,,1,0
+cme1qqobg008qll61sgi5qdbo,MATERIALS,,Heat Transfer Coefficient,W/m²·K,NUMBER,Overall heat transfer coefficient,,,f,t,,1,0
+cme1qmwdg0089lllgsl5go5dv,MATERIALS,,Impedance Magnitude,Ω,NUMBER,Total impedance magnitude at 1 Hz,,,f,t,,1,0
+cme1qmwli008clllgcxk5qh5r,MATERIALS,,Internal Resistance,Ω,NUMBER,Internal resistance of the fuel cell,,,f,t,,1,13
+cme1qmkp80059lllgr1bifp04,MATERIALS,,Ionic Strength,M,NUMBER,Total ionic strength of electrolyte,,,f,t,,1,399
+cme1qmusc007olllgn6ws42f2,MATERIALS,,Limiting Current,mA/cm²,NUMBER,Maximum current limited by mass transport,,,f,t,,1,12
+cme1qmm2w005rlllg1tkmizkp,MATERIALS,,Magnesium Ion Concentration,mM,NUMBER,Concentration of Mg²⁺ ions in solution,,,f,t,,1,0
+cme1qnnl000i0lllg5ind2kze,MATERIALS,,Material Electrical Conductivity,S/m,NUMBER,Electrical conductivity of electrode material,,,f,t,,1,7
+cme1qqtys00aqll617ye4tj1x,MATERIALS,,Maximum Operating Pressure,bar,NUMBER,Safety limit for operating pressure,,,f,t,,1,0
+cme1qqu7800atll61jy65kmdh,MATERIALS,,Maximum Operating Temperature,°C,NUMBER,Safety limit for operating temperature,,,f,t,,1,8
+cme1qmxpz008rlllghojxdc51,MATERIALS,,Maximum Power Density,mW/cm²,NUMBER,Peak power density achievable by the system,,,f,t,,1,102
+cme1qnp1v00iilllglr85fyw2,MATERIALS,,Membrane Ion Selectivity,,NUMBER,Selectivity for target ions,,,f,t,,1,0
+cme1qnotg00iflllggejn2iaf,MATERIALS,,Membrane Pore Size,nm,NUMBER,Average pore diameter in membrane,,,f,t,,1,14
+cme1qnokv00iclllg9e4u7078,MATERIALS,,Membrane Proton Conductivity,S/cm,NUMBER,Proton conductivity of membrane material,,,f,t,,1,4
+cme1qnpa100illllgbpkc49nd,MATERIALS,,Membrane Thickness,μm,NUMBER,Thickness of the separator membrane,,,f,t,,1,5
+cme1qnpi400iolllg4zajw3y2,MATERIALS,,Membrane Water Uptake,%,NUMBER,Water absorption capacity of membrane,,,f,t,,1,19
+cme1o1md5000allkjtuyn01ok,MATERIALS,,membraneMaterial,,STRING,Membrane material,,,f,t,,1,0
+cmduprkkz000eg3nc1lfcsxu3,MATERIALS,,modifications,,STRING,Electrode modifications,,,f,t,,1,30
+cme1qmwts008flllgkfk9whr9,MATERIALS,,Ohmic Resistance,Ω·cm²,NUMBER,Resistance due to electrolyte and electrode materials,,,f,t,,1,0
+cme1qmv0h007rlllg27qeklpj,MATERIALS,,Overpotential,mV,NUMBER,Voltage loss due to kinetic limitations,,,f,t,,1,258
+cme1qmj53004rlllgfiyub7ok,MATERIALS,,Oxidation-Reduction Potential,mV vs SHE,NUMBER,ORP of the electrolyte solution,,,f,t,,1,17
+cme1qmxy4008ulllgw8lo84nc,MATERIALS,,Peak Current,mA,NUMBER,Maximum current output of the system,,,f,t,,1,115
+cme1qmkxi005clllgcfuibke5,MATERIALS,,pH Level,,NUMBER,pH of the electrolyte solution,,,f,t,,1,0
+cme1qo2db00nclllgwicvgy9p,MATERIALS,,pH Monitoring Interval,minutes,NUMBER,Frequency of pH measurements,,,f,t,,1,55
+cme1qmmaz005ulllgm2laytaf,MATERIALS,,Phosphate Ion Concentration,mM,NUMBER,Concentration of PO4³⁻ ions in solution,,,f,t,,1,0
+cme1qmmj2005xlllggmta4plz,MATERIALS,,Potassium Ion Concentration,mM,NUMBER,Concentration of K+ ions in solution,,,f,t,,1,0
+cme1qmy6n008xlllgn3t1ijkj,MATERIALS,,Power Density,mW/cm²,NUMBER,Power output per unit volume or area,,,f,t,,1,40
+cme1qmubt007illlghfla8hef,MATERIALS,,Power Efficiency,%,NUMBER,Electrical power output efficiency,,,f,t,,1,45
+cme1qqle5007qll61y7ihnamk,MATERIALS,,Reactor Height,cm,NUMBER,Internal height dimension of reactor,,,f,t,,1,48
+cme1qqlmh007tll61m2iajmci,MATERIALS,,Reactor Length,cm,NUMBER,Internal length dimension of reactor,,,f,t,,1,75
+cme1qqlup007wll61eqljrkqq,MATERIALS,,Reactor Volume,mL,NUMBER,Total internal volume of the reactor,,,f,t,,1,299
+cme1qqm35007zll61yqmsku7j,MATERIALS,,Reactor Width,cm,NUMBER,Internal width dimension of reactor,,,f,t,,1,17
+cme1o1mob000cllkjkakn4lhk,MATERIALS,,reactorType,,STRING,Reactor type/configuration,,,f,t,,1,0
+cme1o1mtz000dllkjsh590wxb,MATERIALS,,reactorVolume,mL,NUMBER,Reactor volume,,,f,t,,1,0
+cme1qmv8l007ulllgolciz7uk,MATERIALS,,Redox Potential,V vs SHE,NUMBER,Standard reduction potential of electrode reactions,,,f,t,,1,7
+cme1qml5v005flllgfxrgtgnf,MATERIALS,,Salt Concentration,g/L,NUMBER,Ionic strength of the electrolyte,,,f,t,,1,58
+cme1qmmr70060lllgvnbe3ss3,MATERIALS,,Sodium Ion Concentration,mM,NUMBER,Concentration of Na+ ions in solution,,,f,t,,1,4
+cmduprl2i000fg3nc8u1wf7cg,MATERIALS,,spacing,cm,NUMBER,Electrode spacing,,,f,t,,1,13
+cme1qnn4u00hulllgptnuigto,MATERIALS,,Specific Surface Area,m²/g,NUMBER,Surface area per unit mass of electrode,,,f,t,,1,21
+cme1qqgol0062ll61shx58x0m,MATERIALS,,Structural Integrity Factor,,NUMBER,Mechanical stability rating,,,f,t,,1,0
+cme1qmmzf0063lllgz1x3kpoa,MATERIALS,,Sulfate Ion Concentration,mM,NUMBER,Concentration of SO4²⁻ ions in solution,,,f,t,,1,0
+cme1qqmea0082ll61kyvjk8cq,MATERIALS,,Surface Area to Volume Ratio,cm⁻¹,NUMBER,Ratio of reactor surface area to volume,,,f,t,,1,0
+cme1qntpe00k6lllgz09msqyz,MATERIALS,,Surface Energy,mJ/m²,NUMBER,Surface energy of electrode material,,,f,t,,1,0
+cme1qmje4004ulllgfa9sc0vh,MATERIALS,,Surface Tension,mN/m,NUMBER,Surface tension of electrolyte solution,,,f,t,,1,17
+cme1qmvgs007xlllg5z8g6krw,MATERIALS,,Tafel Slope,mV/decade,NUMBER,Slope of Tafel plot for electrode kinetics,,,f,t,,1,0
+cme1qnwmk00l9lllgmsrwlm8m,MATERIALS,,Temperature Alarm Threshold,°C,NUMBER,Temperature that triggers alarm,,,f,t,,1,0
+cme1qo2lk00nflllg7uyw1qki,MATERIALS,,Temperature Monitoring Interval,seconds,NUMBER,Frequency of temperature measurements,,,f,t,,1,0
+cme1qqokt008tll61sv9edhmb,MATERIALS,,Thermal Insulation Factor,,NUMBER,Heat retention capability,,,f,t,,1,0
+cme1qqotc008wll61h90hghvq,MATERIALS,,Thermal Mass,J/K,NUMBER,Heat capacity of reactor system,,,f,t,,1,0
+cme1qmlea005illlgndcwfgy7,MATERIALS,,Total Dissolved Solids,mg/L,NUMBER,Total concentration of dissolved substances,,,f,t,,1,49
+cme1qqgx20065ll61lbs3fpxy,MATERIALS,,Total System Weight,kg,NUMBER,Total weight of reactor system,,,f,t,,1,70
+cme1qnwur00lclllg131y6rmv,MATERIALS,,Voltage Alarm Threshold,V,NUMBER,Voltage level that triggers alarm,,,f,t,,1,0
+cme1qo2to00nilllgakfyz5oe,MATERIALS,,Voltage Monitoring Interval,seconds,NUMBER,Frequency of voltage measurements,,,f,t,,1,0
+cme1qmyf00090lllghvuy704b,MATERIALS,,Voltage Stability,mV,NUMBER,Standard deviation of voltage over time,,,f,t,,1,125
+cmduprk18000dg3nc7daetmui,MATERIALS,,volume,mL,NUMBER,Reactor volume,,,f,t,,1,1141
+cme1qntfv00k3lllg53d3xyrw,MATERIALS,,Water Contact Angle,degrees,NUMBER,Hydrophobicity of electrode surface,,,f,t,,1,0
+cme1qolsa00uclllga0alp6op,OPERATIONAL,Batch Operation,Batch Duration,h,NUMBER,Batch cycle time,1,1000,f,t,,1,0
+cme1qom0h00uflllgsqr27m62,OPERATIONAL,Batch Operation,Batch Volume,L,NUMBER,Batch size,0.1,10000,f,t,,1,140
+cme1qomgq00ullllgn2ubmb5m,OPERATIONAL,Batch Operation,Drain Time,min,NUMBER,Time to empty reactor,1,60,f,t,,1,97
+cme1qomx800urlllg623yczd0,OPERATIONAL,Batch Operation,Fill Time,min,NUMBER,Time to fill reactor,1,60,f,t,,1,0
+cme1qonlz00v0lllgilwfcp4u,OPERATIONAL,Batch Operation,Idle Time,min,NUMBER,Time between batches,0,1440,f,t,,1,0
+cme1qom8f00uilllga82ulm8s,OPERATIONAL,Continuous Operation,Dilution Rate,1/h,NUMBER,D = 1/HRT,0.001,10,f,t,,1,0
+cme1qondh00uxlllg6kh5gl1a,OPERATIONAL,Continuous Operation,Hydraulic Retention Time,h,NUMBER,HRT,0.1,1000,f,t,,1,51
+cme1qoo2j00v6lllgpk07terd,OPERATIONAL,Continuous Operation,Recycle Ratio,,NUMBER,Recycle flow/feed flow,0,10,f,t,,1,0
+cme1qooav00v9lllg6i839t0q,OPERATIONAL,Continuous Operation,Startup Time,h,NUMBER,Time to reach steady state,1,1000,f,t,,1,78
+cme1qooj500vclllgfre3eux0,OPERATIONAL,Continuous Operation,Steady State Criteria,%,NUMBER,Variation for steady state,0.1,10,f,t,,1,3
+cme1qomox00uolllgamzcswh5,OPERATIONAL,Fed-Batch Operation,Feed Rate,L/h,NUMBER,Feeding rate,0.01,100,f,t,,1,4
+cme1rcou8003cllb8ov409n2e,OPERATIONAL,Fed-Batch Operation,Feed Trigger,,SELECT,Feed control trigger,,,f,t,,1,0
+cme1rcp3f003fllb803m8r30k,OPERATIONAL,Fed-Batch Operation,Feeding Strategy,,SELECT,Feed profile,,,f,t,,1,0
+cme1qon5f00uulllgd3iqiykb,OPERATIONAL,Fed-Batch Operation,Final Volume,L,NUMBER,Final volume,0.2,10000,f,t,,1,7
+cme1qonub00v3lllgndy4yjmz,OPERATIONAL,Fed-Batch Operation,Initial Volume,L,NUMBER,Starting volume,0.1,1000,f,t,,1,2
+cme1rcq8d003illb8t97mc2xy,OPERATIONAL,Flow Control,Flow Control Mode,,SELECT,Control strategy,,,f,t,,1,0
+cme1rcqnp003lllb8na26ekhf,OPERATIONAL,Flow Control,Flow Control Valve,,SELECT,Valve type,,,f,t,,1,0
+cme1rcqwj003ollb8n771ft5z,OPERATIONAL,Flow Control,Flow Measurement,,SELECT,Flow sensor type,,,f,t,,1,0
+cme1qoor400vflllg15dq6vpe,OPERATIONAL,Flow Control,Flow Setpoint,L/h,NUMBER,Target flow rate,0,1000,f,t,,1,0
+cme1qpwgd0003ll61w6pxid1i,OPERATIONAL,Flow Control,Pump Capacity,L/h,NUMBER,Maximum pump flow,0,10000,f,t,,1,0
+cme1rcrst003ullb8d6hzhjkk,OPERATIONAL,Flow Control,Pump Type,,SELECT,Pump type,,,f,t,,1,0
+cme1qooza00villlg4lo7fwl5,OPERATIONAL,Mixing Control,Mixer Power,W/m³,NUMBER,Mixing power input,0,1000,f,t,,1,0
+cme1qop7900vllllgahspxgen,OPERATIONAL,Mixing Control,Mixer Speed,rpm,NUMBER,Mixer rotation speed,0,2000,f,t,,1,53
+cme1qpw210000ll61lq45c90v,OPERATIONAL,Mixing Control,Mixing Time,s,NUMBER,Time for complete mixing,1,3600,f,t,,1,233
+cme1rcrh8003rllb8uckuq2ol,OPERATIONAL,Mixing Control,Mixing Type,,SELECT,Mixing method,,,f,t,,1,0
+cme1qpwot0006ll61rmswmp64,OPERATIONAL,Mixing Control,Reynolds Number Mixing,,NUMBER,Mixing Reynolds number,1,100000,f,t,,1,0
+cme1qpyl8000ull6176ccn5oq,OPERATIONAL,Shutdown Procedures,Flush Cycles,,NUMBER,System flush cycles,0,10,f,t,,1,0
+cme1rctr00046llb8pv5sy8f2,OPERATIONAL,Shutdown Procedures,Preservation Method,,SELECT,Biomass preservation,,,f,t,,1,0
+cme1rctzv0049llb8fy6jfwjz,OPERATIONAL,Shutdown Procedures,Shutdown Mode,,SELECT,Shutdown type,,,f,t,,1,0
+cme1qpzdm0013ll61vmetvg3u,OPERATIONAL,Shutdown Procedures,Storage Temperature,°C,NUMBER,Storage temperature,-80,40,f,t,,1,1
+cme1qpycl000rll61o6ixwq21,OPERATIONAL,Startup Procedures,Acclimation Time,d,NUMBER,Microbial adaptation time,1,60,f,t,,1,222
+cme1qpywl000xll61xbvsbubm,OPERATIONAL,Startup Procedures,Initial Substrate Conc,g/L,NUMBER,Starting substrate level,0.1,10,f,t,,1,15
+cme1rctfc0043llb85s1b96pc,OPERATIONAL,Startup Procedures,Inoculum Source,,SELECT,Inoculum type,,,f,t,,1,0
+cme1qpz510010ll61gc8tqphc,OPERATIONAL,Startup Procedures,Inoculum Volume,%,NUMBER,Inoculum percentage,1,50,f,t,,1,13
+cme1rcu8n004cllb835jzp2yr,OPERATIONAL,Startup Procedures,Startup Mode,,SELECT,Startup type,,,f,t,,1,0
+cme1qogto00silllgbm3495nj,OPERATIONAL,,Cleaning Frequency,days,NUMBER,How often system is cleaned,,,f,t,,1,0
+cme1qo94n00prlllg42elj2am,OPERATIONAL,,Data Sampling Frequency,Hz,NUMBER,Frequency of data collection,,,f,t,,1,7
+cmduprht80009g3ncxdbs0t0z,OPERATIONAL,,duration,h,NUMBER,Experiment duration,,,f,t,,1,22
+cme1qoh1n00sllllgnal8iuqm,OPERATIONAL,,Electrode Replacement Interval,months,NUMBER,Time between electrode replacements,,,f,t,,1,7
+cme1qo8nn00pllllgt475t26m,OPERATIONAL,,External Load,Ω,NUMBER,External resistance connected to the circuit,,,f,t,,1,0
+cme1qoa9x00q6lllgm2qj3hx8,OPERATIONAL,,Flow Rate,mL/min,NUMBER,Flow rate of the electrolyte,,,f,t,,1,201
+cme1qoal300q9lllgysyxzbm7,OPERATIONAL,,Flow Velocity,cm/s,NUMBER,Linear velocity of fluid through reactor,,,f,t,,1,0
+cme1o1lau0004llkj98k99q2u,OPERATIONAL,,flowRate,mL/min,NUMBER,Flow rate,,,f,t,,1,4
+cme1o1lgf0005llkjpsu06hep,OPERATIONAL,,hydraulicRetentionTime,h,NUMBER,Hydraulic retention time,,,f,t,,1,113
+cme1qo8wk00polllg265yy9yu,OPERATIONAL,,Load Switching Frequency,Hz,NUMBER,Frequency of load changes,,,f,t,,1,9
+cme1qoh9s00solllgmiv4zg6y,OPERATIONAL,,Membrane Replacement Interval,months,NUMBER,Time between membrane replacements,,,f,t,,1,0
+cme1qoatd00qclllg7p1oqh3j,OPERATIONAL,,Mixing Intensity,rpm,NUMBER,Degree of mixing in reactor,,,f,t,,1,0
+cmduprib5000ag3ncpc62x2d3,OPERATIONAL,,mode,,STRING,Operating mode of the system,,,f,t,,1,58
+cme1qob1k00qflllgx0sufat8,OPERATIONAL,,Recirculation Ratio,,NUMBER,Ratio of recirculated to fresh feed,,,f,t,,1,0
+cmduprh970008g3ncgt3vekhm,OPERATIONAL,,temperature,°C,NUMBER,Operating temperature,,,f,t,,1,1163
+conversion_efficiency,PERFORMANCE,Chemical Synthesis,Conversion Efficiency,%,NUMBER,Substrate to product,0,100,f,t,,1,10
+product_concentration,PERFORMANCE,Chemical Synthesis,Product Concentration,g/L,NUMBER,Product concentration,0,100,f,t,,1,0
+production_rate,PERFORMANCE,Chemical Synthesis,Production Rate,g/L/h,NUMBER,Volumetric productivity,0,10,f,t,,1,6
+current_density_max,PERFORMANCE,Current & Voltage Metrics,Current Density Max,A/m²,NUMBER,Maximum current density,0,100,f,t,,1,0
+fill_factor,PERFORMANCE,Current & Voltage Metrics,Fill Factor,,NUMBER,(P_max)/(I_sc × V_oc),0,1,f,t,,1,0
+open_circuit_voltage,PERFORMANCE,Current & Voltage Metrics,Open Circuit Voltage,V,NUMBER,OCV,0,2,f,t,,1,56
+operating_voltage,PERFORMANCE,Current & Voltage Metrics,Operating Voltage,V,NUMBER,Voltage under load,0,1.5,f,t,,1,0
+short_circuit_current,PERFORMANCE,Current & Voltage Metrics,Short Circuit Current,A,NUMBER,Short circuit current,0,100,f,t,,1,279
+coulombic_efficiency,PERFORMANCE,Efficiency Metrics,Coulombic Efficiency,%,NUMBER,Electron recovery efficiency,0,100,f,t,,1,107
+energy_efficiency,PERFORMANCE,Efficiency Metrics,Energy Efficiency,%,NUMBER,Overall energy efficiency,0,100,f,t,,1,59
+exergy_efficiency,PERFORMANCE,Efficiency Metrics,Exergy Efficiency,%,NUMBER,Thermodynamic efficiency,0,100,f,t,,1,0
+voltage_efficiency,PERFORMANCE,Efficiency Metrics,Voltage Efficiency,%,NUMBER,Voltage utilization,0,100,f,t,,1,25
+metal_deposition_rate,PERFORMANCE,Heavy Metal Removal,Metal Deposition Rate,mg/cm²/h,NUMBER,Metal deposition rate,0,10,f,t,,1,0
+metal_recovery_purity,PERFORMANCE,Heavy Metal Removal,Metal Recovery Purity,%,NUMBER,Recovered metal purity,0,100,f,t,,1,16
+metal_removal_efficiency,PERFORMANCE,Heavy Metal Removal,Metal Removal Efficiency,%,NUMBER,Metal removal percentage,0,100,f,t,,1,62
+h2_production_rate,PERFORMANCE,Hydrogen Production,H2 Production Rate,L/m²/d,NUMBER,H₂ production rate,0,100,f,t,,1,0
+h2_purity,PERFORMANCE,Hydrogen Production,H2 Purity,%,NUMBER,Hydrogen gas purity,0,100,f,t,,1,0
+h2_yield,PERFORMANCE,Hydrogen Production,H2 Yield,mol/mol,NUMBER,Moles H₂ per mole substrate,0,4,f,t,,1,8
+specific_h2_production,PERFORMANCE,Hydrogen Production,Specific H2 Production,m³/kg,NUMBER,H₂ per kg substrate,0,10,f,t,,1,0
+biogas_yield,PERFORMANCE,Methane Production,Biogas Yield,L/g,NUMBER,Biogas per g substrate,0,1,f,t,,1,5
+ch4_content_biogas,PERFORMANCE,Methane Production,Ch4 Content Biogas,%,NUMBER,CH₄ in biogas,0,100,f,t,,1,8
+ch4_production_rate,PERFORMANCE,Methane Production,Ch4 Production Rate,L/m²/d,NUMBER,CH₄ production rate,0,50,f,t,,1,0
+ammonia_recovery,PERFORMANCE,Nutrient Recovery,Ammonia Recovery,%,NUMBER,Ammonia recovery efficiency,0,100,f,t,,1,38
+nitrogen_removal,PERFORMANCE,Nutrient Recovery,Nitrogen Removal,%,NUMBER,Total nitrogen removal,0,100,f,t,,1,14
+nutrient_recovery_form,PERFORMANCE,Nutrient Recovery,Nutrient Recovery Form,,SELECT,Recovery product form,,,f,t,,1,0
+phosphorus_recovery,PERFORMANCE,Nutrient Recovery,Phosphorus Recovery,%,NUMBER,Phosphorus recovery,0,100,f,t,,1,2
+bod_removal,PERFORMANCE,Organic Removal,Bod Removal,%,NUMBER,Biological oxygen demand removal,0,100,f,t,,1,118
+cod_removal,PERFORMANCE,Organic Removal,Cod Removal,%,NUMBER,Chemical oxygen demand removal,0,100,f,t,,1,125
+specific_removal_rate,PERFORMANCE,Organic Removal,Specific Removal Rate,g/m²/d,NUMBER,Removal per electrode area,0,100,f,t,,1,16
+toc_removal,PERFORMANCE,Organic Removal,Toc Removal,%,NUMBER,Total organic carbon removal,0,100,f,t,,1,15
+maximum_power_point,PERFORMANCE,Power Output Metrics,Maximum Power Point,W,NUMBER,Peak power output,0,10000,f,t,,1,105
+power_density_areal,PERFORMANCE,Power Output Metrics,Power Density Areal,W/m²,NUMBER,Power per electrode area,0,100,f,t,,1,13
+power_density_normalized,PERFORMANCE,Power Output Metrics,Power Density Normalized,W/kg,NUMBER,Power per kg catalyst,0,500,f,t,,1,0
+power_density_volumetric,PERFORMANCE,Power Output Metrics,Power Density Volumetric,W/m³,NUMBER,Power per reactor volume,0,1000,f,t,,1,0
+power_stability,PERFORMANCE,Power Output Metrics,Power Stability,%/d,NUMBER,Power degradation rate,-10,0,f,t,,1,0
+cme1qq8r9003bll61f1gfdqsk,REACTOR_DESIGN,Cell Connections,Contact Resistance,mΩ,NUMBER,Electrical contact resistance,0.1,100,f,t,,1,0
+cme1rd2j9005illb8jl49bkng,REACTOR_DESIGN,Cell Connections,Current Collector Type,,SELECT,Current collector material,,,f,t,,1,0
+cme1rd382005ollb8pa0szv4s,REACTOR_DESIGN,Cell Connections,Terminal Type,,SELECT,Electrical terminal type,,,f,t,,1,0
+cme1qq9gk003kll61b4ao7gdx,REACTOR_DESIGN,Cell Connections,Wire Gauge,AWG,NUMBER,Connection wire gauge,10,30,f,t,,1,0
+cme1rd62k005xllb80d8nrhmh,REACTOR_DESIGN,Cell Flow Dynamics,Flow Mode Cell,,SELECT,Cell operation mode,,,f,t,,1,0
+cme1qqfi1005nll61n4wnivkz,REACTOR_DESIGN,Cell Flow Dynamics,Flow Rate Cell,mL/min,NUMBER,Flow rate through cell,0,100,f,t,,1,0
+cme1rd6lg0060llb8esjopvmh,REACTOR_DESIGN,Cell Flow Dynamics,Mixing Mode Cell,,SELECT,Mixing method in cell,,,f,t,,1,0
+cme1qqfqi005qll61vnyceihw,REACTOR_DESIGN,Cell Flow Dynamics,Residence Time Cell,h,NUMBER,Hydraulic residence time,0.1,100,f,t,,1,16
+cme1rd3s4005rllb8s9okr6kj,REACTOR_DESIGN,Cell Materials,Cell Material,,SELECT,Cell housing material,,,f,t,,1,0
+cme1qqbpb004bll61wz2dyf0b,REACTOR_DESIGN,Cell Materials,Chemical Resistance,,NUMBER,Chemical resistance rating,1,10,f,t,,1,0
+cme1qqcf1004kll61f08d1y8f,REACTOR_DESIGN,Cell Materials,Pressure Rating,bar,NUMBER,Maximum pressure rating,1,50,f,t,,1,0
+cme1qqddo004wll6124zfrtbt,REACTOR_DESIGN,Cell Materials,Temperature Limit,°C,NUMBER,Maximum temperature,20,200,f,t,,1,0
+cme1qqdmf004zll61l5e675tt,REACTOR_DESIGN,Cell Materials,Transparency,%,NUMBER,Material transparency,0,100,f,t,,1,0
+cme1qqduu0052ll613bmr6d7i,REACTOR_DESIGN,Cell Materials,Wall Thickness,mm,NUMBER,Cell wall thickness,2,20,f,t,,1,2
+cme1qq87r0035ll61r6fjnvat,REACTOR_DESIGN,Electrode Geometry in Cells,Anode Area Cell,cm²,NUMBER,Anode surface area in cell,0.1,100,f,t,,1,0
+cme1qq8it0038ll6138qb4ekq,REACTOR_DESIGN,Electrode Geometry in Cells,Cathode Area Cell,cm²,NUMBER,Cathode surface area in cell,0.1,100,f,t,,1,0
+cme1rd2tb005lllb87haokemw,REACTOR_DESIGN,Electrode Geometry in Cells,Electrode Arrangement Cell,,SELECT,Electrode configuration,,,f,t,,1,0
+cme1qq8zh003ell6101m8m87d,REACTOR_DESIGN,Electrode Geometry in Cells,Electrode Spacing Cell,mm,NUMBER,Anode-cathode separation,1,100,f,t,,1,1
+cme1qq97z003hll61mcrol3u5,REACTOR_DESIGN,Electrode Geometry in Cells,Electrode Thickness Cell,mm,NUMBER,Electrode material thickness,0.1,10,f,t,,1,0
+cme1qqn5v008bll61k3gwdm9k,REACTOR_DESIGN,Flow Distribution System,Distribution Channels,,NUMBER,Number of distribution channels,1,50,f,t,,1,0
+cme1qqne7008ell61z5fmn16w,REACTOR_DESIGN,Flow Distribution System,Flow Uniformity,%,NUMBER,Flow distribution uniformity,50,100,f,t,,1,0
+cme1qqnmd008hll61jazwp8e8,REACTOR_DESIGN,Flow Distribution System,Inlet Diameter,mm,NUMBER,Main inlet pipe diameter,5,100,f,t,,1,0
+cme1rdawg006illb8d71zk2yo,REACTOR_DESIGN,Flow Distribution System,Manifold Type,,SELECT,Flow manifold design,,,f,t,,1,0
+cme1qqnul008kll61d9rcjh2g,REACTOR_DESIGN,Flow Distribution System,Pressure Drop Manifold,kPa,NUMBER,Manifold pressure drop,0,100,f,t,,1,6
+cme1qqebo0058ll61gxdl193i,REACTOR_DESIGN,Individual Cell Electrical Output,Current Density Cell,A/m²,NUMBER,Current per electrode area,0,100,f,t,,1,0
+cme1qqek9005bll61pxfms4hs,REACTOR_DESIGN,Individual Cell Electrical Output,Internal Resistance Cell,Ω,NUMBER,Cell internal resistance,0.1,1000,f,t,,1,27
+cme1qqesn005ell61rozc2hhj,REACTOR_DESIGN,Individual Cell Electrical Output,Open Circuit Voltage Cell,V,NUMBER,Cell OCV,0,2,f,t,,1,0
+cme1qqf0z005hll612q0t2eyv,REACTOR_DESIGN,Individual Cell Electrical Output,Operating Voltage Cell,V,NUMBER,Cell voltage under load,0,1.5,f,t,,1,0
+cme1qqf9g005kll61hkpnwxde,REACTOR_DESIGN,Individual Cell Electrical Output,Power Density Cell,W/m³,NUMBER,Power per cell volume,0,1000,f,t,,1,0
+cme1qqaz30042ll61k1p96sca,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Chamber Volume,μL,NUMBER,Working chamber volume,100,1000,f,t,,1,16
+cme1qqb7o0045ll614wxfnvc6,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Channel Depth,μm,NUMBER,Microfluidic channel depth,20,500,f,t,,1,0
+cme1qqbg60048ll61an57fhe7,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Channel Width,μm,NUMBER,Microfluidic channel width,50,1000,f,t,,1,7
+cme1qqbxx004ell61w7e099kt,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Electrode Spacing Micro,μm,NUMBER,Micro-electrode separation,100,5000,f,t,,1,0
+cme1qqcnj004nll61dchsmqk9,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Slide Length,mm,NUMBER,Microscope slide length,50,100,f,t,,1,0
+cme1qqcw4004qll61a2vo75nz,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Slide Thickness,mm,NUMBER,Slide material thickness,1,5,f,t,,1,0
+cme1qqd5g004tll61fgqx7fnc,REACTOR_DESIGN,Micro-Scale Test Cells (75mm × 25mm slides),Slide Width,mm,NUMBER,Microscope slide width,20,30,f,t,,1,0
+cme1rd8h30066llb8w4s016k7,REACTOR_DESIGN,pH Control,Acid Type,,SELECT,Acid for pH control,,,f,t,,1,0
+cme1rd8px0069llb8w2fljysa,REACTOR_DESIGN,pH Control,Base Type,,SELECT,Base for pH control,,,f,t,,1,0
+cme1qqjig0072ll61zgkasnbr,REACTOR_DESIGN,pH Control,Buffer Capacity,mmol/L/pH,NUMBER,Buffer capacity,0,100,f,t,,1,0
+cme1rd97i006cllb85y5ycxpe,REACTOR_DESIGN,pH Control,Ph Control Type,,SELECT,pH control method,,,f,t,,1,0
+cme1qqk7s007bll61voreqmh9,REACTOR_DESIGN,pH Control,Ph Deadband,,NUMBER,pH control deadband,0.05,1,f,t,,1,0
+cme1qqkgb007ell61p60eaeyn,REACTOR_DESIGN,pH Control,Ph Setpoint,,NUMBER,Target pH,2,12,f,t,,1,0
+cme1qqmpb0085ll619zuijix8,REACTOR_DESIGN,Reactor Vessel,Aspect Ratio,,NUMBER,Height to diameter ratio,0.5,10,f,t,,1,0
+cme1qqmxi0088ll6112b41bmf,REACTOR_DESIGN,Reactor Vessel,Baffles Present,,BOOLEAN,Internal baffles present,,,f,t,,1,0
+cme1rdb81006lllb87cnzeu4b,REACTOR_DESIGN,Reactor Vessel,Reactor Material,,SELECT,Reactor construction material,,,f,t,,1,0
+cme1rdbgs006ollb8yao1bxbl,REACTOR_DESIGN,Reactor Vessel,Reactor Shape,,SELECT,Reactor geometry,,,f,t,,1,0
+cme1qqo2y008nll61l3tqk9z3,REACTOR_DESIGN,Reactor Vessel,Reactor Volume Total,L,NUMBER,Total reactor volume,1,10000,f,t,,1,44
+cme1qqfyy005tll61pke467uz,REACTOR_DESIGN,Scale-Up Factors,Dead Zone Fraction,%,NUMBER,Fraction of dead volume,0,50,f,t,,1,0
+cme1qqg7h005wll61tukvegfc,REACTOR_DESIGN,Scale-Up Factors,Reynolds Number,,NUMBER,Flow regime indicator,1,100000,f,t,,1,1
+cme1qqgg0005zll611oc5utp3,REACTOR_DESIGN,Scale-Up Factors,Scale Factor,,NUMBER,Scale-up from lab,1,10000,f,t,,1,0
+cme1qq9pt003nll61t2jrp31j,REACTOR_DESIGN,Single Unit Cells,Cell Diameter,mm,NUMBER,Cell diameter (cylindrical),10,500,f,t,,1,106
+cme1qq9y4003qll6141c35c6r,REACTOR_DESIGN,Single Unit Cells,Cell Height,mm,NUMBER,Cell height,10,1000,f,t,,1,15
+cme1qqa6h003tll610bqei6a6,REACTOR_DESIGN,Single Unit Cells,Cell Length,mm,NUMBER,Cell length (rectangular),10,1000,f,t,,1,40
+cme1rd40r005ullb8sk6hbbrx,REACTOR_DESIGN,Single Unit Cells,Cell Type,,SELECT,Cell geometry type,,,f,t,,1,1
+cme1qqafh003wll61f8z39bk1,REACTOR_DESIGN,Single Unit Cells,Cell Volume,mL,NUMBER,Total cell volume,10,5000,f,t,,1,3
+cme1qqaqh003zll61nb5abkp6,REACTOR_DESIGN,Single Unit Cells,Cell Width,mm,NUMBER,Cell width (rectangular),10,500,f,t,,1,8
+cme1qqc6m004hll61avcsfwuv,REACTOR_DESIGN,Single Unit Cells,Headspace Volume,mL,NUMBER,Gas headspace volume,0,500,f,t,,1,15
+cme1qqe330055ll613feidgfn,REACTOR_DESIGN,Single Unit Cells,Working Volume,mL,NUMBER,Active/working volume,5,4500,f,t,,1,89
+cme1qqhe4006bll61i9pbx8ti,REACTOR_DESIGN,Stack Electrical Configuration,Current Sharing,%,NUMBER,Current distribution uniformity,80,100,f,t,,1,28
+cme1qqi43006kll61xe7ga2ao,REACTOR_DESIGN,Stack Electrical Configuration,Stack Current,A,NUMBER,Total stack current,0,1000,f,t,,1,36
+cme1qqitm006tll61x4ihb5wu,REACTOR_DESIGN,Stack Electrical Configuration,Stack Power,W,NUMBER,Total stack power output,0,10000,f,t,,1,21
+cme1qqj1u006wll61t7y72gju,REACTOR_DESIGN,Stack Electrical Configuration,Stack Voltage,V,NUMBER,Total stack voltage,0,100,f,t,,1,0
+cme1qqja7006zll618jdke7hj,REACTOR_DESIGN,Stack Electrical Configuration,Voltage Balancing,,BOOLEAN,Active voltage balancing,,,f,t,,1,0
+cme1qqh5s0068ll610cqvis07,REACTOR_DESIGN,Stack Geometry,Cells Per Stack,,NUMBER,Number of cells in stack,2,100,f,t,,1,0
+cme1qqhmq006ell61b1y3eu88,REACTOR_DESIGN,Stack Geometry,Inter Cell Spacing,mm,NUMBER,Space between cells,1,50,f,t,,1,0
+cme1rd7nf0063llb87hsce4y2,REACTOR_DESIGN,Stack Geometry,Stack Arrangement,,SELECT,Electrical connection,,,f,t,,1,0
+cme1qqhv4006hll616ds55ws2,REACTOR_DESIGN,Stack Geometry,Stack Compression,N/cm²,NUMBER,Stack compression force,0,100,f,t,,1,0
+cme1qqicr006nll61d8g1apv4,REACTOR_DESIGN,Stack Geometry,Stack Footprint,cm²,NUMBER,Stack base area,100,10000,f,t,,1,0
+cme1qqil4006qll6180ac5gln,REACTOR_DESIGN,Stack Geometry,Stack Height,mm,NUMBER,Total stack height,50,2000,f,t,,1,0
+cme1qqjqw0075ll61zpt72j5c,REACTOR_DESIGN,Temperature Control,Cooling Capacity,kW,NUMBER,Cooling system capacity,0,100,f,t,,1,47
+cme1qqjzb0078ll61bpk8n2gh,REACTOR_DESIGN,Temperature Control,Heating Capacity,kW,NUMBER,Heating system capacity,0,100,f,t,,1,0
+cme1rd9lv006fllb8zxq7zkgi,REACTOR_DESIGN,Temperature Control,Temperature Control Type,,SELECT,Temperature control method,,,f,t,,1,0
+cme1qqkoz007hll61g40wqrse,REACTOR_DESIGN,Temperature Control,Temperature Deadband,°C,NUMBER,Control deadband,0.1,5,f,t,,1,0
+cme1qqkxj007kll61rf4lsrtg,REACTOR_DESIGN,Temperature Control,Temperature Ramp Rate Max,°C/min,NUMBER,Maximum temperature change rate,0.1,10,f,t,,1,0
+cme1qql5w007nll612knhp82w,REACTOR_DESIGN,Temperature Control,Temperature Setpoint,°C,NUMBER,Target temperature,4,80,f,t,,1,0
+cme1qnyvl00m3lllguu7ykna6,MONITORING_CONTROL,Advanced Control,Control Horizon,steps,NUMBER,MPC control horizon,1,50,f,t,,1,0
+cme1rc8zp0016llb83hxeegmi,MONITORING_CONTROL,Advanced Control,Control Strategy,,SELECT,Control algorithm,,,f,t,,1,0
+cme1qnzsi00mflllg55tpqpd4,MONITORING_CONTROL,Advanced Control,Model Update Frequency,h,NUMBER,Model adaptation rate,0.1,168,f,t,,1,0
+cme1qo01700milllgoonty2nh,MONITORING_CONTROL,Advanced Control,Prediction Horizon,steps,NUMBER,MPC prediction horizon,1,100,f,t,,1,0
+cme1qo31u00nllllg3qd2zgqk,MONITORING_CONTROL,Chemical Sensors,Conductivity Range,mS/cm,ARRAY,Conductivity range,,,f,t,,1,0
+cme1qo39u00nolllgw4xhjmqe,MONITORING_CONTROL,Chemical Sensors,Do Response Time,s,NUMBER,DO response time,1,60,f,t,,1,0
+cme1rccnf001ullb8giruuo2q,MONITORING_CONTROL,Chemical Sensors,Do Sensor Type,,SELECT,DO sensor type,,,f,t,,1,0
+cme1qo48o00o0lllgw2skanvt,MONITORING_CONTROL,Chemical Sensors,Orp Range,mV,ARRAY,ORP measurement range,,,f,t,,1,0
+cme1qo4gm00o3lllg7l0vljuy,MONITORING_CONTROL,Chemical Sensors,Ph Accuracy,pH,NUMBER,pH accuracy,0.01,0.1,f,t,,1,0
+cme1rcdu90023llb8plli4gmh,MONITORING_CONTROL,Chemical Sensors,Ph Sensor Type,,SELECT,pH sensor type,,,f,t,,1,0
+cme1qo0j100molllgjs815blz,MONITORING_CONTROL,DAQ Hardware,Channel Count,,NUMBER,Number of input channels,1,128,f,t,,1,0
+cme1rc9rx0019llb84l80gm2j,MONITORING_CONTROL,DAQ Hardware,Communication Protocol,,SELECT,Communication type,,,f,t,,1,0
+cme1rca1r001cllb8l0gl034s,MONITORING_CONTROL,DAQ Hardware,Data Logger Type,,SELECT,DAQ system type,,,f,t,,1,0
+cme1qo18400mxlllgjyi6u9tu,MONITORING_CONTROL,DAQ Hardware,Resolution,bit,NUMBER,ADC resolution,8,24,f,t,,1,8
+cme1qo1gb00n0lllgc6apzo1g,MONITORING_CONTROL,DAQ Hardware,Sampling Rate,Hz,NUMBER,Data sampling frequency,0.1,10000,f,t,,1,0
+cme1qo0ra00mrlllg4zejhkts,MONITORING_CONTROL,Data Processing,Data Validation,,BOOLEAN,Automatic validation,,,f,t,,1,0
+cme1rcadd001fllb8lxayjpwn,MONITORING_CONTROL,Data Processing,Filter Type,,SELECT,Signal filtering,,,f,t,,1,0
+cme1qo0zm00mulllgxfctqfv5,MONITORING_CONTROL,Data Processing,Filter Window,samples,NUMBER,Filter window size,1,100,f,t,,1,51
+cme1rcav5001illb840ior9r5,MONITORING_CONTROL,Data Processing,Missing Data Handling,,SELECT,Missing data method,,,f,t,,1,0
+cme1rcb3w001lllb8ldckuwxl,MONITORING_CONTROL,Data Processing,Outlier Detection,,SELECT,Outlier method,,,f,t,,1,0
+cme1rcbzw001ollb8bqjj8n01,MONITORING_CONTROL,Gas Sensors,Ch4 Sensor Type,,SELECT,CH₄ sensor,,,f,t,,1,0
+cme1rcc8s001rllb8165z8mrk,MONITORING_CONTROL,Gas Sensors,Co2 Sensor Type,,SELECT,CO₂ sensor,,,f,t,,1,0
+cme1qo3sj00nulllg6f2fsqrq,MONITORING_CONTROL,Gas Sensors,Gas Sensor Response,s,NUMBER,Gas sensor response time,1,60,f,t,,1,0
+cme1qo40m00nxlllgv14tzdn9,MONITORING_CONTROL,Gas Sensors,H2 Detection Limit,ppm,NUMBER,H₂ detection limit,1,1000,f,t,,1,0
+cme1rcd5c001xllb887etiqcn,MONITORING_CONTROL,Gas Sensors,H2 Sensor Type,,SELECT,H₂ sensor,,,f,t,,1,0
+cme1qnvq600kxlllgfgx70erb,MONITORING_CONTROL,Machine Learning Parameters,Feature Count,,NUMBER,Number of input features,1,100,f,t,,1,0
+cme1rc5w3000lllb8p9flsh84,MONITORING_CONTROL,Machine Learning Parameters,Ml Model Type,,SELECT,ML algorithm type,,,f,t,,1,0
+cme1rc68g000ollb821j0p1qo,MONITORING_CONTROL,Machine Learning Parameters,Model Update Trigger,,SELECT,Update trigger,,,f,t,,1,0
+cme1qnw6i00l3lllgh8223lv6,MONITORING_CONTROL,Machine Learning Parameters,Prediction Confidence,%,NUMBER,Confidence threshold,0,100,f,t,,1,0
+cme1qnwek00l6lllgfycpqloi,MONITORING_CONTROL,Machine Learning Parameters,Training Data Size,samples,NUMBER,Training dataset size,100,1000000,f,t,,1,0
+cme1qnvi200kulllg0fcbm3ea,MONITORING_CONTROL,Optimization Algorithms,Convergence Criteria,%,NUMBER,Convergence tolerance,0.01,10,f,t,,1,7
+cme1rc6i7000rllb8f62kls8d,MONITORING_CONTROL,Optimization Algorithms,Optimization Algorithm,,SELECT,Optimization method,,,f,t,,1,0
+cme1rc6u0000ullb8g7a84sz5,MONITORING_CONTROL,Optimization Algorithms,Optimization Objective,,SELECT,Optimization goal,,,f,t,,1,0
+cme1qo3hu00nrlllgg4djk1m2,MONITORING_CONTROL,Physical Sensors,Flow Sensor Accuracy,%,NUMBER,Flow measurement accuracy,0.5,5,f,t,,1,0
+cme1rcde20020llb8pd7xnv5r,MONITORING_CONTROL,Physical Sensors,Level Sensor Type,,SELECT,Level sensor,,,f,t,,1,0
+cme1qo4om00o6lllggbyr7eji,MONITORING_CONTROL,Physical Sensors,Pressure Accuracy,%,NUMBER,Pressure accuracy,0.1,5,f,t,,1,30
+cme1rce850026llb8zmemnbld,MONITORING_CONTROL,Physical Sensors,Pressure Sensor Type,,SELECT,Pressure sensor,,,f,t,,1,0
+cme1qo4ww00o9lllgq3frsnz1,MONITORING_CONTROL,Physical Sensors,Temperature Accuracy,°C,NUMBER,Temperature accuracy,0.01,1,f,t,,1,0
+cme1rceuy0029llb8pjg6zhj6,MONITORING_CONTROL,Physical Sensors,Temperature Sensor Type,,SELECT,Temperature sensor,,,f,t,,1,0
+cme1qnyn700m0lllg0egz1id2,MONITORING_CONTROL,PID Control,Anti Windup,,BOOLEAN,Integral anti-windup,,,f,t,,1,0
+cme1qnz3o00m6lllghg372fjg,MONITORING_CONTROL,PID Control,Control Interval,s,NUMBER,Control update period,0.1,100,f,t,,1,0
+cme1qnzbs00m9lllgmrg59spe,MONITORING_CONTROL,PID Control,Derivative Time,s,NUMBER,Td value,0,100,f,t,,1,0
+cme1qnzke00mclllgx6zeljmg,MONITORING_CONTROL,PID Control,Integral Time,s,NUMBER,Ti value,0,1000,f,t,,1,0
+cme1qo09t00mllllgb6l9tg9v,MONITORING_CONTROL,PID Control,Proportional Gain,,NUMBER,Kp value,0,100,f,t,,1,0
+cme1qnxaw00lilllgyd4x9f9h,MONITORING_CONTROL,Remote Monitoring,Bandwidth Requirement,kbps,NUMBER,Network bandwidth needed,10,1000,f,t,,1,0
+cme1rc7u50010llb8jj7ygv65,MONITORING_CONTROL,Remote Monitoring,Cybersecurity Level,,SELECT,Security measures,,,f,t,,1,0
+cme1qny7300lulllgfnzar6w4,MONITORING_CONTROL,Remote Monitoring,Remote Access,,BOOLEAN,Remote access enabled,,,f,t,,1,0
+cme1rc8fc0013llb8s6t4mvbw,MONITORING_CONTROL,Remote Monitoring,Telemetry Protocol,,SELECT,Data transmission protocol,,,f,t,,1,0
+cme1qnyez00lxlllgxkbt6wti,MONITORING_CONTROL,Remote Monitoring,Update Frequency,min,NUMBER,Remote update interval,1,1440,f,t,,1,7
+cme1qnx2t00lflllgjj32y5u1,MONITORING_CONTROL,System Architecture,Alarm Priority Levels,,NUMBER,Alarm categories,1,5,f,t,,1,0
+cme1rc7hw000xllb8abrgpnfg,MONITORING_CONTROL,System Architecture,Automation Level,,SELECT,Automation degree,,,f,t,,1,0
+cme1qnxj000lllllg8guk1na6,MONITORING_CONTROL,System Architecture,Historian Retention,days,NUMBER,Data retention period,30,3650,f,t,,1,31
+cme1qnxqy00lolllgjnvrdqyk,MONITORING_CONTROL,System Architecture,Hmi Update Rate,s,NUMBER,Display refresh rate,0.1,10,f,t,,1,3
+cme1qnxz200lrlllga3yhw6bf,MONITORING_CONTROL,System Architecture,Plc Scan Time,ms,NUMBER,PLC cycle time,10,1000,f,t,,1,58
+cme1qmsvy0077lllgcgtfbssz,ECONOMIC,Employment & Community,Community Acceptance,,NUMBER,Community support score,1,10,f,t,,1,0
+cme1qmt1e0078lllg57dxojpt,ECONOMIC,Employment & Community,Jobs Created,jobs/MW,NUMBER,Employment generation,0,50,f,t,,1,0
+cme1qmt730079lllgueyl7q5x,ECONOMIC,Employment & Community,Local Content,%,NUMBER,Local sourcing percentage,0,100,f,t,,1,91
+cme1qmtsp007dlllgmsz6r7if,ECONOMIC,Employment & Community,Training Hours,h/year,NUMBER,Worker training provided,0,1000,f,t,,1,1
+cme1qmq3p006plllg1lazmz7o,ECONOMIC,Environmental Impact,Acidification Potential,g SO₂-eq/kWh,NUMBER,Acidification impact,0,10,f,t,,1,0
+cme1qmq93006qlllgs4gma6rj,ECONOMIC,Environmental Impact,Carbon Footprint,kg CO₂-eq/kWh,NUMBER,GHG emissions,0,1,f,t,,1,0
+cme1qmqee006rlllg0u3nx7k4,ECONOMIC,Environmental Impact,Eutrophication Potential,g PO₄-eq/kWh,NUMBER,Eutrophication impact,0,5,f,t,,1,0
+cme1qmqjt006slllgosyh0zr1,ECONOMIC,Environmental Impact,Land Footprint,m²·year/kWh,NUMBER,Land use impact,0,1,f,t,,1,0
+cme1qmr5d006wlllgyse9wngd,ECONOMIC,Environmental Impact,Water Footprint,L/kWh,NUMBER,Water consumption,0,100,f,t,,1,0
+cme1qmown006hlllg62mer3ui,ECONOMIC,Financial Metrics,Discount Rate,%,NUMBER,Financial discount rate,0,20,f,t,,1,72
+cme1qmpcu006klllgy5sxgvdc,ECONOMIC,Financial Metrics,Internal Rate Return,%,NUMBER,IRR,-20,50,f,t,,1,3
+cme1qmpi7006llllgvt14kpha,ECONOMIC,Financial Metrics,Levelized Cost Energy,$/kWh,NUMBER,LCOE,0.01,10,f,t,,1,0
+cme1qmpnl006mlllgkgor5ywe,ECONOMIC,Financial Metrics,Net Present Value,$,NUMBER,NPV at discount rate,-1000000,10000000,f,t,,1,3
+cme1qmpsy006nlllg8opfbtph,ECONOMIC,Financial Metrics,Payback Period,years,NUMBER,Simple payback time,0.5,20,f,t,,1,133
+cme1qmrwo0071lllg7b0pg7ye,ECONOMIC,Fixed Operating Costs,Insurance Cost,%/year,NUMBER,% of CAPEX for insurance,0.5,5,f,t,,1,0
+cme1qms250072lllglj94xkzo,ECONOMIC,Fixed Operating Costs,Labor Cost,$/year,NUMBER,Annual labor cost,0,1000000,f,t,,1,0
+cme1qms7h0073lllgg5ncaq1x,ECONOMIC,Fixed Operating Costs,Maintenance Cost,%/year,NUMBER,% of CAPEX for maintenance,1,10,f,t,,1,3
+cme1qmscv0074lllgy7nqbhpw,ECONOMIC,Fixed Operating Costs,Overhead Cost,%/year,NUMBER,Administrative overhead,5,20,f,t,,1,0
+cme1qmtcf007alllge12mycoa,ECONOMIC,Health & Safety Impact,Noise Level,dB,NUMBER,Operational noise level,0,100,f,t,,1,0
+cme1qmtht007blllgge1hb3eo,ECONOMIC,Health & Safety Impact,Odor Units,OU/m³,NUMBER,Odor emission level,0,1000,f,t,,1,0
+cme1qmtn7007clllgnk7nbmiq,ECONOMIC,Health & Safety Impact,Safety Incidents,/year,NUMBER,Annual safety incidents,0,10,f,t,,1,0
+cme1qmtya007elllgco88zqd4,ECONOMIC,Health & Safety Impact,Visual Impact,,NUMBER,Visual impact score,1,10,f,t,,1,0
+cme1qmn7x0066lllgorgifsp1,ECONOMIC,Installation Costs,Civil Works Cost,$,NUMBER,Site preparation cost,0,1000000,f,t,,1,0
+cme1qmndb0067lllgigpigzna,ECONOMIC,Installation Costs,Commissioning Cost,$,NUMBER,Startup and testing cost,0,100000,f,t,,1,0
+cme1qmnut006alllg4lv4zuyu,ECONOMIC,Installation Costs,Installation Factor,,NUMBER,Installation cost multiplier,1.2,3,f,t,,1,0
+cme1qmqp7006tlllgwghdt81j,ECONOMIC,Resource Efficiency,Material Circularity,%,NUMBER,Recycled content,0,100,f,t,,1,1
+cme1qmquk006ulllgsr4xciof,ECONOMIC,Resource Efficiency,Renewable Energy Fraction,%,NUMBER,Renewable energy use,0,100,f,t,,1,0
+cme1qmqzy006vlllgrv0ogntr,ECONOMIC,Resource Efficiency,Waste Diversion Rate,%,NUMBER,Waste diverted from landfill,0,100,f,t,,1,11
+cme1qmrao006xlllgyve468w5,ECONOMIC,Resource Efficiency,Water Reuse Rate,%,NUMBER,Water recycling rate,0,100,f,t,,1,0
+cme1qmolx006flllgwn3ijaa1,ECONOMIC,Revenue Streams,Byproduct Revenue,$/kg,NUMBER,Chemical product value,0,100,f,t,,1,0
+cme1qmor9006glllgisgetxdl,ECONOMIC,Revenue Streams,Carbon Credit Revenue,$/tCO₂,NUMBER,Carbon credit value,0,100,f,t,,1,0
+cme1qmp21006illlgrqp99w03,ECONOMIC,Revenue Streams,Electricity Revenue,$/kWh,NUMBER,Electricity sale price,0,0.5,f,t,,1,0
+cme1qmp7f006jlllghfjo6075,ECONOMIC,Revenue Streams,Hydrogen Revenue,$/kg,NUMBER,H₂ sale price,0,10,f,t,,1,0
+cme1qmpya006olllghrx47bap,ECONOMIC,Revenue Streams,Treatment Revenue,$/m³,NUMBER,Wastewater treatment fee,0,50,f,t,,1,0
+cme1qmnjy0068lllgu6v9k9t0,ECONOMIC,System Capital Costs,Control System Cost,$,NUMBER,Automation cost,100,100000,f,t,,1,0
+cme1qmnph0069lllg9tetxwh0,ECONOMIC,System Capital Costs,Electrode Cost,$/m²,NUMBER,Electrode material cost,10,1000,f,t,,1,0
+cme1qmo0c006blllgc6snoa4p,ECONOMIC,System Capital Costs,Membrane Cost,$/m²,NUMBER,Separator cost,10,500,f,t,,1,0
+cme1qmo5p006clllgqtyu67g0,ECONOMIC,System Capital Costs,Reactor Cost,$,NUMBER,Reactor vessel cost,50,1000000,f,t,,1,0
+cme1qmob4006dlllgmhivm20c,ECONOMIC,System Capital Costs,Specific Capital Cost,$/kW,NUMBER,Cost per kW capacity,100,10000,f,t,,1,0
+cme1qmogj006elllgwibpz7ji,ECONOMIC,System Capital Costs,Total Capital Cost,$,NUMBER,Total CAPEX,100,10000000,f,t,,1,0
+cme1qmrfz006ylllgd4y1403y,ECONOMIC,Variable Operating Costs,Chemical Cost,$/m³,NUMBER,Chemical consumption cost,0,100,f,t,,1,0
+cme1qmrlm006zlllgxci5ejfp,ECONOMIC,Variable Operating Costs,Disposal Cost,$/kg,NUMBER,Waste disposal cost,0,1,f,t,,1,0
+cme1qmrr40070lllgy9cy8lao,ECONOMIC,Variable Operating Costs,Energy Cost,$/kWh,NUMBER,Electricity cost,0,0.5,f,t,,1,0
+cme1qmsib0075lllgmwnjes0j,ECONOMIC,Variable Operating Costs,Substrate Cost,$/kg,NUMBER,Feedstock cost (negative if waste),-0.1,10,f,t,,1,0
+cme1qmsns0076lllgyllfl7uy,ECONOMIC,Variable Operating Costs,Water Cost,$/m³,NUMBER,Process water cost,0,10,f,t,,1,0
+cme1o1n50000fllkj8p9rkdfu,ECONOMIC,,capitalCost,USD,NUMBER,Capital cost,,,f,t,,1,1
+cme1o1ng1000hllkj62s8gnhw,ECONOMIC,,costPerWatt,USD/W,NUMBER,Cost per watt,,,f,t,,1,0
+cme1o1naj000gllkjkj45b11v,ECONOMIC,,operatingCost,USD/kWh,NUMBER,Operating cost,,,f,t,,1,0
+cme1rdejh006xllb8u538patu,SAFETY_REGULATORY,Biological Safety,Antibiotic Resistance Risk,,SELECT,ARG risk level,,,f,t,,1,0
+cme1qqufl00awll619a1ckvsw,SAFETY_REGULATORY,Biological Safety,Bioaerosol Control,,BOOLEAN,Aerosol containment,,,f,t,,1,0
+cme1rdev40070llb84qtgykmb,SAFETY_REGULATORY,Biological Safety,Biosafety Level,,SELECT,Biosafety classification,,,f,t,,1,0
+cme1qqwlf00bnll618b5kwqxb,SAFETY_REGULATORY,Biological Safety,Pathogen Reduction,log,NUMBER,Log reduction of pathogens,0,6,f,t,,1,1
+cme1rdf3z0073llb8d5si7i9e,SAFETY_REGULATORY,Chemical Hazards,Corrosivity Class,,SELECT,Corrosion hazard,,,f,t,,1,0
+cme1qquyd00b2ll61wytx7gtw,SAFETY_REGULATORY,Chemical Hazards,Explosion Limit Lower,%,NUMBER,LEL for H₂,0,20,f,t,,1,0
+cme1qqv7100b5ll61fd8h7f0c,SAFETY_REGULATORY,Chemical Hazards,Explosion Limit Upper,%,NUMBER,UEL for H₂,0,100,f,t,,1,0
+cme1qqvfm00b8ll61wwy7767h,SAFETY_REGULATORY,Chemical Hazards,Flammability Rating,,NUMBER,NFPA flammability,0,4,f,t,,1,0
+cme1qqwtv00bqll61xlfcana2,SAFETY_REGULATORY,Chemical Hazards,Reactivity Rating,,NUMBER,NFPA reactivity,0,4,f,t,,1,0
+cme1qqx2500btll61pgcsja59,SAFETY_REGULATORY,Chemical Hazards,Toxicity Rating,,NUMBER,NFPA health hazard,0,4,f,t,,1,0
+cme1qqp1n008zll61ut9wur5r,SAFETY_REGULATORY,Compliance Monitoring,Audit Frequency,/year,NUMBER,Compliance audits,1,12,f,t,,1,0
+cme1qqp9z0092ll615a0b4lle,SAFETY_REGULATORY,Compliance Monitoring,Certification Required,,ARRAY,Required certifications,,,f,t,,1,0
+cme1rdca2006rllb8p5y91pxs,SAFETY_REGULATORY,Compliance Monitoring,Compliance Reporting,,SELECT,Reporting period,,,f,t,,1,0
+cme1rdd02006ullb8afw2qdi1,SAFETY_REGULATORY,Compliance Monitoring,Monitoring Frequency,,SELECT,Sampling frequency,,,f,t,,1,0
+cme1qqpra0098ll614lorprc4,SAFETY_REGULATORY,Discharge Standards,Effluent Bod Limit,mg/L,NUMBER,BOD discharge limit,0,200,f,t,,1,8
+cme1qqpzm009bll61lt6v0d9i,SAFETY_REGULATORY,Discharge Standards,Effluent Cod Limit,mg/L,NUMBER,COD discharge limit,0,500,f,t,,1,2
+cme1qqq7z009ell61dyrd9kyh,SAFETY_REGULATORY,Discharge Standards,Effluent Tn Limit,mg/L,NUMBER,Total N limit,0,50,f,t,,1,0
+cme1qqqg8009hll61ixy9lt2e,SAFETY_REGULATORY,Discharge Standards,Effluent Tp Limit,mg/L,NUMBER,Total P limit,0,10,f,t,,1,0
+cme1qqqog009kll619f2485k9,SAFETY_REGULATORY,Discharge Standards,Effluent Tss Limit,mg/L,NUMBER,TSS discharge limit,0,100,f,t,,1,0
+cme1qqruf009zll61j0j3g43s,SAFETY_REGULATORY,Emergency Response,Alarm Types,,ARRAY,Alarm systems,,,f,t,,1,0
+cme1qqs2x00a2ll61cmmkycl4,SAFETY_REGULATORY,Emergency Response,Containment Volume,m³,NUMBER,Spill containment capacity,0,1000,f,t,,1,0
+cme1qqsjq00a8ll61dn9f8xdo,SAFETY_REGULATORY,Emergency Response,Evacuation Time,min,NUMBER,Site evacuation time,1,30,f,t,,1,0
+cme1qqpig0095ll61vy6tu93b,SAFETY_REGULATORY,Emission Standards,Co2 Emission Limit,kg/MWh,NUMBER,CO₂ emission standard,0,1000,f,t,,1,0
+cme1qqqwu009nll61j8fjra9p,SAFETY_REGULATORY,Emission Standards,Noise Limit Day,dB,NUMBER,Daytime noise limit,40,80,f,t,,1,0
+cme1qqr5a009qll61m90nzt9q,SAFETY_REGULATORY,Emission Standards,Noise Limit Night,dB,NUMBER,Nighttime noise limit,30,70,f,t,,1,0
+cme1qqrdr009tll61yh5nzmdj,SAFETY_REGULATORY,Emission Standards,Particulate Limit,mg/m³,NUMBER,PM emission limit,0,50,f,t,,1,0
+cme1qqrm4009wll61o7o4il4b,SAFETY_REGULATORY,Emission Standards,Voc Emission Limit,mg/m³,NUMBER,VOC emission limit,0,100,f,t,,1,0
+cme1qqsbb00a5ll6179cmghqm,SAFETY_REGULATORY,Hazard Identification,Control Effectiveness,%,NUMBER,Risk control efficiency,0,100,f,t,,1,36
+cme1qqss700abll61nvh83zqa,SAFETY_REGULATORY,Hazard Identification,Hazard Probability,,NUMBER,Occurrence probability,1,5,f,t,,1,0
+cme1qqt0w00aell61g5acxr87,SAFETY_REGULATORY,Hazard Identification,Hazard Severity,,NUMBER,Consequence severity,1,5,f,t,,1,0
+cme1qqthp00akll61wg6dgyvi,SAFETY_REGULATORY,Hazard Identification,Risk Score,,NUMBER,Risk matrix score,1,25,f,t,,1,0
+cme1qquo300azll61vw3ld8qm,SAFETY_REGULATORY,Operational Safety Limits,Emergency Shutdown Time,s,NUMBER,ESD response time,1,300,f,t,,1,0
+cme1qqvnw00bbll617x05waix,SAFETY_REGULATORY,Operational Safety Limits,Max Operating Ph,,NUMBER,Maximum safe pH,7,14,f,t,,1,0
+cme1qqvwa00bell61xr8rq7uq,SAFETY_REGULATORY,Operational Safety Limits,Max Operating Pressure,bar,NUMBER,Maximum safe pressure,1,50,f,t,,1,0
+cme1qqw4r00bhll61udkb7dx9,SAFETY_REGULATORY,Operational Safety Limits,Max Operating Temperature,°C,NUMBER,Maximum safe temperature,20,150,f,t,,1,0
+cme1qqwd300bkll61mbiyna4e,SAFETY_REGULATORY,Operational Safety Limits,Min Operating Ph,,NUMBER,Minimum safe pH,0,7,f,t,,1,27
+cme1qo71x00p0lllg3efque2l,APPLICATION_SPECIFIC,Biosensor Operation,Calibration Frequency,days,NUMBER,Calibration interval,1,90,f,t,,1,0
+cme1rcg8f002fllb8sy7qbw0h,APPLICATION_SPECIFIC,Biosensor Operation,Measurement Mode,,SELECT,Operating mode,,,f,t,,1,0
+cme1rcghk002illb850qexujr,APPLICATION_SPECIFIC,Biosensor Operation,Regeneration Method,,SELECT,Sensor regeneration,,,f,t,,1,0
+cme1rcgts002lllb8ghs0bame,APPLICATION_SPECIFIC,Biosensor Operation,Signal Type,,SELECT,Output signal,,,f,t,,1,0
+cme1qo87600pflllg0kqe07h1,APPLICATION_SPECIFIC,CO₂ Reduction,Co2 Capture Rate,g/m²/d,NUMBER,CO₂ capture rate,0,100,f,t,,1,0
+cme1rchj8002rllb864fj429j,APPLICATION_SPECIFIC,CO₂ Reduction,Co2 Conversion Product,,SELECT,Main product,,,f,t,,1,0
+cme1qo8ff00pilllgglq4lf8z,APPLICATION_SPECIFIC,CO₂ Reduction,Faradaic Efficiency Co2,%,NUMBER,CO₂ reduction efficiency,0,100,f,t,,1,0
+product_selectivity,APPLICATION_SPECIFIC,CO₂ Reduction,Product Selectivity,%,NUMBER,Target product selectivity,0,100,f,t,,1,7
+cme1qo5g700oflllg8h0wtzl9,APPLICATION_SPECIFIC,Fertigation Systems,Ec Adjustment,mS/cm,NUMBER,Electrical conductivity,0,5,f,t,,1,0
+cme1qo5oc00oilllgb3dhewm1,APPLICATION_SPECIFIC,Fertigation Systems,Nutrient Release K,mg/L/d,NUMBER,Potassium release rate,0,100,f,t,,1,0
+cme1qo5wm00ollllgmnba3vz6,APPLICATION_SPECIFIC,Fertigation Systems,Nutrient Release N,mg/L/d,NUMBER,Nitrogen release rate,0,100,f,t,,1,0
+cme1qo64v00oolllg31snue0d,APPLICATION_SPECIFIC,Fertigation Systems,Nutrient Release P,mg/L/d,NUMBER,Phosphorus release rate,0,50,f,t,,1,0
+cme1qo6d600orlllgvdd19rda,APPLICATION_SPECIFIC,Fertigation Systems,Ph Buffering,,BOOLEAN,pH stabilization,,,f,t,,1,0
+cme1rcl9o002xllb8kiepsrvv,APPLICATION_SPECIFIC,Implantable Systems,Biocompatibility Iso,,SELECT,ISO standard met,,,f,t,,1,0
+cme1qohhr00srlllgmfgkhidz,APPLICATION_SPECIFIC,Implantable Systems,Device Volume,mm³,NUMBER,Implant volume,1,10000,f,t,,1,2
+cme1qohy600sxlllgkex0cvpj,APPLICATION_SPECIFIC,Implantable Systems,Lifetime Target,years,NUMBER,Device lifetime,1,20,f,t,,1,0
+cme1qoi6700t0lllg82rnes53,APPLICATION_SPECIFIC,Implantable Systems,Power Requirement,μW,NUMBER,Power needed,1,1000,f,t,,1,0
+cme1rcm6l0033llb81lemchlv,APPLICATION_SPECIFIC,Implantable Systems,Sterilization Method,,SELECT,Sterilization type,,,f,t,,1,0
+cme1qq035001cll61id6hbo1h,APPLICATION_SPECIFIC,Influent Characteristics,Influent Bod,mg/L,NUMBER,Influent BOD,50,5000,f,t,,1,6
+cme1qq0bm001fll61kf5fwm2t,APPLICATION_SPECIFIC,Influent Characteristics,Influent Cod,mg/L,NUMBER,Influent COD,100,10000,f,t,,1,1
+cme1qq0k8001ill61b0z098s1,APPLICATION_SPECIFIC,Influent Characteristics,Influent Ph,,NUMBER,WW pH,4,10,f,t,,1,0
+cme1qq0vw001lll61sxa6nm0m,APPLICATION_SPECIFIC,Influent Characteristics,Influent Temperature,°C,NUMBER,WW temperature,5,40,f,t,,1,0
+cme1qq14d001oll61b9fe7wk2,APPLICATION_SPECIFIC,Influent Characteristics,Influent Tn,mg/L,NUMBER,Total nitrogen,10,200,f,t,,1,0
+cme1qq1cr001rll613347i6c2,APPLICATION_SPECIFIC,Influent Characteristics,Influent Tp,mg/L,NUMBER,Total phosphorus,1,50,f,t,,1,0
+cme1qq1la001ull61akw1sjud,APPLICATION_SPECIFIC,Influent Characteristics,Influent Tss,mg/L,NUMBER,Total suspended solids,50,1000,f,t,,1,24
+cme1rcvkl004fllb8v7itcwsw,APPLICATION_SPECIFIC,Influent Characteristics,Wastewater Type,,SELECT,WW source,,,f,t,,1,0
+cme1qo9d900pulllgddz2504i,APPLICATION_SPECIFIC,MDC Operation,Current Efficiency,%,NUMBER,Current utilization,50,100,f,t,,1,17
+cme1qo9lg00pxlllgvwfm7da5,APPLICATION_SPECIFIC,MDC Operation,Energy Per Volume,kWh/m³,NUMBER,Energy per m³ water,0,5,f,t,,1,1
+cme1qo9tk00q0lllg92ok2fsn,APPLICATION_SPECIFIC,MDC Operation,Membrane Pairs,,NUMBER,Ion exchange membrane pairs,1,100,f,t,,1,0
+cme1qoa1p00q3lllgj25ppcdr,APPLICATION_SPECIFIC,MDC Operation,Salt Removal,%,NUMBER,Desalination efficiency,0,99,f,t,,1,0
+cme1rcs56003xllb8mfk4vr0b,APPLICATION_SPECIFIC,Microgravity Operation,Bubble Management,,SELECT,Gas-liquid separation,,,f,t,,1,0
+cme1rcsdz0040llb820x6sp6j,APPLICATION_SPECIFIC,Microgravity Operation,Fluid Containment,,SELECT,Liquid containment,,,f,t,,1,0
+cme1qpwx70009ll61al9jah1s,APPLICATION_SPECIFIC,Microgravity Operation,Gravity Level,g,NUMBER,Gravity acceleration,0,1,f,t,,1,0
+cme1qpxei000fll61cmf9tuud,APPLICATION_SPECIFIC,Microgravity Operation,Orientation Independence,,BOOLEAN,Works in any orientation,,,f,t,,1,0
+cme1qo79v00p3lllgiqgpbtzv,APPLICATION_SPECIFIC,Sensor Specifications,Detection Limit,μg/L,NUMBER,Lower detection limit,0.001,1000,f,t,,1,61
+cme1qo7i600p6lllgq0s5lsm7,APPLICATION_SPECIFIC,Sensor Specifications,Detection Range,,ARRAY,Measurement range,,,f,t,,1,0
+cme1qqt9d00ahll61mvsqigqk,APPLICATION_SPECIFIC,Sensor Specifications,Response Time,s,NUMBER,Sensor response time,1,3600,f,t,,1,6
+cme1qo7q800p9lllggzk31au9,APPLICATION_SPECIFIC,Sensor Specifications,Selectivity,,NUMBER,Analyte selectivity,1,10,f,t,,1,30
+cme1qo7yu00pclllg2vfogp1q,APPLICATION_SPECIFIC,Sensor Specifications,Stability,days,NUMBER,Sensor lifetime,1,365,f,t,,1,130
+cme1rch76002ollb8p6jmtsea,APPLICATION_SPECIFIC,Sensor Specifications,Target Analyte,,SELECT,Detection target,,,f,t,,1,0
+cme1qo55300oclllgoe8kk8xv,APPLICATION_SPECIFIC,Soil Integration,Cation Exchange,meq/100g,NUMBER,CEC enhancement,0,50,f,t,,1,3
+cme1qo6li00oulllgpo3zcwny,APPLICATION_SPECIFIC,Soil Integration,Root Zone Placement,cm,NUMBER,Depth of placement,0,100,f,t,,1,0
+cme1rcfns002cllb8r1ivdmxh,APPLICATION_SPECIFIC,Soil Integration,Soil Compatibility,,SELECT,Compatible soil types,,,f,t,,1,0
+cme1qo6tp00oxlllgqxogoxtu,APPLICATION_SPECIFIC,Soil Integration,Water Retention,%,NUMBER,Water holding improvement,0,50,f,t,,1,9
+cme1qpx5s000cll617yqe5pkv,APPLICATION_SPECIFIC,Space Environment,Launch Survival G,g,NUMBER,Launch acceleration tolerance,0,20,f,t,,1,0
+cme1qpxmx000ill61cjx4k5vm,APPLICATION_SPECIFIC,Space Environment,Radiation Tolerance,Gy,NUMBER,Radiation dose tolerance,0,1000,f,t,,1,0
+cme1qpxvg000lll61cdzug5lz,APPLICATION_SPECIFIC,Space Environment,Thermal Cycling,cycles,NUMBER,Thermal cycle tolerance,0,10000,f,t,,1,20
+cme1qpy3y000oll618i5cq92e,APPLICATION_SPECIFIC,Space Environment,Vacuum Compatibility,,BOOLEAN,Vacuum operation,,,f,t,,1,0
+cme1qpzm30016ll61odps8a7u,APPLICATION_SPECIFIC,Treatment Performance,Biogas Production,L/g COD,NUMBER,Biogas from WW,0,0.5,f,t,,1,0
+cme1qpzul0019ll61kfmgc4oj,APPLICATION_SPECIFIC,Treatment Performance,Hydraulic Loading,m³/m²/d,NUMBER,Surface loading rate,0.1,10,f,t,,1,2
+cme1qq1tq001xll615ghgfcjn,APPLICATION_SPECIFIC,Treatment Performance,Organic Loading,kg COD/m³/d,NUMBER,Volumetric loading,0.1,20,f,t,,1,0
+cme1qq2210020ll6165nranj6,APPLICATION_SPECIFIC,Treatment Performance,Pathogen Removal,log,NUMBER,Pathogen reduction,0,6,f,t,,1,0
+cme1qq2ah0023ll617kaw5pzl,APPLICATION_SPECIFIC,Treatment Performance,Sludge Production,kg/kg COD,NUMBER,Sludge yield,0,0.5,f,t,,1,0
+cme1qohpz00sulllgyzr1czg3,APPLICATION_SPECIFIC,Wearable Systems,Flexibility,%,NUMBER,Device flexibility,0,100,f,t,,1,31
+cme1rcls40030llb8njq2w5ac,APPLICATION_SPECIFIC,Wearable Systems,Moisture Resistance,,SELECT,Ingress protection,,,f,t,,1,0
+cme1qoiec00t3lllgab1x782f,APPLICATION_SPECIFIC,Wearable Systems,Skin Contact Area,cm²,NUMBER,Contact area,1,100,f,t,,1,0
+cme1qoimi00t6lllgm0u03yw5,APPLICATION_SPECIFIC,Wearable Systems,Wireless Range,m,NUMBER,Communication range,0.1,100,f,t,,1,0
+cme1qnu5h00kclllgk2kehybg,EMERGING_TECHNOLOGY,Genetic Engineering,Copy Number,,NUMBER,Gene copies per cell,1,1000,f,t,,1,0
+cme1qnudj00kflllgg10uc8qd,EMERGING_TECHNOLOGY,Genetic Engineering,Expression Stability,%,NUMBER,Stable expression rate,0,100,f,t,,1,0
+cme1qnutm00kllllgf81k6zqe,EMERGING_TECHNOLOGY,Genetic Engineering,Metabolic Burden,%,NUMBER,Growth rate reduction,0,50,f,t,,1,0
+cme1rc57n000fllb88phdq1v0,EMERGING_TECHNOLOGY,Genetic Engineering,Promoter Strength,,SELECT,Expression level,,,f,t,,1,0
+cme1rc5ga000illb8s5q0nnba,EMERGING_TECHNOLOGY,Genetic Engineering,Vector Type,,SELECT,Gene delivery method,,,f,t,,1,0
+cme1qnktg00h0lllggpc9rhic,EMERGING_TECHNOLOGY,Model Fidelity,Computation Time,s,NUMBER,Simulation cycle time,0.001,3600,f,t,,1,0
+cme1qnl1p00h3lllgnp6b91wb,EMERGING_TECHNOLOGY,Model Fidelity,Model Accuracy,%,NUMBER,Twin prediction accuracy,50,99.9,f,t,,1,0
+cme1qnl9z00h6lllgpkw575lq,EMERGING_TECHNOLOGY,Model Fidelity,Parameter Count,,NUMBER,Model parameters,10,10000,f,t,,1,0
+cme1qnlz900hflllgcl5dh9d2,EMERGING_TECHNOLOGY,Model Fidelity,Update Latency,ms,NUMBER,Data synchronization delay,1,10000,f,t,,1,0
+cme1qnqvx00j6lllg2zaiwt50,EMERGING_TECHNOLOGY,Nanocomposite Integration,Dispersion Quality,,NUMBER,Dispersion uniformity,1,10,f,t,,1,0
+cme1qnr4400j9lllgphilzqc1,EMERGING_TECHNOLOGY,Nanocomposite Integration,Interface Strength,MPa,NUMBER,Matrix-filler adhesion,1,100,f,t,,1,63
+cme1qnrc500jclllgp8kphed1,EMERGING_TECHNOLOGY,Nanocomposite Integration,Loading Percentage,wt%,NUMBER,Nanomaterial loading,0.1,50,f,t,,1,15
+cme1qnrsc00jilllgbs5h8bnz,EMERGING_TECHNOLOGY,Nanocomposite Integration,Percolation Threshold,wt%,NUMBER,Electrical percolation,0.01,10,f,t,,1,0
+cme1rc39m0009llb8nvf4550o,EMERGING_TECHNOLOGY,Nanoparticle Properties,Nanoparticle Shape,,SELECT,Particle morphology,,,f,t,,1,0
+cme1qnrk800jflllgvpkzgnkz,EMERGING_TECHNOLOGY,Nanoparticle Properties,Nanoparticle Size,nm,NUMBER,Average particle size,1,1000,f,t,,1,7
+cme1qns3700jllllge8sqsxt5,EMERGING_TECHNOLOGY,Nanoparticle Properties,Size Distribution,%,NUMBER,Size polydispersity,5,50,f,t,,1,0
+cme1qnsb900jolllgt4his2d8,EMERGING_TECHNOLOGY,Nanoparticle Properties,Surface Charge,mV,NUMBER,Zeta potential,-100,100,f,t,,1,0
+cme1rc3ua000cllb8e9el7jjt,EMERGING_TECHNOLOGY,Nanoparticle Properties,Surface Functionalization,,SELECT,Surface groups,,,f,t,,1,0
+cme1qneb600eolllgazixncam,EMERGING_TECHNOLOGY,Printable Materials,Conductivity Printed,S/m,NUMBER,Printed conductivity,0,10000,f,t,,1,0
+cme1rbxpo0003llb8dmk8u2p9,EMERGING_TECHNOLOGY,Printable Materials,Curing Method,,SELECT,Solidification method,,,f,t,,1,0
+cme1qnes700eulllggfrs4ddw,EMERGING_TECHNOLOGY,Printable Materials,Material Viscosity,Pa·s,NUMBER,Printing ink viscosity,0.001,10000,f,t,,1,0
+cme1qnfhm00f3lllg7qzaln5c,EMERGING_TECHNOLOGY,Printable Materials,Shrinkage Rate,%,NUMBER,Post-printing shrinkage,0,20,f,t,,1,0
+cme1qne2x00ellllga730kfsc,EMERGING_TECHNOLOGY,Printing Parameters,Bed Temperature,°C,NUMBER,Build plate temperature,20,150,f,t,,1,0
+cme1qnejo00erlllgm79dsuyr,EMERGING_TECHNOLOGY,Printing Parameters,Layer Resolution,μm,NUMBER,Layer thickness,10,1000,f,t,,1,0
+cme1qnf0v00exlllg6bjt2kfx,EMERGING_TECHNOLOGY,Printing Parameters,Nozzle Temperature,°C,NUMBER,Extruder temperature,20,400,f,t,,1,0
+cme1qnf8z00f0lllg6jbfka2m,EMERGING_TECHNOLOGY,Printing Parameters,Printing Speed,mm/s,NUMBER,Print head speed,1,500,f,t,,1,2
+cme1rbydk0006llb8ew3sz55r,EMERGING_TECHNOLOGY,Printing Parameters,Printing Technology,,SELECT,3D printing method,,,f,t,,1,0
+cme1qnsj800jrlllgmc4i0bxf,EMERGING_TECHNOLOGY,Quantum Enhancement,Coherence Time,ps,NUMBER,Quantum coherence duration,0.1,1000,f,t,,1,0
+cme1qnsrd00julllgu8lixubm,EMERGING_TECHNOLOGY,Quantum Enhancement,Entanglement Efficiency,%,NUMBER,Quantum entanglement,0,100,f,t,,1,0
+cme1qnszi00jxlllgt77k1c2i,EMERGING_TECHNOLOGY,Quantum Enhancement,Quantum Yield,%,NUMBER,Quantum efficiency,0,100,f,t,,1,21
+cme1qnt7m00k0lllg73th0bo5,EMERGING_TECHNOLOGY,Quantum Enhancement,Tunneling Distance,nm,NUMBER,Electron tunneling range,0.1,10,f,t,,1,0
+cme1qntxi00k9lllgxddgx9bz,EMERGING_TECHNOLOGY,Synthetic Pathways,Cofactor Regeneration,,BOOLEAN,Cofactor recycling,,,f,t,,1,0
+cme1qnulk00killlgo9yqq79r,EMERGING_TECHNOLOGY,Synthetic Pathways,Flux Balance,%,NUMBER,Pathway balance,50,100,f,t,,1,0
+cme1qnv1q00kolllg7uck2gsr,EMERGING_TECHNOLOGY,Synthetic Pathways,Pathway Length,enzymes,NUMBER,Number of enzymes,1,20,f,t,,1,0
+cme1qnv9x00krlllgwmlj8nmb,EMERGING_TECHNOLOGY,Synthetic Pathways,Product Toxicity Threshold,g/L,NUMBER,Toxic concentration,0.1,100,f,t,,1,0
+cme1qnklb00gxlllgtuaikh75,EMERGING_TECHNOLOGY,Twin Applications,Anomaly Detection,,BOOLEAN,Fault detection enabled,,,f,t,,1,0
+cme1qnvya00l0lllguptrm9c0,EMERGING_TECHNOLOGY,Twin Applications,Optimization Frequency,/h,NUMBER,Optimization rate,0.1,60,f,t,,1,0
+cme1qnlig00h9lllgqad18tv9,EMERGING_TECHNOLOGY,Twin Applications,Predictive Horizon,h,NUMBER,Prediction time range,0.1,720,f,t,,1,0
+cme1qnlqs00hclllg95b7uh2j,EMERGING_TECHNOLOGY,Twin Applications,Scenario Count,,NUMBER,Parallel scenarios,1,1000,f,t,,1,0
+cme1qokns00txlllg0tw7wx31,INTEGRATION_SCALING,Communication Network,Communication Latency,ms,NUMBER,Network latency,1,1000,f,t,,1,0
+cme1qokvt00u0lllgq5cdrf9z,INTEGRATION_SCALING,Communication Network,Data Throughput,Mbps,NUMBER,Data transfer rate,0.1,1000,f,t,,1,0
+cme1qolc200u6lllgjj6gx0s2,INTEGRATION_SCALING,Communication Network,Network Reliability,%,NUMBER,Uptime percentage,90,99.999,f,t,,1,0
+cme1qob9u00qilllgl9arp6qz,INTEGRATION_SCALING,Energy Storage Integration,Charge Rate,C,NUMBER,Charge rate,0.1,10,f,t,,1,101
+cme1qobhu00qllllgl06dz0fg,INTEGRATION_SCALING,Energy Storage Integration,Discharge Rate,C,NUMBER,Discharge rate,0.1,10,f,t,,1,0
+cme1qocuq00r3lllgjbvger6m,INTEGRATION_SCALING,Energy Storage Integration,Storage Capacity,kWh,NUMBER,Battery capacity,0,10000,f,t,,1,27
+cme1qod2w00r6lllgescjfeht,INTEGRATION_SCALING,Energy Storage Integration,Storage Efficiency,%,NUMBER,Round-trip efficiency,50,99,f,t,,1,4
+cme1qoiuv00t9lllggttu3vum,INTEGRATION_SCALING,Modular Design,Interconnection Loss,%,NUMBER,Module connection losses,0,20,f,t,,1,3
+cme1qojb200tflllgeef5t93k,INTEGRATION_SCALING,Modular Design,Module Size,kW,NUMBER,Standard module capacity,0.1,1000,f,t,,1,0
+cme1qojjb00tilllgu720p745,INTEGRATION_SCALING,Modular Design,Modules Per System,,NUMBER,Number of modules,1,1000,f,t,,1,0
+cme1qojzh00tolllg1y8uso58,INTEGRATION_SCALING,Modular Design,Redundancy Level,%,NUMBER,Backup capacity,0,100,f,t,,1,7
+cme1rcnnl0036llb87hr4x34l,INTEGRATION_SCALING,Multi-Reactor Networks,Load Balancing,,SELECT,Load distribution,,,f,t,,1,0
+cme1qol3y00u3lllgvcfiubvn,INTEGRATION_SCALING,Multi-Reactor Networks,Network Efficiency,%,NUMBER,Overall network efficiency,50,100,f,t,,1,0
+cme1rco2v0039llb8sfdwaxzk,INTEGRATION_SCALING,Multi-Reactor Networks,Network Topology,,SELECT,Network structure,,,f,t,,1,0
+cme1qolk800u9lllg52ihddtl,INTEGRATION_SCALING,Multi-Reactor Networks,Reactor Count,,NUMBER,Reactors in network,2,1000,f,t,,1,0
+cme1qobpx00qolllg2fhgvexf,INTEGRATION_SCALING,Power Grid Connection,Grid Synchronization,,BOOLEAN,Grid sync required,,,f,t,,1,0
+cme1qoby300qrlllgy0n7zwuf,INTEGRATION_SCALING,Power Grid Connection,Grid Voltage,V,NUMBER,Grid connection voltage,100,100000,f,t,,1,0
+cme1qoc6d00qulllgt3f0k2cq,INTEGRATION_SCALING,Power Grid Connection,Harmonic Distortion,%,NUMBER,THD percentage,0,10,f,t,,1,2
+cme1qoceo00qxlllgxv9gxwjj,INTEGRATION_SCALING,Power Grid Connection,Islanding Protection,,BOOLEAN,Anti-islanding protection,,,f,t,,1,0
+cme1qocmp00r0lllgwyyh4axq,INTEGRATION_SCALING,Power Grid Connection,Power Factor,,NUMBER,Power factor,0.5,1,f,t,,1,0
+cme1qodax00r9lllg4xxx5pt0,INTEGRATION_SCALING,Process Integration,Carbon Recovery,%,NUMBER,Carbon capture rate,0,99,f,t,,1,19
+cme1qodj700rclllg4033u1sh,INTEGRATION_SCALING,Process Integration,Heat Recovery,%,NUMBER,Waste heat utilization,0,90,f,t,,1,1
+cme1qodrf00rflllghhv2gck6,INTEGRATION_SCALING,Process Integration,Nutrient Recovery,%,NUMBER,Nutrient recycling,0,99,f,t,,1,0
+cme1qoeh300rolllg6r20fb00,INTEGRATION_SCALING,Process Integration,Water Recovery,%,NUMBER,Water reuse rate,0,99,f,t,,1,0
+cme1rcjp2002ullb84rdgaf0w,INTEGRATION_SCALING,Renewable Integration,Hybrid Control Mode,,SELECT,Control strategy,,,f,t,,1,0
+cme1qodzm00rilllg8593u3fg,INTEGRATION_SCALING,Renewable Integration,Renewable Fraction,%,NUMBER,Renewable energy share,0,100,f,t,,1,1
+cme1qoe8v00rllllg24xp6r7c,INTEGRATION_SCALING,Renewable Integration,Solar Capacity,kW,NUMBER,Solar PV capacity,0,10000,f,t,,1,0
+cme1qoep900rrlllgh66j2669,INTEGRATION_SCALING,Renewable Integration,Wind Capacity,kW,NUMBER,Wind turbine capacity,0,10000,f,t,,1,0
+cme1qoj3000tclllg52xutemd,INTEGRATION_SCALING,Scale Transitions,Lab To Pilot Factor,,NUMBER,Lab to pilot scale-up,10,1000,f,t,,1,0
+cme1qojre00tllllgqn2d1b7z,INTEGRATION_SCALING,Scale Transitions,Pilot To Industrial Factor,,NUMBER,Pilot to industrial,10,1000,f,t,,1,0
+cme1qok7n00trlllgjz4jx0tu,INTEGRATION_SCALING,Scale Transitions,Scale Cost Factor,,NUMBER,Economy of scale factor,0.5,1,f,t,,1,0
+cme1qokfr00tulllg5m21lnzx,INTEGRATION_SCALING,Scale Transitions,Scale Efficiency Loss,%,NUMBER,Performance loss on scale-up,0,50,f,t,,1,0
+cme1qoexf00rulllgcz4wqr3u,INTEGRATION_SCALING,Site Requirements,Access Road Width,m,NUMBER,Access road requirements,3,10,f,t,,1,0
+cme1qof5m00rxlllggj8p0j9n,INTEGRATION_SCALING,Site Requirements,Building Footprint,m²,NUMBER,Building area,10,10000,f,t,,1,0
+cme1qofga00s0lllg3elsxjk6,INTEGRATION_SCALING,Site Requirements,Land Area,m²,NUMBER,Total site area,10,100000,f,t,,1,6
+cme1qog4u00s9lllgyh1dhmah,INTEGRATION_SCALING,Site Requirements,Utility Connections,,ARRAY,Required utilities,,,f,t,,1,0
+cme1qofod00s3lllgep8d49hu,INTEGRATION_SCALING,Utility Requirements,Natural Gas,m³/h,NUMBER,Gas requirement,0,1000,f,t,,1,0
+cme1qofwp00s6lllgtuwg85fr,INTEGRATION_SCALING,Utility Requirements,Power Connection,kVA,NUMBER,Electrical service size,10,10000,f,t,,1,1
+cme1qogd700sclllgr17ijjyz,INTEGRATION_SCALING,Utility Requirements,Wastewater Discharge,m³/d,NUMBER,Wastewater generation,0,1000,f,t,,1,0
+cme1qogl800sflllgnwgyxooh,INTEGRATION_SCALING,Utility Requirements,Water Supply,m³/d,NUMBER,Water requirement,1,1000,f,t,,1,0

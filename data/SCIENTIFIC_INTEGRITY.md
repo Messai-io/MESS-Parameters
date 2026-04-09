@@ -199,9 +199,9 @@ Only papers available through Unpaywall or publisher open-access APIs were proce
 
 The MESSAI database contains 687 parameter definitions, but `index.json` contains only 667. The 20 excluded parameters span 2 additional categories and 34 additional subcategories. The excluded parameters are not individually documented in this repository. See `data/excluded-parameters.md` for what is known.
 
-### 5.3 Extraction Confidence Not Quantified
+### 5.3 Extraction Confidence Scores
 
-The hybrid regex + LLM extraction pipeline does not report per-value confidence scores. There is no published inter-rater reliability study (comparing automated extraction to manual expert extraction). Extraction accuracy likely varies by:
+The raw data exports (`extracted-parameter-data.csv`, `paper-parameter-values.csv`) include per-value confidence scores (0-1). However, there is no published inter-rater reliability study (comparing automated extraction to manual expert extraction). The `is_verified` field indicates manual verification, but most records are unverified. Extraction accuracy likely varies by:
 - Parameter type (numeric values with clear units > contextual descriptions)
 - PDF quality (clean layouts > multi-column with merged tables)
 - Paper section (Methods/Results > Discussion/Introduction)
