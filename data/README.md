@@ -32,9 +32,9 @@ const allParams = parameters.categories.flatMap(c =>
 
 ### Raw Research Data (from MESSAI Database)
 
-#### extracted-parameter-data.csv (3.9 MB, 25,566 rows)
+#### extracted-parameter-data.csv (549 rows)
 
-Numeric parameter values extracted from MES publications by the MESSAI pipeline, filtered to confidence > 0 only. This is the raw extraction output — noisier than paper-parameter-values.csv because parameter names are free-text from the extraction pipeline, not mapped to the ontology. See [SCIENTIFIC_INTEGRITY.md](SCIENTIFIC_INTEGRITY.md) section 5.0 for quality details.
+Raw extraction output filtered to rows where the parameter name exactly matches an ontology definition. Much smaller than paper-parameter-values.csv because most raw extractions use free-text names that don't match the ontology. Includes source context from the paper. For meta-analysis, prefer paper-parameter-values.csv.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -55,7 +55,7 @@ Numeric parameter values extracted from MES publications by the MESSAI pipeline,
 
 #### paper-parameter-values.csv (2.7 MB, 13,321 rows)
 
-The cleanest dataset: validated parameter-paper mappings linking specific parameters from the 687-definition ontology to papers that report them. Each row has a numeric value and maps to a defined parameter. Recommended as the primary dataset for meta-analysis.
+**The primary research dataset.** Each row maps a paper to a specific parameter from the 687-definition ontology with a numeric value. Includes a `verified_mes_paper` flag (true for 3,678 rows from confirmed MES papers). Recommended for meta-analysis.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -77,7 +77,7 @@ The cleanest dataset: validated parameter-paper mappings linking specific parame
 
 #### paper-metadata.csv (4.4 MB, 23,332 rows)
 
-Metadata for every paper in the MESSAI corpus. Note: the ingestion pipeline uses a permissive filter, so some papers may be tangentially related to MES. Only ~1.4% of papers have `power_output` values and ~61% are missing `year`.
+Metadata for every paper in the MESSAI corpus. Includes a `verified_mes` flag (true for 8,904 papers confirmed as MES-related via keyword matching). The remaining 14,428 papers were ingested by a permissive filter and may be tangentially related. Only ~1.4% of papers have `power_output` values and ~61% are missing `year`.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|

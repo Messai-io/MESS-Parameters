@@ -1,22 +1,25 @@
 ﻿metric,value,section
 totalPapers,23332,corpus
+verifiedMesPapers,8904,corpus
+papersWithYear,9075,corpus
 papersWithAbstracts,9075,corpus
 papersWithPDFs,14743,corpus
 papersWithFullText,3535,corpus
-totalExtractionsRaw,323606,extraction
-extractionsWithConfidenceAboveZero,25566,extraction
-paperParameterMappingsWithNumericValue,13321,extraction
-paperParameterMappingsTotal,19804,extraction
+rawExtractionsInDatabase,323606,extraction
+publishedExtractions,549,extraction
+publishedExtractionsNote,"Filtered to confidence > 0, numeric value present, and ontology-matched parameter name",extraction
+paperParameterMappings,13321,extraction
+paperParameterMappingsNote,"Ontology-mapped with numeric values, [object Object] artifacts removed",extraction
 parameterDefinitions,687,extraction
+parameterDefinitionsWithUsage,234,extraction
 categories,13,extraction
 subcategories,119,extraction
 papersWithReproducibilityScores,289,quality
 averageReproducibilityCompleteness,0.231,quality
 papersWithEconomicMetrics,243,quality
-papersWithComputationalTags,678,quality
+papersWithPowerOutput,324,quality
 papersWithAISummaries,8395,quality
-extractionsWithDOI_percent,2.7,quality
-note,90.4% of raw extractions have zero confidence and are excluded from published CSVs. Only confidence > 0 extractions with numeric values are included.,quality
+rawExtractionQuality,[object Object],quality
 MES,11384,systemTypes
 MFC,9330,systemTypes
 MEC,1375,systemTypes
@@ -26,4 +29,4 @@ other,12,systemTypes
 pdfProcessing,"Nougat (Meta) for OCR, regex + LLM for structured extraction",methodology
 parameterMapping,687-definition ontology with 13 categories and 119 subcategories,methodology
 qualityScoring,Reproducibility checklist with 26 weighted criteria,methodology
-dataFiltering,"Published CSVs exclude confidence=0 and null numeric values. Raw database contains 323,606 rows; published contains 25,566.",methodology
+dataFiltering,"Published CSVs exclude confidence=0, null numeric values, non-ontology parameter names, and [object Object] artifacts",methodology

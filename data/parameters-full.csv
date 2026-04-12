@@ -26,8 +26,8 @@ substrate_uptake_rate,Substrate Uptake Rate,Specific uptake rate,g/g/h,number,bi
 yield_coefficient,Yield Coefficient,Biomass yield,g/g,number,biological,microbial-kinetics,0.4,0.1,0.8,0.4,biological|microbial-kinetics
 dominant_species_fraction,Dominant Species Fraction,Fraction of dominant microbial species,%,number,biological,microbial-selection,,,,,biological|microbial-selection
 inoculum_concentration,Inoculum Concentration,Initial microbial concentration for startup,cells/mL,number,biological,microbial-selection,,,,,biological|microbial-selection
-microbial_diversity,Microbial Diversity Index,Shannon diversity index of microbial community,,number,biological,microbial-selection,,,,,biological|microbial-selection
-microbial_species,Microbial Species,Primary microbial species in the fuel cell,,select,biological,microbial-selection,Geobacter sulfurreducens,,,,biological|microbial-selection
+microbial_diversity,Microbial Diversity Index,Shannon diversity index of microbial community,index,number,biological,microbial-selection,,,,,biological|microbial-selection
+microbial_species,Microbial Species,Primary microbial species in the fuel cell,-,select,biological,microbial-selection,Geobacter sulfurreducens,,,,biological|microbial-selection
 chlamydomonas_reinhardtii,Chlamydomonas Reinhardtii,Model green alga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
 chlorella_vulgaris,Chlorella Vulgaris,Green microalga,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
 clostridium_butyricum,Clostridium Butyricum,Fermentative bacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
@@ -51,22 +51,22 @@ shewanella_oneidensis,Shewanella Oneidensis,Versatile electroactive bacterium,-,
 spirulina_platensis,Spirulina Platensis,Cyanobacterium,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
 synthetic_consortium,Synthetic Consortium,Designed microbial community,-,object,biological,microorganism-database,-,,,,biological|microorganism-database
 bod_concentration,BOD Concentration,Biological oxygen demand of substrate,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
-c_n_ratio,C/N Ratio,Carbon to nitrogen ratio in substrate,,number,biological,substrate-parameters,,,,,biological|substrate-parameters
+c_n_ratio,C/N Ratio,Carbon to nitrogen ratio in substrate,-,number,biological,substrate-parameters,,,,,biological|substrate-parameters
 cod_concentration,COD Concentration,Chemical oxygen demand of the substrate,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
 substrate_concentration,Substrate Concentration,Concentration of organic substrate in the feed,mg/L,number,biological,substrate-parameters,,,,,biological|substrate-parameters
 substrate_loading_rate,Substrate Loading Rate,Rate of substrate addition to reactor,kg COD/m³·d,number,biological,substrate-parameters,,,,,biological|substrate-parameters
-substrate_type,Substrate Type,Type of organic substrate used,,select,biological,substrate-parameters,Acetate,,,,biological|substrate-parameters
+substrate_type,Substrate Type,Type of organic substrate used,-,select,biological,substrate-parameters,Acetate,,,,biological|substrate-parameters
 chemical_stability,Chemical Stability,Stability of electrolyte composition over time,days,number,chemical,chemical-properties,,,,,chemical|chemical-properties
-corrosivity,Corrosivity Index,Corrosive potential of electrolyte,,number,chemical,chemical-properties,,,,,chemical|chemical-properties
+corrosivity,Corrosivity Index,Corrosive potential of electrolyte,mm/year,number,chemical,chemical-properties,,,,,chemical|chemical-properties
 oxidation_reduction_potential,Oxidation-Reduction Potential,ORP of the electrolyte solution,mV vs SHE,number,chemical,chemical-properties,,,,,chemical|chemical-properties
 surface_tension,Surface Tension,Surface tension of electrolyte solution,mN/m,number,chemical,chemical-properties,,,,,chemical|chemical-properties
 viscosity,Dynamic Viscosity,Viscosity of the electrolyte solution,cP,number,chemical,chemical-properties,,,,,chemical|chemical-properties
 buffer_concentration,Buffer Concentration,Concentration of pH buffer in solution,mM,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
-buffer_type,Buffer Type,Type of pH buffer system used,,select,chemical,electrolyte-composition,Phosphate buffer,,,,chemical|electrolyte-composition
+buffer_type,Buffer Type,Type of pH buffer system used,-,select,chemical,electrolyte-composition,Phosphate buffer,,,,chemical|electrolyte-composition
 conductivity,Electrolyte Conductivity,Electrical conductivity of the electrolyte,mS/cm,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
 dissolved_oxygen,Dissolved Oxygen,Concentration of dissolved oxygen in electrolyte,mg/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
 ionic_strength,Ionic Strength,Total ionic strength of electrolyte,M,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
-ph_level,pH Level,pH of the electrolyte solution,,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
+ph_level,pH Level,pH of the electrolyte solution,-,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
 salt_concentration,Salt Concentration,Ionic strength of the electrolyte,g/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
 total_dissolved_solids,Total Dissolved Solids,Total concentration of dissolved substances,mg/L,number,chemical,electrolyte-composition,,,,,chemical|electrolyte-composition
 calcium_concentration,Calcium Ion Concentration,Concentration of Ca²⁺ ions in solution,mM,number,chemical,ion-concentrations,,,,,chemical|ion-concentrations
@@ -198,12 +198,12 @@ gravitational_acceleration,Gravitational Acceleration,Gravitational acceleration
 magnetic_field_frequency,Magnetic Field Frequency,AC magnetic field frequency,Hz,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
 magnetic_field_strength,Magnetic Field Strength,Magnetic field strength,mT,number,environmental,physical-environmental-factors,0.05,0,1000,0.05,environmental|physical-environmental-factors
 mechanical_shock,Mechanical Shock,Mechanical shock magnitude,g,number,environmental,physical-environmental-factors,0,0,100,0,environmental|physical-environmental-factors
-microgravity_level,Microgravity Level,Microgravity conditions,μg,number,environmental,physical-environmental-factors,1000000,0,1000,1000000,environmental|physical-environmental-factors
+microgravity_level,Microgravity Level,Microgravity conditions,μg,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
 shear_stress,Shear Stress,Fluid shear stress,Pa,number,environmental,physical-environmental-factors,0,0,1000,0,environmental|physical-environmental-factors
-sound_frequency,Sound Frequency,Audible sound frequency,Hz,number,environmental,physical-environmental-factors,0,20,20000,0,environmental|physical-environmental-factors
+sound_frequency,Sound Frequency,Audible sound frequency,Hz,number,environmental,physical-environmental-factors,20,20,20000,20,environmental|physical-environmental-factors
 sound_intensity,Sound Intensity,Sound pressure level,dB,number,environmental,physical-environmental-factors,30,0,140,30,environmental|physical-environmental-factors
 ultrasound_duration,Ultrasound Duration,Ultrasound exposure time,min,number,environmental,physical-environmental-factors,0,0,60,0,environmental|physical-environmental-factors
-ultrasound_frequency,Ultrasound Frequency,Ultrasonic frequency,kHz,number,environmental,physical-environmental-factors,0,20,1000,0,environmental|physical-environmental-factors
+ultrasound_frequency,Ultrasound Frequency,Ultrasonic frequency,kHz,number,environmental,physical-environmental-factors,20,20,1000,20,environmental|physical-environmental-factors
 ultrasound_power,Ultrasound Power,Ultrasonic power density,W/cm²,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
 vibration_acceleration,Vibration Acceleration,Vibration acceleration,g,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
 vibration_amplitude,Vibration Amplitude,Vibration amplitude,mm,number,environmental,physical-environmental-factors,0,0,10,0,environmental|physical-environmental-factors
@@ -245,24 +245,24 @@ parameter_count,Parameter Count,Model parameters,-,number,materials,digital-twin
 predictive_horizon,Predictive Horizon,Prediction time range,h,number,materials,digital-twin-technology,24,0.1,720,24,materials|digital-twin-technology
 scenario_count,Scenario Count,Parallel scenarios,-,number,materials,digital-twin-technology,10,1,1000,10,materials|digital-twin-technology
 update_latency,Update Latency,Data synchronization delay,ms,number,materials,digital-twin-technology,100,1,10000,100,materials|digital-twin-technology
-electrode_configuration,Electrode Configuration,Physical arrangement of electrodes,,select,materials,electrode-geometry,Parallel plates,,,,materials|electrode-geometry
+electrode_configuration,Electrode Configuration,Physical arrangement of electrodes,-,select,materials,electrode-geometry,Parallel plates,,,,materials|electrode-geometry
 electrode_diameter,Electrode Diameter,Diameter for cylindrical electrodes,cm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
 electrode_spacing,Electrode Spacing,Distance between anode and cathode,cm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
 electrode_surface_area,Electrode Surface Area,Total surface area of the electrode,cm²,number,materials,electrode-geometry,,,,,materials|electrode-geometry
 electrode_thickness,Electrode Thickness,Thickness of the electrode material,mm,number,materials,electrode-geometry,,,,,materials|electrode-geometry
 specific_surface_area,Specific Surface Area,Surface area per unit mass of electrode,m²/g,number,materials,electrode-geometry,,,,,materials|electrode-geometry
-anode_material,Anode Material,Material composition of the anode electrode,,select,materials,electrode-materials,Carbon cloth,,,,materials|electrode-materials
+anode_material,Anode Material,Material composition of the anode electrode,-,select,materials,electrode-materials,Carbon cloth,,,,materials|electrode-materials
 catalyst_loading,Catalyst Loading,Amount of catalyst per unit electrode area,mg/cm²,number,materials,electrode-materials,,,,,materials|electrode-materials
-cathode_material,Cathode Material,Material composition of the cathode electrode,,select,materials,electrode-materials,Carbon cloth with Pt,,,,materials|electrode-materials
+cathode_material,Cathode Material,Material composition of the cathode electrode,-,select,materials,electrode-materials,Carbon cloth with Pt,,,,materials|electrode-materials
 electrical_conductivity,Material Electrical Conductivity,Electrical conductivity of electrode material,S/m,number,materials,electrode-materials,,,,,materials|electrode-materials
 pore_size,Average Pore Size,Mean pore diameter in electrode material,μm,number,materials,electrode-materials,,,,,materials|electrode-materials
 porosity,Electrode Porosity,Void fraction in electrode material,%,number,materials,electrode-materials,,,,,materials|electrode-materials
-surface_roughness,Electrode Surface Roughness,Surface roughness factor of electrode material,,number,materials,electrode-materials,,,,,materials|electrode-materials
+surface_roughness,Electrode Surface Roughness,Surface roughness factor of electrode material,μm,number,materials,electrode-materials,,,,,materials|electrode-materials
 membrane_conductivity,Membrane Proton Conductivity,Proton conductivity of membrane material,S/cm,number,materials,membrane-separator,,,,,materials|membrane-separator
 membrane_pore_size,Membrane Pore Size,Average pore diameter in membrane,nm,number,materials,membrane-separator,,,,,materials|membrane-separator
-membrane_selectivity,Membrane Ion Selectivity,Selectivity for target ions,,number,materials,membrane-separator,,,,,materials|membrane-separator
+membrane_selectivity,Membrane Ion Selectivity,Selectivity for target ions,-,number,materials,membrane-separator,,,,,materials|membrane-separator
 membrane_thickness,Membrane Thickness,Thickness of the separator membrane,μm,number,materials,membrane-separator,,,,,materials|membrane-separator
-membrane_type,Membrane Type,Type of proton exchange membrane,,select,materials,membrane-separator,Nafion 117,,,,materials|membrane-separator
+membrane_type,Membrane Type,Type of proton exchange membrane,-,select,materials,membrane-separator,Nafion 117,,,,materials|membrane-separator
 membrane_water_uptake,Membrane Water Uptake,Water absorption capacity of membrane,%,number,materials,membrane-separator,,,,,materials|membrane-separator
 anion_exchange_membrane,Anion Exchange Membrane,AEM properties,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
 bipolar_membrane,Bipolar Membrane,BPM properties,-,object,materials,membrane-separator-materials,-,,,,materials|membrane-separator-materials
@@ -282,11 +282,11 @@ coherence_time,Coherence Time,Quantum coherence duration,ps,number,materials,qua
 entanglement_efficiency,Entanglement Efficiency,Quantum entanglement,%,number,materials,quantum-effects,5,0,100,5,materials|quantum-effects
 quantum_yield,Quantum Yield,Quantum efficiency,%,number,materials,quantum-effects,50,0,100,50,materials|quantum-effects
 tunneling_distance,Tunneling Distance,Electron tunneling range,nm,number,materials,quantum-effects,1,0.1,10,1,materials|quantum-effects
-connector_material,Electrical Connector Material,Material for electrical connections,,select,materials,structural-materials,Copper wire,,,,materials|structural-materials
-gasket_material,Gasket Material,Sealing material for reactor joints,,select,materials,structural-materials,Silicone rubber,,,,materials|structural-materials
+connector_material,Electrical Connector Material,Material for electrical connections,-,select,materials,structural-materials,Copper wire,,,,materials|structural-materials
+gasket_material,Gasket Material,Sealing material for reactor joints,-,select,materials,structural-materials,Silicone rubber,,,,materials|structural-materials
 contact_angle,Water Contact Angle,Hydrophobicity of electrode surface,degrees,number,materials,surface-properties,,,,,materials|surface-properties
 surface_energy,Surface Energy,Surface energy of electrode material,mJ/m²,number,materials,surface-properties,,,,,materials|surface-properties
-surface_treatment,Electrode Surface Treatment,Chemical or physical surface modification,,select,materials,surface-properties,None,,,,materials|surface-properties
+surface_treatment,Electrode Surface Treatment,Chemical or physical surface modification,-,select,materials,surface-properties,None,,,,materials|surface-properties
 cofactor_regeneration,Cofactor Regeneration,Cofactor recycling,-,boolean,materials,synthetic-biology-integration,true,,,,materials|synthetic-biology-integration
 copy_number,Copy Number,Gene copies per cell,-,number,materials,synthetic-biology-integration,10,1,1000,10,materials|synthetic-biology-integration
 expression_stability,Expression Stability,Stable expression rate,%,number,materials,synthetic-biology-integration,90,0,100,90,materials|synthetic-biology-integration
@@ -380,13 +380,13 @@ target_analyte,Target Analyte,Detection target,-,select,operational,biosensor-ap
 co2_capture_rate,Co2 Capture Rate,CO₂ capture rate,g/m²/d,number,operational,carbon-capture-applications,10,0,100,10,operational|carbon-capture-applications
 co2_conversion_product,Co2 Conversion Product,Main product,-,select,operational,carbon-capture-applications,HCOOH,,,,operational|carbon-capture-applications
 faradaic_efficiency_co2,Faradaic Efficiency Co2,CO₂ reduction efficiency,%,number,operational,carbon-capture-applications,70,0,100,70,operational|carbon-capture-applications
-circuit_configuration,Circuit Configuration,Electrical circuit arrangement,,select,operational,circuit-conditions,Single cell,,,,operational|circuit-conditions
+circuit_configuration,Circuit Configuration,Electrical circuit arrangement,-,select,operational,circuit-conditions,Single cell,,,,operational|circuit-conditions
 external_load,External Load,External resistance connected to the circuit,Ω,number,operational,circuit-conditions,,,,,operational|circuit-conditions
-load_variation,Load Variation Pattern,Pattern of external load changes,,select,operational,circuit-conditions,Constant load,,,,operational|circuit-conditions
+load_variation,Load Variation Pattern,Pattern of external load changes,-,select,operational,circuit-conditions,Constant load,,,,operational|circuit-conditions
 switching_frequency,Load Switching Frequency,Frequency of load changes,Hz,number,operational,circuit-conditions,,,,,operational|circuit-conditions
-operation_mode,Operation Mode,Mode of fuel cell operation,,select,operational,control-parameters,Continuous,,,,operational|control-parameters
+operation_mode,Operation Mode,Mode of fuel cell operation,-,select,operational,control-parameters,Continuous,,,,operational|control-parameters
 sampling_frequency,Data Sampling Frequency,Frequency of data collection,Hz,number,operational,control-parameters,,,,,operational|control-parameters
-shutdown_procedure,Shutdown Procedure,Method for system shutdown,,select,operational,control-parameters,Gradual reduction,,,,operational|control-parameters
+shutdown_procedure,Shutdown Procedure,Method for system shutdown,-,select,operational,control-parameters,Gradual reduction,,,,operational|control-parameters
 current_efficiency,Current Efficiency,Current utilization,%,number,operational,desalination-applications,80,50,100,80,operational|desalination-applications
 energy_per_volume,Energy Per Volume,Energy per m³ water,kWh/m³,number,operational,desalination-applications,1,0,5,1,operational|desalination-applications
 membrane_pairs,Membrane Pairs,Ion exchange membrane pairs,-,number,operational,desalination-applications,10,1,100,10,operational|desalination-applications
@@ -394,7 +394,7 @@ salt_removal,Salt Removal,Desalination efficiency,%,number,operational,desalinat
 flow_rate,Flow Rate,Flow rate of the electrolyte,mL/min,number,operational,flow-conditions,,,,,operational|flow-conditions
 flow_velocity,Flow Velocity,Linear velocity of fluid through reactor,cm/s,number,operational,flow-conditions,,,,,operational|flow-conditions
 mixing_intensity,Mixing Intensity,Degree of mixing in reactor,rpm,number,operational,flow-conditions,,,,,operational|flow-conditions
-recirculation_ratio,Recirculation Ratio,Ratio of recirculated to fresh feed,,number,operational,flow-conditions,,,,,operational|flow-conditions
+recirculation_ratio,Recirculation Ratio,Ratio of recirculated to fresh feed,-,number,operational,flow-conditions,,,,,operational|flow-conditions
 charge_rate,Charge Rate,Charge rate,C,number,operational,grid-integration,1,0.1,10,1,operational|grid-integration
 discharge_rate,Discharge Rate,Discharge rate,C,number,operational,grid-integration,1,0.1,10,1,operational|grid-integration
 grid_synchronization,Grid Synchronization,Grid sync required,-,boolean,operational,grid-integration,true,,,,operational|grid-integration
@@ -581,7 +581,7 @@ residence_time_cell,Residence Time Cell,Hydraulic residence time,h,number,physic
 dead_zone_fraction,Dead Zone Fraction,Fraction of dead volume,%,number,physical,industrial-scale-parameters,5,0,50,5,physical|industrial-scale-parameters
 reynolds_number,Reynolds Number,Flow regime indicator,-,number,physical,industrial-scale-parameters,2000,1,100000,2000,physical|industrial-scale-parameters
 scale_factor,Scale Factor,Scale-up from lab,-,number,physical,industrial-scale-parameters,100,1,10000,100,physical|industrial-scale-parameters
-structural_integrity,Structural Integrity Factor,Mechanical stability rating,,number,physical,mechanical-properties,,,,,physical|mechanical-properties
+structural_integrity,Structural Integrity Factor,Mechanical stability rating,%,number,physical,mechanical-properties,,,,,physical|mechanical-properties
 system_weight,Total System Weight,Total weight of reactor system,kg,number,physical,mechanical-properties,,,,,physical|mechanical-properties
 cells_per_stack,Cells Per Stack,Number of cells in stack,-,number,physical,multi-cell-stack-configuration,10,2,100,10,physical|multi-cell-stack-configuration
 current_sharing,Current Sharing,Current distribution uniformity,%,number,physical,multi-cell-stack-configuration,95,80,100,95,physical|multi-cell-stack-configuration
@@ -606,7 +606,7 @@ temperature_control_type,Temperature Control Type,Temperature control method,-,s
 temperature_deadband,Temperature Deadband,Control deadband,°C,number,physical,reactor-control-systems,1,0.1,5,1,physical|reactor-control-systems
 temperature_ramp_rate_max,Temperature Ramp Rate Max,Maximum temperature change rate,°C/min,number,physical,reactor-control-systems,2,0.1,10,2,physical|reactor-control-systems
 temperature_setpoint,Temperature Setpoint,Target temperature,°C,number,physical,reactor-control-systems,30,4,80,30,physical|reactor-control-systems
-chamber_configuration,Chamber Configuration,Number and arrangement of reactor chambers,,select,physical,reactor-geometry,Dual chamber,,,,physical|reactor-geometry
+chamber_configuration,Chamber Configuration,Number and arrangement of reactor chambers,-,select,physical,reactor-geometry,Dual chamber,,,,physical|reactor-geometry
 reactor_height,Reactor Height,Internal height dimension of reactor,cm,number,physical,reactor-geometry,,,,,physical|reactor-geometry
 reactor_length,Reactor Length,Internal length dimension of reactor,cm,number,physical,reactor-geometry,,,,,physical|reactor-geometry
 reactor_volume,Reactor Volume,Total internal volume of the reactor,mL,number,physical,reactor-geometry,,,,,physical|reactor-geometry
@@ -623,7 +623,7 @@ reactor_material,Reactor Material,Reactor construction material,-,select,physica
 reactor_shape,Reactor Shape,Reactor geometry,-,select,physical,reactor-system-components,cylindrical,,,,physical|reactor-system-components
 reactor_volume_total,Reactor Volume Total,Total reactor volume,L,number,physical,reactor-system-components,100,1,10000,100,physical|reactor-system-components
 heat_transfer_coefficient,Heat Transfer Coefficient,Overall heat transfer coefficient,W/m²·K,number,physical,thermal-properties,,,,,physical|thermal-properties
-insulation_factor,Thermal Insulation Factor,Heat retention capability,,number,physical,thermal-properties,,,,,physical|thermal-properties
+insulation_factor,Thermal Insulation Factor,Heat retention capability,W/(m·K),number,physical,thermal-properties,,,,,physical|thermal-properties
 thermal_mass,Thermal Mass,Heat capacity of reactor system,J/K,number,physical,thermal-properties,,,,,physical|thermal-properties
 audit_frequency,Audit Frequency,Compliance audits,/year,number,safety,regulatory-compliance,2,1,12,2,safety|regulatory-compliance
 certification_required,Certification Required,Required certifications,-,array,safety,regulatory-compliance,"[ISO14001, ISO45001]",,,,safety|regulatory-compliance
@@ -665,4 +665,4 @@ min_operating_ph,Min Operating Ph,Minimum safe pH,-,number,safety,safety-paramet
 pathogen_reduction,Pathogen Reduction,Log reduction of pathogens,log,number,safety,safety-parameters,3,0,6,3,safety|safety-parameters
 reactivity_rating,Reactivity Rating,NFPA reactivity,-,number,safety,safety-parameters,0,0,4,0,safety|safety-parameters
 toxicity_rating,Toxicity Rating,NFPA health hazard,-,number,safety,safety-parameters,1,0,4,1,safety|safety-parameters
-safety_interlock_status,Safety Interlock Status,Status of safety interlock systems,,select,safety,safety-systems,Active,,,,safety|safety-systems
+safety_interlock_status,Safety Interlock Status,Status of safety interlock systems,-,select,safety,safety-systems,Active,,,,safety|safety-systems

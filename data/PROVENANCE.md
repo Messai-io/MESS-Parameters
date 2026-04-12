@@ -28,12 +28,12 @@ As of 2026-04-12, the following datasets have been exported from the MESSAI prod
 
 | Dataset | File | Records | Size | Notes |
 |---------|------|---------|------|-------|
-| Extracted parameter data | `extracted-parameter-data.csv` | 25,566 | 3.9 MB | Filtered: confidence > 0, numeric value present |
-| Paper-parameter mappings | `paper-parameter-values.csv` | 13,321 | 2.7 MB | Ontology-mapped, numeric values only |
-| Paper metadata | `paper-metadata.csv` | 23,332 | 4.4 MB | Full corpus including tangentially related papers |
-| Parameter definitions | `parameter-definitions-full.csv` | 687 | 82 KB | All definitions with usage counts |
+| Paper-parameter values | `paper-parameter-values.csv` | 13,321 | 2.7 MB | Ontology-mapped, numeric values, `verified_mes_paper` flag |
+| Extracted parameter data | `extracted-parameter-data.csv` | 549 | 40 KB | Ontology-name-matched raw extractions with source context |
+| Paper metadata | `paper-metadata.csv` | 23,332 | 4.4 MB | Full corpus with `verified_mes` flag (8,904 confirmed MES) |
+| Parameter definitions | `parameter-definitions-full.csv` | 687 | 82 KB | All definitions with usage counts (234 have usage > 0) |
 
-The database contains 323,606 raw extraction rows. 90.4% were excluded from the published CSV because they have zero confidence (extraction failures). See [SCIENTIFIC_INTEGRITY.md](SCIENTIFIC_INTEGRITY.md) for details.
+The database contains 323,606 raw extraction rows. 90.4% have zero confidence (extraction failures), and most of the remainder use free-text parameter names that don't match the ontology. Only ontology-matched, quality-filtered data is published.
 
 ## What Still Requires MESSAI Database Access
 

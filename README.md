@@ -5,16 +5,16 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 ![Parameters](https://img.shields.io/badge/parameters-687-blue)
 ![Papers](https://img.shields.io/badge/papers-23%2C332-green)
-![Extracted Values](https://img.shields.io/badge/extracted%20values-25%2C566-orange)
+![Parameter Values](https://img.shields.io/badge/parameter%20values-13%2C321-orange)
 [![Explorer](https://img.shields.io/badge/Explorer-Live-purple)](https://messai-io.github.io/MESS-Parameters/)
 
 ## What This Repository Contains
 
 | Dataset | Records | File | Description |
 |---------|---------|------|-------------|
-| Extracted parameter data | 25,566 | `data/extracted-parameter-data.csv` | Numeric values extracted from MES papers (confidence > 0 only) |
-| Paper-parameter mappings | 13,321 | `data/paper-parameter-values.csv` | Validated links between papers and ontology parameters |
-| Paper metadata | 23,332 | `data/paper-metadata.csv` | Full corpus: DOIs, titles, system types, scores |
+| Paper-parameter values | 13,321 | `data/paper-parameter-values.csv` | Validated values mapped to the 687-parameter ontology |
+| Extracted parameter data | 549 | `data/extracted-parameter-data.csv` | Ontology-matched raw extractions with source context |
+| Paper metadata | 23,332 | `data/paper-metadata.csv` | Full corpus: DOIs, titles, system types, `verified_mes` flag |
 | Parameter definitions | 687 | `data/parameter-definitions-full.csv` | Complete ontology from MESSAI database with usage counts |
 | Ontology index | 667 | `parameters/index.json` | Structured JSON with ranges, units, types, defaults |
 
@@ -26,11 +26,10 @@ This repository supports: *"From PDF to Protocol: How AI-Driven Meta-Analysis of
 
 The extraction pipeline is imperfect. Before using this data, read [data/SCIENTIFIC_INTEGRITY.md](data/SCIENTIFIC_INTEGRITY.md). Key issues:
 
-- **Paper-parameter-values** (13,321 rows) is the cleanest dataset — each value is mapped to a defined parameter in the ontology
-- **Extracted-parameter-data** (25,566 rows) is noisier raw extraction output filtered to confidence > 0 with numeric values only. Some parameter names are extraction artifacts
-- **Paper-metadata** includes the full 23,332-paper corpus. The ingestion pipeline has a permissive filter — some papers may be tangentially related to MES
-- Only ~3% of extracted values have traceable paper DOIs. Most extractions come from PDFs without DOI metadata
-- The extraction categories (PHYSICAL, CHEMICAL, BIOLOGICAL, etc.) differ from the ontology categories (ELECTROCHEMICAL, MATERIALS, etc.) — these are two different classification systems that have not been fully reconciled
+- **Paper-parameter-values** (13,321 rows) is the primary dataset — each value is mapped to a defined parameter in the 687-definition ontology. Use this for meta-analysis.
+- **Extracted-parameter-data** (549 rows) contains only rows where the raw extraction parameter name exactly matches an ontology definition name. Most raw extractions (323K in the database) are noise from the PDF parsing pipeline.
+- **Paper-metadata** includes 23,332 papers. A `verified_mes` flag indicates papers confirmed as MES-related via keyword matching in title, abstract, or keywords (8,904 papers = 38%). The remaining papers were ingested by a permissive filter and may be tangentially related or off-topic.
+- Only 234 of 687 parameter definitions have any usage. 453 definitions (66%) are aspirational or speculative and have never been populated from the literature.
 
 ## Quick Start for Researchers
 
@@ -39,22 +38,24 @@ The extraction pipeline is imperfect. Before using this data, read [data/SCIENTI
 ```python
 import pandas as pd
 
-# Paper-parameter values: the cleanest dataset (ontology-mapped)
-mappings = pd.read_csv('data/paper-parameter-values.csv')
-print(f"{len(mappings)} parameter-paper mappings")
-print(mappings.groupby('parameter_category')['numeric_value'].describe())
+# Paper-parameter values: the primary dataset (ontology-mapped, 13K values)
+values = pd.read_csv('data/paper-parameter-values.csv')
+print(f"{len(values)} parameter-paper values")
+print(values['parameter_category'].value_counts())
+
+# Filter to verified MES papers only
+mes_values = values[values['verified_mes_paper'] == True]
+print(f"{len(mes_values)} values from verified MES papers")
 
 # Filter to a specific parameter
-power = mappings[mappings['parameter_name'] == 'Power Density']
-print(f"{len(power)} power density measurements")
+power = values[values['parameter_name'] == 'Maximum Power Density']
+print(f"{len(power)} maximum power density measurements")
 
-# Paper metadata
+# Paper metadata — use verified_mes flag to filter
 papers = pd.read_csv('data/paper-metadata.csv')
-print(papers['system_type'].value_counts())
-
-# Raw extracted data (noisier, larger)
-data = pd.read_csv('data/extracted-parameter-data.csv')
-print(f"{len(data)} extracted values across {data['parameter_category'].nunique()} categories")
+mes_papers = papers[papers['verified_mes'] == True]
+print(f"{len(mes_papers)} verified MES papers out of {len(papers)} total")
+print(mes_papers['system_type'].value_counts())
 ```
 
 ### R
@@ -128,8 +129,8 @@ MESS-Parameters/
 | Metric | Value |
 |---|---|
 | Papers in corpus | 23,332 |
-| Extracted parameter values (confidence > 0) | 25,566 |
-| Ontology-mapped paper-parameter pairs | 13,321 |
+| Verified MES papers | 8,904 |
+| Paper-parameter values (ontology-mapped) | 13,321 |
 | Parameter definitions | 687 |
 | Categories | 13 |
 | Subcategories | 119 |
@@ -180,10 +181,11 @@ See [scripts/README.md](scripts/README.md).
 Read [data/SCIENTIFIC_INTEGRITY.md](data/SCIENTIFIC_INTEGRITY.md) before using this data. Key issues:
 
 - P-values use a custom approximation, not standard t-distribution
-- Confidence intervals added to correlations via Fisher z-transform
+- Confidence intervals on correlations via Fisher z-transform; several span zero
 - Reporting rates are category-level averages masking per-criterion variation
-- The extraction pipeline produces noisy output requiring filtering
-- Only ~3% of extracted values have traceable DOIs
+- 90% of raw database extractions are noise (filtered out of published CSVs)
+- 62% of papers in the corpus may not be directly about MES (use `verified_mes` flag)
+- 66% of parameter definitions have zero usage in the corpus
 
 ## How to Cite
 
@@ -196,7 +198,7 @@ Read [data/SCIENTIFIC_INTEGRITY.md](data/SCIENTIFIC_INTEGRITY.md) before using t
   publisher    = {GitHub},
   url          = {https://github.com/Messai-io/MESS-Parameters},
   version      = {0.2.0},
-  note         = {687 parameters, 23,332 papers, 25,566 extracted values}
+  note         = {687 parameters, 23,332 papers, 13,321 parameter values}
 }
 ```
 
