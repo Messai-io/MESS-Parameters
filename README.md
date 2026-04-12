@@ -5,16 +5,16 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 ![Parameters](https://img.shields.io/badge/parameters-687-blue)
 ![Papers](https://img.shields.io/badge/papers-23%2C332-green)
-![Parameter Values](https://img.shields.io/badge/parameter%20values-13%2C321-orange)
+![Parameter Values](https://img.shields.io/badge/parameter%20values-18%2C113-orange)
 [![Explorer](https://img.shields.io/badge/Explorer-Live-purple)](https://messai-io.github.io/MESS-Parameters/)
 
 ## What This Repository Contains
 
 | Dataset | Records | File | Description |
 |---------|---------|------|-------------|
-| Paper-parameter values | 13,321 | `data/paper-parameter-values.csv` | Validated values mapped to the 687-parameter ontology |
-| Extracted parameter data | 549 | `data/extracted-parameter-data.csv` | Ontology-matched raw extractions with source context |
-| Paper metadata | 23,332 | `data/paper-metadata.csv` | Full corpus: DOIs, titles, system types, `verified_mes` flag |
+| Paper-parameter values | 18,113 | `data/paper-parameter-values.csv` | Validated values mapped to the 687-parameter ontology (numeric + text) |
+| Extracted parameter data | 25,566 | `data/extracted-parameter-data.csv` | All quality-filtered extractions with labeling flags |
+| Paper metadata | 23,332 | `data/paper-metadata.csv` | Full corpus with `verified_mes` flag (8,904 confirmed) |
 | Parameter definitions | 687 | `data/parameter-definitions-full.csv` | Complete ontology from MESSAI database with usage counts |
 | Ontology index | 667 | `parameters/index.json` | Structured JSON with ranges, units, types, defaults |
 
@@ -26,10 +26,10 @@ This repository supports: *"From PDF to Protocol: How AI-Driven Meta-Analysis of
 
 The extraction pipeline is imperfect. Before using this data, read [data/SCIENTIFIC_INTEGRITY.md](data/SCIENTIFIC_INTEGRITY.md). Key issues:
 
-- **Paper-parameter-values** (13,321 rows) is the primary dataset — each value is mapped to a defined parameter in the 687-definition ontology. Use this for meta-analysis.
-- **Extracted-parameter-data** (549 rows) contains only rows where the raw extraction parameter name exactly matches an ontology definition name. Most raw extractions (323K in the database) are noise from the PDF parsing pipeline.
-- **Paper-metadata** includes 23,332 papers. A `verified_mes` flag indicates papers confirmed as MES-related via keyword matching in title, abstract, or keywords (8,904 papers = 38%). The remaining papers were ingested by a permissive filter and may be tangentially related or off-topic.
-- Only 234 of 687 parameter definitions have any usage. 453 definitions (66%) are aspirational or speculative and have never been populated from the literature.
+- **Paper-parameter-values** (18,113 rows) is the primary dataset — each value maps to an ontology parameter. `has_numeric_value` flag distinguishes numeric measurements (73%) from text values (27% — material names, methods, etc.)
+- **Extracted-parameter-data** (25,566 rows) is the full quality-filtered extraction output. Each row is labeled: `ontology_matched` (2.1% match a defined parameter name), `likely_garbage` (57.9% are parsing artifacts), and the rest (40%) are legitimate values with free-text parameter names not in the ontology (e.g., "COD", "HRT", "diameter")
+- **Paper-metadata** includes 23,332 papers with a `verified_mes` flag (8,904 = 38% confirmed MES). The rest were ingested by a permissive filter.
+- 234 of 687 parameter definitions have usage; 453 (66%) are aspirational.
 
 ## Quick Start for Researchers
 
@@ -130,7 +130,8 @@ MESS-Parameters/
 |---|---|
 | Papers in corpus | 23,332 |
 | Verified MES papers | 8,904 |
-| Paper-parameter values (ontology-mapped) | 13,321 |
+| Paper-parameter values (ontology-mapped) | 18,113 |
+| Raw extractions (quality-filtered, labeled) | 25,566 |
 | Parameter definitions | 687 |
 | Categories | 13 |
 | Subcategories | 119 |
@@ -198,7 +199,7 @@ Read [data/SCIENTIFIC_INTEGRITY.md](data/SCIENTIFIC_INTEGRITY.md) before using t
   publisher    = {GitHub},
   url          = {https://github.com/Messai-io/MESS-Parameters},
   version      = {0.2.0},
-  note         = {687 parameters, 23,332 papers, 13,321 parameter values}
+  note         = {687 parameters, 23,332 papers, 18,113 parameter values}
 }
 ```
 

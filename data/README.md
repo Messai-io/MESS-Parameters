@@ -32,9 +32,14 @@ const allParams = parameters.categories.flatMap(c =>
 
 ### Raw Research Data (from MESSAI Database)
 
-#### extracted-parameter-data.csv (549 rows)
+#### extracted-parameter-data.csv (4.1 MB, 25,566 rows)
 
-Raw extraction output filtered to rows where the parameter name exactly matches an ontology definition. Much smaller than paper-parameter-values.csv because most raw extractions use free-text names that don't match the ontology. Includes source context from the paper. For meta-analysis, prefer paper-parameter-values.csv.
+All quality-filtered raw extractions (confidence > 0, numeric value present). Each row is labeled with three flags to help researchers filter:
+- `ontology_matched` — parameter name matches a defined ontology parameter (2.1%)
+- `likely_garbage` — parameter name is a parsing artifact: common word, sentence fragment, or metadata (57.9%)
+- `verified_mes_paper` — paper confirmed as MES-related (23.5%)
+
+The remaining ~40% are legitimate parameter values with free-text names not in the ontology (e.g., "COD", "HRT", "diameter", "scan rate"). Researchers can use `likely_garbage=false` to filter to usable data (~10,800 rows).
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -53,9 +58,9 @@ Raw extraction output filtered to rows where the parameter name exactly matches 
 | `validation_status` | string | AUTO_VALIDATED, PENDING, VERIFIED, REJECTED | `AUTO_VALIDATED` |
 | `source_context` | string | Text context from the paper | `Table: Performance metrics...` |
 
-#### paper-parameter-values.csv (2.7 MB, 13,321 rows)
+#### paper-parameter-values.csv (3.7 MB, 18,113 rows)
 
-**The primary research dataset.** Each row maps a paper to a specific parameter from the 687-definition ontology with a numeric value. Includes a `verified_mes_paper` flag (true for 3,678 rows from confirmed MES papers). Recommended for meta-analysis.
+**The primary research dataset.** Each row maps a paper to a specific parameter from the 687-definition ontology. Includes both numeric values (73%) and text values (27% — material names, methods, etc.). Key columns: `has_numeric_value` distinguishes the two; `verified_mes_paper` flags confirmed MES papers (35%). Artifacts like `[object Object]` and parameter-name echoes have been removed.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|

@@ -6,10 +6,10 @@ papersWithAbstracts,9075,corpus
 papersWithPDFs,14743,corpus
 papersWithFullText,3535,corpus
 rawExtractionsInDatabase,323606,extraction
-publishedExtractions,549,extraction
-publishedExtractionsNote,"Filtered to confidence > 0, numeric value present, and ontology-matched parameter name",extraction
-paperParameterMappings,13321,extraction
-paperParameterMappingsNote,"Ontology-mapped with numeric values, [object Object] artifacts removed",extraction
+publishedExtractions,25566,extraction
+publishedExtractionsNote,"All confidence > 0 with numeric values; labeled with ontology_matched, likely_garbage, verified_mes_paper flags",extraction
+paperParameterMappings,18113,extraction
+paperParameterMappingsNote,"Ontology-mapped values (numeric + text), [object Object] and name-echo artifacts removed",extraction
 parameterDefinitions,687,extraction
 parameterDefinitionsWithUsage,234,extraction
 categories,13,extraction
