@@ -17,7 +17,7 @@ export function DashboardView() {
           MESS-Parameters Explorer
         </h1>
         <p className="mt-2 text-mes-text-secondary">
-          Browse 687 microbial electrochemical system parameters and 487K extracted values from 23,332 research papers.
+          Browse 687 microbial electrochemical system parameters and 25,566 extracted values from 23,332 research papers.
         </p>
       </div>
 

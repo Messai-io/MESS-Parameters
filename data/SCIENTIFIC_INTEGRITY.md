@@ -177,16 +177,44 @@ Files with `-comprehensive` or `-enhanced` suffixes contain richer data. Files m
 
 ### 4.5 Schema Utilization Gap
 
-The JSON Schema (`schemas/parameter.schema.json`) defines fields for `references`, `dependencies`, `validation_rules`, and `compatibility` (system types, materials, microbes). None of these fields are currently populated in `index.json`. This means:
+The JSON Schema (`schemas/parameter.schema.json`) defines fields for `references`, `dependencies`, `validation_rules`, and `compatibility`. Of 667 parameters in `index.json`, only **14 core parameters** have `references`, `dependencies`, and `compatibility` populated. The remaining 653 parameters have none of these fields. This means:
 
-- No parameter has traceable literature references in the structured data
-- No inter-parameter dependencies are documented (e.g., electrode spacing affects internal resistance)
-- No system-type compatibility is specified (which parameters apply to MFC vs MEC vs MDC)
-- No validation rules beyond min/max range checking exist
+- 98% of parameters have no traceable literature references in the structured data
+- 98% have no documented inter-parameter dependencies
+- 98% have no system-type compatibility tags
+- No parameters have `validation_rules` beyond min/max range checking
 
 ---
 
-## 5. Corpus and Extraction Caveats
+## 5. Extraction Data Quality
+
+### 5.0 Filtering Applied to Published Data
+
+The MESSAI database contains 323,606 raw extraction rows. The published `extracted-parameter-data.csv` includes only 25,566 rows (7.9%) after filtering:
+
+- **Excluded:** 292,413 rows (90.4%) with confidence = 0 (extraction failures)
+- **Excluded:** 246,659 rows (76.2%) with no numeric value
+- **Included:** Only rows with confidence > 0 AND a numeric value
+
+Even after filtering, the published data has known quality issues:
+
+| Issue | Affected rows | % of published data |
+|---|---|---|
+| No paper DOI (untraceable to source) | ~24,870 | ~97% |
+| PENDING validation status | ~24,000 | ~94% |
+| Parameter names that are extraction artifacts | Unknown | Estimated 5-15% |
+
+**The paper-parameter-values.csv (13,321 rows) is cleaner** because each row maps to a defined parameter in the 687-definition ontology. The extracted-parameter-data.csv uses free-text parameter names from the extraction pipeline, which sometimes contain sentence fragments, section headings, or other PDF parsing artifacts.
+
+### 5.0.1 Category Ontology Mismatch
+
+The `extracted-parameter-data.csv` uses extraction-pipeline categories (PHYSICAL, CHEMICAL, BIOLOGICAL, ENVIRONMENTAL, OPERATIONAL, ECONOMIC) that differ from the ontology categories in `parameter-definitions-full.csv` (ELECTROCHEMICAL, MATERIALS, MONITORING_CONTROL, REACTOR_DESIGN, etc.). These are two different classification systems. Cross-referencing between the files requires mapping, which is not provided in this release.
+
+The `paper-parameter-values.csv` uses the ontology categories and does not have this mismatch.
+
+### 5.0.2 Corpus Scope
+
+The ingestion pipeline uses a permissive keyword filter. An estimated 10-30% of papers in the corpus may be only tangentially related to microbial electrochemical systems. Papers about general electrochemistry, wastewater treatment without MES, or unrelated fields may be included. System type classification (MFC/MEC/MDC/BES/MES) is automated and not manually verified.
 
 ### 5.1 Open-Access Bias
 

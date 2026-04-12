@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-04-09",
+  "generatedAt": "2026-04-12",
   "description": "MESSAI pipeline extraction statistics — snapshot from production database",
   "corpus": {
     "totalPapers": 23332,
-    "papersWithAbstracts": 9049,
+    "papersWithAbstracts": 9075,
     "papersWithPDFs": 14743,
     "papersWithFullText": 3535
   },
   "extraction": {
-    "totalExtractions": 487064,
-    "extractedParameterDataRows": 487064,
-    "paperParameterMappings": 19820,
-    "papersWithStructuredParameters": 5261,
+    "totalExtractionsRaw": 323606,
+    "extractionsWithConfidenceAboveZero": 25566,
+    "paperParameterMappingsWithNumericValue": 13321,
+    "paperParameterMappingsTotal": 19804,
     "parameterDefinitions": 687,
     "categories": 13,
     "subcategories": 119
@@ -21,18 +21,22 @@
     "averageReproducibilityCompleteness": 0.231,
     "papersWithEconomicMetrics": 243,
     "papersWithComputationalTags": 678,
-    "papersWithAISummaries": 8395
+    "papersWithAISummaries": 8395,
+    "extractionsWithDOI_percent": 2.7,
+    "note": "90.4% of raw extractions have zero confidence and are excluded from published CSVs. Only confidence > 0 extractions with numeric values are included."
   },
   "systemTypes": {
-    "MFC": 12450,
-    "MEC": 3210,
-    "MDC": 980,
-    "MES_general": 5255,
-    "other": 1437
+    "MES": 11384,
+    "MFC": 9330,
+    "MEC": 1375,
+    "BES": 1122,
+    "MDC": 109,
+    "other": 12
   },
   "methodology": {
     "pdfProcessing": "Nougat (Meta) for OCR, regex + LLM for structured extraction",
     "parameterMapping": "687-definition ontology with 13 categories and 119 subcategories",
-    "qualityScoring": "Reproducibility checklist with 26 weighted criteria"
+    "qualityScoring": "Reproducibility checklist with 26 weighted criteria",
+    "dataFiltering": "Published CSVs exclude confidence=0 and null numeric values. Raw database contains 323,606 rows; published contains 25,566."
   }
 }

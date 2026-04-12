@@ -22,16 +22,18 @@ This document describes the origin, scope, and limitations of the data in this r
 
 ---
 
-## Raw Data Now Included
+## Raw Data Included
 
-As of 2026-04-09, the following datasets have been exported from the MESSAI production database and are included in this repository:
+As of 2026-04-12, the following datasets have been exported from the MESSAI production database:
 
-| Dataset | File | Rows | Size |
-|---------|------|------|------|
-| Extracted parameter data | `extracted-parameter-data.csv` | ~487K | 45 MB |
-| Paper metadata | `paper-metadata.csv` | ~23.4K | 4.4 MB |
-| Paper-parameter mappings | `paper-parameter-values.csv` | ~19.8K | 3.9 MB |
-| Parameter definitions (full) | `parameter-definitions-full.csv` | 687 | 82 KB |
+| Dataset | File | Records | Size | Notes |
+|---------|------|---------|------|-------|
+| Extracted parameter data | `extracted-parameter-data.csv` | 25,566 | 3.9 MB | Filtered: confidence > 0, numeric value present |
+| Paper-parameter mappings | `paper-parameter-values.csv` | 13,321 | 2.7 MB | Ontology-mapped, numeric values only |
+| Paper metadata | `paper-metadata.csv` | 23,332 | 4.4 MB | Full corpus including tangentially related papers |
+| Parameter definitions | `parameter-definitions-full.csv` | 687 | 82 KB | All definitions with usage counts |
+
+The database contains 323,606 raw extraction rows. 90.4% were excluded from the published CSV because they have zero confidence (extraction failures). See [SCIENTIFIC_INTEGRITY.md](SCIENTIFIC_INTEGRITY.md) for details.
 
 ## What Still Requires MESSAI Database Access
 
@@ -99,17 +101,15 @@ Regenerated from JSON sources — they should never be edited manually:
 npx tsx scripts/generate-csv-exports.ts
 ```
 
-### Future database exports
+### Database re-export
 
-Template scripts exist for exporting the full dataset when database access is available:
+To refresh the data files from the database:
 
 ```bash
 DATABASE_URL="..." npx tsx scripts/export-all-data.ts
 ```
 
-These scripts will generate:
-- `data/parameter-values.csv` — 62K+ extracted parameter values from papers
-- `data/paper-metadata.csv` — 21K+ paper records with completeness scores
+The raw CSV exports are generated via `psql \COPY` with quality filters applied at the SQL level. See `scripts/README.md` for the exact queries used.
 
 ---
 

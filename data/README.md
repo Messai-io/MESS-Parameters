@@ -32,9 +32,9 @@ const allParams = parameters.categories.flatMap(c =>
 
 ### Raw Research Data (from MESSAI Database)
 
-#### extracted-parameter-data.csv (45 MB, ~487K rows)
+#### extracted-parameter-data.csv (3.9 MB, 25,566 rows)
 
-The core dataset: every parameter value extracted from MES publications by the MESSAI pipeline. This is the raw data behind the ontology.
+Numeric parameter values extracted from MES publications by the MESSAI pipeline, filtered to confidence > 0 only. This is the raw extraction output — noisier than paper-parameter-values.csv because parameter names are free-text from the extraction pipeline, not mapped to the ontology. See [SCIENTIFIC_INTEGRITY.md](SCIENTIFIC_INTEGRITY.md) section 5.0 for quality details.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -53,9 +53,9 @@ The core dataset: every parameter value extracted from MES publications by the M
 | `validation_status` | string | AUTO_VALIDATED, PENDING, VERIFIED, REJECTED | `AUTO_VALIDATED` |
 | `source_context` | string | Text context from the paper | `Table: Performance metrics...` |
 
-#### paper-parameter-values.csv (3.9 MB, ~19.8K rows)
+#### paper-parameter-values.csv (2.7 MB, 13,321 rows)
 
-Validated parameter-paper mappings linking specific parameters from the ontology to the papers that report them.
+The cleanest dataset: validated parameter-paper mappings linking specific parameters from the 687-definition ontology to papers that report them. Each row has a numeric value and maps to a defined parameter. Recommended as the primary dataset for meta-analysis.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -75,9 +75,9 @@ Validated parameter-paper mappings linking specific parameters from the ontology
 | `source_section` | string | Paper section where found | `Results` |
 | `is_verified` | boolean | Whether manually verified | `false` |
 
-#### paper-metadata.csv (4.4 MB, ~23.4K rows)
+#### paper-metadata.csv (4.4 MB, 23,332 rows)
 
-Metadata for every paper in the MESSAI corpus, including performance metrics and quality scores.
+Metadata for every paper in the MESSAI corpus. Note: the ingestion pipeline uses a permissive filter, so some papers may be tangentially related to MES. Only ~1.4% of papers have `power_output` values and ~61% are missing `year`.
 
 | Column | Type | Description | Example |
 |--------|------|-------------|---------|
@@ -271,13 +271,12 @@ The CSVs should always match the JSON sources exactly. Regenerate after updating
 
 ## What This Data Does NOT Include
 
-The actual extracted parameter **values** from individual papers (62,043 rows) and paper metadata (21,895 records) reside in the MESSAI production database, not in this repository. This repo provides:
+- **Paper abstracts and full text** — copyrighted publisher content
+- **AI-generated summaries** — LLM-derived text from papers
+- **Raw unfiltered extractions** — the database contains 323,606 rows; the published CSV includes only 25,566 after quality filtering (confidence > 0, numeric value present)
+- **Per-criterion reproducibility rates** — only category-level averages are available without database access
 
-- Parameter **definitions** (what parameters exist, their units, valid ranges)
-- **Summary statistics** from the extraction pipeline
-- **Correlation and reproducibility analysis** results
-
-For access to the full dataset, see [PROVENANCE.md](PROVENANCE.md).
+See [PROVENANCE.md](PROVENANCE.md) for data access details.
 
 ---
 

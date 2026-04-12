@@ -1,12 +1,12 @@
 ﻿metric,value,section
 totalPapers,23332,corpus
-papersWithAbstracts,9049,corpus
+papersWithAbstracts,9075,corpus
 papersWithPDFs,14743,corpus
 papersWithFullText,3535,corpus
-totalExtractions,487064,extraction
-extractedParameterDataRows,487064,extraction
-paperParameterMappings,19820,extraction
-papersWithStructuredParameters,5261,extraction
+totalExtractionsRaw,323606,extraction
+extractionsWithConfidenceAboveZero,25566,extraction
+paperParameterMappingsWithNumericValue,13321,extraction
+paperParameterMappingsTotal,19804,extraction
 parameterDefinitions,687,extraction
 categories,13,extraction
 subcategories,119,extraction
@@ -15,11 +15,15 @@ averageReproducibilityCompleteness,0.231,quality
 papersWithEconomicMetrics,243,quality
 papersWithComputationalTags,678,quality
 papersWithAISummaries,8395,quality
-MFC,12450,systemTypes
-MEC,3210,systemTypes
-MDC,980,systemTypes
-MES_general,5255,systemTypes
-other,1437,systemTypes
+extractionsWithDOI_percent,2.7,quality
+note,90.4% of raw extractions have zero confidence and are excluded from published CSVs. Only confidence > 0 extractions with numeric values are included.,quality
+MES,11384,systemTypes
+MFC,9330,systemTypes
+MEC,1375,systemTypes
+BES,1122,systemTypes
+MDC,109,systemTypes
+other,12,systemTypes
 pdfProcessing,"Nougat (Meta) for OCR, regex + LLM for structured extraction",methodology
 parameterMapping,687-definition ontology with 13 categories and 119 subcategories,methodology
 qualityScoring,Reproducibility checklist with 26 weighted criteria,methodology
+dataFiltering,"Published CSVs exclude confidence=0 and null numeric values. Raw database contains 323,606 rows; published contains 25,566.",methodology
