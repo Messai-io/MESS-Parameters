@@ -1,0 +1,14 @@
+operating_temperature
+substrate_concentration
+biofilm_conductivity
+biofilm_thickness
+internal_resistance
+maximum_power_density
+ph_level
+power_density
+hydraulic_retention_time
+coulombic_efficiency
+current_density_max
+open_circuit_voltage
+electrode_spacing_cell
+cell_volume
