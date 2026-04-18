@@ -37,7 +37,8 @@
     "papers:download": "papers/.venv/bin/python scripts/papers/download_from_db.py",
     "papers:status": "papers/.venv/bin/python scripts/papers/download_status.py",
     "papers:export-without-id": "bash scripts/papers/export_papers_without_id.sh",
-    "papers:backfill-ids": "papers/.venv/bin/python scripts/papers/backfill_identifiers.py"
+    "papers:backfill-ids": "papers/.venv/bin/python scripts/papers/backfill_identifiers.py",
+    "papers:manifest-json": "papers/.venv/bin/python scripts/papers/build_papers_manifest.py"
   },
   "keywords": [
     "parameters",

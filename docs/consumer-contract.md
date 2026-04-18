@@ -55,6 +55,36 @@ sidecar for a given parameter, consumers may check the optional
 `has_provenance` flag on `richParameter` (set to `true` when an entry exists).
 This flag is optional — omitting it is backward-compatible.
 
+### Optional papers manifest
+
+`data/papers-manifest.json` is a **sidecar** emitted by
+`scripts/papers/build_papers_manifest.py`. It pairs per-paper provenance
+(DOI, sha256, storage path under `papers/`, source, license, extraction
+status) so downstream apps can offer local PDF streaming when available.
+Schema version tracked inside the file at `metadata.version` (semver).
+
+The manifest is producer-internal; changes are never breaking for the
+`rich.json` contract.
+
+**Key naming:** consumers may read either `snake_case` or `camelCase` at
+their discretion. The file currently emits `snake_case`; a future
+release may emit both.
+
+**Enum vocabulary** (renderable verbatim in UIs):
+
+- `pdf_source`: `unpaywall | crossref | arxiv | pmc | biorxiv |
+  externalUrl | semanticscholar | legacy | local | unknown`
+- `pdf_license`: `cc-by | cc-by-sa | cc-by-nc | cc-by-nc-sa | cc-by-nd |
+  cc0 | publisher | unknown`
+- `pdf_extraction_status`: `pending | sections | parameters | figures |
+  complete`
+
+**DOI sanitization** in `pdf_storage_path`: directory names are produced
+by `scripts/papers/import_pdfs.py`'s `doi_to_dirname()`, which preserves
+`[A-Za-z0-9._/\-]` and strips everything else. Consumer API routes
+should accept `^[A-Za-z0-9][A-Za-z0-9._/\-]*\.pdf$` and reject `..` to
+block path traversal.
+
 ## The schema is the contract
 
 ```
