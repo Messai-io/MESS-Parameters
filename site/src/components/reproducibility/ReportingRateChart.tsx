@@ -17,8 +17,8 @@ export function ReportingRateChart({ categories }: ReportingRateChartProps) {
       .replace(/([A-Z])/g, ' $1')
       .replace(/^./, (s) => s.toUpperCase())
       .trim(),
-    rate: Math.round(val.averageReportingRate * 100),
-    weight: val.weight,
+    rate: typeof val.averageReportingRate === 'number' ? Math.round(val.averageReportingRate * 100) : 0,
+    weight: val.weight ?? '',
   }));
 
   return (

@@ -1,12 +1,4 @@
-<!--
-Parameter ID: absolute_humidity
-Category: environmental
-Generated: 2025-08-08T11:02:00.000Z
--->
-
 # Absolute Humidity
-
-## Definition
 
 Absolute humidity represents the actual mass of water vapor present in a unit
 volume of air, typically expressed as grams of water per cubic meter (g/m³) or
@@ -19,87 +11,41 @@ conductivity, microbial activity, and corrosion rates of system components.
 (18.016 g/mol), P = vapor pressure (Pa), R = gas constant (8.314 J/mol·K), T =
 temperature (K)
 
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Environmental |
+| **Subcategory** | Humidity Parameters |
+| **Type** | number |
+| **Unit** | g/m³ |
+| **Minimum** | 0 |
+| **Maximum** | 50 |
+
 ## Typical Values
 
 - **Range**: 0 - 50 g/m³
 - **Typical**: 5 - 25 g/m³
 - **Optimal**: 8 - 18 g/m³
-
-**Performance Categories**:
-
-- **Low Performance**: <3 g/m³ (very dry conditions, membrane dehydration risk)
+- **Performance Categories**: - **Low Performance**: <3 g/m³ (very dry conditions, membrane dehydration risk)
 - **Moderate Performance**: 3 - 8 g/m³ or 18 - 30 g/m³ (suboptimal moisture
-  levels)
 - **High Performance**: 8 - 18 g/m³ (optimal moisture range)
 - **Exceptional Performance**: 10 - 15 g/m³ (ideal conditions for most systems)
 
 ## Measurement Methods
 
-### Direct Measurement
-
-1. **Gravimetric Analysis**:
-
-   - Most accurate method (±0.1 g/m³)
-   - Absorb water vapor in desiccant
-   - Weigh before and after exposure
-   - Time-intensive but highly precise
-
-2. **Capacitive Humidity Sensors**:
-
-   - Fast response time (<30 seconds)
-   - Moderate accuracy (±2-5% RH equivalent)
-   - Convert to absolute humidity using temperature
-   - Suitable for continuous monitoring
-
-3. **Psychrometric Method**:
-   - Uses wet and dry bulb temperatures
-   - Calculate using psychrometric equations
-   - Accuracy depends on temperature measurement precision
-   - Standard meteorological approach
-
-### Calculation Methods
-
-1. **From Relative Humidity**: AH = (RH × Psat × 18.016) / (100 × R × T)
-2. **From Dew Point**: AH = (Psat(Tdp) × 18.016) / (R × T)
+- **Direct Measurement**: 1. **Gravimetric Analysis**:     - Most accurate method (±0.1 g/m³)    - Absorb water vapor in desiccant    - Weigh before and after exposure    - Time-intensive but highly precise  2. **Capacitive Humidity Sensors**:     - Fast response time (<30 seconds)    - Moderate accuracy (±2-5% RH equivalent)    - Convert to absolute humidity using temperature    - Suitable for continuous monitoring  3. **Psychrometric Method**:    - Uses wet and dry bulb temperatures    - Calculate using psychrometric equations    - Accuracy depends on temperature measurement precision    - Standard meteorological approach
+- **Calculation Methods**: 1. **From Relative Humidity**: AH = (RH × Psat × 18.016) / (100 × R × T) 2. **From Dew Point**: AH = (Psat(Tdp) × 18.016) / (R × T)
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Temperature**:
-
-   - Higher temperatures increase vapor holding capacity
-   - Affects saturation vapor pressure exponentially
-   - Diurnal temperature cycles cause fluctuations
-   - Indoor climate control systems impact
-
-2. **Relative Humidity**:
-
-   - Direct relationship at constant temperature
-   - Seasonal variations affect baseline levels
-   - Local weather patterns influence
-   - HVAC system control affects indoor levels
-
-3. **Ventilation Rate**:
-   - Air exchange with outside environment
-   - Fresh air intake affects moisture levels
-   - Building tightness impacts accumulation
-   - Mechanical ventilation control
-
-### Secondary Factors
-
-1. **Water Sources**:
-
-   - System water evaporation
-   - Nearby water bodies or wet surfaces
-   - Human occupancy and activities
-   - Equipment moisture generation
-
-2. **Material Properties**:
-   - Hygroscopic materials absorb/release moisture
-   - Building materials affect buffering capacity
-   - Insulation properties influence condensation
-   - Vapor barrier effectiveness
+- **Temperature**: - Higher temperatures increase vapor holding capacity    - Affects saturation vapor pressure exponentially    - Diurnal temperature cycles cause fluctuations    - Indoor climate control systems impact
+- **Relative Humidity**: - Direct relationship at constant temperature    - Seasonal variations affect baseline levels    - Local weather patterns influence    - HVAC system control affects indoor levels
+- **Ventilation Rate**: - Air exchange with outside environment    - Fresh air intake affects moisture levels    - Building tightness impacts accumulation    - Mechanical ventilation control
+- **Water Sources**: - System water evaporation    - Nearby water bodies or wet surfaces    - Human occupancy and activities    - Equipment moisture generation
+- **Material Properties**: - Hygroscopic materials absorb/release moisture    - Building materials affect buffering capacity    - Insulation properties influence condensation    - Vapor barrier effectiveness
 
 ## Performance Impact
 
@@ -109,26 +55,6 @@ reducing proton transfer efficiency by up to 50%. High humidity (>25 g/m³) may
 promote condensation and corrosion, potentially reducing system lifespan.
 Optimal absolute humidity (8-18 g/m³) maintains adequate membrane hydration
 while preventing excessive moisture-related issues.
-
-## Compatible Systems
-
-### Microbial Fuel Cells (MFCs)
-
-- **Operating Conditions**: 8 - 20 g/m³ optimal
-- **Air-cathode systems**: More sensitive to humidity variations
-- **Membrane performance**: Critical for proton transport
-
-### Microbial Electrolysis Cells (MECs)
-
-- **Operating Conditions**: 10 - 18 g/m³ preferred
-- **Hydrogen production**: Moisture affects gas purity
-- **Electrode stability**: Prevents excessive drying/wetting
-
-### Microbial Desalination Cells (MDCs)
-
-- **Operating Conditions**: 12 - 22 g/m³ suitable
-- **Membrane systems**: Multiple membranes more humidity sensitive
-- **Desalination efficiency**: Moisture balance critical
 
 ## Limitations
 
@@ -153,13 +79,9 @@ while preventing excessive moisture-related issues.
 3. **Biological Growth**: High humidity encourages unwanted microorganisms
 4. **Equipment Protection**: Electronic components vulnerable to moisture
 
-## Validation Rules
+## Compatible Systems
 
-1. **Range validation**: 0 - 60 g/m³ (physical limits)
-2. **Unit consistency**: Express in g/m³ or kg/m³
-3. **Temperature correlation**: Must be consistent with temperature and RH
-4. **Saturation limits**: Cannot exceed saturation vapor density
-5. **Physical plausibility**: Must follow psychrometric relationships
+Atmospheric Ambient Conditions
 
 ## References
 
@@ -184,25 +106,13 @@ while preventing excessive moisture-related issues.
    Organization.
    - Standard methods for humidity measurement and calculation
 
-## Application Notes
+---
 
-**Laboratory Scale**:
+## Suggest Changes
 
-- Monitor absolute humidity continuously (±1 g/m³ accuracy)
-- Control using humidification/dehumidification systems
-- Account for diurnal variations in experimental design
-- Calibrate sensors monthly for accurate readings
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-**Pilot Scale**:
-
-- Design humidity control systems for process stability
-- Monitor spatial variations across facility
-- Implement alerts for out-of-range conditions
-- Consider seasonal adjustment protocols
-
-**Commercial Scale**:
-
-- Integrate with building HVAC systems
-- Design for local climate conditions
-- Implement predictive control based on weather forecasts
-- Balance humidity control costs with performance benefits
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Absolute+Humidity&body=**Parameter%3A**+Absolute+Humidity%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fabsolute-humidity.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Absolute+Humidity&body=**Parameter%3A**+Absolute+Humidity%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fabsolute-humidity.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Absolute+Humidity&body=**Parameter%3A**+Absolute+Humidity%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fabsolute-humidity.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

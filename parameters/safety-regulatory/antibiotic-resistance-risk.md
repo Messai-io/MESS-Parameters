@@ -1,7 +1,5 @@
 # Antibiotic Resistance Risk
 
-## Definition
-
 Antibiotic resistance risk quantifies the potential for microbial
 electrochemical systems (MES) to promote the development, proliferation, or
 horizontal transfer of antibiotic resistance genes (ARGs) within the microbial
@@ -19,18 +17,21 @@ dissemination.
 - **Level 4 (High)**: 1-10% ARG increase
 - **Level 5 (Critical)**: >10% ARG increase
 
-## Typical Values
+## Basic Information
 
-Based on MES operational studies:
+| Property | Value |
+|---|---|
+| **Category** | Safety Regulatory |
+| **Subcategory** | Biological Safety |
+| **Type** | select |
+
+## Typical Values
 
 - **Valid Range**: Level 1-5
 - **Typical Range**: Level 1-3
 - **Acceptable Range**: Level 1-2
 - **Concern Threshold**: Level 3
 - **Intervention Required**: Level 4-5
-
-### System Categories:
-
 - **Synthetic Wastewater MFC**: Level 1-2 (controlled conditions)
 - **Municipal Wastewater MFC**: Level 2-3 (mixed sources)
 - **Hospital Wastewater MFC**: Level 3-4 (high antibiotic load)
@@ -39,197 +40,39 @@ Based on MES operational studies:
 
 ## Measurement Methods
 
-### Molecular Techniques
-
-1. **qPCR Quantification**:
-
-   - Target specific ARGs (e.g., tetA, sul1, blaTEM)
-   - Normalize to 16S rRNA genes
-   - Detection limit: 10² copies/mL
-   - Quantitative assessment
-
-2. **Metagenomics Analysis**:
-
-   - Comprehensive ARG profiling
-   - Identify novel resistance mechanisms
-   - Track gene mobility elements
-   - High-throughput sequencing required
-
-3. **Plasmid Profiling**:
-   - Extract and sequence plasmids
-   - Identify conjugative elements
-   - Assess transfer potential
-   - Link ARGs to mobile elements
-
-### Phenotypic Assessment
-
-1. **Culture-Based Testing**:
-
-   - Antibiotic susceptibility testing
-   - Minimum inhibitory concentration (MIC)
-   - Multi-drug resistance screening
-   - Viable cell focus
-
-2. **Conjugation Frequency**:
-   - Mating experiments
-   - Transfer rate calculation
-   - Environmental conditions impact
-   - Direct transfer measurement
-
-## Risk Factors
-
-### Primary Factors
-
-1. **Antibiotic Concentration**:
-
-   - Sub-inhibitory levels most problematic
-   - Selection pressure threshold
-   - Residual pharmaceutical presence
-   - Co-selection with metals
-
-2. **Biofilm Environment**:
-
-   - Enhanced horizontal gene transfer
-   - Protected microenvironment
-   - Cell proximity effects
-   - Extracellular DNA availability
-
-3. **Electrical Selection**:
-   - Electroactive bacteria enrichment
-   - Potential co-selection
-   - Stress response activation
-   - Membrane permeabilization
-
-### Environmental Conditions
-
-1. **Temperature**: Higher temperature increases transfer
-2. **pH**: Optimal at neutral pH
-3. **Nutrient Availability**: Rich media promotes transfer
-4. **Cell Density**: Higher density increases conjugation
-
-## Mitigation Strategies
-
-### Design Approaches
-
-1. **Pre-treatment**:
-
-   - Remove antibiotics upstream
-   - Advanced oxidation processes
-   - Activated carbon adsorption
-   - Membrane filtration
-
-2. **Operating Conditions**:
-
-   - Optimize retention time
-   - Control temperature
-   - Maintain proper pH
-   - Limit nutrient excess
-
-3. **Post-treatment**:
-   - UV disinfection
-   - Ozonation
-   - Chlorination (carefully controlled)
-   - Advanced oxidation
-
-### Monitoring Protocols
-
-- **Baseline Assessment**: Before operation
-- **Regular Monitoring**: Monthly qPCR screening
-- **Comprehensive Analysis**: Quarterly metagenomics
-- **Effluent Testing**: Continuous assessment
+- **Molecular Techniques**: 1. **qPCR Quantification**:     - Target specific ARGs (e.g., tetA, sul1, blaTEM)    - Normalize to 16S rRNA genes    - Detection limit: 10² copies/mL    - Quantitative assessment  2. **Metagenomics Analysis**:     - Comprehensive ARG profiling    - Identify novel resistance mechanisms    - Track gene mobility elements    - High-throughput sequencing required  3. **Plasmid Profiling**:    - Extract and sequence plasmids    - Identify conjugative elements    - Assess transfer potential    - Link ARGs to mobile elements
+- **Phenotypic Assessment**: 1. **Culture-Based Testing**:     - Antibiotic susceptibility testing    - Minimum inhibitory concentration (MIC)    - Multi-drug resistance screening    - Viable cell focus  2. **Conjugation Frequency**:    - Mating experiments    - Transfer rate calculation    - Environmental conditions impact    - Direct transfer measurement
 
 ## Related Parameters
 
-### Direct Correlations
+- **name**: HRT
 
-- **HRT**: Longer retention may increase risk
-- **Temperature**: Higher temperature increases transfer
-- **Organic Loading**: Higher loading increases selection
-- **Microbial Diversity**: Higher diversity may dilute risk
+- **relationship**: Longer retention may increase risk
+- **name**: Temperature
 
-### Risk Indicators
+- **relationship**: Higher temperature increases transfer
+- **name**: Organic Loading
 
-- **Integron Abundance**: Mobile element indicator
-- **Plasmid Copy Number**: Transfer potential
-- **Biofilm Thickness**: Transfer environment
-- **Stress Response Genes**: Co-selection markers
+- **relationship**: Higher loading increases selection
+- **name**: Microbial Diversity
 
-## Regulatory Framework
+- **relationship**: Higher diversity may dilute risk
+- **name**: Integron Abundance
 
-### International Guidelines
+- **relationship**: Mobile element indicator
+- **name**: Plasmid Copy Number
 
-1. **WHO Guidelines**:
+- **relationship**: Transfer potential
+- **name**: Biofilm Thickness
 
-   - One Health approach
-   - Risk assessment framework
-   - Monitoring recommendations
-   - Intervention thresholds
+- **relationship**: Transfer environment
+- **name**: Stress Response Genes
 
-2. **EPA Regulations**:
+- **relationship**: Co-selection markers
 
-   - Effluent quality standards
-   - Pathogen reduction requirements
-   - Emerging contaminant monitoring
+## Compatible Systems
 
-3. **EU Water Framework**:
-   - Priority substance list
-   - Environmental quality standards
-   - Antibiotic watch list
-
-### Compliance Requirements
-
-- **Documentation**: Risk assessment reports
-- **Monitoring**: Regular ARG quantification
-- **Reporting**: Regulatory submissions
-- **Mitigation**: Documented control measures
-
-## Risk Assessment Protocol
-
-### Initial Assessment
-
-1. **Source Characterization**:
-
-   - Antibiotic presence/concentration
-   - Existing ARG background
-   - Pathogen indicators
-   - Heavy metal co-contaminants
-
-2. **System Evaluation**:
-   - Design features
-   - Operating parameters
-   - Treatment efficiency
-   - Retention characteristics
-
-### Ongoing Monitoring
-
-1. **Influent/Effluent Comparison**:
-
-   - ARG abundance change
-   - Diversity shifts
-   - New gene emergence
-   - Mobile element tracking
-
-2. **Temporal Trends**:
-   - Seasonal variations
-   - Long-term accumulation
-   - Outbreak correlation
-   - Treatment efficacy
-
-## Best Practices
-
-### Operational Guidelines
-
-- **Avoid Antibiotic-Containing Waste**: When possible
-- **Optimize Treatment**: Maximum pathogen reduction
-- **Regular Cleaning**: Prevent biofilm accumulation
-- **Staff Training**: Biosafety protocols
-
-### Emergency Response
-
-- **Level 3 Detection**: Increase monitoring frequency
-- **Level 4 Detection**: Implement additional treatment
-- **Level 5 Detection**: Consider system shutdown
-- **Outbreak Protocol**: Coordinate with health authorities
+Safety Parameters
 
 ## References
 
@@ -256,18 +99,13 @@ Based on MES operational studies:
 - **CLSI Standards**: Antimicrobial susceptibility testing
 - **CDC Guidelines**: Antibiotic resistance monitoring
 
-## Application Notes
+---
 
-### Risk Categories by Application
+## Suggest Changes
 
-- **Low Risk**: Laboratory research systems
-- **Moderate Risk**: Municipal wastewater treatment
-- **High Risk**: Hospital wastewater, livestock operations
-- **Critical Applications**: Drinking water treatment
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-### Future Considerations
-
-- Emerging resistance mechanisms
-- Climate change impacts
-- Regulatory evolution
-- Technology advancement for detection
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Antibiotic+Resistance+Risk&body=**Parameter%3A**+Antibiotic+Resistance+Risk%0A**Category%3A**+Safety+Regulatory%0A**File%3A**+parameters%2Fsafety-regulatory%2Fantibiotic-resistance-risk.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Antibiotic+Resistance+Risk&body=**Parameter%3A**+Antibiotic+Resistance+Risk%0A**Category%3A**+Safety+Regulatory%0A**File%3A**+parameters%2Fsafety-regulatory%2Fantibiotic-resistance-risk.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Antibiotic+Resistance+Risk&body=**Parameter%3A**+Antibiotic+Resistance+Risk%0A**Category%3A**+Safety+Regulatory%0A**File%3A**+parameters%2Fsafety-regulatory%2Fantibiotic-resistance-risk.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

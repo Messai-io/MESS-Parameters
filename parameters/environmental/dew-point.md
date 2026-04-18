@@ -1,50 +1,86 @@
 # Dew Point
 
-## Overview
+Dew point is the temperature at which air becomes saturated with water vapor and condensation begins to form on surfaces. In the context of microbial electrochemical systems (MES), dew point is an important environmental parameter that affects moisture management, corrosion processes, electrical insulation integrity, and the performance of gas-phase components. When the temperature of any MES surface drops below the dew point of the surrounding air, condensation occurs, potentially causing short circuits in electrical connections, corrosion of metallic components, and uncontrolled moisture ingress into sealed reactor compartments.
 
-Dew point temperature
+For MES installations in outdoor or semi-enclosed environments, dew point monitoring is essential for preventing condensation-related damage to electrical connections, data acquisition equipment, and gas handling systems. The dew point is particularly relevant for gas-collecting MES (such as MECs producing hydrogen or methane) because condensation in gas lines can obstruct flow, alter gas composition measurements, and promote microbial growth in unintended locations. Gas exiting the reactor headspace is typically saturated with water vapor at the reactor temperature; if the gas encounters surfaces below this dew point in the collection system, significant condensation occurs.
+
+Dew point also affects the water balance of MES with gas-permeable membranes or open-air cathodes. In air-cathode MFCs, the moisture gradient between the humidified cathode interior and the ambient environment drives water transport that is influenced by the ambient dew point. Low dew points (dry conditions) can desiccate the cathode catalyst layer, while high dew points (humid conditions) can flood the gas diffusion layer. Managing these moisture dynamics is critical for maintaining optimal oxygen mass transfer at the air cathode.
 
 ## Basic Information
 
-- **Category**: Environmental
-- **Parameter Type**: number
-- **Unit**: °C
-- **Range**: -50 - 50
-- **Subcategory**: Humidity Parameters
+| Property | Value |
+|---|---|
+| **Category** | Environmental |
+| **Subcategory** | Humidity Parameters |
+| **Type** | number |
+| **Unit** | °C |
+| **Minimum** | -50 |
+| **Maximum** | 50 |
+| **Papers Reporting** | 5 |
 
-## Description
+## Typical Values
 
-Dew point temperature
+- **Valid Range**: -80 to 35 degrees C
+- **Typical Range (Indoor Laboratory)**: 10 to 20 degrees C
+- **Typical Range (Outdoor, Temperate)**: -5 to 25 degrees C (seasonal variation)
+- **Tropical Environments**: 22 to 28 degrees C
+- **Arid Environments**: -10 to 5 degrees C
+- **Reactor Headspace Gas**: Typically at or near the reactor temperature
+- **Condensation Risk Threshold**: Within 2-3 degrees C of surface temperature
 
-## Environmental Factors
+## Measurement Methods
 
-This parameter is influenced by environmental conditions and affects system
-performance.
+- **Chilled Mirror Hygrometer**: The chilled mirror hygrometer is the primary reference method for dew point measurement. A polished metal mirror is cooled by a Peltier element until condensation is optically detected on its surface. The mirror temperature at the onset of condensation equals the dew point. This method provides accuracy of +/- 0.1 to 0.5 degrees C and serves as the calibration standard for other humidity sensors.
+- **Capacitive Humidity Sensors (with Temperature)**: Modern capacitive humidity sensors (e.g., Sensirion SHT series, Bosch BME280) measure relative humidity and temperature simultaneously, from which dew point is calculated using the Magnus formula. These sensors provide +/- 1-2 degrees C dew point accuracy, compact size, low power, and digital output, making them ideal for distributed monitoring.
+- **Lithium Chloride Dew Point Sensor**: This sensor uses a lithium chloride-saturated wick heated to the equilibrium temperature where the salt solution is in vapor pressure equilibrium with the ambient atmosphere. These robust, maintenance-free sensors provide accuracy of +/- 1-2 degrees C for continuous industrial monitoring.
+- **Psychrometric Method**: A wet-bulb/dry-bulb thermometer pair determines dew point from the temperature depression of a thermometer with a wetted wick. The wet-bulb depression is related to relative humidity and thus dew point through psychrometric tables or equations. This classical method provides +/- 1 degrees C accuracy without requiring electrical power.
 
-## Monitoring Requirements
+## Affecting Factors
 
-- Track variations with ambient conditions
-- Consider seasonal effects
-- Monitor impact on system stability
+### Primary
+
+- **Absolute Humidity**: The dew point is fundamentally determined by the amount of water vapor in the air. Higher moisture content results in higher dew point temperatures.
+- **Temperature**: While dew point itself is determined by moisture content, the relationship between ambient temperature and dew point determines relative humidity and condensation risk.
+- **Ventilation Rate**: Air exchange rate in the MES environment determines how quickly moisture generated by the reactor is removed, affecting local dew point.
+- **Reactor Temperature**: Warm MES reactors humidify the surrounding air, raising the local dew point. Gas exiting the reactor is typically saturated at the reactor temperature.
+- **Climate and Season**: Ambient dew point varies dramatically with climate zone and season, from below -30 degrees C in continental winter to above 25 degrees C in tropical monsoon seasons.
+- **Proximity to Water Sources**: MES installations near open water bodies experience elevated local dew points.
+- **Insulation and Thermal Bridges**: Poorly insulated surfaces can drop below the ambient dew point, causing localized condensation.
+- **Gas Composition**: The presence of other condensable vapors (volatile fatty acids, alcohols) in MES gas streams can modify the effective dew point.
 
 ## Related Parameters
 
-This parameter may interact with other environmental parameters and should be
-considered in the context of overall system performance.
+- **name**: Temperature
 
-## Future Development
+- **relationship**: The difference between ambient temperature and dew point determines condensation risk and relative humidity.
+- **name**: Oxygen Concentration
 
-_Detailed documentation for this parameter is being developed. This page will be
-enhanced with more comprehensive information including measurement methods,
-typical ranges, and application-specific guidance._
+- **relationship**: In air-cathode MFCs, moisture management affects oxygen diffusion through the gas diffusion layer.
+- **name**: Diurnal Temperature Range
+
+- **relationship**: Large diurnal swings increase the frequency of dew point crossings.
+- **name**: Temperature Fluctuation
+
+- **relationship**: Rapid temperature changes can transiently drop surfaces below the dew point.
+
+## Compatible Systems
+
+Atmospheric Ambient Conditions
 
 ## References
 
-- Parameter documentation based on MESSAI database schema
-- Category: ENVIRONMENTAL
-- Data type: NUMBER
+- Logan, B.E. (2008). *Microbial Fuel Cells*. John Wiley & Sons, Hoboken, NJ.
+- Cheng, S., Liu, H., & Logan, B.E. (2006). Increased performance of single-chamber microbial fuel cells using an improved cathode structure. *Electrochemistry Communications*, 8(3), 489-494.
+- Alduchov, O.A. & Eskridge, R.E. (1996). Improved Magnus form approximation of saturation vapor pressure. *Journal of Applied Meteorology and Climatology*, 35(4), 601-609.
+- WMO (2018). Guide to Meteorological Instruments and Methods of Observation. WMO-No. 8, World Meteorological Organization, Geneva.
 
 ---
 
-_This parameter documentation was auto-generated and will be enhanced with
-detailed information over time._
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Dew+Point&body=**Parameter%3A**+Dew+Point%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fdew-point.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Dew+Point&body=**Parameter%3A**+Dew+Point%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fdew-point.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Dew+Point&body=**Parameter%3A**+Dew+Point%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fdew-point.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

@@ -1,50 +1,84 @@
 # Conductivity Printed
 
-## Overview
-
-Printed conductivity
+Conductivity printed refers to the electrical conductivity of printed conductive
+materials used in 3D-printed or additively manufactured electrodes for microbial
+electrochemical systems. This parameter quantifies the ability of printed
+conductive inks, pastes, or filaments to conduct electrical current after
+processing. High printed conductivity is essential for efficient current
+collection and minimal resistive losses.
 
 ## Basic Information
 
-- **Category**: Emerging Technology
-- **Parameter Type**: number
-- **Unit**: S/m
-- **Range**: 0 - 10000
-- **Subcategory**: Printable Materials
+| Property | Value |
+|---|---|
+| **Category** | Emerging Technology |
+| **Subcategory** | Printable Materials |
+| **Type** | number |
+| **Unit** | S/m |
+| **Minimum** | 0 |
+| **Maximum** | 10000 |
 
-## Description
+## Typical Values
 
-Printed conductivity
+- **Range**: 10⁻³ - 10⁶ S/m
+- **Typical**: 10² - 10⁴ S/m
+- **Optimal**: 10³ - 10⁵ S/m
+- **Performance Categories**: - **Low Performance**: <10² S/m (poor conductivity)
+- **Moderate Performance**: 10² - 10³ S/m (moderate conductivity)
+- **High Performance**: 10³ - 10⁵ S/m (good conductivity)
+- **Exceptional Performance**: >10⁵ S/m (excellent conductivity)
 
-## System Integration
+## Measurement Methods
 
-This parameter plays a role in overall system performance and design
-considerations.
+- **Direct Measurement**: 1. **Four-Point Probe Method**:     - Apply current through outer probes    - Measure voltage across inner probes    - Calculate: σ = 1/(ρ × geometry factor)    - Standard method for sheet resistance  2. **Van der Pauw Technique**:    - Four-point measurement on arbitrary shapes    - Suitable for printed electrode geometries    - Account for contact resistance    - High accuracy for thin films
+- **Calculation Considerations**: - Account for porosity and surface roughness - Consider anisotropic conductivity in layered structures - Normalize for temperature effects
 
-## Implementation Notes
+## Affecting Factors
 
-- Consider interactions with other parameters
-- Monitor effects on system performance
-- Document operational experience
+### Primary
 
-## Related Parameters
+- **Conductive Filler Content**: - Low loading (<30 wt%): 10⁻³ - 10⁰ S/m    - Percolation threshold (40-60 wt%): Rapid increase    - High loading (>70 wt%): 10³ - 10⁵ S/m
+- **Filler Type**: - Carbon black: 10¹ - 10³ S/m    - Graphene: 10² - 10⁴ S/m    - Silver nanoparticles: 10⁴ - 10⁶ S/m    - Carbon nanotubes: 10³ - 10⁵ S/m
+- **Processing Conditions**: - Printing temperature: Affects filler distribution    - Curing temperature: Determines final conductivity    - Post-processing: Sintering, annealing effects
+- **Polymer Matrix**: - Affects filler dispersion and percolation    - Thermal expansion mismatch    - Chemical compatibility with fillers
+- **Print Parameters**: - Layer thickness: Affects connectivity    - Print speed: Influences filler alignment    - Infill density: Determines bulk conductivity
 
-This parameter may interact with other emerging technology parameters and should
-be considered in the context of overall system performance.
+## Performance Impact
 
-## Future Development
+**Formula**: R = ρL/A = L/(σA)
 
-_Detailed documentation for this parameter is being developed. This page will be
-enhanced with more comprehensive information including measurement methods,
-typical ranges, and application-specific guidance._
+High printed conductivity minimizes ohmic losses and improves power transfer
+efficiency. Systems with printed conductivity >10³ S/m typically achieve <10%
+resistive losses, while those <10² S/m may suffer 20-50% power losses due to
+resistance.
+
+## Compatible Systems
+
+3d Printing Additive Manufacturing
 
 ## References
 
-- Parameter documentation based on MESSAI database schema
-- Category: EMERGING_TECHNOLOGY
-- Data type: NUMBER
+1. **MacDonald, E., et al.** (2014). "3D printing for the rapid prototyping of
+   structural electronics". _IEEE Access_, 2, 234-242.
+
+   - Comprehensive review of printed electronics conductivity
+
+2. **Hu, L., et al.** (2010). "Stretchable, porous, and conductive energy
+   textiles". _Nano Letters_, 10(2), 708-714.
+
+   - Conductive materials for flexible electronics
+
+3. **Kamyshny, A. & Magdassi, S.** (2014). "Conductive nanomaterials for printed
+   electronics". _Small_, 10(17), 3515-3535.
+   - Nanomaterial-based conductive inks and their properties
 
 ---
 
-_This parameter documentation was auto-generated and will be enhanced with
-detailed information over time._
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Conductivity+Printed&body=**Parameter%3A**+Conductivity+Printed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fconductivity-printed.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Conductivity+Printed&body=**Parameter%3A**+Conductivity+Printed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fconductivity-printed.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Conductivity+Printed&body=**Parameter%3A**+Conductivity+Printed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fconductivity-printed.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

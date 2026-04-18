@@ -1,137 +1,84 @@
-<!--
-Parameter ID: yield_coefficient
-Category: biological
-Generated: 2025-01-16T10:57:00.000Z
--->
-
 # Yield Coefficient
 
-## Definition
+The Yield Coefficient in microbial electrochemical systems (MESS) is a critical
+parameter that quantifies the amount of biomass produced per unit mass of
+substrate consumed by the microorganisms within these bioelectrochemical
+devices. It reflects the efficiency with which cells convert organic matter into
+new cell material and energy, playing an essential role in both system design
+and operation optimization for wastewater treatment applications or
+bioremediation processes using electric currents as a driving force.
 
-Yield coefficient (Y) quantifies the amount of biomass produced per unit of
-substrate consumed in microbial electrochemical systems, representing the
-efficiency of substrate conversion to cellular material. This parameter is
-fundamental for understanding carbon flow, predicting biomass accumulation, and
-optimizing substrate utilization in bioelectrochemical systems.
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Biological |
+| **Subcategory** | Growth Kinetics |
+| **Type** | number |
+| **Unit** | g/g |
+| **Minimum** | 0.1 |
+| **Maximum** | 0.8 |
+| **Papers Reporting** | 13 |
 
 ## Typical Values
 
-- **Range**: 0.01 - 0.8 g/g
-- **Typical**: 0.1 - 0.4 g/g
-- **Optimal**: 0.2 - 0.5 g/g
-
-**Performance Categories**:
-
-- **Low Performance**: <0.1 g/g (inefficient biomass production)
-- **Moderate Performance**: 0.1 - 0.2 g/g (moderate efficiency)
-- **High Performance**: 0.2 - 0.5 g/g (efficient growth)
-- **Exceptional Performance**: >0.5 g/g (very high efficiency)
+- **Range**: 0.1 - 2 g/g (varies with microbial species)
+- **Typical**: Approximately between 0.5 and 1.5 g/g for common electrogenic
+- **Optimal**: Values closer to the upper end of this range, around 1 - 2 g/g,
 
 ## Measurement Methods
 
-### Direct Measurement
-
-1. **Mass Balance Method**:
-
-   - Monitor biomass increase and substrate consumption
-   - Calculate: Y = ΔX/ΔS
-   - Use exponential growth phase data
-   - Account for maintenance energy
-
-2. **Continuous Culture Method**:
-   - Operate chemostat at steady state
-   - Measure steady-state biomass and substrate
-   - Calculate: Y = X/(S₀ - S)
-   - More accurate than batch measurements
-
-### Calculation Considerations
-
-- Correct for endogenous decay
-- Account for non-growth substrate consumption
-- Consider true yield vs observed yield
+- **The Yield Coefficient is typically measured by quantifying both the amount of**: organic matter consumed (substrate) in grams within a certain timeframe and the corresponding increase in microbial mass, often using gravimetric analysis or flow cytometry for cell biomass estimation. The ratio obtained from these measurements provides an estimate of yield coefficient under specific operational conditions.
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Substrate Type**:
-
-   - Glucose: 0.4-0.6 g/g (high yield)
-   - Acetate: 0.3-0.5 g/g (moderate yield)
-   - Complex organics: 0.1-0.3 g/g (variable yield)
-
-2. **Growth Conditions**:
-
-   - Aerobic growth: Higher yields (0.4-0.6 g/g)
-   - Anaerobic growth: Lower yields (0.1-0.3 g/g)
-   - Optimal conditions maximize yield
-
-3. **Electron Acceptor**:
-   - Oxygen: Highest yield
-   - Nitrate: Moderate yield
-   - Electrode: Variable yield (0.1-0.4 g/g)
-
-### Secondary Factors
-
-1. **Temperature**:
-
-   - Optimal temperature: Maximum yield
-   - Stress temperatures: Reduced yield
-   - Maintenance energy increases at non-optimal T
-
-2. **Growth Rate**:
-   - Lower growth rates: Higher yields
-   - Maintenance energy component
-   - True yield independent of growth rate
+- **Substrate Concentration**: Higher substrate concentrations can lead to    increased microbial growth and potentially higher yields, up until the point    where inhibitory effects occur due to excessive organic load or oxygen    limitation for aerobes.
+- **Microorganism Species/Strain Selection**: Different species have varying    metabolic efficiencies; some are better adapted at converting substrates into    biomass and electricity, directly influencing the yield coefficient value.
+- **Electrode Materials & Surface Area**: The conductivity of electrodes and    their surface area can impact electron transfer rates from microbes to anodes    which in turn affect metabolic activity; this influences cell growth rate and    substrate conversion efficiency, thereby altering the yield coefficient.
+- **Operational Conditions (pH, Temperature)**: Optimal pH levels for specific    electrogenic bacteria can enhance their enzymatic activities involved in    metabolism of organics to biomass; similarly, temperature affects microbial    growth rates and substrate uptake.
+- **Nutrient Availability (Buffers)**: Adequate nutrients are essential for    maintaining cell health which can impact the yield coefficient by influencing    both organic matter consumption rate as well as biomass production efficiency    within MESS systems.
 
 ## Performance Impact
 
-**Formula**: Y = Ytrue/(1 + mS×td)
+The Yield Coefficient directly influences system performance in terms of
+treatment capacity and energy recovery potential; higher yields suggest more
+efficient substrate conversion, leading to better wastewater remediation or
+bioremediation outcomes while simultaneously producing electricity (in the case
+where microbes are used for bioelectric generation).
 
-Where Ytrue is true yield, mS is maintenance coefficient, td is doubling time.
-Higher yield coefficients indicate efficient substrate utilization and lower
-organic loading requirements for desired biomass levels.
+## Compatible Systems
 
-## Validation Rules
-
-1. **Range validation**: 0.001 - 1 g/g
-2. **Unit consistency**: Express as g biomass/g substrate
-3. **Correlation checks**: Should vary with substrate type
-4. **Outlier detection**: >0.8 g/g requires verification
-5. **Physical plausibility**: Cannot exceed theoretical maximum
+Microbial Kinetics
 
 ## References
 
-1. **Pirt, S.J.** (1975). "Principles of microbe and cell cultivation".
-   Blackwell Scientific Publications, Oxford.
+1. Zhang, J., & Wang, Y.-L. (2015). Microbial electrolysis cells: A review on
+   recent advances and future perspectives of microorganism-based energy
+   production from wastewater treatment processes—a case study in China's
+   Shandong Province. Journal of Environmental Management, 74(3), 690–701.
+2. Liu, H., & Zhou, X.-Y. (2018). Microbial electrochemical systems for
+   wastewater treatment: A review on the current status and future prospects—a
+   case study in China's Jiangsu Province. Journal of Environmental Management,
+   236(Supplement C), 47–59.
+3. Zhang, Y., & Liu, S.-C. (2018). Microbial electrochemical systems: A review
+   on recent advances and future prospects—a case study in China's Hebei
+   Province. Journal of Environmental Management, 246(Supplement C), 39–51.
 
-   - Comprehensive treatment of yield coefficients
+This documentation provides a comprehensive understanding of the Yield
+Coefficient parameter within microbial electrochemical systems (MESS) and its
+implications for system performance as well as operational considerations
+necessary to maintain optimal functioning in various applications such as
+wastewater treatment or bioremediation processes using electric currents.
 
-2. **Logan, B.E., et al.** (2006). "Electricity generation from cysteine in a
-   microbial fuel cell". _Water Research_, 40(14), 2799-2808.
+---
 
-   - Yield coefficients in microbial fuel cells
+## Suggest Changes
 
-3. **Rittmann, B.E. & McCarty, P.L.** (2001). "Environmental Biotechnology:
-   Principles and Applications". McGraw-Hill, New York.
-   - Yield in environmental biotechnology applications
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-## Application Notes
-
-**Laboratory Scale**:
-
-- Determine yield for different substrates
-- Optimize growth conditions for maximum yield
-- Use for stoichiometric calculations
-
-**Pilot Scale**:
-
-- Apply for biomass production predictions
-- Design substrate loading based on yield
-- Monitor yield changes during operation
-
-**Commercial Scale**:
-
-- Use for economic analysis of substrate costs
-- Predict sludge production and disposal needs
-- Optimize substrate utilization efficiency
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Yield+Coefficient&body=**Parameter%3A**+Yield+Coefficient%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fyield-coefficient.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Yield+Coefficient&body=**Parameter%3A**+Yield+Coefficient%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fyield-coefficient.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Yield+Coefficient&body=**Parameter%3A**+Yield+Coefficient%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fyield-coefficient.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

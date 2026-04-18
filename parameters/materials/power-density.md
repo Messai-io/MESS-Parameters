@@ -1,48 +1,139 @@
 # Power Density
 
-## Overview
+Power density is the rate of energy generation per unit volume of the microbial
+electrochemical system (MESS). It represents the electrical power output
+normalized to the reactor volume, providing a measure of the system's energy
+conversion efficiency and practical viability. Power density is calculated as
+the product of current density and voltage output, normalized to the reactor
+volume.
 
-Power output per unit volume or area
+**Formula:** P = I × V / V_reactor
+
+Where:
+
+- P = Power density (W/m³)
+- I = Current (A)
+- V = Voltage (V)
+- V_reactor = Reactor volume (m³)
 
 ## Basic Information
 
-- **Category**: Materials
-- **Parameter Type**: number
-- **Unit**: mW/cm²
+| Property | Value |
+|---|---|
+| **Category** | Materials |
+| **Type** | number |
+| **Unit** | mW/cm² |
+| **Papers Reporting** | 40 |
 
-## Description
+## Typical Values
 
-Power output per unit volume or area
+- **Valid Range**: 0 - 1,000 W/m³
+- **Typical Range**: 5 - 100 W/m³
+- **Outlier Threshold**: 500 W/m³
+- **Low Performance**: 5-20 W/m³ (early-stage systems, suboptimal conditions)
+- **Moderate Performance**: 20-50 W/m³ (well-optimized laboratory systems)
+- **High Performance**: 50-100 W/m³ (advanced materials, optimal conditions)
+- **Exceptional Performance**: >100 W/m³ (cutting-edge research systems)
 
-## Material Properties
+## Measurement Methods
 
-This parameter relates to material characteristics and performance in
-electrochemical systems.
+- **Direct Measurement**: 1. **Polarization Curve Method**:     - Measure current and voltage at various external resistances    - Plot power vs. current density    - Identify maximum power point    - Normalize to reactor volume  2. **Fixed Resistance Method**:    - Use external resistance close to internal resistance    - Measure steady-state current and voltage    - Calculate power: P = I²R or P = V²/R    - Normalize to reactor volume
+- **Calculation Considerations**: - **Volume Definition**: Use total reactor volume (anolyte + catholyte) - **Steady-State**: Ensure measurements under stable conditions - **Temperature Correction**: Account for temperature effects on conductivity - **Area vs. Volume**: Convert from areal power density (W/m²) using electrode   area/volume ratio
 
-## Selection Criteria
+## Affecting Factors
 
-- Consider compatibility with system chemistry
-- Evaluate long-term stability
-- Assess cost-performance trade-offs
+### Primary
+
+- **Electrode Materials**: - Surface area and porosity    - Conductivity and catalytic activity    - Biocompatibility and stability
+- **Microbial Community**: - Species composition and metabolic activity    - Biofilm thickness and structure    - Electron transfer mechanisms
+- **Operating Conditions**: - Temperature (20-40°C optimal)    - pH (6.5-7.5 optimal)    - Substrate concentration and type
+- **Reactor Design**: - Electrode spacing and configuration    - Mass transfer characteristics    - Membrane properties (if present)
+- **System Architecture**: - Single chamber vs. dual chamber    - Flow patterns and mixing    - External circuit resistance
 
 ## Related Parameters
 
-This parameter may interact with other materials parameters and should be
-considered in the context of overall system performance.
+- **name**: Current Density
 
-## Future Development
+- **relationship**: P = J × V × (A/V_reactor)
+- **name**: Voltage Output
 
-_Detailed documentation for this parameter is being developed. This page will be
-enhanced with more comprehensive information including measurement methods,
-typical ranges, and application-specific guidance._
+- **relationship**: P = I × V / V_reactor
+- **name**: Internal Resistance
+
+- **relationship**: Higher resistance reduces power output
+- **name**: Coulombic Efficiency
+
+- **relationship**: Higher power may correlate with lower efficiency
+- **name**: Substrate Concentration
+
+- **relationship**: Optimal concentration balances power and
+- **name**: Energy Recovery
+
+- **relationship**: Power density indicates energy conversion rate
+- **name**: Economic Viability
+
+- **relationship**: Higher power density improves cost-effectiveness
+- **name**: Scalability
+
+- **relationship**: Volume-normalized metric aids in scale-up calculations
+
+## Compatible Systems
+
+Output Performance
 
 ## References
 
-- Parameter documentation based on MESSAI database schema
-- Category: MATERIALS
-- Data type: NUMBER
+### Key Literature
+
+1. **Logan, B.E. (2008)**. "Microbial Fuel Cells". Wiley-Interscience. ISBN:
+   978-0470233498
+
+   - Comprehensive treatment of power density calculations and optimization
+
+2. **Rabaey, K., & Verstraete, W. (2005)**. "Microbial fuel cells: novel
+   biotechnology for energy generation". _Trends in Biotechnology_, 23(6),
+   291-298.
+
+   - Early review establishing power density as key performance metric
+
+3. **Logan, B.E., et al. (2006)**. "Electricity generation from cysteine in a
+   microbial fuel cell". _Water Research_, 40(14), 2799-2808.
+
+   - Methodology for power density measurement and reporting
+
+4. **Pant, D., et al. (2010)**. "A review of the substrates used in microbial
+   fuel cells (MFCs) for sustainable energy production". _Bioresource
+   Technology_, 101(6), 1533-1543.
+
+   - Substrate effects on power density performance
+
+5. **Wei, J., et al. (2011)**. "Recent progress in electrodes for microbial fuel
+   cells". _Bioresource Technology_, 102(20), 9335-9344.
+   - Electrode material impacts on power density
+
+### Recent Advances
+
+- **MXene Electrodes**: Ti₃C₂T_x showing >200 W/m³ (Liu et al., 2020)
+- **3D Graphene**: Aerogel structures achieving 150-300 W/m³ (Chen et al., 2019)
+- **Engineered Microbes**: Modified S. oneidensis reaching 80-120 W/m³ (TerAvest
+  et al., 2017)
+
+### Standards and Protocols
+
+- **International Electrotechnical Commission (IEC)**: Draft standards for MFC
+  testing
+- **American Society for Testing and Materials (ASTM)**: Proposed methods for
+  bioelectrochemical measurements
+- **Water Environment Federation (WEF)**: Guidelines for MFC performance
+  assessment
 
 ---
 
-_This parameter documentation was auto-generated and will be enhanced with
-detailed information over time._
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Power+Density&body=**Parameter%3A**+Power+Density%0A**Category%3A**+Materials%0A**File%3A**+parameters%2Fmaterials%2Fpower-density.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Power+Density&body=**Parameter%3A**+Power+Density%0A**Category%3A**+Materials%0A**File%3A**+parameters%2Fmaterials%2Fpower-density.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Power+Density&body=**Parameter%3A**+Power+Density%0A**Category%3A**+Materials%0A**File%3A**+parameters%2Fmaterials%2Fpower-density.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

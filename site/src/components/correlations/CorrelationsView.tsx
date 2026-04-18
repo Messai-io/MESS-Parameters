@@ -1,4 +1,4 @@
-import { getCorrelations } from '../../data/loader';
+import { getCorrelations, fmtNum, fmtFixed } from '../../data/loader';
 import { StatCard } from '../layout/StatCard';
 import { Card, CardTitle } from '../../ui/card';
 import { CorrelationChart } from './CorrelationChart';
@@ -6,7 +6,11 @@ import { CorrelationTable } from './CorrelationTable';
 
 export function CorrelationsView() {
   const data = getCorrelations();
-  const top = data.allCorrelations[0];
+  const all = data.allCorrelations ?? [];
+  const summary = data.summary ?? {};
+  const top = all[0];
+  const moderatePlus =
+    (summary.moderate ?? 0) + (summary.strongPositive ?? 0) + (summary.strongNegative ?? 0);
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -15,21 +19,21 @@ export function CorrelationsView() {
           Parameter-Metric Correlations
         </h1>
         <p className="mt-2 text-mes-text-secondary text-sm">
-          Pearson correlations computed across {data.totalPapersAnalyzed.toLocaleString()} papers.
+          Pearson correlations computed across {fmtNum(data.totalPapersAnalyzed)} papers.
         </p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Total" value={data.totalCorrelations} detail="Correlations tested" />
-        <StatCard label="Significant" value={data.significantCorrelations} detail="p < 0.05" />
+        <StatCard label="Total" value={data.totalCorrelations ?? all.length} detail="Correlations tested" />
+        <StatCard label="Significant" value={data.significantCorrelations ?? 0} detail="p < 0.05" />
         <StatCard
           label="Top r"
-          value={top ? top.pearsonR.toFixed(3) : '-'}
+          value={top ? fmtFixed(top.pearsonR) : '—'}
           detail={top ? top.parameter : ''}
         />
         <StatCard
           label="Moderate+"
-          value={data.summary.moderate + data.summary.strongPositive + data.summary.strongNegative}
+          value={moderatePlus}
           detail="Moderate or stronger"
         />
       </div>
@@ -38,14 +42,14 @@ export function CorrelationsView() {
         <CardTitle level={2} className="px-2 pt-2 mb-4">
           Correlation Strengths
         </CardTitle>
-        <CorrelationChart correlations={data.allCorrelations} />
+        <CorrelationChart correlations={all} />
       </Card>
 
       <Card padding="none">
         <div className="px-6 py-4 border-b border-gray-200">
           <CardTitle level={2}>All Correlations</CardTitle>
         </div>
-        <CorrelationTable correlations={data.allCorrelations} />
+        <CorrelationTable correlations={all} />
       </Card>
     </div>
   );

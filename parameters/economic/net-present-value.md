@@ -1,29 +1,4 @@
-# Net Present Value (NPV)
-
-## System Applicability
-
-🟢 **Microbial Fuel Cells (MFC)** - Fundamental metric for long-term electricity
-generation economics 🟢 **Microbial Electrolysis Cells (MEC)** - Essential for
-hydrogen production project valuation 🟢 **Microbial Electrosynthesis (MES)** -
-Critical for chemical production facility investment decisions 🟢 **Microbial
-Desalination Cells (MDC)** - Key parameter for water treatment infrastructure
-economics 🟡 **Microbial Solar Cells (MSC)** - Emerging technology requiring
-adapted NPV models 🟡 **Microbial Carbon Capture (MCC)** - Early-stage
-technology with specialized valuation needs 🟣 **Plant-MFC** - Research
-applications with modified NPV considerations 🔴 **Sediment-MFC** - Limited
-commercial NPV applications
-
-## Overview
-
-Net Present Value (NPV) quantifies the difference between the present value of
-cash inflows and outflows for microbial electrochemical system projects over
-their lifetime, typically expressed in USD or local currency. This parameter
-represents the absolute dollar value created or destroyed by an investment,
-accounting for the time value of money through discounting future cash flows.
-Positive NPV indicates value creation and project acceptance, while negative NPV
-suggests value destruction and project rejection.
-
-## Definition
+# Net Present Value
 
 **Mathematical Expression:**
 
@@ -50,104 +25,27 @@ Components:
 - **Tax Calculations**: Corporate income tax with depreciation benefits
 - **Terminal Value**: Asset residual value and decommissioning costs
 
-## Comprehensive Value Ranges
+## Basic Information
 
-### Scale-Dependent NPV Ranges
+| Property | Value |
+|---|---|
+| **Category** | Economic |
+| **Subcategory** | Financial Metrics |
+| **Type** | number |
+| **Unit** | $ |
+| **Minimum** | -1000000 |
+| **Maximum** | 10000000 |
+| **Papers Reporting** | 3 |
 
-**Pilot Scale (1-10 kW)**:
+## Measurement Methods
 
-- **Range**: -$2M to +$1M (often negative due to learning value)
-- **Typical**: -$500K to +$200K
-- **Focus**: Technology validation and performance demonstration
+- **Monte Carlo NPV Analysis**: ```python import numpy as np  def monte_carlo_npv(n_simulations=10000):     """     Probabilistic NPV calculation incorporating uncertainty     """     # Variable distributions     capex = np.random.normal(25000000, 3000000, n_simulations)  # $25M ± $3M     annual_revenue = np.random.triangular(3000000, 4500000, 6000000, n_simulations)     annual_costs = np.random.normal(1800000, 200000, n_simulations)     discount_rate = np.random.uniform(0.06, 0.12, n_simulations)     project_life = np.random.choice([20, 25], n_simulations, p=[0.6, 0.4])      npv_results = []     for i in range(n_simulations):         net_annual = annual_revenue[i] - annual_costs[i]         pv_cash_flows = sum([net_annual / (1 + discount_rate[i])**t                            for t in range(1, project_life[i] + 1)])         npv = pv_cash_flows - capex[i]         npv_results.append(npv)      return {         'mean_npv': np.mean(npv_results),         'std_npv': np.std(npv_results),         'percentile_5': np.percentile(npv_results, 5),         'percentile_95': np.percentile(npv_results, 95),         'probability_positive': np.sum(np.array(npv_results) > 0) / n_simulations     } ```
+- **Real Options Enhanced NPV**: ``` Enhanced NPV = Base Case NPV + Option Values  Option Values Include: - Expansion options: Right to scale up successful projects - Abandonment options: Right to terminate and recover residual value - Technology switching: Flexibility to change process configuration - Market timing: Ability to delay or accelerate deployment ```
+- **Risk-Adjusted NPV Calculation**: ``` Risk-Adjusted NPV = Σ[E(CFt) / (1 + r + risk_premium)^t] - Initial Investment  Risk Premiums by Technology Maturity: - Demonstration scale: +3% to +5% - Early commercial: +2% to +3% - Proven commercial: +1% to +2% - Mature technology: +0% to +1% ```
 
-**Community Scale (100 kW - 1 MW)**:
+## Affecting Factors
 
-- **Range**: $0.1M to $5M (break-even to moderate positive)
-- **Typical**: $0.5M to $2.5M
-- **Focus**: Proven business models and market development
-
-**Utility Scale (>10 MW)**:
-
-- **Range**: $2M to $50M (substantial value creation potential)
-- **Typical**: $5M to $25M
-- **Focus**: Large-scale infrastructure deployment
-
-**Industrial Integration**:
-
-- **Range**: $0.5M to $20M (value from waste treatment integration)
-- **Typical**: $2M to $12M
-- **Focus**: Process optimization and waste valorization
-
-### Performance Categories
-
-- **Poor Performance**: NPV < -$1M (significant value destruction)
-- **Marginal Performance**: -$1M < NPV < $0 (marginal projects requiring
-  subsidies)
-- **Good Performance**: $0 < NPV < $5M (acceptable returns)
-- **Excellent Performance**: NPV > $5M (superior investment opportunities)
-
-## Advanced Measurement Methodologies
-
-### Monte Carlo NPV Analysis
-
-```python
-import numpy as np
-
-def monte_carlo_npv(n_simulations=10000):
-    """
-    Probabilistic NPV calculation incorporating uncertainty
-    """
-    # Variable distributions
-    capex = np.random.normal(25000000, 3000000, n_simulations)  # $25M ± $3M
-    annual_revenue = np.random.triangular(3000000, 4500000, 6000000, n_simulations)
-    annual_costs = np.random.normal(1800000, 200000, n_simulations)
-    discount_rate = np.random.uniform(0.06, 0.12, n_simulations)
-    project_life = np.random.choice([20, 25], n_simulations, p=[0.6, 0.4])
-
-    npv_results = []
-    for i in range(n_simulations):
-        net_annual = annual_revenue[i] - annual_costs[i]
-        pv_cash_flows = sum([net_annual / (1 + discount_rate[i])**t
-                           for t in range(1, project_life[i] + 1)])
-        npv = pv_cash_flows - capex[i]
-        npv_results.append(npv)
-
-    return {
-        'mean_npv': np.mean(npv_results),
-        'std_npv': np.std(npv_results),
-        'percentile_5': np.percentile(npv_results, 5),
-        'percentile_95': np.percentile(npv_results, 95),
-        'probability_positive': np.sum(np.array(npv_results) > 0) / n_simulations
-    }
-```
-
-### Real Options Enhanced NPV
-
-```
-Enhanced NPV = Base Case NPV + Option Values
-
-Option Values Include:
-- Expansion options: Right to scale up successful projects
-- Abandonment options: Right to terminate and recover residual value
-- Technology switching: Flexibility to change process configuration
-- Market timing: Ability to delay or accelerate deployment
-```
-
-### Risk-Adjusted NPV Calculation
-
-```
-Risk-Adjusted NPV = Σ[E(CFt) / (1 + r + risk_premium)^t] - Initial Investment
-
-Risk Premiums by Technology Maturity:
-- Demonstration scale: +3% to +5%
-- Early commercial: +2% to +3%
-- Proven commercial: +1% to +2%
-- Mature technology: +0% to +1%
-```
-
-## Comprehensive Affecting Factors Analysis
-
-### Primary Economic Drivers
+- **text**: ### Primary Economic Drivers
 
 **1. Revenue Generation Components**
 
@@ -200,49 +98,9 @@ _Environmental Credit Monetization:_
 - **Range**: -$50M to +$100M
 - **Subcategory**: Financial Metrics
 
-## Implementation Guidelines and Best Practices
+## Compatible Systems
 
-### NPV Calculation Standardization
-
-**Recommended Analysis Framework:**
-
-```
-1. Cash Flow Projection Structure:
-   Year 0: Development and construction costs
-   Years 1-3: Startup and commissioning phase
-   Years 4-17: Stable commercial operations
-   Years 18-20: End-of-life transition
-   Terminal: Decommissioning and residual value
-
-2. Revenue Modeling Approach:
-   - Conservative base case: Proven market rates
-   - Moderate scenario: Expected market evolution
-   - Optimistic case: Favorable policy and technology advancement
-   - Monte Carlo: Probabilistic analysis with uncertainty
-
-3. Cost Structure Analysis:
-   - Direct costs: Equipment, installation, commissioning
-   - Indirect costs: Development, financing, working capital
-   - Operating costs: Fixed and variable components
-   - End-of-life: Decommissioning and site restoration
-
-4. Risk Assessment Integration:
-   - Technology risk: Performance and reliability uncertainties
-   - Market risk: Price volatility and demand variations
-   - Regulatory risk: Policy changes and compliance costs
-   - Financial risk: Interest rates and credit conditions
-```
-
-## Related Parameters
-
-This parameter closely interacts with:
-
-- Return on Investment (ROI)
-- Internal Rate of Return (IRR)
-- Payback Period
-- Discount Rate
-- Capital Cost per kW
-- Operating Cost parameters
+Economic Performance Indicators
 
 ## References
 
@@ -266,3 +124,14 @@ _This document represents a comprehensive enhancement of NPV parameter
 documentation with full system applicability framework, advanced financial
 methodologies, and practical guidance for bioelectrochemical system economic
 evaluation._
+
+---
+
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Net+Present+Value&body=**Parameter%3A**+Net+Present+Value%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Fnet-present-value.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Net+Present+Value&body=**Parameter%3A**+Net+Present+Value%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Fnet-present-value.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Net+Present+Value&body=**Parameter%3A**+Net+Present+Value%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Fnet-present-value.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

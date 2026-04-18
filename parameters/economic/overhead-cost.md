@@ -1,50 +1,71 @@
 # Overhead Cost
 
-## Overview
+Overhead cost encompasses indirect expenses that support MES operation but are not directly attributable to specific treatment activities. This includes administrative salaries, office space, accounting, legal, IT support, regulatory compliance, permit fees, environmental monitoring, and general facility upkeep. Expressed as a percentage of direct operating costs (typically 10--20%) or in USD per year, overhead costs are often underestimated in techno-economic analyses but represent a significant and unavoidable operating expense.
 
-Administrative overhead
+For MES, overhead costs include: environmental compliance monitoring and reporting, discharge permit fees, technology license fees (if applicable), data management and reporting systems, safety training and compliance, and corporate/administrative support allocation.
 
 ## Basic Information
 
-- **Category**: Economic
-- **Parameter Type**: number
-- **Unit**: %/year
-- **Range**: 5 - 20
-- **Subcategory**: Fixed Operating Costs
+| Property | Value |
+|---|---|
+| **Category** | Economic |
+| **Subcategory** | Fixed Operating Costs |
+| **Type** | number |
+| **Unit** | %/year |
+| **Minimum** | 5 |
+| **Maximum** | 20 |
 
-## Description
+## Typical Values
 
-Administrative overhead
+- **Valid Range**: 5 -- 30% of direct operating costs
+- **Small pilot (academic setting)**: 5 -- 10% of direct costs
+- **Municipal utility operation**: 10 -- 20% of direct costs
+- **Private company operation**: 15 -- 25% of direct costs
+- **Permit fees**: $1000 -- 50000/year
+- **Environmental monitoring**: $5000 -- 50000/year
+- **IT/data management**: $2000 -- 20000/year
+- **Fraction of total OPEX**: 8 -- 20%
 
-## System Integration
+## Measurement Methods
 
-This parameter plays a role in overall system performance and design
-considerations.
+- **Allocation Method**: Total overhead expenses are allocated to the MES based on its share of total utility or company operations (by revenue, flow volume, or cost center). Overhead rate = total overhead / total direct costs * 100%.
+- **Activity-Based Costing**: Overhead activities are traced to the MES based on actual resource consumption. More accurate than simple allocation but more complex to implement.
 
-## Implementation Notes
+## Affecting Factors
 
-- Consider interactions with other parameters
-- Monitor effects on system performance
-- Document operational experience
+### Primary
+
+- **Organizational Structure**: Municipal utilities have lower overhead (10--15%) than private companies (15--25%) due to shared infrastructure.
+- **Regulatory Burden**: Stringent environmental regulations increase compliance and monitoring overhead.
+- **Scale**: Overhead per m^3 decreases with scale as fixed administrative costs are spread over more volume.
 
 ## Related Parameters
 
-This parameter may interact with other economic parameters and should be
-considered in the context of overall system performance.
+- **name**: [Operating Cost](operatingcost.md)
 
-## Future Development
+- **relationship**: Total OPEX including overhead
+- **name**: [Labor Cost](labor-cost.md)
 
-_Detailed documentation for this parameter is being developed. This page will be
-enhanced with more comprehensive information including measurement methods,
-typical ranges, and application-specific guidance._
+- **relationship**: Direct labor (distinct from overhead)
+- **name**: [Insurance Cost](insurance-cost.md)
+
+- **relationship**: Often included in overhead
+
+## Compatible Systems
+
+Operating Cost Parameters
 
 ## References
 
-- Parameter documentation based on MESSAI database schema
-- Category: ECONOMIC
-- Data type: NUMBER
+- Peters, M.S., Timmerhaus, K.D., West, R.E. (2003). Plant Design and Economics for Chemical Engineers, 5th ed. McGraw-Hill.
 
 ---
 
-_This parameter documentation was auto-generated and will be enhanced with
-detailed information over time._
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Overhead+Cost&body=**Parameter%3A**+Overhead+Cost%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Foverhead-cost.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Overhead+Cost&body=**Parameter%3A**+Overhead+Cost%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Foverhead-cost.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Overhead+Cost&body=**Parameter%3A**+Overhead+Cost%0A**Category%3A**+Economic%0A**File%3A**+parameters%2Feconomic%2Foverhead-cost.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

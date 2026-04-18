@@ -1,6 +1,4 @@
-# Bubble Management (Microgravity Operation)
-
-## Definition
+# Bubble Management
 
 Bubble management refers to the controlled handling, separation, and removal of
 gas bubbles generated in microbial electrochemical systems operating in
@@ -9,23 +7,23 @@ naturally rise and separate from the liquid phase due to the absence of buoyancy
 forces, requiring specialized mechanisms to prevent gas accumulation that could
 impair system performance.
 
-## Typical Values
+## Basic Information
 
-### Gas Generation Rates (Space Applications)
+| Property | Value |
+|---|---|
+| **Category** | Application Specific |
+| **Subcategory** | Microgravity Operation |
+| **Type** | select |
+
+## Typical Values
 
 - **Low Activity**: 0.1-0.5 mL gas/L reactor·h
 - **Moderate Activity**: 0.5-2.0 mL gas/L reactor·h
 - **High Activity**: 2.0-10.0 mL gas/L reactor·h
 - **Critical Threshold**: >10.0 mL gas/L reactor·h (requires active removal)
-
-### Bubble Size Distribution (Microgravity)
-
 - **Typical Range**: 1-10 mm diameter
 - **Critical Size**: >5 mm diameter (impairs mass transfer)
 - **Target Size**: <2 mm diameter (manageable)
-
-### Management Efficiency
-
 - **Poor**: <70% bubble removal
 - **Acceptable**: 70-85% bubble removal
 - **Good**: 85-95% bubble removal
@@ -33,37 +31,14 @@ impair system performance.
 
 ## Measurement Methods
 
-### Direct Observation
-
-- **High-speed imaging** with frame rates >1000 fps
-- **Bubble counting** using image analysis software
-- **Size distribution analysis** via particle tracking
-
-### Volumetric Analysis
-
-- **Gas collection chambers** with precise volume measurements
-- **Mass spectrometry** for gas composition analysis
-- **Pressure differential monitoring** across bubble separators
-
-### Flow Visualization
-
-- **Transparent reactor sections** for visual monitoring
-- **Particle image velocimetry (PIV)** for flow patterns
-- **Computational fluid dynamics (CFD)** validation
-
-### Performance Metrics
-
-```
-Bubble Management Efficiency = (V_removed / V_generated) × 100%
-
-where:
-V_removed = Volume of gas successfully removed (mL)
-V_generated = Total volume of gas produced (mL)
-```
+- **Direct Observation**: - **High-speed imaging** with frame rates >1000 fps - **Bubble counting** using image analysis software - **Size distribution analysis** via particle tracking
+- **Volumetric Analysis**: - **Gas collection chambers** with precise volume measurements - **Mass spectrometry** for gas composition analysis - **Pressure differential monitoring** across bubble separators
+- **Flow Visualization**: - **Transparent reactor sections** for visual monitoring - **Particle image velocimetry (PIV)** for flow patterns - **Computational fluid dynamics (CFD)** validation
+- **Performance Metrics**: ``` Bubble Management Efficiency = (V_removed / V_generated) × 100%  where: V_removed = Volume of gas successfully removed (mL) V_generated = Total volume of gas produced (mL) ```
 
 ## Affecting Factors
 
-### Microgravity Environment
+- **text**: ### Microgravity Environment
 
 - **Gravity level** (0-10⁻⁶ g affects bubble behavior)
 - **Residual accelerations** from spacecraft maneuvers
@@ -113,27 +88,6 @@ V_generated = Total volume of gas produced (mL)
 - **Electrode degradation** from gas entrapment
 - **System efficiency decline** over mission duration
 
-## Compatible Systems
-
-### Spacecraft Life Support Systems
-
-- **International Space Station (ISS)** water recovery systems
-- **Deep space missions** with closed-loop requirements
-- **Lunar/Mars surface habitats** with resource constraints
-
-### Microgravity Research Platforms
-
-- **Parabolic flight experiments** (20-30 seconds microgravity)
-- **Drop tower facilities** (up to 9 seconds microgravity)
-- **Orbital laboratory modules** (continuous microgravity)
-
-### Bubble Management Technologies
-
-- **Centrifugal separators** (rotation-based separation)
-- **Membrane degassers** (selective gas permeation)
-- **Acoustic bubble manipulation** (ultrasonic aggregation)
-- **Electrophoretic bubble control** (charged bubble manipulation)
-
 ## Limitations
 
 ### Physical Constraints
@@ -159,6 +113,10 @@ V_generated = Total volume of gas produced (mL)
 - **Temperature extremes** affecting separator performance
 - **Radiation exposure** degrading polymer components
 - **Launch loads** requiring robust construction
+
+## Compatible Systems
+
+Space Applications
 
 ## References
 
@@ -191,3 +149,14 @@ V_generated = Total volume of gas produced (mL)
 8. Foster, D.L., et al. (2021). "Design considerations for microgravity
    bioelectrochemical systems." _Space Technology and Applications International
    Forum_, AIP Conference Proceedings 2363, 040012.
+
+---
+
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Bubble+Management&body=**Parameter%3A**+Bubble+Management%0A**Category%3A**+Application+Specific%0A**File%3A**+parameters%2Fapplication-specific%2Fbubble-management.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Bubble+Management&body=**Parameter%3A**+Bubble+Management%0A**Category%3A**+Application+Specific%0A**File%3A**+parameters%2Fapplication-specific%2Fbubble-management.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Bubble+Management&body=**Parameter%3A**+Bubble+Management%0A**Category%3A**+Application+Specific%0A**File%3A**+parameters%2Fapplication-specific%2Fbubble-management.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

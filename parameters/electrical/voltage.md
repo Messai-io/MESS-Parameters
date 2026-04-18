@@ -1,6 +1,4 @@
-# Voltage Output
-
-## Definition
+# voltage
 
 Voltage output is the electrical potential difference between the anode and
 cathode in microbial electrochemical systems (MESS). It represents the driving
@@ -18,142 +16,73 @@ Where:
 - E_anode = Anode potential (V)
 - η_losses = Overpotentials and ohmic losses (V)
 
-## Typical Values
+## Basic Information
 
-Based on validation data from `parameter-ranges.json`:
+| Property | Value |
+|---|---|
+| **Category** | Electrochemical |
+| **Type** | number |
+| **Unit** | V |
+| **Papers Reporting** | 500 |
+
+## Typical Values
 
 - **Valid Range**: 0 - 2.0 V
 - **Typical Range**: 0.2 - 0.8 V
 - **Outlier Threshold**: 1.2 V
-
-### Performance Categories:
-
 - **Low Performance**: 0.2-0.4 V (high losses, poor conditions)
 - **Moderate Performance**: 0.4-0.6 V (typical operational range)
 - **High Performance**: 0.6-0.8 V (optimized systems, good materials)
 - **Exceptional Performance**: >0.8 V (near-thermodynamic limits, specialized
-  conditions)
-
-### Theoretical Limits
-
 - **Thermodynamic Maximum**: ~1.14 V (glucose oxidation + oxygen reduction)
 - **Practical Maximum**: ~0.9 V (accounting for activation overpotentials)
 - **Typical Open Circuit**: 0.6-0.8 V (no load conditions)
 
 ## Measurement Methods
 
-### Direct Voltage Measurement
-
-1. **Multimeter Method**:
-
-   - Connect voltmeter across cell terminals
-   - Measure under load and no-load conditions
-   - Record voltage at different current densities
-   - Account for measurement device impedance
-
-2. **Polarization Curve Method**:
-   - Vary external resistance systematically
-   - Measure voltage and current at each resistance
-   - Plot voltage vs. current density
-   - Identify maximum power point
-
-### Electrochemical Techniques
-
-1. **Three-Electrode Setup**:
-
-   - Use reference electrode (Ag/AgCl or SCE)
-   - Measure individual electrode potentials
-   - Calculate cell voltage: V_cell = V_cathode - V_anode
-   - Identify limiting electrode
-
-2. **Electrochemical Impedance Spectroscopy (EIS)**:
-   - Apply small AC perturbation
-   - Measure frequency response
-   - Analyze ohmic and charge transfer resistances
-   - Separate different voltage loss mechanisms
-
-### Voltage Components Analysis
-
-- **Open Circuit Voltage (OCV)**: Thermodynamic maximum
-- **Activation Overpotential**: Electrode kinetic losses
-- **Concentration Overpotential**: Mass transfer limitations
-- **Ohmic Overpotential**: Resistance losses
+- **Direct Voltage Measurement**: 1. **Multimeter Method**:     - Connect voltmeter across cell terminals    - Measure under load and no-load conditions    - Record voltage at different current densities    - Account for measurement device impedance  2. **Polarization Curve Method**:    - Vary external resistance systematically    - Measure voltage and current at each resistance    - Plot voltage vs. current density    - Identify maximum power point
+- **Electrochemical Techniques**: 1. **Three-Electrode Setup**:     - Use reference electrode (Ag/AgCl or SCE)    - Measure individual electrode potentials    - Calculate cell voltage: V_cell = V_cathode - V_anode    - Identify limiting electrode  2. **Electrochemical Impedance Spectroscopy (EIS)**:    - Apply small AC perturbation    - Measure frequency response    - Analyze ohmic and charge transfer resistances    - Separate different voltage loss mechanisms
+- **Voltage Components Analysis**: - **Open Circuit Voltage (OCV)**: Thermodynamic maximum - **Activation Overpotential**: Electrode kinetic losses - **Concentration Overpotential**: Mass transfer limitations - **Ohmic Overpotential**: Resistance losses
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Electrode Materials**:
-
-   - Standard reduction potentials
-   - Catalytic activity and overpotentials
-   - Surface area and active sites
-   - Stability and degradation
-
-2. **Electrolyte Conditions**:
-
-   - pH (affects Nernst potential)
-   - Ionic strength and conductivity
-   - Temperature (affects thermodynamics)
-   - Dissolved species concentrations
-
-3. **System Configuration**:
-   - Electrode spacing (ohmic losses)
-   - Membrane properties (if present)
-   - Current density (polarization effects)
-   - External circuit resistance
-
-### Secondary Factors
-
-1. **Microbial Activity**:
-
-   - Metabolic pathway efficiency
-   - Biofilm resistance and thickness
-   - Electron transfer mechanisms
-   - Species composition
-
-2. **Operating Conditions**:
-   - Substrate concentration and type
-   - Dissolved oxygen levels
-   - Flow rates and mixing
-   - Temperature stability
+- **Electrode Materials**: - Standard reduction potentials    - Catalytic activity and overpotentials    - Surface area and active sites    - Stability and degradation
+- **Electrolyte Conditions**: - pH (affects Nernst potential)    - Ionic strength and conductivity    - Temperature (affects thermodynamics)    - Dissolved species concentrations
+- **System Configuration**: - Electrode spacing (ohmic losses)    - Membrane properties (if present)    - Current density (polarization effects)    - External circuit resistance
+- **Microbial Activity**: - Metabolic pathway efficiency    - Biofilm resistance and thickness    - Electron transfer mechanisms    - Species composition
+- **Operating Conditions**: - Substrate concentration and type    - Dissolved oxygen levels    - Flow rates and mixing    - Temperature stability
 
 ## Related Parameters
 
-### Direct Relationships
+- **name**: Power Density
 
-- **Power Density**: P = J × V × (A/V_reactor)
-- **Current Density**: Higher current typically reduces voltage
-- **Internal Resistance**: V = I × R_internal
+- **relationship**: P = J × V × (A/V_reactor)
+- **name**: Current Density
 
-### Thermodynamic Relationships
+- **relationship**: Higher current typically reduces voltage
+- **name**: Internal Resistance
 
-- **pH**: Nernst equation: E = E° - (RT/nF)ln(Q)
-- **Temperature**: Affects both thermodynamic and kinetic components
-- **Concentration**: Influences electrode potentials via Nernst equation
+- **relationship**: V = I × R_internal
+- **name**: pH
 
-### System Performance
+- **relationship**: Nernst equation: E = E° - (RT/nF)ln(Q)
+- **name**: Temperature
 
-- **Efficiency**: Higher voltage improves electrical efficiency
-- **Stability**: Voltage drift indicates system changes
-- **Scalability**: Voltage typically more stable than current during scale-up
+- **relationship**: Affects both thermodynamic and kinetic components
+- **name**: Concentration
 
-## Validation Rules
+- **relationship**: Influences electrode potentials via Nernst equation
+- **name**: Efficiency
 
-From `parameter-ranges.json` electrical category:
+- **relationship**: Higher voltage improves electrical efficiency
+- **name**: Stability
 
-1. **Must be positive**: Voltage output cannot be negative
-2. **Cannot exceed thermodynamic limit (~1.14V)**: Physical constraint
-3. **Check under load conditions**: Measure at operational current density
-4. **Outlier detection**: Values >1.2 V require verification
-5. **Temporal stability**: Monitor voltage over time
+- **relationship**: Voltage drift indicates system changes
+- **name**: Scalability
 
-### Additional Validation
-
-- **pH dependence**: Verify pH effects on voltage
-- **Temperature compensation**: Account for temperature variations
-- **Reference electrode stability**: Check reference potential drift
-- **Polarization effects**: Distinguish between kinetic and ohmic losses
+- **relationship**: Voltage typically more stable than current during scale-up
 
 ## References
 
@@ -208,89 +137,13 @@ From `parameter-ranges.json` electrical category:
 - **Biofilm Engineering**: Enhanced electron transfer improving voltage (Yates
   et al., 2020)
 
-## Voltage Loss Analysis
+---
 
-### Loss Mechanisms
+## Suggest Changes
 
-1. **Activation Losses (η_act)**:
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-   - Electrode kinetics limitations
-   - Typically 0.1-0.4 V at each electrode
-   - Depends on exchange current density
-   - Follows Butler-Volmer equation
-
-2. **Concentration Losses (η_conc)**:
-
-   - Mass transfer limitations
-   - Becomes significant at high current densities
-   - Depends on limiting current density
-   - Follows Nernst equation modifications
-
-3. **Ohmic Losses (η_ohm)**:
-   - Resistance in electrolyte and electrodes
-   - Proportional to current: η_ohm = I × R
-   - Depends on electrode spacing and conductivity
-   - Most easily minimized loss mechanism
-
-### Voltage Breakdown Example
-
-- **Theoretical Maximum**: 1.14 V
-- **Anode Activation Loss**: -0.3 V
-- **Cathode Activation Loss**: -0.2 V
-- **Ohmic Loss**: -0.1 V
-- **Concentration Loss**: -0.1 V
-- \***\*Actual Cell Voltage**: ~0.4 V
-
-## Measurement Protocols
-
-### Standard Operating Procedure
-
-1. **Equipment Setup**:
-
-   - Calibrate voltmeter/potentiostat
-   - Prepare reference electrode (if used)
-   - Verify electrical connections
-   - Record ambient conditions
-
-2. **Measurement Sequence**:
-
-   - Measure open circuit voltage
-   - Apply load and record voltage
-   - Perform polarization curve
-   - Document current density
-
-3. **Quality Assurance**:
-   - Check voltage stability over time
-   - Verify pH and temperature conditions
-   - Confirm proper electrical connections
-   - Document measurement uncertainties
-
-### Data Analysis
-
-- **Voltage Efficiency**: V_cell / V_theoretical × 100%
-- **Voltage Stability**: Standard deviation over time
-- **Loss Analysis**: Separate different loss mechanisms
-- **Correlation Analysis**: Relate to other performance parameters
-
-## Application Notes
-
-### System Design
-
-- **Electrode Selection**: Choose materials with appropriate potentials
-- **Reactor Configuration**: Minimize ohmic losses through design
-- **Operating Conditions**: Optimize pH and temperature for voltage
-- **Load Management**: Match external resistance to internal resistance
-
-### Performance Optimization
-
-- **Cathode Enhancement**: Often limiting electrode for voltage
-- **Membrane Selection**: Balance proton transport and voltage losses
-- **Biofilm Management**: Optimize thickness for electron transfer
-- **System Maintenance**: Monitor voltage drift as performance indicator
-
-### Scale-Up Considerations
-
-- **Voltage Stacking**: Series connection for higher voltages
-- **Current Collection**: Ensure uniform current distribution
-- **Thermal Management**: Account for temperature effects on voltage
-- **Economic Analysis**: Balance voltage performance with cost
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+voltage&body=**Parameter%3A**+voltage%0A**Category%3A**+Electrochemical%0A**File%3A**+parameters%2Felectrical%2Fvoltage.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+voltage&body=**Parameter%3A**+voltage%0A**Category%3A**+Electrochemical%0A**File%3A**+parameters%2Felectrical%2Fvoltage.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+voltage&body=**Parameter%3A**+voltage%0A**Category%3A**+Electrochemical%0A**File%3A**+parameters%2Felectrical%2Fvoltage.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

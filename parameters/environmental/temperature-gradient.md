@@ -1,12 +1,4 @@
-<!--
-Parameter ID: temperature_gradient
-Category: environmental
-Generated: 2025-08-08T11:02:00.000Z
--->
-
 # Temperature Gradient
-
-## Definition
 
 Temperature gradient represents the rate of temperature change over distance,
 typically expressed as degrees Celsius per meter (°C/m) or Kelvin per meter
@@ -25,97 +17,41 @@ difference, Δx = distance
 - Horizontal gradients: dT/dx or dT/dy (affects heat distribution)
 - Radial gradients: dT/dr (in cylindrical systems)
 
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Environmental |
+| **Subcategory** | Temperature Parameters |
+| **Type** | number |
+| **Unit** | °C/cm |
+| **Minimum** | 0 |
+| **Maximum** | 10 |
+
 ## Typical Values
 
 - **Range**: 0.01 - 10 °C/m (minimal to extreme gradients)
 - **Typical**: 0.1 - 2 °C/m (normal operational conditions)
 - **Optimal**: 0.05 - 0.5 °C/m (minimal gradient effects)
-
-**Performance Categories**:
-
-- **Minimal Gradient**: <0.1 °C/m (excellent temperature uniformity)
+- **Performance Categories**: - **Minimal Gradient**: <0.1 °C/m (excellent temperature uniformity)
 - **Low Gradient**: 0.1 - 0.5 °C/m (acceptable uniformity, minor effects)
 - **Moderate Gradient**: 0.5 - 2 °C/m (noticeable effects on performance)
 - **High Gradient**: >2 °C/m (significant performance variations, potential
-  instability)
 
 ## Measurement Methods
 
-### Multi-Point Temperature Measurement
-
-1. **Distributed Temperature Sensors**:
-
-   - Deploy multiple temperature sensors at different locations
-   - Calculate gradients from temperature differences and distances
-   - Use thermocouples or RTDs for high accuracy
-   - Suitable for permanent installation monitoring
-
-2. **Temperature Scanning Systems**:
-
-   - Mobile temperature measurement across system
-   - Infrared thermometers for surface temperature mapping
-   - Thermal imaging cameras for spatial temperature distribution
-   - Useful for system characterization and troubleshooting
-
-3. **Multi-Channel Data Loggers**:
-   - Simultaneous measurement at multiple points
-   - Calculate gradients automatically from logged data
-   - Long-term monitoring capabilities
-   - Suitable for research and optimization studies
-
-### Specialized Techniques
-
-1. **Fiber Optic Distributed Temperature Sensing (DTS)**:
-
-   - Continuous temperature measurement along fiber length
-   - High spatial resolution (<1 meter)
-   - Excellent for large installations
-   - Expensive but comprehensive coverage
-
-2. **Thermal Imaging**:
-   - Non-contact surface temperature mapping
-   - Visualize temperature gradients directly
-   - Real-time gradient identification
-   - Limited to surface temperatures only
+- **Multi-Point Temperature Measurement**: 1. **Distributed Temperature Sensors**:     - Deploy multiple temperature sensors at different locations    - Calculate gradients from temperature differences and distances    - Use thermocouples or RTDs for high accuracy    - Suitable for permanent installation monitoring  2. **Temperature Scanning Systems**:     - Mobile temperature measurement across system    - Infrared thermometers for surface temperature mapping    - Thermal imaging cameras for spatial temperature distribution    - Useful for system characterization and troubleshooting  3. **Multi-Channel Data Loggers**:    - Simultaneous measurement at multiple points    - Calculate gradients automatically from logged data    - Long-term monitoring capabilities    - Suitable for research and optimization studies
+- **Specialized Techniques**: 1. **Fiber Optic Distributed Temperature Sensing (DTS)**:     - Continuous temperature measurement along fiber length    - High spatial resolution (<1 meter)    - Excellent for large installations    - Expensive but comprehensive coverage  2. **Thermal Imaging**:    - Non-contact surface temperature mapping    - Visualize temperature gradients directly    - Real-time gradient identification    - Limited to surface temperatures only
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Heat Sources and Sinks**:
-
-   - Equipment heat generation creates local hot spots
-   - Cooling systems create temperature sinks
-   - Solar heating creates directional gradients
-   - Heat loss to environment varies with location
-
-2. **Thermal Conductivity Variations**:
-
-   - Different materials have different thermal conductivities
-   - Air gaps create thermal barriers
-   - Insulation affects heat transfer patterns
-   - Water content affects thermal properties
-
-3. **Convective Heat Transfer**:
-   - Air movement affects heat distribution
-   - Natural convection creates vertical gradients
-   - Forced convection can reduce or enhance gradients
-   - Fluid flow patterns affect temperature distribution
-
-### Secondary Factors
-
-1. **System Geometry**:
-
-   - Large systems more prone to temperature gradients
-   - Aspect ratio affects natural convection patterns
-   - Shape affects heat distribution uniformity
-   - Orientation affects solar and environmental effects
-
-2. **Environmental Conditions**:
-   - Ambient temperature variations create gradients
-   - Wind patterns affect external heat transfer
-   - Solar radiation creates directional heating
-   - Seasonal changes affect baseline gradients
+- **Heat Sources and Sinks**: - Equipment heat generation creates local hot spots    - Cooling systems create temperature sinks    - Solar heating creates directional gradients    - Heat loss to environment varies with location
+- **Thermal Conductivity Variations**: - Different materials have different thermal conductivities    - Air gaps create thermal barriers    - Insulation affects heat transfer patterns    - Water content affects thermal properties
+- **Convective Heat Transfer**: - Air movement affects heat distribution    - Natural convection creates vertical gradients    - Forced convection can reduce or enhance gradients    - Fluid flow patterns affect temperature distribution
+- **System Geometry**: - Large systems more prone to temperature gradients    - Aspect ratio affects natural convection patterns    - Shape affects heat distribution uniformity    - Orientation affects solar and environmental effects
+- **Environmental Conditions**: - Ambient temperature variations create gradients    - Wind patterns affect external heat transfer    - Solar radiation creates directional heating    - Seasonal changes affect baseline gradients
 
 ## Performance Impact
 
@@ -127,26 +63,6 @@ showing higher activity. Large gradients (>2°C/m) can lead to thermal
 stratification, uneven microbial growth, and potential system instability.
 Optimal performance requires minimizing gradients to <0.5°C/m to maintain
 uniform operating conditions.
-
-## Compatible Systems
-
-### Large-Scale MFC Installations
-
-- **Gradient Tolerance**: <0.3 °C/m for uniform performance
-- **Monitoring Requirements**: Multiple temperature sensors needed
-- **Design Considerations**: Heat distribution systems may be necessary
-
-### Multi-Chamber BES Systems
-
-- **Acceptable Range**: <0.5 °C/m between chambers
-- **Performance Impact**: Different chambers may show varying performance
-- **Control Strategy**: Individual chamber temperature control may be needed
-
-### Outdoor MEC Systems
-
-- **Environmental Gradients**: 0.5 - 5 °C/m possible with solar heating
-- **Seasonal Variation**: Gradients vary significantly with weather
-- **Design Requirements**: Thermal management essential for large systems
 
 ## Limitations
 
@@ -177,15 +93,9 @@ uniform operating conditions.
 4. **Equipment Protection**: Sensitive components may be damaged by excessive
    gradients
 
-## Validation Rules
+## Compatible Systems
 
-1. **Range validation**: -20 to +20 °C/m (extreme but physically possible)
-2. **Unit consistency**: Express in °C/m or K/m consistently
-3. **Spatial coherence**: Gradients must be consistent with sensor spacing and
-   system geometry
-4. **Physical plausibility**: Must be consistent with heat transfer physics
-5. **Temporal stability**: Rapid gradient changes should correlate with system
-   changes
+Atmospheric Ambient Conditions
 
 ## References
 
@@ -213,25 +123,13 @@ uniform operating conditions.
 5. **Mills, A.F.** (1999). "Heat Transfer". Prentice Hall.
    - Temperature gradient measurement and analysis techniques
 
-## Application Notes
+---
 
-**Laboratory Scale**:
+## Suggest Changes
 
-- Monitor temperature gradients in experimental systems
-- Use multiple sensors to characterize temperature distribution
-- Minimize gradients through proper system design and insulation
-- Account for gradient effects in data analysis and interpretation
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-**Pilot Scale**:
-
-- Implement distributed temperature monitoring systems
-- Design thermal management to minimize temperature gradients
-- Monitor seasonal and diurnal gradient variations
-- Consider gradient effects in system scaling and optimization
-
-**Commercial Scale**:
-
-- Conduct comprehensive thermal mapping during system design
-- Implement thermal management systems to control gradients
-- Monitor gradients for performance optimization and maintenance
-- Consider gradient effects in economic modeling and system reliability
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Temperature+Gradient&body=**Parameter%3A**+Temperature+Gradient%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Ftemperature-gradient.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Temperature+Gradient&body=**Parameter%3A**+Temperature+Gradient%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Ftemperature-gradient.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Temperature+Gradient&body=**Parameter%3A**+Temperature+Gradient%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Ftemperature-gradient.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

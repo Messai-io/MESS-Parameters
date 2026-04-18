@@ -7,8 +7,11 @@ import { ValidationResults } from './ValidationResults';
 
 export function ReproducibilityView() {
   const data = getReproducibility();
-  const findings = data.keyFindings;
-  const checklist = data.fiveParameterChecklist;
+  const overview = data.overview ?? {};
+  const findings = data.keyFindings ?? {};
+  const checklist = data.fiveParameterChecklist ?? {};
+  const validation = checklist.validationStudy ?? {};
+  const criteriaCategories = data.criteriaCategories ?? {};
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -17,29 +20,29 @@ export function ReproducibilityView() {
           Reproducibility Analysis
         </h1>
         <p className="mt-2 text-mes-text-secondary text-sm">
-          Scoring {data.overview.totalPapersScored} papers against {data.overview.scoringCriteria} weighted criteria.
+          Scoring {overview.totalPapersScored ?? '—'} papers against {overview.scoringCriteria ?? '—'} weighted criteria.
         </p>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <StatCard
           label="Average"
-          value={`${data.overview.averageCompletenessPercent}%`}
+          value={overview.averageCompletenessPercent != null ? `${overview.averageCompletenessPercent}%` : '—'}
           detail="Completeness"
         />
         <StatCard
           label="Median"
-          value={`${data.overview.medianCompletenessPercent}%`}
+          value={overview.medianCompletenessPercent != null ? `${overview.medianCompletenessPercent}%` : '—'}
           detail="Completeness"
         />
         <StatCard
           label="Papers"
-          value={data.overview.totalPapersScored}
+          value={overview.totalPapersScored ?? '—'}
           detail="Scored"
         />
         <StatCard
           label="Criteria"
-          value={data.overview.scoringCriteria}
+          value={overview.scoringCriteria ?? '—'}
           detail="Weighted"
         />
       </div>
@@ -48,19 +51,19 @@ export function ReproducibilityView() {
         <CardTitle level={2} className="px-2 pt-2 mb-4">
           Reporting Rates by Category
         </CardTitle>
-        <ReportingRateChart categories={data.criteriaCategories} />
+        <ReportingRateChart categories={criteriaCategories} />
       </Card>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ChecklistCard
-          parameters={checklist.parameters}
-          description={checklist.description}
+          parameters={checklist.parameters ?? []}
+          description={checklist.description ?? ''}
         />
         <ValidationResults
-          papersAnalyzed={checklist.validationStudy.papersAnalyzed}
-          iqrReductionPercent={checklist.validationStudy.iqrReductionPercent}
-          pValue={checklist.validationStudy.pValue}
-          conclusion={checklist.validationStudy.conclusion}
+          papersAnalyzed={validation.papersAnalyzed ?? 0}
+          iqrReductionPercent={validation.iqrReductionPercent ?? 0}
+          pValue={validation.pValue ?? ''}
+          conclusion={validation.conclusion ?? ''}
         />
       </div>
 

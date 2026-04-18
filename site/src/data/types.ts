@@ -33,11 +33,12 @@ export interface Category {
 
 export interface ParameterIndex {
   metadata: {
-    version: string;
-    lastUpdated: string;
-    totalParameters: number;
-    majorCategories: number;
-    subcategories: number;
+    version?: string;
+    lastUpdated?: string;
+    totalParameters?: number;
+    majorCategories?: number;
+    subcategories?: number;
+    [key: string]: unknown;
   };
   categories: Category[];
 }
@@ -53,71 +54,72 @@ export interface Correlation {
 }
 
 export interface CorrelationCache {
-  generatedAt: string;
-  totalPapersAnalyzed: number;
-  totalCorrelations: number;
-  significantCorrelations: number;
-  allCorrelations: Correlation[];
-  summary: {
-    strongPositive: number;
-    strongNegative: number;
-    moderate: number;
-    weak: number;
+  generatedAt?: string;
+  totalPapersAnalyzed?: number;
+  totalCorrelations?: number;
+  significantCorrelations?: number;
+  allCorrelations?: Correlation[];
+  summary?: {
+    strongPositive?: number;
+    strongNegative?: number;
+    moderate?: number;
+    weak?: number;
+    [key: string]: unknown;
   };
+  [key: string]: unknown;
 }
 
 export interface ExtractionStats {
-  generatedAt: string;
-  corpus: {
-    totalPapers: number;
-    papersWithAbstracts: number;
-    papersWithPDFs: number;
-    papersWithFullText: number;
+  generatedAt?: string;
+  corpus?: {
+    totalPapers?: number;
+    [key: string]: unknown;
   };
-  extraction: {
-    totalExtractions: number;
-    extractedParameterDataRows: number;
-    paperParameterMappings: number;
-    papersWithStructuredParameters: number;
-    parameterDefinitions: number;
-    categories: number;
-    subcategories: number;
+  extraction?: {
+    paperParameterMappings?: number;
+    parameterDefinitions?: number;
+    categories?: number;
+    subcategories?: number;
+    [key: string]: unknown;
   };
-  quality: {
-    papersWithReproducibilityScores: number;
-    averageReproducibilityCompleteness: number;
-    papersWithEconomicMetrics: number;
-    papersWithComputationalTags: number;
-    papersWithAISummaries: number;
+  quality?: {
+    papersWithReproducibilityScores?: number;
+    [key: string]: unknown;
   };
-  systemTypes: Record<string, number>;
+  systemTypes?: Record<string, number>;
+  [key: string]: unknown;
 }
 
 export interface CriteriaCategory {
-  weight: string;
-  criteria: string[];
-  averageReportingRate: number;
+  weight?: string;
+  criteria?: string[];
+  averageReportingRate?: number;
+  [key: string]: unknown;
 }
 
 export interface ReproducibilitySummary {
-  overview: {
-    totalPapersScored: number;
-    averageCompletenessPercent: number;
-    medianCompletenessPercent: number;
-    scoringCriteria: number;
+  overview?: {
+    totalPapersScored?: number;
+    averageCompletenessPercent?: number;
+    medianCompletenessPercent?: number;
+    scoringCriteria?: number;
+    [key: string]: unknown;
   };
-  criteriaCategories: Record<string, CriteriaCategory>;
-  keyFindings: Record<string, string>;
-  fiveParameterChecklist: {
-    description: string;
-    parameters: string[];
-    validationStudy: {
-      papersAnalyzed: number;
-      iqrReductionPercent: number;
-      pValue: string;
-      conclusion: string;
+  criteriaCategories?: Record<string, CriteriaCategory>;
+  keyFindings?: Record<string, string>;
+  fiveParameterChecklist?: {
+    description?: string;
+    parameters?: string[];
+    validationStudy?: {
+      papersAnalyzed?: number;
+      iqrReductionPercent?: number;
+      pValue?: string;
+      conclusion?: string;
+      [key: string]: unknown;
     };
+    [key: string]: unknown;
   };
+  [key: string]: unknown;
 }
 
 export interface CategoryCount {

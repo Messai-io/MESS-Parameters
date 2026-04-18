@@ -1,12 +1,4 @@
-<!--
-Parameter ID: biofilm_thickness
-Category: biological
-Generated: 2025-01-16T12:15:00.000Z
--->
-
 # Biofilm Thickness
-
-## Definition
 
 Biofilm thickness quantifies the average perpendicular distance from the
 electrode surface to the outer biofilm boundary in microbial electrochemical
@@ -15,88 +7,41 @@ performance by determining diffusion path lengths and biofilm resistance.
 Optimal biofilm thickness balances electrochemical activity with mass transport
 limitations.
 
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Biological |
+| **Subcategory** | Biofilm Structure |
+| **Type** | number |
+| **Unit** | μm |
+| **Minimum** | 1 |
+| **Maximum** | 1000 |
+
 ## Typical Values
 
 - **Range**: 1 - 500 μm
 - **Typical**: 10 - 100 μm
 - **Optimal**: 20 - 80 μm
-
-**Performance Categories**:
-
-- **Low Performance**: <10 μm (insufficient biomass, low current)
+- **Performance Categories**: - **Low Performance**: <10 μm (insufficient biomass, low current)
 - **Moderate Performance**: 10 - 30 μm (developing biofilm)
 - **High Performance**: 30 - 100 μm (mature, active biofilm)
 - **Exceptional Performance**: 50 - 80 μm (optimal balance)
 
 ## Measurement Methods
 
-### Direct Measurement
-
-1. **Confocal Laser Scanning Microscopy (CLSM)**:
-
-   - Non-destructive 3D imaging
-   - Fluorescent staining for biofilm visualization
-   - Measure thickness at multiple points
-   - High resolution (~0.1 μm)
-
-2. **Optical Coherence Tomography (OCT)**:
-
-   - Real-time, non-invasive measurement
-   - Penetrates biofilm without staining
-   - Good for thick biofilms (>50 μm)
-   - Lower resolution than CLSM
-
-3. **Mechanical Profilometry**:
-   - Physical measurement with fine probe
-   - May disturb soft biofilm structure
-   - Good for mechanically stable biofilms
-   - Direct thickness measurement
-
-### Calculation Considerations
-
-- Multiple measurements for statistical analysis
-- Account for biofilm heterogeneity
-- Consider biofilm compressibility under measurement
-- Distinguish between dense and loose biofilm regions
+- **Direct Measurement**: 1. **Confocal Laser Scanning Microscopy (CLSM)**:     - Non-destructive 3D imaging    - Fluorescent staining for biofilm visualization    - Measure thickness at multiple points    - High resolution (~0.1 μm)  2. **Optical Coherence Tomography (OCT)**:     - Real-time, non-invasive measurement    - Penetrates biofilm without staining    - Good for thick biofilms (>50 μm)    - Lower resolution than CLSM  3. **Mechanical Profilometry**:    - Physical measurement with fine probe    - May disturb soft biofilm structure    - Good for mechanically stable biofilms    - Direct thickness measurement
+- **Calculation Considerations**: - Multiple measurements for statistical analysis - Account for biofilm heterogeneity - Consider biofilm compressibility under measurement - Distinguish between dense and loose biofilm regions
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Growth Conditions**:
-
-   - Substrate concentration affects growth rate
-   - Nutrient availability influences thickness
-   - Flow velocity affects biofilm shear
-   - Temperature influences metabolic rate
-
-2. **Electrode Properties**:
-
-   - Surface roughness provides attachment sites
-   - Material biocompatibility affects growth
-   - Electrode potential influences development
-   - Surface modifications can enhance attachment
-
-3. **Microbial Species**:
-   - Different species produce different thicknesses
-   - Geobacter species: typically 10-50 μm
-   - Shewanella species: variable thickness
-   - Mixed communities: heterogeneous thickness
-
-### Secondary Factors
-
-1. **Hydrodynamic Conditions**:
-
-   - High flow velocity limits thickness
-   - Low flow allows thicker biofilm development
-   - Turbulence affects biofilm structure
-   - Mass transfer influences growth patterns
-
-2. **System Age**:
-   - Initial attachment phase: <5 μm
-   - Growth phase: rapid thickness increase
-   - Maturation phase: stable thickness
-   - Aging phase: potential thickness reduction
+- **Growth Conditions**: - Substrate concentration affects growth rate    - Nutrient availability influences thickness    - Flow velocity affects biofilm shear    - Temperature influences metabolic rate
+- **Electrode Properties**: - Surface roughness provides attachment sites    - Material biocompatibility affects growth    - Electrode potential influences development    - Surface modifications can enhance attachment
+- **Microbial Species**: - Different species produce different thicknesses    - Geobacter species: typically 10-50 μm    - Shewanella species: variable thickness    - Mixed communities: heterogeneous thickness
+- **Hydrodynamic Conditions**: - High flow velocity limits thickness    - Low flow allows thicker biofilm development    - Turbulence affects biofilm structure    - Mass transfer influences growth patterns
+- **System Age**: - Initial attachment phase: <5 μm    - Growth phase: rapid thickness increase    - Maturation phase: stable thickness    - Aging phase: potential thickness reduction
 
 ## Performance Impact
 
@@ -107,13 +52,9 @@ Thicker biofilms provide more biomass but increase diffusion resistance. Optimal
 thickness (50-80 μm) maximizes current while maintaining efficient substrate
 transport. Very thick biofilms (>200 μm) often show reduced performance.
 
-## Validation Rules
+## Compatible Systems
 
-1. **Range validation**: 0.1 - 1000 μm
-2. **Unit consistency**: Express in μm (micrometers)
-3. **Correlation checks**: Should correlate with biofilm age and biomass
-4. **Outlier detection**: Thickness >500 μm unusual for electroactive biofilms
-5. **Physical plausibility**: Limited by mass transfer and mechanical stability
+Biofilm Parameters
 
 ## References
 
@@ -133,22 +74,13 @@ transport. Very thick biofilms (>200 μm) often show reduced performance.
    15(44), 19262-19283.
    - Biofilm development and thickness measurement
 
-## Application Notes
+---
 
-**Laboratory Scale**:
+## Suggest Changes
 
-- Monitor biofilm thickness during development
-- Use microscopy for detailed thickness analysis
-- Correlate thickness with performance metrics
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-**Pilot Scale**:
-
-- Implement non-invasive thickness monitoring
-- Control operating conditions to maintain optimal thickness
-- Design for biofilm thickness management
-
-**Commercial Scale**:
-
-- Design systems considering biofilm thickness effects
-- Implement thickness-based maintenance schedules
-- Optimize for sustained optimal biofilm thickness
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Biofilm+Thickness&body=**Parameter%3A**+Biofilm+Thickness%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbiofilm-thickness.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Biofilm+Thickness&body=**Parameter%3A**+Biofilm+Thickness%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbiofilm-thickness.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Biofilm+Thickness&body=**Parameter%3A**+Biofilm+Thickness%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbiofilm-thickness.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

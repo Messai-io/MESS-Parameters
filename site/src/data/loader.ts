@@ -65,3 +65,15 @@ export function getReproducibility() {
 export function getMetadata() {
   return index.metadata;
 }
+
+export function fmtNum(n: unknown, fallback = '—'): string {
+  return typeof n === 'number' && Number.isFinite(n) ? n.toLocaleString() : fallback;
+}
+
+export function fmtPct(n: unknown, digits = 1, fallback = '—'): string {
+  return typeof n === 'number' && Number.isFinite(n) ? `${n.toFixed(digits)}%` : fallback;
+}
+
+export function fmtFixed(n: unknown, digits = 3, fallback = '—'): string {
+  return typeof n === 'number' && Number.isFinite(n) ? n.toFixed(digits) : fallback;
+}

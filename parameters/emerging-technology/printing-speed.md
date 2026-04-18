@@ -1,50 +1,84 @@
 # Printing Speed
 
-## Overview
-
-Print head speed
+Printing speed quantifies the rate at which the print head or deposition system
+moves during additive manufacturing of electrodes for microbial electrochemical
+systems. This parameter directly affects production throughput, print quality,
+and material properties. Optimal printing speed balances production efficiency
+with dimensional accuracy and material integrity.
 
 ## Basic Information
 
-- **Category**: Emerging Technology
-- **Parameter Type**: number
-- **Unit**: mm/s
-- **Range**: 1 - 500
-- **Subcategory**: Printing Parameters
+| Property | Value |
+|---|---|
+| **Category** | Emerging Technology |
+| **Subcategory** | Printing Parameters |
+| **Type** | number |
+| **Unit** | mm/s |
+| **Minimum** | 1 |
+| **Maximum** | 500 |
+| **Papers Reporting** | 2 |
 
-## Description
+## Typical Values
 
-Print head speed
+- **Range**: 1 - 500 mm/s
+- **Typical**: 10 - 100 mm/s
+- **Optimal**: 20 - 50 mm/s
+- **Performance Categories**: - **Low Performance**: <5 mm/s (very slow, low throughput)
+- **Moderate Performance**: 5 - 20 mm/s (standard speed)
+- **High Performance**: 20 - 100 mm/s (fast printing)
+- **Exceptional Performance**: >100 mm/s (very fast, specialized systems)
 
-## System Integration
+## Measurement Methods
 
-This parameter plays a role in overall system performance and design
-considerations.
+- **Direct Measurement**: 1. **Machine Control System**:     - Direct readout from printer controller    - Real-time speed monitoring    - Average speed over print segments    - Account for acceleration/deceleration  2. **Video Analysis**:    - High-speed camera recording    - Track print head movement    - Calculate velocity from position vs time    - Independent verification method
+- **Calculation Considerations**: - Distinguish between travel speed and print speed - Account for complex path geometries - Consider acceleration and jerk limitations
 
-## Implementation Notes
+## Affecting Factors
 
-- Consider interactions with other parameters
-- Monitor effects on system performance
-- Document operational experience
+### Primary
 
-## Related Parameters
+- **Printing Technology**: - Fused Deposition Modeling (FDM): 10-150 mm/s    - Stereolithography (SLA): 5-50 mm/s    - Direct Ink Writing: 1-20 mm/s    - Selective Laser Sintering: 50-500 mm/s
+- **Material Properties**: - Low viscosity: Higher speeds possible    - High viscosity: Requires slower speeds    - Fast-curing materials: Enable higher speeds
+- **Print Quality Requirements**: - High resolution: Slower speeds needed    - Coarse features: Faster speeds acceptable    - Critical dimensions: Conservative speeds
+- **Layer Thickness**: - Thin layers: Require slower speeds    - Thick layers: Allow faster speeds    - Heat dissipation considerations
+- **Ambient Conditions**: - Temperature affects material flow    - Humidity may affect curing/solidification    - Vibration limits achievable speeds
 
-This parameter may interact with other emerging technology parameters and should
-be considered in the context of overall system performance.
+## Performance Impact
 
-## Future Development
+Print speed directly affects production time and cost. Doubling print speed
+reduces production time by ~50% but may compromise quality. Optimal speeds
+typically achieve >95% dimensional accuracy while maintaining reasonable
+throughput.
 
-_Detailed documentation for this parameter is being developed. This page will be
-enhanced with more comprehensive information including measurement methods,
-typical ranges, and application-specific guidance._
+## Compatible Systems
+
+3d Printing Additive Manufacturing
 
 ## References
 
-- Parameter documentation based on MESSAI database schema
-- Category: EMERGING_TECHNOLOGY
-- Data type: NUMBER
+1. **Gibson, I., et al.** (2015). "Additive Manufacturing Technologies: 3D
+   Printing, Rapid Prototyping, and Direct Digital Manufacturing". Springer, New
+   York.
+
+   - Comprehensive treatment of printing parameters
+
+2. **Lewis, J.A.** (2006). "Direct ink writing of 3D functional materials".
+   _Advanced Functional Materials_, 16(17), 2193-2204.
+
+   - Speed optimization in direct ink writing
+
+3. **Turner, B.N., et al.** (2014). "A review of melt extrusion additive
+   manufacturing processes: I. Process design and modeling". _Rapid Prototyping
+   Journal_, 20(3), 192-204.
+   - Process parameters including speed in FDM
 
 ---
 
-_This parameter documentation was auto-generated and will be enhanced with
-detailed information over time._
+## Suggest Changes
+
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
+
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Printing+Speed&body=**Parameter%3A**+Printing+Speed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fprinting-speed.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Printing+Speed&body=**Parameter%3A**+Printing+Speed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fprinting-speed.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Printing+Speed&body=**Parameter%3A**+Printing+Speed%0A**Category%3A**+Emerging+Technology%0A**File%3A**+parameters%2Femerging-technology%2Fprinting-speed.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

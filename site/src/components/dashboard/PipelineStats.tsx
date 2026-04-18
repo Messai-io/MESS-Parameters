@@ -1,29 +1,32 @@
 import { StatCard } from '../layout/StatCard';
-import { getExtractionStats } from '../../data/loader';
+import { getExtractionStats, fmtNum } from '../../data/loader';
 
 export function PipelineStats() {
   const stats = getExtractionStats();
+  const corpus = stats.corpus ?? {};
+  const extraction = stats.extraction ?? {};
+  const quality = stats.quality ?? {};
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       <StatCard
         label="Total Papers"
-        value={stats.corpus.totalPapers.toLocaleString()}
+        value={fmtNum(corpus.totalPapers)}
         detail="In corpus"
       />
       <StatCard
         label="Parameters"
-        value={stats.extraction.parameterDefinitions.toLocaleString()}
-        detail={`${stats.extraction.categories} categories`}
+        value={fmtNum(extraction.parameterDefinitions)}
+        detail={`${fmtNum(extraction.categories)} categories`}
       />
       <StatCard
         label="Extractions"
-        value={stats.extraction.totalExtractions.toLocaleString()}
+        value={fmtNum(extraction.paperParameterMappings)}
         detail="Parameter data points"
       />
       <StatCard
         label="Papers Scored"
-        value={stats.quality.papersWithReproducibilityScores.toLocaleString()}
+        value={fmtNum(quality.papersWithReproducibilityScores)}
         detail="Reproducibility"
       />
     </div>

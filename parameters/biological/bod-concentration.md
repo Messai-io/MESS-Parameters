@@ -1,12 +1,4 @@
-<!--
-Parameter ID: bod_concentration
-Category: biological
-Generated: 2025-01-16T12:01:00.000Z
--->
-
 # BOD Concentration
-
-## Definition
 
 Biological Oxygen Demand (BOD) concentration quantifies the amount of dissolved
 oxygen consumed by microorganisms during the biodegradation of organic matter in
@@ -14,78 +6,39 @@ substrate solutions. This parameter indicates the organic load and
 biodegradability of substrates used in microbial electrochemical systems,
 affecting treatment efficiency and power generation potential.
 
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Biological |
+| **Type** | number |
+| **Unit** | mg/L |
+| **Papers Reporting** | 367 |
+
 ## Typical Values
 
 - **Range**: 10 - 10,000 mg/L
 - **Typical**: 100 - 2,000 mg/L
 - **Optimal**: 500 - 1,500 mg/L
-
-**Performance Categories**:
-
-- **Low Performance**: <100 mg/L (low organic content)
+- **Performance Categories**: - **Low Performance**: <100 mg/L (low organic content)
 - **Moderate Performance**: 100 - 500 mg/L (moderate organic load)
 - **High Performance**: 500 - 2,000 mg/L (high organic load)
 - **Exceptional Performance**: 2,000 - 5,000 mg/L (very high organic load)
 
 ## Measurement Methods
 
-### Direct Measurement
-
-1. **Standard BOD5 Test**:
-
-   - Incubate sample at 20°C for 5 days
-   - Measure dissolved oxygen before and after
-   - Calculate BOD = Initial DO - Final DO
-   - Standard method for comparison
-
-2. **Respirometric Methods**:
-   - Continuous oxygen consumption measurement
-   - Real-time BOD determination
-   - Faster than standard BOD5
-   - More suitable for process control
-
-### Calculation Considerations
-
-- Temperature correction: BOD increases ~2x per 10°C
-- Dilution factors for high-strength samples
-- Nitrification inhibition may be needed
-- Consider ultimate BOD vs BOD5
+- **Direct Measurement**: 1. **Standard BOD5 Test**:     - Incubate sample at 20°C for 5 days    - Measure dissolved oxygen before and after    - Calculate BOD = Initial DO - Final DO    - Standard method for comparison  2. **Respirometric Methods**:    - Continuous oxygen consumption measurement    - Real-time BOD determination    - Faster than standard BOD5    - More suitable for process control
+- **Calculation Considerations**: - Temperature correction: BOD increases ~2x per 10°C - Dilution factors for high-strength samples - Nitrification inhibition may be needed - Consider ultimate BOD vs BOD5
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Organic Content**:
-
-   - Carbohydrates: High BOD (~1.1 g O2/g)
-   - Proteins: Moderate BOD (~1.3 g O2/g)
-   - Lipids: Very high BOD (~2.9 g O2/g)
-   - Synthetic organics: Variable BOD
-
-2. **Substrate Type**:
-
-   - Domestic wastewater: 200-600 mg/L
-   - Industrial wastewater: 500-10,000 mg/L
-   - Food waste: 10,000-50,000 mg/L
-   - Synthetic glucose: Predictable BOD
-
-3. **Biodegradability**:
-   - Easily biodegradable: High BOD5/COD ratio (>0.5)
-   - Moderately biodegradable: Moderate ratio (0.3-0.5)
-   - Poorly biodegradable: Low ratio (<0.3)
-
-### Secondary Factors
-
-1. **Environmental Conditions**:
-
-   - Temperature: Higher temperature increases BOD
-   - pH: Optimal range 6.5-8.5 for microbial activity
-   - Nutrients: N, P availability affects biodegradation
-
-2. **Inhibitory Substances**:
-   - Heavy metals: Reduce microbial activity
-   - Toxic organics: Inhibit biodegradation
-   - High salinity: Affects microbial metabolism
+- **Organic Content**: - Carbohydrates: High BOD (~1.1 g O2/g)    - Proteins: Moderate BOD (~1.3 g O2/g)    - Lipids: Very high BOD (~2.9 g O2/g)    - Synthetic organics: Variable BOD
+- **Substrate Type**: - Domestic wastewater: 200-600 mg/L    - Industrial wastewater: 500-10,000 mg/L    - Food waste: 10,000-50,000 mg/L    - Synthetic glucose: Predictable BOD
+- **Biodegradability**: - Easily biodegradable: High BOD5/COD ratio (>0.5)    - Moderately biodegradable: Moderate ratio (0.3-0.5)    - Poorly biodegradable: Low ratio (<0.3)
+- **Environmental Conditions**: - Temperature: Higher temperature increases BOD    - pH: Optimal range 6.5-8.5 for microbial activity    - Nutrients: N, P availability affects biodegradation
+- **Inhibitory Substances**: - Heavy metals: Reduce microbial activity    - Toxic organics: Inhibit biodegradation    - High salinity: Affects microbial metabolism
 
 ## Performance Impact
 
@@ -94,13 +47,9 @@ power generation. Higher BOD generally correlates with higher power output
 potential, but very high BOD (>5,000 mg/L) may cause system inhibition or
 process instability.
 
-## Validation Rules
+## Compatible Systems
 
-1. **Range validation**: 1 - 100,000 mg/L
-2. **Unit consistency**: Express in mg/L (milligrams per liter)
-3. **Correlation checks**: Should correlate with COD and TOC
-4. **Outlier detection**: BOD/COD ratio >0.8 or <0.1 unusual
-5. **Physical plausibility**: BOD cannot exceed theoretical oxygen demand
+Substrate Parameters
 
 ## References
 
@@ -121,22 +70,13 @@ process instability.
    & Technology_, 39(2), 658-662.
    - Substrate BOD and power generation relationships
 
-## Application Notes
+---
 
-**Laboratory Scale**:
+## Suggest Changes
 
-- Use standard BOD5 for substrate characterization
-- Control BOD concentration for reproducible experiments
-- Monitor BOD removal efficiency
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-**Pilot Scale**:
-
-- Implement online BOD monitoring if available
-- Correlate BOD with power output
-- Optimize substrate BOD for performance
-
-**Commercial Scale**:
-
-- Design for variable inlet BOD concentrations
-- Implement BOD-based process control
-- Monitor BOD removal for treatment efficiency
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+BOD+Concentration&body=**Parameter%3A**+BOD+Concentration%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbod-concentration.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+BOD+Concentration&body=**Parameter%3A**+BOD+Concentration%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbod-concentration.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+BOD+Concentration&body=**Parameter%3A**+BOD+Concentration%0A**Category%3A**+Biological%0A**File%3A**+parameters%2Fbiological%2Fbod-concentration.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)

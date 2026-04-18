@@ -8,7 +8,9 @@ import { getCorrelations, getReproducibility } from '../../data/loader';
 export function DashboardView() {
   const correlations = getCorrelations();
   const repro = getReproducibility();
-  const significant = correlations.allCorrelations.filter((c) => c.strength === 'moderate' || c.strength === 'strong');
+  const allCorr = correlations.allCorrelations ?? [];
+  const significant = allCorr.filter((c) => c.strength === 'moderate' || c.strength === 'strong');
+  const overview = repro.overview ?? {};
 
   return (
     <div className="space-y-8 animate-fade-in">
@@ -34,7 +36,7 @@ export function DashboardView() {
         <div className="space-y-4">
           <CardTitle level={2}>Significant Correlations</CardTitle>
           <CardDescription className="!mt-0">
-            {correlations.significantCorrelations} of {correlations.totalCorrelations} correlations
+            {correlations.significantCorrelations ?? 0} of {correlations.totalCorrelations ?? allCorr.length} correlations
             reached statistical significance (p &lt; 0.05)
           </CardDescription>
           {significant.map((c, i) => (
@@ -50,10 +52,10 @@ export function DashboardView() {
               Reproducibility
             </span>
             <span className="text-3xl font-serif font-bold text-mes-text-primary">
-              {repro.overview.averageCompletenessPercent}%
+              {overview.averageCompletenessPercent ?? '—'}%
             </span>
             <span className="text-sm text-mes-text-secondary">
-              Average completeness across {repro.overview.totalPapersScored} papers
+              Average completeness across {overview.totalPapersScored ?? '—'} papers
             </span>
             <a
               href="#/reproducibility"

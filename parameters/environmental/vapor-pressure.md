@@ -1,12 +1,4 @@
-<!--
-Parameter ID: vapor_pressure
-Category: environmental
-Generated: 2025-08-08T11:02:00.000Z
--->
-
 # Vapor Pressure
-
-## Definition
 
 Vapor pressure represents the partial pressure exerted by water vapor in air,
 typically expressed in Pascal (Pa), kilopascal (kPa), or millimeters of mercury
@@ -21,89 +13,41 @@ saturation vapor pressure at temperature T
 **Antoine Equation for Psat**: log₁₀(Psat) = A - B/(C + T) Where: A = 8.07131, B
 = 1730.63, C = 233.426 (for temperature in °C, pressure in mmHg)
 
+## Basic Information
+
+| Property | Value |
+|---|---|
+| **Category** | Environmental |
+| **Subcategory** | Humidity Parameters |
+| **Type** | number |
+| **Unit** | kPa |
+| **Minimum** | 0 |
+| **Maximum** | 10 |
+
 ## Typical Values
 
 - **Range**: 0 - 7000 Pa (0 - 70 mbar)
 - **Typical**: 500 - 3000 Pa (5 - 30 mbar)
 - **Optimal**: 1000 - 2500 Pa (10 - 25 mbar)
-
-**Performance Categories**:
-
-- **Low Performance**: <300 Pa (very dry conditions, membrane stress)
+- **Performance Categories**: - **Low Performance**: <300 Pa (very dry conditions, membrane stress)
 - **Moderate Performance**: 300 - 1000 Pa or 2500 - 4000 Pa (suboptimal vapor
-  levels)
 - **High Performance**: 1000 - 2500 Pa (optimal vapor pressure range)
 - **Exceptional Performance**: 1200 - 2000 Pa (ideal conditions)
 
 ## Measurement Methods
 
-### Direct Measurement
-
-1. **Chilled Mirror Hygrometer**:
-
-   - Highest accuracy (±0.1°C dew point, ±2% vapor pressure)
-   - Measures dew point directly
-   - Calculate vapor pressure from dew point temperature
-   - Primary standard for calibration
-
-2. **Capacitive Humidity Sensors**:
-
-   - Measure relative humidity and temperature
-   - Calculate vapor pressure using psychrometric equations
-   - Fast response time (<60 seconds)
-   - Suitable for continuous monitoring
-
-3. **Piezoelectric Sorption Sensors**:
-   - Direct vapor pressure measurement
-   - High accuracy (±1% of reading)
-   - Slow response time (minutes)
-   - Excellent for stable conditions
-
-### Calculation Methods
-
-1. **From Dew Point Temperature**: P = Psat(Tdp)
-2. **From Relative Humidity and Temperature**: P = (RH/100) × Psat(T)
-3. **From Wet and Dry Bulb Temperatures**: P = Psat(Twet) - A × Patm × (Tdry -
-   Twet)
+- **Direct Measurement**: 1. **Chilled Mirror Hygrometer**:     - Highest accuracy (±0.1°C dew point, ±2% vapor pressure)    - Measures dew point directly    - Calculate vapor pressure from dew point temperature    - Primary standard for calibration  2. **Capacitive Humidity Sensors**:     - Measure relative humidity and temperature    - Calculate vapor pressure using psychrometric equations    - Fast response time (<60 seconds)    - Suitable for continuous monitoring  3. **Piezoelectric Sorption Sensors**:    - Direct vapor pressure measurement    - High accuracy (±1% of reading)    - Slow response time (minutes)    - Excellent for stable conditions
+- **Calculation Methods**: 1. **From Dew Point Temperature**: P = Psat(Tdp) 2. **From Relative Humidity and Temperature**: P = (RH/100) × Psat(T) 3. **From Wet and Dry Bulb Temperatures**: P = Psat(Twet) - A × Patm × (Tdry -    Twet)
 
 ## Affecting Factors
 
-### Primary Factors
+### Primary
 
-1. **Temperature**:
-
-   - Exponential relationship with saturation vapor pressure
-   - 10°C increase approximately doubles vapor pressure capacity
-   - Controls maximum achievable vapor pressure
-   - Affects equilibrium with liquid water
-
-2. **Relative Humidity**:
-
-   - Linear relationship at constant temperature
-   - Determines fraction of saturation vapor pressure
-   - Influenced by moisture sources and sinks
-   - Controlled by HVAC systems
-
-3. **Barometric Pressure**:
-   - Affects psychrometric calculations
-   - Higher altitude reduces total pressure
-   - Influences vapor pressure measurement accuracy
-   - Important for precise calculations
-
-### Secondary Factors
-
-1. **Air Movement**:
-
-   - Ventilation affects vapor pressure equilibrium
-   - Air exchange with different moisture content
-   - Mixing of air masses
-   - Local circulation patterns
-
-2. **Moisture Sources and Sinks**:
-   - Water evaporation from system components
-   - Hygroscopic materials absorb/release water vapor
-   - Human activities and equipment
-   - Building materials and furnishings
+- **Temperature**: - Exponential relationship with saturation vapor pressure    - 10°C increase approximately doubles vapor pressure capacity    - Controls maximum achievable vapor pressure    - Affects equilibrium with liquid water
+- **Relative Humidity**: - Linear relationship at constant temperature    - Determines fraction of saturation vapor pressure    - Influenced by moisture sources and sinks    - Controlled by HVAC systems
+- **Barometric Pressure**: - Affects psychrometric calculations    - Higher altitude reduces total pressure    - Influences vapor pressure measurement accuracy    - Important for precise calculations
+- **Air Movement**: - Ventilation affects vapor pressure equilibrium    - Air exchange with different moisture content    - Mixing of air masses    - Local circulation patterns
+- **Moisture Sources and Sinks**: - Water evaporation from system components    - Hygroscopic materials absorb/release water vapor    - Human activities and equipment    - Building materials and furnishings
 
 ## Performance Impact
 
@@ -114,26 +58,6 @@ pressure (>3500 Pa) may promote condensation on system components, potentially
 causing short circuits or corrosion. Optimal vapor pressure (1000-2500 Pa)
 maintains proper membrane hydration and prevents moisture-related operational
 issues.
-
-## Compatible Systems
-
-### Microbial Fuel Cells (MFCs)
-
-- **Operating Conditions**: 800 - 2800 Pa optimal
-- **Air-cathode systems**: Critical for oxygen reduction kinetics
-- **Proton exchange membranes**: Require adequate vapor pressure for hydration
-
-### Microbial Electrolysis Cells (MECs)
-
-- **Operating Conditions**: 1000 - 2500 Pa preferred
-- **Gas collection systems**: Affects water vapor in product gases
-- **Membrane stability**: Prevents over-drying or flooding
-
-### Bioelectrochemical Systems (BES)
-
-- **Operating Conditions**: 900 - 2600 Pa suitable
-- **Multi-chamber designs**: Each chamber may have different requirements
-- **Electrode interfaces**: Affects electrolyte-gas phase interactions
 
 ## Limitations
 
@@ -158,14 +82,9 @@ issues.
 3. **Electrical Safety**: Water vapor affects electrical insulation
 4. **Material Compatibility**: Some materials degrade in high vapor pressure
 
-## Validation Rules
+## Compatible Systems
 
-1. **Range validation**: 0 - 8000 Pa (physical limits for most applications)
-2. **Unit consistency**: Express in Pa, kPa, or mmHg with conversion factors
-3. **Temperature correlation**: Must be consistent with temperature and RH
-4. **Saturation check**: Cannot exceed saturation vapor pressure at given
-   temperature
-5. **Physical plausibility**: Must follow Clausius-Clapeyron relationship
+Atmospheric Ambient Conditions
 
 ## References
 
@@ -193,25 +112,13 @@ issues.
    Meteorological Organization.
    - Standard methods for vapor pressure measurement
 
-## Application Notes
+---
 
-**Laboratory Scale**:
+## Suggest Changes
 
-- Monitor vapor pressure with ±5 Pa accuracy
-- Control using humidification systems with feedback control
-- Account for temperature variations in experimental protocols
-- Calibrate sensors using saturated salt solutions
+This page is part of the [MESS-Parameters](https://github.com/Messai-io/MESS-Parameters) open dataset.
+Help improve it:
 
-**Pilot Scale**:
-
-- Install multiple sensors for spatial monitoring
-- Implement vapor pressure control systems
-- Design for local climatic conditions
-- Monitor long-term stability and trends
-
-**Commercial Scale**:
-
-- Integrate with environmental control systems
-- Design for seasonal vapor pressure variations
-- Implement predictive control algorithms
-- Balance control costs with performance requirements
+- [Suggest a correction](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Correction%3A+Vapor+Pressure&body=**Parameter%3A**+Vapor+Pressure%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fvapor-pressure.md%0A%0A**What+needs+correction%3A**%0A%0A**Suggested+change%3A**%0A%0A**Source%2Freference%3A**%0A&labels=parameter-feedback)
+- [Add data or references](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Data%3A+Vapor+Pressure&body=**Parameter%3A**+Vapor+Pressure%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fvapor-pressure.md%0A%0A**New+data+to+add+%28values%2C+ranges%2C+references%29%3A**%0A%0A**Source+publication+%28DOI+if+available%29%3A**%0A&labels=parameter-feedback)
+- [Report a problem](https://github.com/Messai-io/MESS-Parameters/issues/new?title=Problem%3A+Vapor+Pressure&body=**Parameter%3A**+Vapor+Pressure%0A**Category%3A**+Environmental%0A**File%3A**+parameters%2Fenvironmental%2Fvapor-pressure.md%0A%0A**Describe+the+problem%3A**%0A&labels=parameter-feedback)
