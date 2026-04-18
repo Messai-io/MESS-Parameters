@@ -35,7 +35,9 @@
     "papers:all": "snakemake -s scripts/papers/Snakefile -j 8 all",
     "papers:export-db": "bash scripts/papers/export_papers_from_db.sh",
     "papers:download": "papers/.venv/bin/python scripts/papers/download_from_db.py",
-    "papers:status": "papers/.venv/bin/python scripts/papers/download_status.py"
+    "papers:status": "papers/.venv/bin/python scripts/papers/download_status.py",
+    "papers:export-without-id": "bash scripts/papers/export_papers_without_id.sh",
+    "papers:backfill-ids": "papers/.venv/bin/python scripts/papers/backfill_identifiers.py"
   },
   "keywords": [
     "parameters",

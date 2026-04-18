@@ -1,12 +1,14 @@
 """Unified LLM shim for the papers pipeline.
 
-Supports two backends, selected via environment:
+Supports three backends, selected via environment:
+  - Groq (cloud, free tier)    — set GROQ_API_KEY=... (optional GROQ_API_KEY_2..5 rotate)
   - Ollama (local, free)       — set OLLAMA_MODEL=<name>
   - Anthropic (cloud, paid)    — set ANTHROPIC_API_KEY=sk-ant-...
 
-Pass MESS_LLM_BACKEND=ollama|anthropic to force a specific backend; when unset
-the function auto-detects based on which credentials are present, preferring
-Ollama when both are available (local-first policy).
+Pass MESS_LLM_BACKEND=groq|ollama|anthropic to force a specific backend; when
+unset the function auto-detects based on which credentials are present, in
+the order above (Groq first — fast free tier beats Ollama latency for bulk
+work; Anthropic last — billed).
 
 Callers should always handle a None return — that means "no backend available"
 and the pipeline should fall back to regex/CrossRef-only behavior.
@@ -23,12 +25,27 @@ from typing import Any
 
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 DEFAULT_OLLAMA_MODEL = "qwen3:latest"
+DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"
+GROQ_BASE = "https://api.groq.com/openai/v1"
+
+
+def _groq_keys() -> list[str]:
+    """All Groq keys present in the environment, in rotation order."""
+    keys: list[str] = []
+    for name in ("GROQ_API_KEY", "GROQ_API_KEY_2", "GROQ_API_KEY_3",
+                 "GROQ_API_KEY_4", "GROQ_API_KEY_5"):
+        v = os.environ.get(name, "").strip()
+        if v:
+            keys.append(v)
+    return keys
 
 
 def _backend() -> str | None:
     forced = os.environ.get("MESS_LLM_BACKEND", "").strip().lower()
-    if forced in {"ollama", "anthropic"}:
+    if forced in {"groq", "ollama", "anthropic"}:
         return forced
+    if _groq_keys():
+        return "groq"
     if os.environ.get("OLLAMA_MODEL"):
         return "ollama"
     if os.environ.get("ANTHROPIC_API_KEY"):
@@ -83,10 +100,71 @@ def chat_json(
     if backend is None:
         return None
 
+    if backend == "groq":
+        return _groq_chat(prompt, max_tokens, system, temperature)
     if backend == "ollama":
         return _ollama_chat(prompt, max_tokens, system, temperature)
     if backend == "anthropic":
         return _anthropic_chat(prompt, max_tokens, system, temperature)
+    return None
+
+
+# Round-robin counter for Groq keys. Module-level so rotation persists
+# across calls within a process.
+_groq_key_idx = 0
+
+
+def _groq_chat(
+    prompt: str, max_tokens: int, system: str | None, temperature: float
+) -> dict[str, Any] | None:
+    global _groq_key_idx
+    try:
+        import requests
+    except ImportError:
+        return None
+    keys = _groq_keys()
+    if not keys:
+        return None
+    model = os.environ.get("GROQ_MODEL", DEFAULT_GROQ_MODEL)
+    messages: list[dict[str, str]] = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    # Try each key in rotation; on 429/5xx, advance and retry once per key.
+    attempts = len(keys)
+    for _ in range(attempts):
+        key = keys[_groq_key_idx % len(keys)]
+        _groq_key_idx += 1
+        try:
+            r = requests.post(
+                f"{GROQ_BASE}/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {key}",
+                    "Content-Type": "application/json",
+                },
+                json={
+                    "model": model,
+                    "messages": messages,
+                    "max_tokens": max_tokens,
+                    "temperature": temperature,
+                    "response_format": {"type": "json_object"},
+                },
+                timeout=60,
+            )
+        except Exception as e:
+            print(f"[warn] groq request error: {e}", file=sys.stderr)
+            continue
+        if r.status_code == 200:
+            try:
+                content = r.json()["choices"][0]["message"]["content"]
+            except Exception:
+                return None
+            return _parse_json(content)
+        if r.status_code in (429, 500, 502, 503):
+            # Rate-limited or transient — rotate and retry.
+            continue
+        # Other errors (e.g. 401 invalid key) — log and try the next key.
+        print(f"[warn] groq key#{_groq_key_idx % len(keys)} → {r.status_code}", file=sys.stderr)
     return None
 
 
