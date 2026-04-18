@@ -100,13 +100,12 @@ def regex_scan(sections: dict[str, str], param: dict[str, Any]) -> list[dict[str
 
 
 def claude_augment(sections: dict[str, str], gaps: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    if not gaps or not os.environ.get("ANTHROPIC_API_KEY"):
+    """Ask the configured LLM backend (Ollama local / Anthropic cloud / none) to
+    fill gaps the regex layer missed. Name kept for call-site compatibility;
+    backend is configured in llm.py."""
+    if not gaps:
         return []
-    try:
-        import anthropic
-    except ImportError:
-        return []
-    client = anthropic.Anthropic()
+    from llm import chat_json
 
     body = "\n\n".join(
         f"## {k.upper()}\n{v[:4000]}" for k, v in sections.items() if v
@@ -126,23 +125,15 @@ def claude_augment(sections: dict[str, str], gaps: list[dict[str, Any]]) -> list
         '"snippet": "...", "confidence": <0..1>}]}'
     )
 
-    try:
-        msg = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=2000,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        text = msg.content[0].text.strip()
-        text = re.sub(r"^```json\s*|\s*```$", "", text)
-        obs = json.loads(text).get("observations", [])
-        for o in obs:
-            o["method"] = "llm"
-            o["section"] = "mixed"
-            o["page"] = None
-        return obs
-    except Exception as e:
-        print(f"  [warn] Claude augmentation failed: {e}", file=sys.stderr)
+    out = chat_json(prompt, max_tokens=2000)
+    if not out:
         return []
+    obs = out.get("observations", []) or []
+    for o in obs:
+        o["method"] = "llm"
+        o["section"] = "mixed"
+        o["page"] = None
+    return obs
 
 
 def dedup(hits: list[dict[str, Any]]) -> list[dict[str, Any]]:

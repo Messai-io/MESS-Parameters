@@ -16,7 +16,10 @@ pdfminer.six>=20231228       # fallback plain-text extraction
 crossref-commons>=0.0.7      # CrossRef REST client with throttling
 requests>=2.31
 
-# LLM-assisted resolution + extraction
+# LLM-assisted resolution + extraction.
+# Either backend works (configured via env in scripts/papers/llm.py):
+#   - Ollama local (default if reachable at http://localhost:11434): no extra deps beyond `requests` above
+#   - Anthropic cloud: uses the package below, enabled by ANTHROPIC_API_KEY
 anthropic>=0.39
 
 # Embeddings

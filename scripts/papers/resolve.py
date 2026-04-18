@@ -154,15 +154,12 @@ def doi_from_text(text: str) -> str | None:
 
 
 def claude_tiebreak(text: str, candidates: list[dict[str, Any]]) -> tuple[str | None, float]:
-    """Use Claude Sonnet 4.6 to choose between ambiguous CrossRef candidates.
-    Returns (doi or None, confidence in 0..1)."""
-    if not candidates or not os.environ.get("ANTHROPIC_API_KEY"):
+    """Use the configured LLM backend (Ollama local / Anthropic cloud / none) to
+    choose between ambiguous CrossRef candidates. Returns (doi or None, confidence in 0..1).
+    Name kept for call-site compatibility; backend is configured in llm.py."""
+    if not candidates:
         return None, 0.0
-    try:
-        import anthropic
-    except ImportError:
-        return None, 0.0
-    client = anthropic.Anthropic()
+    from llm import chat_json
 
     cand_lines = []
     for i, c in enumerate(candidates[:5]):
@@ -184,21 +181,15 @@ def claude_tiebreak(text: str, candidates: list[dict[str, Any]]) -> tuple[str | 
         + "\n\nRespond ONLY with JSON: {\"doi\": \"<doi or null>\", \"confidence\": <0..1>}."
     )
 
-    try:
-        msg = client.messages.create(
-            model="claude-sonnet-4-6",
-            max_tokens=200,
-            messages=[{"role": "user", "content": prompt}],
-        )
-        body = msg.content[0].text.strip()
-        body = re.sub(r"^```json\s*|\s*```$", "", body)
-        out = json.loads(body)
-        doi = out.get("doi")
-        conf = float(out.get("confidence", 0.0))
-        return (doi if doi else None), conf
-    except Exception as e:
-        print(f"  [warn] Claude tiebreak failed: {e}", file=sys.stderr)
+    out = chat_json(prompt, max_tokens=200)
+    if not out:
         return None, 0.0
+    doi = out.get("doi")
+    try:
+        conf = float(out.get("confidence", 0.0))
+    except (TypeError, ValueError):
+        conf = 0.0
+    return (doi if doi else None), conf
 
 
 def resolve_one(sha: str, rep_row: dict[str, Any]) -> Resolution:
