@@ -34,9 +34,26 @@ data/parameter-definitions-rich.json
 - Keys are DB column aliases in `snake_case`.
 
 Other files in this repo — `parameters/<category>/*.md`, `data/*.csv`,
-`data/correlation-cache.json` — are **not** part of the consumer surface for
-parameter detail pages. They are human-facing or producer-internal. Changes
-to them are never breaking for consumers.
+`data/correlation-cache.json`, `data/parameter-provenance.json` — are
+**not** part of the consumer surface for parameter detail pages. They
+are human-facing or producer-internal. Changes to them are never
+breaking for consumers.
+
+### Optional provenance sidecar
+
+`data/parameter-provenance.json` is a **sidecar** emitted by
+`scripts/build-provenance.ts` alongside `rich.json`. It contains per-parameter
+source papers (with DOIs), distribution statistics stratified by system type,
+and pairwise correlations — all derived from `data/paper-parameter-values.csv`.
+Consumers who want source attribution, histograms, or correlation matrices can
+opt in by reading this file; its schema is tracked separately at
+`schemas/provenance.schema.json` and may evolve independently of the rich.json
+contract.
+
+Entries are keyed by `richParameter.id`. To decide whether to fetch the
+sidecar for a given parameter, consumers may check the optional
+`has_provenance` flag on `richParameter` (set to `true` when an entry exists).
+This flag is optional — omitting it is backward-compatible.
 
 ## The schema is the contract
 
@@ -98,6 +115,8 @@ These require only a patch-level bump:
 - Correcting typos in descriptions, units, allowed-values.
 - Adding new optional fields to `richParameter` (TypeScript-strict
   consumers will flag them).
+- Publishing or updating a producer-internal sidecar file in `data/`
+  (e.g. `parameter-provenance.json`).
 
 ## Breaking changes
 

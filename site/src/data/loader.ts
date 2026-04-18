@@ -33,6 +33,7 @@ export interface RichParameter {
   references: string | null;
   compatible_systems: string | null;
   usage_count: number;
+  has_provenance?: boolean;
 }
 
 const index = parametersIndex as unknown as ParameterIndex;

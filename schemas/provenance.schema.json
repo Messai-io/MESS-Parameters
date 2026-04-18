@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://messai.io/schemas/provenance.schema.json",
+  "title": "MESS Parameter Provenance Sidecar",
+  "description": "Per-parameter paper sources, aggregated statistics, distribution, and correlation lists derived from the published CSVs by scripts/build-provenance.ts. Keyed by richParameter.id. This file is a producer-internal sidecar — it is NOT part of the rich.json consumer contract.",
+  "type": "object",
+  "required": ["metadata", "parameters"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["schema_version", "generated_at", "generator", "thresholds", "correlations", "counts"],
+      "additionalProperties": true,
+      "properties": {
+        "schema_version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "generator": { "type": "string" },
+        "source_files": { "type": "array", "items": { "type": "string" } },
+        "thresholds": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": [
+            "min_confidence", "min_system_n", "sources_cap", "histogram_bins",
+            "correlation_min_n", "top_correlations_per_parameter"
+          ],
+          "properties": {
+            "min_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+            "min_system_n": { "type": "integer", "minimum": 1 },
+            "sources_cap": { "type": "integer", "minimum": 1 },
+            "histogram_bins": { "type": "integer", "minimum": 2 },
+            "correlation_min_n": { "type": "integer", "minimum": 3 },
+            "top_correlations_per_parameter": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "correlations": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["total_tests", "bonferroni_alpha"],
+          "properties": {
+            "total_tests": { "type": "integer", "minimum": 0 },
+            "bonferroni_alpha": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+          }
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": true,
+          "required": ["parameters_with_provenance", "total_sources"],
+          "properties": {
+            "parameters_with_provenance": { "type": "integer", "minimum": 0 },
+            "total_sources": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/provenanceEntry" }
+    }
+  },
+  "definitions": {
+    "stats": {
+      "type": "object",
+      "required": ["n", "min", "max", "mean", "median", "p05", "p25", "p75", "p95", "std"],
+      "additionalProperties": false,
+      "properties": {
+        "n": { "type": "integer", "minimum": 0 },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "mean": { "type": "number" },
+        "median": { "type": "number" },
+        "p05": { "type": "number" },
+        "p25": { "type": "number" },
+        "p75": { "type": "number" },
+        "p95": { "type": "number" },
+        "std": { "type": "number", "minimum": 0 }
+      }
+    },
+    "distribution": {
+      "type": "object",
+      "required": ["bins", "counts"],
+      "additionalProperties": false,
+      "properties": {
+        "bins": { "type": "array", "items": { "type": "number" } },
+        "counts": { "type": "array", "items": { "type": "integer", "minimum": 0 } }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "doi", "title", "year", "journal", "system_type",
+        "value", "unit", "confidence", "extraction_method",
+        "source_section", "verified", "verified_mes"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "doi": { "type": "string" },
+        "title": { "type": "string" },
+        "year": { "type": ["integer", "null"] },
+        "journal": { "type": ["string", "null"] },
+        "system_type": { "type": "string" },
+        "value": { "type": "number" },
+        "unit": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "extraction_method": { "type": "string" },
+        "source_section": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "verified_mes": { "type": "boolean" }
+      }
+    },
+    "correlation": {
+      "type": "object",
+      "required": ["other_param_id", "other_param_name", "pearson_r", "n", "p_corrected", "significant"],
+      "additionalProperties": false,
+      "properties": {
+        "other_param_id": { "type": "string", "minLength": 1 },
+        "other_param_name": { "type": "string" },
+        "pearson_r": { "type": "number", "minimum": -1, "maximum": 1 },
+        "n": { "type": "integer", "minimum": 3 },
+        "p_corrected": { "type": "number", "minimum": 0, "maximum": 1 },
+        "significant": { "type": "boolean" }
+      }
+    },
+    "provenanceEntry": {
+      "type": "object",
+      "required": [
+        "id", "name", "n_papers", "n_values", "n_verified", "mean_confidence",
+        "stats_global", "stats_by_system", "distribution", "sources", "correlations"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "n_papers": { "type": "integer", "minimum": 0 },
+        "n_values": { "type": "integer", "minimum": 0 },
+        "n_verified": { "type": "integer", "minimum": 0 },
+        "mean_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "stats_global": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/definitions/stats" }
+          ]
+        },
+        "stats_by_system": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/definitions/stats" }
+        },
+        "distribution": { "$ref": "#/definitions/distribution" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/source" }
+        },
+        "correlations": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/correlation" }
+        }
+      }
+    }
+  }
+}

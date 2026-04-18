@@ -1,10 +1,19 @@
-import { useMemo } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import { getRichParameter, getAllParameters, type RichParameter } from '../../data/loader';
+import { getProvenance, type ProvEntry } from '../../data/provenance';
 import { Card, CardHeader, CardContent, CardFooter } from '../../ui/card';
 import { Badge } from '../../ui/badge';
 import { Button } from '../../ui/button';
 import { RangeBar } from './RangeBar';
 import { categoryColors, categoryLabels } from '../../styles/category-colors';
+import { ProvenanceBadges } from './provenance/ProvenanceBadges';
+import { SourcesExplorer } from './provenance/SourcesExplorer';
+import { CorrelationMiniMatrix } from './provenance/CorrelationMiniMatrix';
+import { linkifyCitations } from '../../lib/doi';
+
+function nameToSlug(name: string): string {
+  return name.toLowerCase().replace(/\s+/g, '_').replace(/[()\/]/g, '').replace(/:/, '');
+}
 
 interface ParameterDetailPageProps {
   paramId: string;
@@ -104,6 +113,22 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
     return all.find(p => p.id === nameId || p.id === paramId);
   }, [paramId]);
 
+  const [prov, setProv] = useState<ProvEntry | null>(null);
+  const [provLoading, setProvLoading] = useState(false);
+  useEffect(() => {
+    if (!richParam?.has_provenance) {
+      setProv(null);
+      return;
+    }
+    let cancelled = false;
+    setProvLoading(true);
+    getProvenance(richParam.id)
+      .then((p) => { if (!cancelled) setProv(p); })
+      .catch(() => { if (!cancelled) setProv(null); })
+      .finally(() => { if (!cancelled) setProvLoading(false); });
+    return () => { cancelled = true; };
+  }, [richParam?.id, richParam?.has_provenance]);
+
   if (!richParam && !indexParam) {
     return (
       <div className="space-y-6 animate-fade-in">
@@ -165,6 +190,11 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
           )}
         </div>
       </div>
+
+      {/* Provenance overview strip — renders when sidecar data is available */}
+      {prov && (
+        <ProvenanceBadges prov={prov} />
+      )}
 
       {/* Quick stats row */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -266,6 +296,40 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
             </Card>
           )}
 
+          {/* Correlated parameters */}
+          {prov && prov.correlations.length > 0 && (
+            <Card padding="sm">
+              <CardContent>
+                <Section title="Correlated Parameters">
+                  <CorrelationMiniMatrix
+                    correlations={prov.correlations}
+                    paramNameToSlug={nameToSlug}
+                  />
+                </Section>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Sources & Distribution explorer */}
+          {prov && (
+            <Card padding="sm">
+              <CardContent>
+                <Section title="Sources & Distribution">
+                  <SourcesExplorer prov={prov} unit={p.unit} />
+                </Section>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Provenance placeholder while loading */}
+          {!prov && provLoading && p.has_provenance && (
+            <Card padding="sm">
+              <CardContent>
+                <div className="text-sm text-mes-text-muted">Loading paper sources and distribution…</div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* Limitations */}
           {p.limitations && (
             <Card padding="sm">
@@ -331,7 +395,21 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
               <CardContent>
                 <h3 className="text-sm font-semibold text-mes-text-primary mb-3">References</h3>
                 <div className="text-xs text-mes-text-secondary leading-relaxed whitespace-pre-line">
-                  {p.references}
+                  {linkifyCitations(p.references).map((seg, i) =>
+                    seg.href ? (
+                      <a
+                        key={i}
+                        href={seg.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-mes-text-link hover:underline break-all"
+                      >
+                        {seg.text}
+                      </a>
+                    ) : (
+                      <span key={i}>{seg.text}</span>
+                    )
+                  )}
                 </div>
               </CardContent>
             </Card>

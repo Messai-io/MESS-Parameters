@@ -19,3 +19,44 @@ jobs:
       - run: npm ci
 
       - run: npm run validate
+
+      # Rebuild the provenance sidecar from the CSVs and fail if the committed
+      # file drifted. Ignores the volatile metadata.generated_at timestamp.
+      - name: Check provenance sidecar is up to date
+        run: |
+          cp data/parameter-provenance.json /tmp/committed-provenance.json
+          cp data/parameter-definitions-rich.json /tmp/committed-rich.json
+          npm run build:provenance
+          # has_provenance stamping may touch rich.json; restore committed
+          # version before comparing so only provenance content is checked.
+          mv /tmp/committed-rich.json data/parameter-definitions-rich.json
+          # jq strips the timestamp so only content drift fails CI.
+          if ! diff \
+            <(jq 'del(.metadata.generated_at)' /tmp/committed-provenance.json) \
+            <(jq 'del(.metadata.generated_at)' data/parameter-provenance.json) > /dev/null; then
+            echo "::error::data/parameter-provenance.json is out of date. Run 'npm run build:provenance' and commit."
+            diff \
+              <(jq 'del(.metadata.generated_at)' /tmp/committed-provenance.json) \
+              <(jq 'del(.metadata.generated_at)' data/parameter-provenance.json) | head -40
+            exit 1
+          fi
+
+  site-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - run: npm ci
+
+      - run: npm test
+
+      - run: npm run build

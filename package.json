@@ -20,6 +20,7 @@
   "scripts": {
     "validate": "node scripts/validate.js",
     "sync": "node scripts/sync-from-database.js",
+    "build:provenance": "npx tsx scripts/build-provenance.ts",
     "export:csv": "npx tsx scripts/generate-csv-exports.ts",
     "generate:pages": "node scripts/generate-parameter-pages.js",
     "export:all": "npx tsx scripts/export-all-data.ts",

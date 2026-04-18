@@ -312,7 +312,11 @@
         "references": { "type": ["string", "null"] },
         "compatible_systems": { "type": ["string", "null"] },
         "priority": { "type": ["number", "null"] },
-        "usage_count": { "type": "integer", "minimum": 0 }
+        "usage_count": { "type": "integer", "minimum": 0 },
+        "has_provenance": {
+          "type": "boolean",
+          "description": "Optional flag set to true when the parameter has a corresponding entry in data/parameter-provenance.json. Consumers can use this to decide whether to fetch the provenance sidecar for a given id. Safe to ignore."
+        }
       },
       "additionalProperties": false
     }

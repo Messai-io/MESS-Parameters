@@ -266,7 +266,7 @@ These dimensions may introduce confounding in cross-study analyses.
 
 The following improvements are planned for future releases:
 
-- [ ] Replace custom p-value approximation with proper t-distribution calculation
+- [x] Replace custom p-value approximation with proper t-distribution calculation *(done 2026-04-18; see `scripts/recompute-correlation-pvalues.py`)*
 - [ ] Add per-criterion reporting rates (not category averages)
 - [ ] Populate references, dependencies, and compatibility fields in index.json
 - [ ] Conduct prospective validation of the five-parameter checklist

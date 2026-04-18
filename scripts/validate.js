@@ -21,8 +21,10 @@ const Ajv = require('ajv');
 const ROOT = path.resolve(__dirname, '..');
 const INDEX_PATH = path.join(ROOT, 'parameters', 'index.json');
 const RICH_PATH = path.join(ROOT, 'data', 'parameter-definitions-rich.json');
+const PROV_PATH = path.join(ROOT, 'data', 'parameter-provenance.json');
 const PARAM_SCHEMA_PATH = path.join(ROOT, 'schemas', 'parameter.schema.json');
 const RICH_SCHEMA_PATH = path.join(ROOT, 'schemas', 'rich-parameters.schema.json');
+const PROV_SCHEMA_PATH = path.join(ROOT, 'schemas', 'provenance.schema.json');
 const MIN_RICH_ENTRIES = 687;
 const REQUIRED_FIELDS = ['id', 'name', 'type', 'description', 'unit', 'category', 'subcategory'];
 
@@ -166,6 +168,61 @@ try {
   }
 } catch (e) {
   error(`Cannot AJV-validate rich.json: ${e.message}`);
+}
+
+// ── Pass 3: AJV-validate data/parameter-provenance.json (optional sidecar) ──
+if (fs.existsSync(PROV_PATH)) {
+  console.log('\nprovenance.json: AJV pass');
+  try {
+    const prov = JSON.parse(fs.readFileSync(PROV_PATH, 'utf-8'));
+    const provSchema = JSON.parse(fs.readFileSync(PROV_SCHEMA_PATH, 'utf-8'));
+
+    const ajv2 = new Ajv({ strict: false, allErrors: true });
+    const validateProv = ajv2.compile(provSchema);
+
+    if (!validateProv(prov)) {
+      const shown = validateProv.errors.slice(0, 20);
+      for (const e of shown) {
+        error(`provenance.json ${e.instancePath} ${e.message}`);
+      }
+      if (validateProv.errors.length > shown.length) {
+        error(`... and ${validateProv.errors.length - shown.length} more AJV errors`);
+      }
+    } else {
+      console.log(`  provenance.json: ${prov.parameters.length} entries, schema-valid`);
+    }
+
+    // Referential integrity: every id in provenance must exist in rich.json
+    const rich = JSON.parse(fs.readFileSync(RICH_PATH, 'utf-8'));
+    const richIds = new Set(rich.map(r => r.id));
+    let unmatched = 0;
+    for (const p of prov.parameters) {
+      if (!richIds.has(p.id)) {
+        error(`provenance.json: id '${p.id}' (${p.name}) does not exist in rich.json`);
+        unmatched++;
+        if (unmatched > 20) { error('... stopping after 20 unmatched ids'); break; }
+      }
+    }
+    // Cross-ref: every correlation.other_param_id must also exist in rich.json
+    let badCorr = 0;
+    for (const p of prov.parameters) {
+      for (const c of p.correlations) {
+        if (!richIds.has(c.other_param_id)) {
+          error(`provenance.json ${p.id}: correlation points to unknown id '${c.other_param_id}'`);
+          badCorr++;
+          if (badCorr > 10) { error('... stopping after 10 bad correlation refs'); break; }
+        }
+      }
+      if (badCorr > 10) break;
+    }
+    if (unmatched === 0 && badCorr === 0) {
+      console.log('  referential integrity: all ids resolve against rich.json');
+    }
+  } catch (e) {
+    error(`Cannot AJV-validate provenance.json: ${e.message}`);
+  }
+} else {
+  console.log('\nprovenance.json: not present (sidecar optional, skipping)');
 }
 
 console.log(`\nResult: ${errors} errors, ${warnings} warnings`);
