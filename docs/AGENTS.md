@@ -215,6 +215,44 @@ review → `papers:all`.
 - Stratify Bonferroni α by category so cross-category pairs don't eat the
   significance budget.
 
+### Bulk PDF downloader (from DB DOIs)
+
+Script: `scripts/papers/download_from_db.py` (npm: `papers:download`). Reads
+a CSV of papers exported from the MESSAI Postgres DB (`papers:export-db`) and
+walks a six-provider chain per paper: **externalUrl → Unpaywall → arXiv →
+bioRxiv → PMC → CrossRef**. Zero Sci-Hub. Per-provider rate limits; arXiv
+is the strict one (1 req / 3 s ToS).
+
+Output lands in `papers/downloaded/<sha256[:2]>/<sha256>.pdf` — the existing
+`discover.py` walks `papers/` recursively, so downloaded PDFs flow into the
+Snakemake pipeline on the next discover/resolve/import/extract pass without
+any integration work.
+
+Every attempt (success or fail, all providers) is appended to
+`papers/staging/download-attempts.jsonl` — full provenance for later audit.
+Resume works by re-reading that log and skipping paper ids with a final
+attempt. Papers whose DOIs are already on disk (present in `resolution.jsonl`)
+are automatically excluded.
+
+Required env:
+- `DATABASE_URL` — MESSAI Postgres connection string (put in repo-root
+  `.env`, which is gitignored)
+- `UNPAYWALL_EMAIL` — your email, per Unpaywall ToS; without it the
+  Unpaywall provider is silently skipped
+
+Typical run:
+
+```bash
+npm run papers:export-db                          # dumps papers-to-download.csv
+npm run papers:download -- --tier priority        # top ~3,500 by score
+npm run papers:download -- --tier bulk            # everything else
+npm run papers:discover                           # picks up new PDFs
+npm run papers:resolve                            # DOI-tag them
+```
+
+Expected coverage (literature baseline): ~40–55% of 23k papers legally
+acquirable. The rest stay metadata-only.
+
 ## When you're about to edit
 
 - **Change a narrative/content field?** Edit the DB (or ask for `sync`), don't
