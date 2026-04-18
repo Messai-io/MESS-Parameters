@@ -452,14 +452,24 @@ def dedup(hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def main() -> int:
-    if len(sys.argv) != 2:
-        print("usage: extract_parameters.py <by-doi-dir>", file=sys.stderr)
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    flags = {a for a in sys.argv[1:] if a.startswith("--")}
+    if len(args) != 1:
+        print("usage: extract_parameters.py <by-doi-dir> [--force]", file=sys.stderr)
         return 1
-    paper_dir = Path(sys.argv[1])
+    paper_dir = Path(args[0])
     sec_path = paper_dir / "text" / "sections.json"
     if not sec_path.exists():
         print(f"missing {sec_path}", file=sys.stderr)
         return 1
+
+    # Resume guard: if the new-schema output already exists (paper_context.json
+    # is only emitted by this version), skip unless --force. Prevents bulk
+    # re-runs from regressing richly-extracted papers back to regex-only when
+    # Groq rate-limits mid-run.
+    ctx_path = paper_dir / "parameters" / "paper_context.json"
+    if ctx_path.exists() and "--force" not in flags:
+        return 0
 
     sections = json.loads(sec_path.read_text())
     ontology = load_ontology()

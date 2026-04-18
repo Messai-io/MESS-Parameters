@@ -131,10 +131,30 @@ def chat_json(
 _groq_key_idx = 0
 
 
+import time as _time
+import re as _re
+import threading as _threading
+
+_groq_rate_lock = _threading.Lock()
+_groq_available_after = 0.0  # monotonic timestamp after which we may retry
+_MAX_GROQ_WAIT = 120.0  # don't sleep more than 2 min on a single call
+
+
+def _parse_retry_after(error_body: str) -> float:
+    """Groq error bodies embed 'Please try again in <X>s.' — extract it."""
+    m = _re.search(r"try again in\s+([\d.]+)\s*s", error_body)
+    if m:
+        try:
+            return min(float(m.group(1)), _MAX_GROQ_WAIT)
+        except ValueError:
+            pass
+    return 30.0
+
+
 def _groq_chat(
     prompt: str, max_tokens: int, system: str | None, temperature: float
 ) -> dict[str, Any] | None:
-    global _groq_key_idx
+    global _groq_key_idx, _groq_available_after
     try:
         import requests
     except ImportError:
@@ -147,7 +167,18 @@ def _groq_chat(
     if system:
         messages.append({"role": "system", "content": system})
     messages.append({"role": "user", "content": prompt})
-    # Try each key in rotation; on 429/5xx, advance and retry once per key.
+
+    # If a previous 429 told us to wait, honor that up-front. All callers
+    # share the same org-level TPM bucket, so rotating keys does NOT help —
+    # we actually have to wait. Cap the wait at _MAX_GROQ_WAIT so individual
+    # calls don't stall forever; the caller can fall back to Ollama.
+    with _groq_rate_lock:
+        wait = _groq_available_after - _time.monotonic()
+    if wait > 0:
+        if wait > _MAX_GROQ_WAIT:
+            return None  # give up for this call; caller may fall back
+        _time.sleep(wait)
+
     attempts = len(keys)
     for _ in range(attempts):
         key = keys[_groq_key_idx % len(keys)]
@@ -177,10 +208,20 @@ def _groq_chat(
             except Exception:
                 return None
             return _parse_json(content)
-        if r.status_code in (429, 500, 502, 503):
-            # Rate-limited or transient — rotate and retry.
+        if r.status_code == 429:
+            # Respect the server's suggested wait; every key shares the same
+            # org-level pool so rotation doesn't help on TPM/TPD limits.
+            body = r.text
+            delay = _parse_retry_after(body)
+            with _groq_rate_lock:
+                _groq_available_after = _time.monotonic() + delay
+            if delay > _MAX_GROQ_WAIT:
+                print(f"[warn] groq 429 asks {delay:.0f}s — giving up on this call", file=sys.stderr)
+                return None
+            _time.sleep(delay)
             continue
-        # Other errors (e.g. 401 invalid key) — log and try the next key.
+        if r.status_code in (500, 502, 503):
+            continue
         print(f"[warn] groq key#{_groq_key_idx % len(keys)} → {r.status_code}", file=sys.stderr)
     return None
 
