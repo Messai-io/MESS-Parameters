@@ -31,9 +31,13 @@ where CDF_t is the cumulative distribution function of the Student's t-distribut
 
 **Recommendation for researchers:** Recompute p-values from the reported Pearson r and sample size using a standard statistical library (scipy.stats.pearsonr, R's cor.test, etc.).
 
+**Update 2026-04-18:** Corrected p-values computed via the standard Student's t-distribution (regularized incomplete beta function, validated against scipy to 1e-10) are now published in `data/correlations.csv` under the `p_value_corrected` column. The script is `scripts/recompute-correlation-pvalues.py` (pure stdlib, no dependencies). The two previously "significant" correlations remain significant under corrected p-values: Reproducibility Score vs CE (p = 3.1e-4, n=36) and ec:coulombicEfficiency vs CE (p = 1.0e-5, n=55).
+
 ### 1.2 Bonferroni Correction
 
 The README and METHODOLOGY claim Bonferroni correction was applied (adjusted alpha = 0.05/14 = 0.0036). However, the p-values stored in `correlation-cache.json` are the **raw** p-values, not Bonferroni-adjusted values. Researchers must apply the correction themselves when interpreting significance.
+
+**Update 2026-04-18:** `data/correlations.csv` now includes a `bonferroni_significant` column (adjusted α = 0.05/14 = 3.571e-3) and an `adjusted_alpha` column. Under Bonferroni correction, 2 of the 14 tested correlations remain significant (the two listed in §1.1).
 
 ### 1.3 Sample Size Limitations
 
