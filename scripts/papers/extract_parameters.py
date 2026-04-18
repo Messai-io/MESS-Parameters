@@ -269,24 +269,54 @@ Return ONLY JSON matching this shape:
 """
 
 
-def llm_extract(sections: dict[str, str], parameter_ids: list[str]) -> dict[str, Any] | None:
+def _load_tables(paper_dir: Path, max_chars: int = 5000) -> str:
+    """Concatenate any structured tables extracted by extract_tables.py so
+    the LLM sees values with their headers + conditions attached. Capped
+    at max_chars to keep overall prompt size manageable."""
+    tables_dir = paper_dir / "text" / "tables"
+    if not tables_dir.exists():
+        return ""
+    parts: list[str] = []
+    used = 0
+    # Sort by page then index so the LLM sees them in document order.
+    meta_paths = sorted(tables_dir.glob("table-*.meta.json"))
+    for mp in meta_paths:
+        try:
+            meta = json.loads(mp.read_text())
+            csv_text = mp.with_suffix("").with_name(mp.stem.replace(".meta", "") + ".csv").read_text()
+        except Exception:
+            continue
+        caption = meta.get("caption") or f"Table on page {meta.get('page','?')}"
+        block = f"### {caption}\n{csv_text}"
+        if used + len(block) > max_chars:
+            break
+        parts.append(block)
+        used += len(block)
+    return ("\n\n".join(parts)).strip()
+
+
+def llm_extract(sections: dict[str, str], parameter_ids: list[str], paper_dir: Path | None = None) -> dict[str, Any] | None:
     from llm import chat_json
     # Pack abstract + results + methods + discussion — where measurements live.
-    # Each section truncated to 2500 chars to cap total prompt size without
-    # losing context-dense portions.
     priority = ("abstract", "methods", "results", "discussion", "conclusion")
-    parts = [f"## {k.upper()}\n{sections[k][:2500]}" for k in priority if sections.get(k)]
-    # Include any other non-priority sections briefly
+    parts = [f"## {k.upper()}\n{sections[k][:2000]}" for k in priority if sections.get(k)]
     for k, v in sections.items():
         if k not in priority and v:
-            parts.append(f"## {k.upper()}\n{v[:1000]}")
+            parts.append(f"## {k.upper()}\n{v[:800]}")
     body = "\n\n".join(parts)
+
+    # Append structured tables if extract_tables.py has run. Tables are where
+    # the quantitative MES data (performance × conditions) usually lives.
+    tables_block = _load_tables(paper_dir) if paper_dir else ""
+    if tables_block:
+        body = body + "\n\n## TABLES\n" + tables_block
+
     if not body.strip():
         return None
     prompt = (
         _USER_TEMPLATE
         .replace("%%PARAMETER_LIST%%", "\n".join(f"- {pid}" for pid in parameter_ids))
-        .replace("%%BODY%%", body[:10000])
+        .replace("%%BODY%%", body[:14000])
     )
     out = chat_json(prompt, system=_SYSTEM_PROMPT, max_tokens=1800)
     return out if isinstance(out, dict) else None
@@ -480,7 +510,8 @@ def main() -> int:
         regex_hits.extend(regex_scan(sections, param))
 
     # LLM pass — one structured call per paper for context + observations.
-    llm_response = llm_extract(sections, sorted(MES_CORE_PARAMETERS))
+    # Pass paper_dir so it can pack extracted tables into the prompt too.
+    llm_response = llm_extract(sections, sorted(MES_CORE_PARAMETERS), paper_dir=paper_dir)
     paper_context = _coerce_paper_context((llm_response or {}).get("paper_context"))
     llm_hits_raw = (llm_response or {}).get("observations", []) or []
 
