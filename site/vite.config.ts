@@ -11,6 +11,18 @@ export default defineConfig({
       '@params': path.resolve(__dirname, '../parameters'),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'parameter-data': [
+            path.resolve(__dirname, '../data/parameter-definitions-rich.json'),
+          ],
+        },
+      },
+    },
+  },
   server: {
     fs: {
       allow: ['..'],

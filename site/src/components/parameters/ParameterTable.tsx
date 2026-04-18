@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '../../ui/table';
 import { Badge } from '../../ui/badge';
-import { ParameterDetail } from './ParameterDetail';
 import { categoryColors } from '../../styles/category-colors';
 import type { Parameter } from '../../data/types';
 
@@ -15,7 +14,6 @@ interface ParameterTableProps {
 export function ParameterTable({ parameters }: ParameterTableProps) {
   const [sortKey, setSortKey] = useState<SortKey>('name');
   const [sortDir, setSortDir] = useState<SortDir>('asc');
-  const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleSort = (key: SortKey) => {
     if (sortKey === key) {
@@ -77,12 +75,7 @@ export function ParameterTable({ parameters }: ParameterTableProps) {
       </TableHeader>
       <TableBody>
         {sorted.map((p) => (
-          <ParameterTableRow
-            key={p.id}
-            parameter={p}
-            expanded={expandedId === p.id}
-            onToggle={() => setExpandedId(expandedId === p.id ? null : p.id)}
-          />
+          <ParameterTableRow key={p.id} parameter={p} />
         ))}
       </TableBody>
     </Table>
@@ -91,49 +84,40 @@ export function ParameterTable({ parameters }: ParameterTableProps) {
 
 function ParameterTableRow({
   parameter: p,
-  expanded,
-  onToggle,
 }: {
   parameter: Parameter;
-  expanded: boolean;
-  onToggle: () => void;
 }) {
+  const detailUrl = `#/parameter/${encodeURIComponent(p.id)}`;
+
   return (
-    <>
-      <TableRow
-        className="cursor-pointer"
-        onClick={onToggle}
-      >
-        <TableCell className="font-medium">{p.name}</TableCell>
-        <TableCell>
-          <code className="text-xs bg-gray-50 px-1 py-0.5 border border-gray-200">{p.unit}</code>
-        </TableCell>
-        <TableCell className="hidden md:table-cell">
-          <Badge
-            variant="outline"
-            size="sm"
-            style={{ borderColor: categoryColors[p.category] || '#737373', color: categoryColors[p.category] || '#737373' }}
-          >
-            {p.category}
-          </Badge>
-        </TableCell>
-        <TableCell className="hidden lg:table-cell text-mes-text-muted text-xs">
-          {p.subcategory}
-        </TableCell>
-        <TableCell className="hidden sm:table-cell">
-          {p.range?.typical != null ? `${p.range.typical}` : '-'}
-        </TableCell>
-        <TableCell className="hidden sm:table-cell text-xs text-mes-text-muted">
-          {p.range ? `${p.range.min} - ${p.range.max}` : '-'}
-        </TableCell>
-      </TableRow>
-      {expanded && (
-        <tr>
-          <td colSpan={6}>
-            <ParameterDetail parameter={p} />
-          </td>
-        </tr>
-      )}
-    </>
+    <TableRow
+      className="cursor-pointer group"
+      onClick={() => { window.location.hash = detailUrl.slice(1); }}
+    >
+      <TableCell className="font-medium">
+        <span className="group-hover:text-mes-text-link transition-colors">{p.name}</span>
+      </TableCell>
+      <TableCell>
+        <code className="text-xs bg-gray-50 px-1 py-0.5 border border-gray-200">{p.unit}</code>
+      </TableCell>
+      <TableCell className="hidden md:table-cell">
+        <Badge
+          variant="outline"
+          size="sm"
+          style={{ borderColor: categoryColors[p.category] || '#737373', color: categoryColors[p.category] || '#737373' }}
+        >
+          {p.category}
+        </Badge>
+      </TableCell>
+      <TableCell className="hidden lg:table-cell text-mes-text-muted text-xs">
+        {p.subcategory}
+      </TableCell>
+      <TableCell className="hidden sm:table-cell">
+        {p.range?.typical != null ? `${p.range.typical}` : '-'}
+      </TableCell>
+      <TableCell className="hidden sm:table-cell text-xs text-mes-text-muted">
+        {p.range ? `${p.range.min} - ${p.range.max}` : '-'}
+      </TableCell>
+    </TableRow>
   );
 }

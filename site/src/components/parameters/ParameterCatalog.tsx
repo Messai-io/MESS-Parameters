@@ -36,7 +36,7 @@ export function ParameterCatalog() {
         </h1>
         <p className="mt-2 text-mes-text-secondary text-sm">
           {allParams.length} parameters across {categories.length} categories.
-          Click a row to expand details.
+          Click any parameter to view full details.
         </p>
       </div>
 

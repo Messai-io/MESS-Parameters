@@ -3,6 +3,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { DashboardView } from './components/dashboard/DashboardView';
 import { ParameterCatalog } from './components/parameters/ParameterCatalog';
+import { ParameterDetailPage } from './components/parameters/ParameterDetailPage';
 import { CorrelationsView } from './components/correlations/CorrelationsView';
 import { ReproducibilityView } from './components/reproducibility/ReproducibilityView';
 
@@ -24,6 +25,12 @@ function useHashRoute(): string {
 }
 
 function Router({ route }: { route: string }) {
+  // Match /parameter/:id
+  const paramMatch = route.match(/^\/parameter\/(.+)$/);
+  if (paramMatch) {
+    return <ParameterDetailPage paramId={decodeURIComponent(paramMatch[1])} />;
+  }
+
   switch (route) {
     case '/parameters':
       return <ParameterCatalog />;

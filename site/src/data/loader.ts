@@ -2,6 +2,7 @@ import parametersIndex from '@params/index.json';
 import correlationCache from '@data/correlation-cache.json';
 import extractionStats from '@data/extraction-stats.json';
 import reproducibilitySummary from '@data/reproducibility-summary.json';
+import richDefinitions from '@data/parameter-definitions-rich.json';
 import type {
   Parameter,
   ParameterIndex,
@@ -10,6 +11,29 @@ import type {
   ReproducibilitySummary,
   CategoryCount,
 } from './types';
+
+export interface RichParameter {
+  id: string;
+  name: string;
+  category: string;
+  subcategory: string | null;
+  unit: string | null;
+  data_type: string;
+  description: string | null;
+  min_value: number | null;
+  max_value: number | null;
+  definition: string | null;
+  typical_values: unknown;
+  measurement_methods: unknown;
+  affecting_factors: unknown;
+  performance_impact: string | null;
+  limitations: string | null;
+  cost_analysis: string | null;
+  related_parameters: unknown;
+  references: string | null;
+  compatible_systems: string | null;
+  usage_count: number;
+}
 
 const index = parametersIndex as unknown as ParameterIndex;
 const correlations = correlationCache as unknown as CorrelationCache;
@@ -64,6 +88,20 @@ export function getReproducibility() {
 
 export function getMetadata() {
   return index.metadata;
+}
+
+const rich = richDefinitions as unknown as RichParameter[];
+
+export function getRichParameter(paramId: string): RichParameter | null {
+  const nameId = paramId.toLowerCase().replace(/-/g, '_');
+  return rich.find(p => {
+    const pNameId = p.name.toLowerCase().replace(/\s+/g, '_').replace(/[()\/]/g, '').replace(/:/, '');
+    return pNameId === nameId || p.id === paramId;
+  }) || null;
+}
+
+export function getAllRichParameters(): RichParameter[] {
+  return rich;
 }
 
 export function fmtNum(n: unknown, fallback = '—'): string {
