@@ -37,7 +37,7 @@ from typing import Any
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 DEFAULT_OLLAMA_MODEL = "qwen3:latest"
 DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
-DEFAULT_GEMINI_MODEL = "gemini-2.0-flash"
+DEFAULT_GEMINI_MODEL = "gemini-2.5-flash"
 DEFAULT_CEREBRAS_MODEL = "llama3.1-8b"
 DEFAULT_OPENROUTER_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
 DEFAULT_MISTRAL_MODEL = "mistral-small-latest"
