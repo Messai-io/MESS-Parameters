@@ -24,6 +24,7 @@ const ROOT = path.resolve(__dirname, '..');
 const DATA_DIR = path.join(ROOT, 'data');
 const RICH_PATH = path.join(DATA_DIR, 'parameter-definitions-rich.json');
 const PPV_PATH = path.join(DATA_DIR, 'paper-parameter-values.csv');
+const LOCAL_PATH = path.join(DATA_DIR, 'local-corpus-values.csv');
 const PM_PATH = path.join(DATA_DIR, 'paper-metadata.csv');
 const OUT_PATH = path.join(DATA_DIR, 'parameter-provenance.json');
 
@@ -373,6 +374,23 @@ function main(): void {
   const pm = parseCsv(pmText);
   console.log(`  paper-parameter-values: ${ppv.rows.length} rows`);
   console.log(`  paper-metadata:         ${pm.rows.length} rows`);
+
+  // Optional sibling file emitted by scripts/papers/rollup_local_corpus.ts
+  // from the local PDF pipeline. Same schema as paper-parameter-values;
+  // union the two before grouping so local extractions get mixed in.
+  if (fs.existsSync(LOCAL_PATH)) {
+    const localText = fs.readFileSync(LOCAL_PATH, 'utf8');
+    const local = parseCsv(localText);
+    // Sanity: skip union if headers differ (columns out of order = silent bug)
+    const ppvHeader = ppv.header.join('|');
+    const localHeader = local.header.join('|');
+    if (ppvHeader === localHeader) {
+      ppv.rows.push(...local.rows);
+      console.log(`  local-corpus-values:    ${local.rows.length} rows (unioned)`);
+    } else {
+      console.log(`  [warn] local-corpus-values.csv header mismatch — skipping`);
+    }
+  }
 
   // paper-metadata lookup: keyed by doi (primary) and title (fallback)
   const pmByDoi = new Map<string, Record<string, string>>();
