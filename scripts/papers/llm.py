@@ -1,17 +1,25 @@
 """Unified LLM shim for the papers pipeline.
 
-Supports three backends, selected via environment:
-  - Groq (cloud, free tier)    — set GROQ_API_KEY=... (optional GROQ_API_KEY_2..5 rotate)
-  - Ollama (local, free)       — set OLLAMA_MODEL=<name>
-  - Anthropic (cloud, paid)    — set ANTHROPIC_API_KEY=sk-ant-...
+Supports multiple free + paid backends, selected via environment:
+  - Groq        — GROQ_API_KEY (1..5 rotate); free: 6k TPM, 500k TPD (8B)
+  - Gemini      — GEMINI_API_KEY or GOOGLE_API_KEY; free: ~1500 RPD, 1M ctx
+  - Cerebras    — CEREBRAS_API_KEY; free: ~14k RPD, ultra-fast
+  - OpenRouter  — OPENROUTER_API_KEY; free models (Llama, Gemini, Mistral)
+  - Mistral     — MISTRAL_API_KEY; free: ~500k tokens/day
+  - Ollama      — local, unlimited but slow (OLLAMA_MODEL=<name>)
+  - Anthropic   — ANTHROPIC_API_KEY; billed
 
-Pass MESS_LLM_BACKEND=groq|ollama|anthropic to force a specific backend; when
-unset the function auto-detects based on which credentials are present, in
-the order above (Groq first — fast free tier beats Ollama latency for bulk
-work; Anthropic last — billed).
+Round-robin mode (default when multiple providers are configured): calls are
+dispatched across all available free-tier providers, which multiplies
+effective throughput because each enforces its own TPM/TPD bucket. Set
+MESS_LLM_BACKEND=<one-provider> to pin to a single backend. Set
+MESS_LLM_ROUND_ROBIN=0 to disable round-robin.
 
-Callers should always handle a None return — that means "no backend available"
-and the pipeline should fall back to regex/CrossRef-only behavior.
+On 429 (rate limit) the caller automatically moves to the next provider
+without waiting. If every provider is rate-limited, the most-recently-429'd
+one is slept according to its Retry-After hint.
+
+Callers should handle None returns (no backend available or all exhausted).
 """
 
 from __future__ import annotations
@@ -20,18 +28,24 @@ import json
 import os
 import re
 import sys
+import threading as _threading
+import time as _time
+import re as _re
 from typing import Any
 
 
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 DEFAULT_OLLAMA_MODEL = "qwen3:latest"
-# 8B model has 500k TPD on Groq free tier vs 100k for the 70B version.
-# At ~2.5k tokens/paper that's ~200 papers/day per org, which fits bulk
-# extraction overnight without upgrading. Quality is noticeably lower on
-# complex paper-context extraction but still beats the previous regex-only
-# baseline by a wide margin.
 DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
+DEFAULT_GEMINI_MODEL = "gemini-2.0-flash"
+DEFAULT_CEREBRAS_MODEL = "llama3.1-8b"
+DEFAULT_OPENROUTER_MODEL = "meta-llama/llama-3.3-70b-instruct:free"
+DEFAULT_MISTRAL_MODEL = "mistral-small-latest"
 GROQ_BASE = "https://api.groq.com/openai/v1"
+CEREBRAS_BASE = "https://api.cerebras.ai/v1"
+OPENROUTER_BASE = "https://openrouter.ai/api/v1"
+MISTRAL_BASE = "https://api.mistral.ai/v1"
+GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 
 def _groq_keys() -> list[str]:
@@ -45,26 +59,63 @@ def _groq_keys() -> list[str]:
     return keys
 
 
+def _fast_providers() -> list[str]:
+    """Cloud free-tier providers that return in seconds — the round-robin pool."""
+    out: list[str] = []
+    if _groq_keys():
+        out.append("groq")
+    if os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY"):
+        out.append("gemini")
+    if os.environ.get("CEREBRAS_API_KEY"):
+        out.append("cerebras")
+    if os.environ.get("OPENROUTER_API_KEY"):
+        out.append("openrouter")
+    if os.environ.get("MISTRAL_API_KEY"):
+        out.append("mistral")
+    return out
+
+
+def _fallback_providers() -> list[str]:
+    """Slower or billed providers, used only when every fast provider fails.
+    Ollama is local+unlimited but minutes/call on our prompt sizes; Anthropic
+    is billed."""
+    out: list[str] = []
+    # Ollama: explicit opt-in via MESS_LLM_INCLUDE_OLLAMA=1, or always if no
+    # fast providers are configured (then it's the only option).
+    ollama_env = os.environ.get("MESS_LLM_INCLUDE_OLLAMA", "auto").lower()
+    ollama_ok = False
+    if os.environ.get("OLLAMA_MODEL") and ollama_env != "0":
+        ollama_ok = True
+    elif ollama_env in ("1", "yes", "true") or (ollama_env == "auto" and not _fast_providers()):
+        try:
+            import requests
+            host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).rstrip("/")
+            if requests.get(f"{host}/api/tags", timeout=1.0).status_code == 200:
+                ollama_ok = True
+        except Exception:
+            pass
+    if ollama_ok:
+        out.append("ollama")
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        out.append("anthropic")
+    return out
+
+
+def _available_providers() -> list[str]:
+    """Fast pool + fallback pool, for display purposes."""
+    return _fast_providers() + _fallback_providers()
+
+
 def _backend() -> str | None:
     forced = os.environ.get("MESS_LLM_BACKEND", "").strip().lower()
-    if forced in {"groq", "ollama", "anthropic"}:
+    valid = {"groq", "gemini", "cerebras", "openrouter", "mistral", "ollama", "anthropic"}
+    if forced in valid:
         return forced
-    if _groq_keys():
-        return "groq"
-    if os.environ.get("OLLAMA_MODEL"):
-        return "ollama"
-    if os.environ.get("ANTHROPIC_API_KEY"):
-        return "anthropic"
-    # No explicit signal: try ollama at its default host if reachable.
-    host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).rstrip("/")
-    try:
-        import requests
-        r = requests.get(f"{host}/api/tags", timeout=1.5)
-        if r.status_code == 200:
-            return "ollama"
-    except Exception:
-        pass
-    return None
+    fast = _fast_providers()
+    if fast:
+        return fast[0]
+    fb = _fallback_providers()
+    return fb[0] if fb else None
 
 
 def _strip_code_fence(s: str) -> str:
@@ -89,6 +140,19 @@ def _parse_json(raw: str) -> dict[str, Any] | None:
         return None
 
 
+_PROVIDER_FNS: dict[str, Any] = {}  # populated below after each backend is defined
+
+
+def _dispatch(provider: str, prompt: str, max_tokens: int, system: str | None, temperature: float) -> dict[str, Any] | None:
+    fn = _PROVIDER_FNS.get(provider)
+    return fn(prompt, max_tokens, system, temperature) if fn else None
+
+
+# Round-robin rotation cursor for calls across available providers.
+_rr_idx = 0
+_rr_lock = _threading.Lock()
+
+
 def chat_json(
     prompt: str,
     *,
@@ -96,33 +160,44 @@ def chat_json(
     system: str | None = None,
     temperature: float = 0.0,
 ) -> dict[str, Any] | None:
-    """Call the configured LLM backend and return parsed JSON, or None on any failure.
+    """Call an LLM backend and return parsed JSON, or None on any failure.
 
-    The prompt must instruct the model to return JSON. Callers should include
-    a schema hint so qwen / mistral honor the format.
+    In round-robin mode (default when multiple providers are configured),
+    try each available provider starting from the last one used. On None
+    (failure or rate-limit), move to the next. This multiplies effective
+    throughput because each provider enforces its own rate limits.
     """
-    backend = _backend()
-    if backend is None:
-        return None
+    forced = os.environ.get("MESS_LLM_BACKEND", "").strip().lower()
+    if forced:
+        return _dispatch(forced, prompt, max_tokens, system, temperature)
 
-    if backend == "groq":
-        out = _groq_chat(prompt, max_tokens, system, temperature)
-        # Groq free tier is daily-token-limited; when all keys are exhausted,
-        # automatically degrade to Ollama (if reachable) so bulk runs don't
-        # silently lose half the corpus to 429s.
-        if out is None and os.environ.get("MESS_LLM_FALLBACK", "ollama") == "ollama":
-            try:
-                import requests
-                host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).rstrip("/")
-                if requests.get(f"{host}/api/tags", timeout=1.5).status_code == 200:
-                    return _ollama_chat(prompt, max_tokens, system, temperature)
-            except Exception:
-                pass
-        return out
-    if backend == "ollama":
-        return _ollama_chat(prompt, max_tokens, system, temperature)
-    if backend == "anthropic":
-        return _anthropic_chat(prompt, max_tokens, system, temperature)
+    fast = _fast_providers()
+    fallback = _fallback_providers()
+    round_robin = os.environ.get("MESS_LLM_ROUND_ROBIN", "1") != "0"
+
+    if fast:
+        if not round_robin or len(fast) == 1:
+            out = _dispatch(fast[0], prompt, max_tokens, system, temperature)
+            if out is not None:
+                return out
+        else:
+            # Round-robin across fast providers first — multiplies throughput
+            # because each enforces its own TPM/TPD bucket.
+            global _rr_idx
+            with _rr_lock:
+                start = _rr_idx % len(fast)
+                _rr_idx = (_rr_idx + 1) % len(fast)
+            for step in range(len(fast)):
+                p = fast[(start + step) % len(fast)]
+                out = _dispatch(p, prompt, max_tokens, system, temperature)
+                if out is not None:
+                    return out
+
+    # Fall back to slow/billed providers only if every fast one failed.
+    for p in fallback:
+        out = _dispatch(p, prompt, max_tokens, system, temperature)
+        if out is not None:
+            return out
     return None
 
 
@@ -130,10 +205,6 @@ def chat_json(
 # across calls within a process.
 _groq_key_idx = 0
 
-
-import time as _time
-import re as _re
-import threading as _threading
 
 _groq_rate_lock = _threading.Lock()
 _groq_available_after = 0.0  # monotonic timestamp after which we may retry
@@ -267,6 +338,134 @@ def _ollama_chat(
     return _parse_json(content)
 
 
+def _openai_compatible_chat(
+    provider_label: str,
+    base_url: str,
+    api_key: str,
+    model: str,
+    prompt: str,
+    max_tokens: int,
+    system: str | None,
+    temperature: float,
+    use_json_mode: bool = True,
+) -> dict[str, Any] | None:
+    """Shared helper for Cerebras / OpenRouter / Mistral (all expose the
+    OpenAI /v1/chat/completions shape with minor extras)."""
+    try:
+        import requests
+    except ImportError:
+        return None
+    messages: list[dict[str, str]] = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
+    body: dict[str, Any] = {
+        "model": model,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+    }
+    if use_json_mode:
+        body["response_format"] = {"type": "json_object"}
+    try:
+        r = requests.post(
+            f"{base_url}/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json=body,
+            timeout=90,
+        )
+    except Exception as e:
+        print(f"[warn] {provider_label} request error: {e}", file=sys.stderr)
+        return None
+    if r.status_code == 200:
+        try:
+            content = r.json()["choices"][0]["message"]["content"]
+        except Exception:
+            return None
+        return _parse_json(content)
+    if r.status_code == 429:
+        # Note — we don't honor Retry-After here on every backend; the
+        # round-robin dispatcher just moves to the next provider.
+        print(f"[warn] {provider_label} 429 rate-limited", file=sys.stderr)
+        return None
+    if r.status_code == 401:
+        print(f"[warn] {provider_label} 401 — key rejected", file=sys.stderr)
+        return None
+    if r.status_code in (500, 502, 503):
+        return None
+    print(f"[warn] {provider_label} → {r.status_code}", file=sys.stderr)
+    return None
+
+
+def _cerebras_chat(prompt: str, max_tokens: int, system: str | None, temperature: float) -> dict[str, Any] | None:
+    key = os.environ.get("CEREBRAS_API_KEY", "")
+    if not key:
+        return None
+    model = os.environ.get("CEREBRAS_MODEL", DEFAULT_CEREBRAS_MODEL)
+    return _openai_compatible_chat("cerebras", CEREBRAS_BASE, key, model, prompt, max_tokens, system, temperature)
+
+
+def _openrouter_chat(prompt: str, max_tokens: int, system: str | None, temperature: float) -> dict[str, Any] | None:
+    key = os.environ.get("OPENROUTER_API_KEY", "")
+    if not key:
+        return None
+    model = os.environ.get("OPENROUTER_MODEL", DEFAULT_OPENROUTER_MODEL)
+    # OpenRouter accepts an optional X-Title header for their leaderboard.
+    return _openai_compatible_chat("openrouter", OPENROUTER_BASE, key, model, prompt, max_tokens, system, temperature)
+
+
+def _mistral_chat(prompt: str, max_tokens: int, system: str | None, temperature: float) -> dict[str, Any] | None:
+    key = os.environ.get("MISTRAL_API_KEY", "")
+    if not key:
+        return None
+    model = os.environ.get("MISTRAL_MODEL", DEFAULT_MISTRAL_MODEL)
+    return _openai_compatible_chat("mistral", MISTRAL_BASE, key, model, prompt, max_tokens, system, temperature)
+
+
+def _gemini_chat(prompt: str, max_tokens: int, system: str | None, temperature: float) -> dict[str, Any] | None:
+    """Google Gemini uses a different request shape (generateContent)."""
+    try:
+        import requests
+    except ImportError:
+        return None
+    key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY", "")
+    if not key:
+        return None
+    model = os.environ.get("GEMINI_MODEL", DEFAULT_GEMINI_MODEL)
+    # Gemini lets us request JSON output and pass a system instruction.
+    body: dict[str, Any] = {
+        "contents": [{"role": "user", "parts": [{"text": prompt}]}],
+        "generationConfig": {
+            "temperature": temperature,
+            "maxOutputTokens": max_tokens,
+            "responseMimeType": "application/json",
+        },
+    }
+    if system:
+        body["systemInstruction"] = {"parts": [{"text": system}]}
+    try:
+        r = requests.post(
+            f"{GEMINI_BASE}/models/{model}:generateContent?key={key}",
+            headers={"Content-Type": "application/json"},
+            json=body,
+            timeout=90,
+        )
+    except Exception as e:
+        print(f"[warn] gemini request error: {e}", file=sys.stderr)
+        return None
+    if r.status_code != 200:
+        if r.status_code == 429:
+            print("[warn] gemini 429 rate-limited", file=sys.stderr)
+        else:
+            print(f"[warn] gemini → {r.status_code} {r.text[:200]}", file=sys.stderr)
+        return None
+    try:
+        content = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+    except Exception:
+        return None
+    return _parse_json(content)
+
+
 def _anthropic_chat(
     prompt: str, max_tokens: int, system: str | None, temperature: float
 ) -> dict[str, Any] | None:
@@ -297,16 +496,25 @@ def _anthropic_chat(
 
 
 def describe_backend() -> str:
-    """One-line description of which backend is active (for logs)."""
-    b = _backend()
-    if b == "groq":
-        model = os.environ.get("GROQ_MODEL", DEFAULT_GROQ_MODEL)
-        return f"groq ({model}, {len(_groq_keys())} key(s) rotating)"
-    if b == "ollama":
-        model = os.environ.get("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL)
-        host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST)
-        return f"ollama ({model} @ {host})"
-    if b == "anthropic":
-        model = os.environ.get("ANTHROPIC_MODEL", "claude-sonnet-4-6")
-        return f"anthropic ({model})"
-    return "none (LLM steps disabled)"
+    """One-line description of which backends are active (for logs)."""
+    providers = _available_providers()
+    if not providers:
+        return "none (LLM steps disabled)"
+    forced = os.environ.get("MESS_LLM_BACKEND", "").strip().lower()
+    if forced:
+        return f"{forced} (forced)"
+    return f"round-robin across {len(providers)}: " + " → ".join(providers)
+
+
+# Dispatch table. Populated after every _xxx_chat function is defined so the
+# forward reference in _dispatch() resolves at call time. Order here is only
+# cosmetic — actual preference comes from _available_providers().
+_PROVIDER_FNS.update({
+    "groq":       _groq_chat,
+    "gemini":     _gemini_chat,
+    "cerebras":   _cerebras_chat,
+    "openrouter": _openrouter_chat,
+    "mistral":    _mistral_chat,
+    "ollama":     _ollama_chat,
+    "anthropic":  _anthropic_chat,
+})
