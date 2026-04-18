@@ -29,6 +29,26 @@ import sys
 from pathlib import Path
 from typing import Any
 
+
+def _load_dotenv(p: Path) -> None:
+    """Tiny .env loader so the script picks up GROQ_API_KEY etc. without
+    requiring the caller to source .env first."""
+    if not p.exists():
+        return
+    with p.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, _, v = line.partition("=")
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            if k and k not in os.environ:
+                os.environ[k] = v
+
+
+_load_dotenv(Path(__file__).resolve().parents[2] / ".env")
+
 REPO_ROOT = Path(__file__).resolve().parents[2]
 ONTOLOGY = REPO_ROOT / "parameters" / "index.json"
 
@@ -129,18 +149,38 @@ def claude_augment(sections: dict[str, str], gaps: list[dict[str, Any]]) -> list
     if not out:
         return []
     obs = out.get("observations", []) or []
+    cleaned: list[dict[str, Any]] = []
     for o in obs:
+        # LLMs occasionally emit skeleton rows with null values when they
+        # can't find a measurement. Drop those here rather than letting the
+        # dedup step choke on None.
+        try:
+            v = float(o.get("value"))
+        except (TypeError, ValueError):
+            continue
+        if not o.get("parameterId") or not o.get("unit"):
+            continue
+        o["value"] = v
+        try:
+            o["confidence"] = float(o.get("confidence") or 0.5)
+        except (TypeError, ValueError):
+            o["confidence"] = 0.5
         o["method"] = "llm"
         o["section"] = "mixed"
         o["page"] = None
-    return obs
+        cleaned.append(o)
+    return cleaned
 
 
 def dedup(hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Keep highest-confidence hit per (parameterId, value, unit)."""
     best: dict[tuple, dict[str, Any]] = {}
     for h in hits:
-        k = (h["parameterId"], round(h["value"], 6), h["unit"])
+        try:
+            v = round(float(h["value"]), 6)
+        except (TypeError, ValueError):
+            continue  # skip rows with non-numeric values
+        k = (h["parameterId"], v, h["unit"])
         if k not in best or h["confidence"] > best[k]["confidence"]:
             best[k] = h
     return list(best.values())
