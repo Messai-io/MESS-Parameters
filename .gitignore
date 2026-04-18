@@ -9,3 +9,4 @@ coverage/
 .idea/
 .claude-flow/
 .swarm/
+.claude/

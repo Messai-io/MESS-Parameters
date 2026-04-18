@@ -1,32 +1,553 @@
 ﻿metric,value,section
-totalPapers,23332,corpus
+totalPapers,23337,corpus
 verifiedMesPapers,8904,corpus
-papersWithYear,9075,corpus
-papersWithAbstracts,9075,corpus
-papersWithPDFs,14743,corpus
-papersWithFullText,3535,corpus
-rawExtractionsInDatabase,323606,extraction
-publishedExtractions,25566,extraction
-publishedExtractionsNote,"All confidence > 0 with numeric values; labeled with ontology_matched, likely_garbage, verified_mes_paper flags",extraction
+publishedExtractions,30768,extraction
 paperParameterMappings,18113,extraction
-paperParameterMappingsNote,"Ontology-mapped values (numeric + text), [object Object] and name-echo artifacts removed",extraction
 parameterDefinitions,687,extraction
-parameterDefinitionsWithUsage,234,extraction
 categories,13,extraction
-subcategories,119,extraction
+subcategories,125,extraction
 papersWithReproducibilityScores,289,quality
 averageReproducibilityCompleteness,0.231,quality
-papersWithEconomicMetrics,243,quality
-papersWithPowerOutput,324,quality
-papersWithAISummaries,8395,quality
-rawExtractionQuality,[object Object],quality
-MES,11384,systemTypes
-MFC,9330,systemTypes
-MEC,1375,systemTypes
-BES,1122,systemTypes
-MDC,109,systemTypes
-other,12,systemTypes
+1990,1,systemTypes
+1992,1,systemTypes
+2000,2,systemTypes
+2002,2,systemTypes
+2003,2,systemTypes
+2004,1,systemTypes
+2005,3,systemTypes
+2008,3,systemTypes
+2009,3,systemTypes
+2010,3,systemTypes
+2011,2,systemTypes
+2012,4,systemTypes
+2013,3,systemTypes
+2014,9,systemTypes
+2015,6,systemTypes
+2016,14,systemTypes
+2017,9,systemTypes
+2018,14,systemTypes
+2019,11,systemTypes
+2020,22,systemTypes
+2021,16,systemTypes
+2022,31,systemTypes
+2023,45,systemTypes
+2024,35,systemTypes
+2025,29,systemTypes
+2026,46,systemTypes
+MFC,8943,systemTypes
+Energy Conversion and Management,1,systemTypes
+MEC,1225,systemTypes
+" and cultural diplomacy""",1,systemTypes
+" and socioeconomic drivers""",1,systemTypes
+MES,10777,systemTypes
+Trends in Ecological and Indoor Environmental Engineering,1,systemTypes
+" Society and Law""",1,systemTypes
+" Sosial dan Humaniora""",1,systemTypes
+Frontiers in Environmental Science,2,systemTypes
+Indian Journal Of Agricultural Research,1,systemTypes
+" and therapeutic prospects""",1,systemTypes
+ Air,7,systemTypes
+Microbial Genomics,1,systemTypes
+Animal Production Science,1,systemTypes
+Kybernetes,1,systemTypes
+Innovaciencia,1,systemTypes
+Molecular and Cellular Biomedical Sciences,1,systemTypes
+" and cytotoxic activities of leaf crude extracts of Cannabis “Gorilla glue 1”""",1,systemTypes
+ Baden-Wurttemberg,5,systemTypes
+" Wellness and Community Research""",1,systemTypes
+" Switzerland)""",9,systemTypes
+BES,1017,systemTypes
+" Business and Accounting""",1,systemTypes
+ISME Communications,1,systemTypes
+" 2020 (Sabellida: Siboglinidae) and its associated microbial metagenome sequences""",1,systemTypes
+" Ciências e Educação""",1,systemTypes
+World Journal of Microbiology and Biotechnology,1,systemTypes
+Journal of Berry Research,1,systemTypes
+" Netherlands)""",37,systemTypes
+ChemMedChem,1,systemTypes
+Bioresource technology,3,systemTypes
+" nutrition &amp; agriculture""",1,systemTypes
+Microbial biotechnology,1,systemTypes
+" and cost.""",1,systemTypes
+" Essex : 1987)""",4,systemTypes
+" exuviae) -derived materials in sustainable technologies: A review.""",1,systemTypes
+" Ont.)""",3,systemTypes
+The Lancet. Respiratory medicine,1,systemTypes
+"""Small (Weinheim an der Bergstrasse",1,systemTypes
+" Fla.)""",2,systemTypes
+" and animals.""",1,systemTypes
+" D.C.)""",1,systemTypes
+" Interface""",1,systemTypes
+MDC,95,systemTypes
+Frontiers in microbiology,1,systemTypes
+The Lancet. Infectious diseases,1,systemTypes
+ London,1,systemTypes
+The Lancet. Child &amp; adolescent health,1,systemTypes
+Small,2,systemTypes
+BMC biotechnology,1,systemTypes
+"""Lancet (London",2,systemTypes
+Marine drugs,1,systemTypes
+" England : 1993)""",1,systemTypes
+Current Green Chemistry,1,systemTypes
+" Chemistry and Environmental Protection""",1,systemTypes
+Scientific Reports,5,systemTypes
+" Bioproducts and Biorefining""",4,systemTypes
+Environmental science and pollution research international,1,systemTypes
+" and expression of Piscidin 4 and hepcidin antimicrobial peptide 1.""",1,systemTypes
+" Germany)""",1,systemTypes
+ Biotechnology,5,systemTypes
+Municipal economy of cities,1,systemTypes
+2025 IEEE International Workshop on Metrology for Industry 4.0 & IoT (MetroInd4.0 & IoT),1,systemTypes
+" Actuators and Microsystems (Transducers)""",2,systemTypes
+International Journal of Energy Studies,1,systemTypes
+Microbial pathogenesis,1,systemTypes
+Current microbiology,1,systemTypes
+" and biofertilizer valorization.""",1,systemTypes
+International journal of biological macromolecules,1,systemTypes
+" Communication and Technology""",3,systemTypes
+" Part A: Journal of Power and Energy""",5,systemTypes
+Fuel,5,systemTypes
+Chemical Engineering Journal,4,systemTypes
+Aquatic Ecology,1,systemTypes
+" Environment and Conservation""",4,systemTypes
+ Structural,1,systemTypes
+" Communication and Information (ICETCI)""",1,systemTypes
+" and Engineering Considerations""",1,systemTypes
+Bioresource Technology,6,systemTypes
+" Energy and Communication Conference (GPECOM)""",1,systemTypes
+Environmental Microbiome,2,systemTypes
+" Technology and Science""",1,systemTypes
+ECS Meeting Abstracts,13,systemTypes
+" and Emerging Domains: Challenges and Future Directions""",1,systemTypes
+Microbial Biotechnology,7,systemTypes
+Advancements in Life Sciences,1,systemTypes
+ Sustainability,1,systemTypes
+International Journal of Development Issues,1,systemTypes
+" biotechnology and food sciences""",1,systemTypes
+" performances and challenges""",1,systemTypes
+ antibiofilm,1,systemTypes
+" Engineering and Technology""",61,systemTypes
+Clean Technologies,1,systemTypes
+Detection and Treatment of Emerging Contaminants in Wastewater,1,systemTypes
+" Technology &amp; Applied Science Research""",2,systemTypes
+ microbial fuel cell,1,systemTypes
+" and Cu-Ag) on the Operation of Microbial Fuel Cell""",1,systemTypes
+RE&amp;PQJ,1,systemTypes
+Dutse Journal of Pure and Applied Sciences,1,systemTypes
+Sensors and Actuators B: Chemical,1,systemTypes
+" Electronics &amp;amp; Mobile Communication Conference (UEMCON)""",1,systemTypes
+Sustainability,4,systemTypes
+Journal of Water Process Engineering,1,systemTypes
+" Information System and Computer Engineering (INJIISCOM)""",1,systemTypes
+" Technology and Management Research""",1,systemTypes
+" and microbial community analysis""",1,systemTypes
+ Communication,2,systemTypes
+Coatings,1,systemTypes
+" Power and Grid (ICEPG)""",3,systemTypes
+Saudi Medical Journal,1,systemTypes
+" Development and Therapy""",2,systemTypes
+International Journal of Automotive Science And Technology,1,systemTypes
+Nature Communications,1,systemTypes
+ биотехнологов,2,systemTypes
+Journal of Drug Targeting,1,systemTypes
+ Mechatronics,1,systemTypes
+ persistent challenges,1,systemTypes
+Frontiers in Microbiology,13,systemTypes
+" Computer Technology and Control Engineering (ACTCE)""",1,systemTypes
+Environmental Policy and Law,1,systemTypes
+ Informatics,1,systemTypes
+" and related mechanisms""",1,systemTypes
+"""Journal of Water",1,systemTypes
+Water,5,systemTypes
+" Development and Sustainability""",1,systemTypes
+EFC,5,systemTypes
+Fuel Communications,2,systemTypes
+3D Printing in Medicine,2,systemTypes
+ technique,2,systemTypes
+INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT,1,systemTypes
+" Culture and Social Interaction""",1,systemTypes
+" fabrication of thin-film membranes and performance evaluation in a direct-methanol fuel cell""",1,systemTypes
+" and constructed wetlands-microbial fuel cells: Applications and technology readiness level""",1,systemTypes
+Studies in World Cinema,1,systemTypes
+" Environment and Ecology""",1,systemTypes
+" N.Y.)""",1,systemTypes
+International Journal of Current Microbiology and Applied Sciences,1,systemTypes
+"""Environmental pollution (Barking",1,systemTypes
+" Technology &amp; Management""",1,systemTypes
+Electrochemistry,1,systemTypes
+Družboslovne razprave,1,systemTypes
+ Part A: Recovery,6,systemTypes
+" Electrical and Signal Processing Techniques (ICREST)""",1,systemTypes
+French-Ukrainian Journal of Chemistry,1,systemTypes
+Biosensors and Bioelectronics,3,systemTypes
+" Southwestern Nigeria""",1,systemTypes
+ Bio Generator,1,systemTypes
+" and challenges""",1,systemTypes
+Nanoscale Advances,1,systemTypes
+ Staphylococcus aurous,1,systemTypes
+" and Skin Penetration Investigations""",1,systemTypes
+" hydropower reliant power system""",1,systemTypes
+ Control,1,systemTypes
+Case Studies in Chemical and Environmental Engineering,1,systemTypes
+Environment &amp; Health,1,systemTypes
+ Environmental,1,systemTypes
+Advanced Science,1,systemTypes
+ Power,1,systemTypes
+European Journal of Endocrinology,1,systemTypes
+Environmental Microbiology Reports,1,systemTypes
+Journal of Solid State Electrochemistry,1,systemTypes
+Journal of Biomolecular Structure and Dynamics,1,systemTypes
+ Smart Grid,1,systemTypes
+ Control Measures,1,systemTypes
+" Data Processing and Informatics (ACEDPI)""",1,systemTypes
+ Computation,1,systemTypes
+" Soil and Water Research""",1,systemTypes
+" NJ)""",1,systemTypes
+Energies,5,systemTypes
+Biomass Conversion and Biorefinery,1,systemTypes
+Frontiers in Sustainability,1,systemTypes
+ 46th Annual Convention &amp; Exhibition,1,systemTypes
+Catalysts,3,systemTypes
+" Adaptive Structures and Intelligent Systems""",1,systemTypes
+Electroanalysis,1,systemTypes
+ Reactor Physics and Transport Theory,2,systemTypes
+" Society and Development""",1,systemTypes
+" Engineering and Management""",2,systemTypes
+The Journal of Chemical Physics,1,systemTypes
+ Methodology,3,systemTypes
+ Turbochargers,1,systemTypes
+ Power Engineering,1,systemTypes
+American Journal of Environment and Climate,1,systemTypes
+Engineering Research Express,1,systemTypes
+International Journal of Chemical Reactor Engineering,2,systemTypes
+" New Perspectives and Applications""",1,systemTypes
+"""Sewage - Recent Advances",1,systemTypes
+" Devices and Fields""",1,systemTypes
+Journal of The Electrochemical Society,3,systemTypes
+Chemical and Biochemical Engineering Quarterly,1,systemTypes
+EFSA Journal,2,systemTypes
+" waste disposal and a circular economy""",1,systemTypes
+Frontiers in Marine Science,1,systemTypes
+SSRN Electronic Journal,3,systemTypes
+Chemosphere,1,systemTypes
+" Energy and Electrical Engineering (CPEEE)""",1,systemTypes
+International Journal of Environmental Research and Public Health,2,systemTypes
+" and Voltage Reversal Control Mechanism""",1,systemTypes
+" and Microbial Consortium of Fungi: An Understudied Strategy for Biomass Conversion""",1,systemTypes
+" Computer and Energy Technologies (ICECET)""",1,systemTypes
+" Conservation and Recycling""",1,systemTypes
+Madras Agricultural Journal,3,systemTypes
+" Computers and Communications (ITC-CSCC)""",1,systemTypes
+Nature Reviews Microbiology,1,systemTypes
+International Transactions on Electrical Energy Systems,1,systemTypes
+ composting,1,systemTypes
+" Sustainability and Society""",1,systemTypes
+" Power and Environment (ICEPE)""",1,systemTypes
+Science of The Total Environment,1,systemTypes
+" Biochemistry and Bioinformatics""",1,systemTypes
+ electrode selection,1,systemTypes
+" Environment and Pollution""",2,systemTypes
+Microbiology Resource Announcements,1,systemTypes
+" kadastr ì monìtorìng zemelʹ""",1,systemTypes
+ Biomass,3,systemTypes
+Fuel Cells Bulletin,5,systemTypes
+Microbial Cell Factories,5,systemTypes
+Journal of Physics: Conference Series,1,systemTypes
+" Systems and Computers""",1,systemTypes
+" and Perovskite for Direct Methane Fuel Cell""",1,systemTypes
+Electrochemistry Communications,1,systemTypes
+Current Proteomics,1,systemTypes
+Desalination and Water Treatment,2,systemTypes
+Microorganisms,6,systemTypes
+" Communication and Automation (ICCCA)""",1,systemTypes
+" Part B""",1,systemTypes
+" Stretchable All‐Hydrogel Supercapacitor Implant Based on PANI@rGO/Mxenes Electrode and Hydrogel Electrolyte""",1,systemTypes
+Journal of Environmental Management,1,systemTypes
+Journal of Power Sources,4,systemTypes
+Desalination,3,systemTypes
+Biotechnology Journal,2,systemTypes
+" Energy and Control (STPEC)""",1,systemTypes
+Biogeosciences,1,systemTypes
+Molecular Ecology,1,systemTypes
+ Electronica,1,systemTypes
+ Healthcare,1,systemTypes
+Energy &amp; Environmental Science,1,systemTypes
+" Acoustic Waves and Device Applications (SPAWDA)""",2,systemTypes
+Microbial Ecology,1,systemTypes
+Journal of Natural Products and Resources,1,systemTypes
+ Toxic,2,systemTypes
+Molecules,2,systemTypes
+Environmental Science &amp; Technology,4,systemTypes
+Chemical Reviews,2,systemTypes
+" Design and Technology""",1,systemTypes
+Water Practice and Technology,2,systemTypes
+Electronics,1,systemTypes
+" ESJ""",2,systemTypes
+FEMS Microbiology Letters,1,systemTypes
+" Forestry and Wood Technology""",2,systemTypes
+" Properties and Applications""",1,systemTypes
+ChemElectroChem,1,systemTypes
+Journal of Physics D: Applied Physics,1,systemTypes
+ Instrumentation,2,systemTypes
+" and self-powered electronic skin based on all-nanofiber triboelectric nanogenerators""",1,systemTypes
+ Progress,3,systemTypes
+Journal of Environmental Accounting and Management,1,systemTypes
+ Energy,1,systemTypes
+ Information,1,systemTypes
+Sports Biomechanics,1,systemTypes
+Nature Food,1,systemTypes
+" and Remediation Strategies: An Overview""",1,systemTypes
+Geomicrobiology Journal,1,systemTypes
+Natural Resources Forum,1,systemTypes
+Bioelectrochemistry,1,systemTypes
+Journal of Scientific &amp; Industrial Research,1,systemTypes
+Chemical Engineering &amp; Technology,1,systemTypes
+Chinese Journal of Integrative Medicine,1,systemTypes
+" Mitigation and Recovery""",1,systemTypes
+" and Cytocompatibility.""",1,systemTypes
+Nanomaterials,1,systemTypes
+ Procedures,1,systemTypes
+mSystems,1,systemTypes
+" On-Site Water Quality Monitoring""",1,systemTypes
+IEEE Spectrum,1,systemTypes
+Archives of Current Research International,1,systemTypes
+Nature,1,systemTypes
+" Ecology and Environment""",1,systemTypes
+" Engineering and Information Technology""",1,systemTypes
+Water Environment Research,2,systemTypes
+" Series B""",1,systemTypes
+Materials Research Foundations,1,systemTypes
+IEEE Power Electronics Magazine,1,systemTypes
+" low-layered graphite fragments and Nb2O5""",1,systemTypes
+" 27-36 27""",1,systemTypes
+ Science,1,systemTypes
+" Electronics and Computer Engineering (UPCON)""",1,systemTypes
+Nanotechnology,1,systemTypes
+Sensors,4,systemTypes
+AWWA Water Science,1,systemTypes
+Current Pharmaceutical Design,1,systemTypes
+AMB Express,1,systemTypes
+"Electrical and Signal Processing Techniques (ICREST)""",1,systemTypes
+ ICOST 2019,1,systemTypes
+Vestnik oftal'mologii,1,systemTypes
+" Control and Automation""",1,systemTypes
+" Engineering and Robotics Technology (ICASERT)""",1,systemTypes
+" and methylene blue as mediator. Laboratory scale""",1,systemTypes
+Analytical Letters,1,systemTypes
+Journal of Microbiology and Biotechnology,1,systemTypes
+" Investment and Development""",1,systemTypes
+Brazilian Journal of Chemical Engineering,1,systemTypes
+2019 IEEE SENSORS,1,systemTypes
+Revista Brasileira de Epidemiologia,1,systemTypes
+ Electrical Power,2,systemTypes
+Journal of Chemical Technology &amp; Biotechnology,5,systemTypes
+International Journal of Electrochemical Science,2,systemTypes
+" and Beyond""",1,systemTypes
+Fuel Cells,3,systemTypes
+IET Power Electronics,2,systemTypes
+ Supports,1,systemTypes
+Frontiers in Chemistry,2,systemTypes
+" 162:1409-1415.""",1,systemTypes
+ theses,1,systemTypes
+" 28th PVSEC &amp; 34th EU PVSEC)""",1,systemTypes
+" Intelligent Control and Energy Systems (ICPEICES)""",1,systemTypes
+Biotechnology for Biofuels,1,systemTypes
+Natural Gas &amp; Electricity,3,systemTypes
+Frontiers in Energy Research,1,systemTypes
+International Journal of Energy Research,1,systemTypes
+Journal of Materials Chemistry B,1,systemTypes
+" Part I: Journal of Systems and Control Engineering""",1,systemTypes
+"""ASETH-18",1,systemTypes
+ a Medical Device,1,systemTypes
+Current Drug Delivery,1,systemTypes
+Asian Journal of Chemistry,1,systemTypes
+PLOS ONE,1,systemTypes
+Journal of The Royal Society Interface,1,systemTypes
+ double-blind,1,systemTypes
+" Distributed and Grid Computing (PDGC)""",1,systemTypes
+Applied Water Science,1,systemTypes
+ACS Sustainable Chemistry &amp; Engineering,1,systemTypes
+" Japan""",1,systemTypes
+E3S Web of Conferences,1,systemTypes
+Carbon,2,systemTypes
+Water Science and Technology,3,systemTypes
+" Genes &amp; Agriculture""",2,systemTypes
+ Diagnostics,1,systemTypes
+" Part A""",2,systemTypes
+ Mechanical,1,systemTypes
+" Reactor Physics and Transport Theory; Innovative Nuclear Power Plant Design and New Technology Application""",4,systemTypes
+"""European Scientific Journal",1,systemTypes
+ACS Catalysis,1,systemTypes
+" Sanitation and Hygiene for Development""",3,systemTypes
+" Simulation and Control; Bio-Inspired Smart Materials and Systems; Energy Harvesting""",5,systemTypes
+Genome Announcements,2,systemTypes
+" Biomass and Alternative Fuels; Cycle Innovations; Electric Power; Industrial and Cogeneration; Organic Rankine Cycle Power Systems""",1,systemTypes
+Sustainable Energy Technologies and Assessments,1,systemTypes
+" 2002–2013""",1,systemTypes
+" characterization and applications.""",1,systemTypes
+Asia-Pacific Journal of Chemical Engineering,1,systemTypes
+Remediation Journal,1,systemTypes
+2016 38th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC),1,systemTypes
+" Phase III study of pazopanib in patients with soft tissue sarcoma: results from the Japanese subgroup""",1,systemTypes
+ACS Applied Materials &amp; Interfaces,1,systemTypes
+Journal of Energy in Southern Africa,1,systemTypes
+SPE Asia Pacific Enhanced Oil Recovery Conference,1,systemTypes
+ CHP,1,systemTypes
+" Biomass and Alternative Fuels; Cycle Innovations; Electric Power; Industrial and Cogeneration""",1,systemTypes
+ Petia Georgieva,1,systemTypes
+Japanese Journal of Clinical Oncology,1,systemTypes
+Bulletin of University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca. Veterinary Medicine,1,systemTypes
+Optics Express,1,systemTypes
+Sensors and Actuators A: Physical,1,systemTypes
+Applied Mechanics and Materials,2,systemTypes
+Advanced Synthesis &amp; Catalysis,3,systemTypes
+Bioprocess and Biosystems Engineering,1,systemTypes
+Revista Brasileira de Ciências da Saúde,1,systemTypes
+ Electronics,1,systemTypes
+ Vibration,1,systemTypes
+" Structures and Fluids""",1,systemTypes
+UC Merced Undergraduate Research Journal,1,systemTypes
+" Molecular Sciences and Chemical Engineering""",1,systemTypes
+Familia. Revista de Ciencias y Orientación Familiar,1,systemTypes
+" Effects and Control""",1,systemTypes
+ Modeling,1,systemTypes
+ Building Energy Systems,1,systemTypes
+ Fissile Material,1,systemTypes
+FEBS Letters,1,systemTypes
+"""ASME 2013 11th International Conference on Fuel Cell Science",1,systemTypes
+ChemPlusChem,1,systemTypes
+Green,1,systemTypes
+Building Pathology and Rehabilitation,1,systemTypes
+" Transmission &amp; Distribution""",1,systemTypes
+APCBEE Procedia,1,systemTypes
+Advances in Power Electronics,1,systemTypes
+" Parts A and B""",3,systemTypes
+ECS Transactions,6,systemTypes
+Cancer Research,1,systemTypes
+The Chemical Record,1,systemTypes
+" an Asian journal""",1,systemTypes
+RSC Advances,3,systemTypes
+Nucleic Acids Research,1,systemTypes
+Journal of Microbial &amp; Biochemical Technology,1,systemTypes
+"""Additional Conferences (Device Packaging",1,systemTypes
+" Science and Technology""",1,systemTypes
+Nanoscale Research Letters,1,systemTypes
+Journal of Biopesticides,1,systemTypes
+" Environment and Transportation Engineering""",1,systemTypes
+" Volume 1""",1,systemTypes
+ Adaptive Structures and Intelligent Systems,2,systemTypes
+"""ASME 2011 9th International Conference on Fuel Cell Science",1,systemTypes
+" Biomass and Alternative Fuels; Education; Electric Power; Manufacturing Materials and Metallurgy""",1,systemTypes
+Encyclopedia of Industrial Biotechnology,2,systemTypes
+" Engineering and Technology Conference: Volume 2""",2,systemTypes
+" Engineering and Technology Conference: Volume 1""",6,systemTypes
+"""ASME 2010 8th International Fuel Cell Science",1,systemTypes
+" D mutants under different carbon and nitrogen limitations in the continuous culture""",1,systemTypes
+Applied and Environmental Microbiology,1,systemTypes
+" Efficiency and Value""",1,systemTypes
+ Nevada,1,systemTypes
+" Second Edition""",1,systemTypes
+Journal of Fiber Bioengineering and Informatics,1,systemTypes
+" Volume 2""",1,systemTypes
+ Fluid Flows,1,systemTypes
+" Diagnostics and Instrumentation; Cycle Innovations; Electric Power""",4,systemTypes
+"""ASME 2008 6th International Conference on Fuel Cell Science",1,systemTypes
+" Thermodynamics and Sustainability""",1,systemTypes
+ Oregon,2,systemTypes
+ Engineering and Technology,7,systemTypes
+International Journal of Systematic and Evolutionary Microbiology,2,systemTypes
+ Clinical Measurement,1,systemTypes
+" Engineering and Technology Conference""",6,systemTypes
+ Diagnosis,2,systemTypes
+Enzyme and Microbial Technology,2,systemTypes
+" 1999-2000: a national reconnaissance.""",1,systemTypes
+ Fuel Effects,1,systemTypes
+ChemInform,1,systemTypes
+" Transcending the Barriers""",1,systemTypes
+" Safety and Environment in Oil and Gas Exploration and Production Conference""",1,systemTypes
+Journal of Energy Resources Technology,1,systemTypes
+ Surfaces,1,systemTypes
+ Storage,1,systemTypes
+Journal of Chemical Technology and Biotechnology. Biotechnology,1,systemTypes
+Chemischer Informationsdienst,1,systemTypes
+Australian Journal of Biological Sciences,1,systemTypes
+" and Waste Water""",1,systemTypes
+" Biological Sciences""",1,systemTypes
+Journal of Milk and Food Technology,1,systemTypes
+Journal of Polymer Science: Polymer Symposia,1,systemTypes
+" and Applications""",1,systemTypes
+ the Current Efficiency,1,systemTypes
+SMFC,1,systemTypes
+Materials Science and Technology,1,systemTypes
+Protection of Cultural Heritage,1,systemTypes
+" Materials and Catalysis""",1,systemTypes
+Green Chemistry,1,systemTypes
+ Ekonomi,1,systemTypes
+" Mechanisms and Product Selectivities""",1,systemTypes
+Microbial journal,1,systemTypes
+Journal of Applied Sciences and Environmental Management,1,systemTypes
+Clean Energy Science and Technology,3,systemTypes
+American Journal of Applied Science and Technology,1,systemTypes
+International Journal of Current Science Research and Review,2,systemTypes
+Advanced Energy Conversion Materials,1,systemTypes
+ Volume 5 Issue 1 (2024),1,systemTypes
+Journal of Visualized Experiments,1,systemTypes
+Himalayan Journal of Science and Technology,1,systemTypes
+" and host-associated environments reveal unique selection pressures on genomic features of bacteria in microbial communities""",1,systemTypes
+Journal of Thermodynamics &amp; Catalysis,1,systemTypes
+" Based on  Sediment Textures""",1,systemTypes
+MODELING,6,systemTypes
+"""International Journal Of Science",1,systemTypes
+" Energy and Power System Engineering""",1,systemTypes
+Journal of Applied Fluid Mechanics,1,systemTypes
+ Green,1,systemTypes
+Processes,1,systemTypes
+Advances in Earth and Environmental Science,1,systemTypes
+Advances in Engineering Technology Research,1,systemTypes
+" Modeling and Forecasting Techniques for Photovoltaic Solar Energy Applications""",1,systemTypes
+" and Trends""",1,systemTypes
+" and Renewable Energy""",1,systemTypes
+" and forestry to Uruguay's objective of becoming carbon neutral by 2030""",1,systemTypes
+Journal of Nanobiotechnology,1,systemTypes
+" Science and Management""",1,systemTypes
+Indian Journal of Horticulture,1,systemTypes
+ Risk,1,systemTypes
+ Conversion,1,systemTypes
+ Viral,1,systemTypes
+Zero-Energy Buildings - New Approaches and Technologies,1,systemTypes
+" and Energy with Blockchain""",1,systemTypes
+ Bogor City,1,systemTypes
+Italian Journal of Food Safety,1,systemTypes
+Encyclopedia of Environmental Microbiology,1,systemTypes
+Biotechnology for Biofuels and Bioproducts,1,systemTypes
+Journal of  Electrochemical Science and Engineering,1,systemTypes
+" and Blood in Microbial Fuel Cells Treating Synthetic Wastewater""",1,systemTypes
+Toxicity of Nanoparticles - Recent Advances and New Perspectives,1,systemTypes
+Ullmann's Encyclopedia of Industrial Chemistry,1,systemTypes
+Urban Science,1,systemTypes
+International Journal of Built Environment and Sustainability,1,systemTypes
+Environmental Engineering Research,1,systemTypes
+Waste and Biomass Valorization,1,systemTypes
+Environmental Science: Water Research &amp; Technology,1,systemTypes
+Chemical Communications,1,systemTypes
+Frontiers in Nutrition,1,systemTypes
+Polymers,1,systemTypes
+Folia Medica,1,systemTypes
+Advanced Materials Research,2,systemTypes
+" and Their Biological Effects""",1,systemTypes
+Journal of Chemistry: Education Research and Practice,1,systemTypes
+Journal of Marine Science Research and Oceanography,1,systemTypes
+International Journal of Hydrology,1,systemTypes
+" and Sustainable Growth Strategies in a Developing Country Context""",1,systemTypes
+Global NEST International Conference on Environmental Science &amp; Technology,1,systemTypes
+Journal of Developing Country Studies,1,systemTypes
+" Adjustments and Resilience""",1,systemTypes
+" Madrid: Creating Experience""",1,systemTypes
+Fermentation,1,systemTypes
+" Manufacture and Operation""",1,systemTypes
+Indoor and Built Environment,1,systemTypes
+" Biomaterials and Biomedical Engineering""",1,systemTypes
 pdfProcessing,"Nougat (Meta) for OCR, regex + LLM for structured extraction",methodology
-parameterMapping,687-definition ontology with 13 categories and 119 subcategories,methodology
+parameterMapping,687-definition ontology with 13 categories and 125 subcategories,methodology
 qualityScoring,Reproducibility checklist with 26 weighted criteria,methodology
 dataFiltering,"Published CSVs exclude confidence=0, null numeric values, non-ontology parameter names, and [object Object] artifacts",methodology
