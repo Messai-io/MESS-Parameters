@@ -147,11 +147,19 @@ export function DistributionHistogram({ prov, unit }: Props) {
 
       <div className="grid grid-cols-3 md:grid-cols-6 gap-2 text-xs">
         <Stat label="n" value={stats.n.toLocaleString()} />
-        <Stat label="Median" value={`${stats.median}${unit ? ` ${unit}` : ''}`} />
-        <Stat label="Mean" value={`${stats.mean}${unit ? ` ${unit}` : ''}`} />
-        <Stat label="p25–p75" value={`${stats.p25}–${stats.p75}`} />
-        <Stat label="Min" value={`${stats.min}`} />
-        <Stat label="Max" value={`${stats.max}`} />
+        <Stat label="Median" value={`${fmt(stats.median)}${unit ? ` ${unit}` : ''}`} />
+        <Stat label="Mean" value={`${fmt(stats.mean)}${unit ? ` ${unit}` : ''}`} />
+        <Stat label="p25–p75" value={`${fmt(stats.p25)}–${fmt(stats.p75)}`} />
+        <Stat label="MAD" value={fmt(stats.mad)} />
+        <Stat
+          label="Outliers"
+          value={`${stats.n_outliers}${stats.n > 0 ? ` (${Math.round((stats.n_outliers / stats.n) * 100)}%)` : ''}`}
+        />
+      </div>
+      <div className="text-[10px] text-mes-text-muted leading-relaxed">
+        <span className="font-medium">MAD</span> = median absolute deviation × 1.4826 (robust analogue of σ).
+        <span className="mx-1">·</span>
+        <span className="font-medium">Outliers</span> = values outside p25 − 1.5·IQR to p75 + 1.5·IQR.
       </div>
     </div>
   );
@@ -164,4 +172,11 @@ function Stat({ label, value }: { label: string; value: string }) {
       <div className="font-mono text-mes-text-primary">{value}</div>
     </div>
   );
+}
+
+function fmt(x: number): string {
+  if (!Number.isFinite(x)) return '—';
+  if (Math.abs(x) >= 1000 || (x !== 0 && Math.abs(x) < 0.01)) return x.toExponential(2);
+  const d = Math.abs(x) >= 10 ? 1 : 3;
+  return x.toFixed(d);
 }

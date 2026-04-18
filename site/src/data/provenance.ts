@@ -9,6 +9,9 @@ export interface ProvStats {
   p75: number;
   p95: number;
   std: number;
+  mad: number;
+  iqr: number;
+  n_outliers: number;
 }
 
 export interface ProvSource {
@@ -30,6 +33,7 @@ export interface ProvCorrelation {
   other_param_id: string;
   other_param_name: string;
   pearson_r: number;
+  spearman_rho: number | null;
   n: number;
   p_corrected: number;
   significant: boolean;

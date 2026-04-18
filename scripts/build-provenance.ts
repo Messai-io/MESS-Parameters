@@ -160,6 +160,10 @@ interface Stats {
   n: number; min: number; max: number; mean: number;
   median: number; p05: number; p25: number; p75: number; p95: number;
   std: number;
+  // Robust stats — less sensitive to extraction-noise outliers.
+  mad: number;        // median absolute deviation × 1.4826 (≈ std for Gaussian)
+  iqr: number;        // p75 − p25
+  n_outliers: number; // count of values outside [p25 − 1.5·iqr, p75 + 1.5·iqr]
 }
 
 function quantile(sorted: number[], q: number): number {
@@ -178,17 +182,35 @@ function computeStats(values: number[]): Stats | null {
   const variance = n > 1
     ? sorted.reduce((s, v) => s + (v - mean) ** 2, 0) / (n - 1)
     : 0;
+  const median = quantile(sorted, 0.5);
+  const p25 = quantile(sorted, 0.25);
+  const p75 = quantile(sorted, 0.75);
+  const iqr = p75 - p25;
+  // MAD × 1.4826 is a consistent estimator of std under Gaussian assumption —
+  // the scale-equivalent of median vs mean. Robust to outliers up to 50% of
+  // the sample.
+  const absDevs = sorted.map((v) => Math.abs(v - median)).sort((a, b) => a - b);
+  const mad = quantile(absDevs, 0.5) * 1.4826;
+  const lowerFence = p25 - 1.5 * iqr;
+  const upperFence = p75 + 1.5 * iqr;
+  const n_outliers = sorted.reduce(
+    (s, v) => s + (v < lowerFence || v > upperFence ? 1 : 0),
+    0,
+  );
   return {
     n,
     min: sorted[0],
     max: sorted[n - 1],
     mean: round(mean, 6),
-    median: round(quantile(sorted, 0.5), 6),
+    median: round(median, 6),
     p05: round(quantile(sorted, 0.05), 6),
-    p25: round(quantile(sorted, 0.25), 6),
-    p75: round(quantile(sorted, 0.75), 6),
+    p25: round(p25, 6),
+    p75: round(p75, 6),
     p95: round(quantile(sorted, 0.95), 6),
     std: round(Math.sqrt(variance), 6),
+    mad: round(mad, 6),
+    iqr: round(iqr, 6),
+    n_outliers,
   };
 }
 
@@ -232,6 +254,29 @@ function pearson(xs: number[], ys: number[]): number | null {
   }
   if (dx === 0 || dy === 0) return null;
   return num / Math.sqrt(dx * dy);
+}
+
+function averageRanks(values: number[]): number[] {
+  const n = values.length;
+  const indexed = values.map((v, i) => ({ v, i }));
+  indexed.sort((a, b) => a.v - b.v);
+  const ranks = new Array<number>(n);
+  let i = 0;
+  while (i < n) {
+    let j = i;
+    while (j + 1 < n && indexed[j + 1].v === indexed[i].v) j++;
+    // average rank for ties (1-indexed)
+    const avgRank = (i + 1 + j + 1) / 2;
+    for (let k = i; k <= j; k++) ranks[indexed[k].i] = avgRank;
+    i = j + 1;
+  }
+  return ranks;
+}
+
+function spearman(xs: number[], ys: number[]): number | null {
+  if (xs.length !== ys.length || xs.length < 3) return null;
+  // Spearman ρ is Pearson r applied to the ranks, with ties averaged.
+  return pearson(averageRanks(xs), averageRanks(ys));
 }
 
 // ═══════════════════════════════════════════════════════════════════════
@@ -281,6 +326,7 @@ interface CorrelationEntry {
   other_param_id: string;
   other_param_name: string;
   pearson_r: number;
+  spearman_rho: number | null;
   n: number;
   p_corrected: number;
   significant: boolean;
@@ -484,7 +530,7 @@ function main(): void {
 
   const paramIds = [...paramPaperValue.keys()];
   const idToName = new Map(entries.map(e => [e.id, e.name]));
-  type RawCorr = { a: string; b: string; r: number; n: number };
+  type RawCorr = { a: string; b: string; r: number; rho: number | null; n: number };
   const rawCorrs: RawCorr[] = [];
 
   for (let i = 0; i < paramIds.length; i++) {
@@ -511,7 +557,8 @@ function main(): void {
       if (xs.length < CORR_MIN_N) continue;
       const r = pearson(xs, ys);
       if (r == null) continue;
-      rawCorrs.push({ a: aId, b: bId, r, n: xs.length });
+      const rho = spearman(xs, ys);
+      rawCorrs.push({ a: aId, b: bId, r, rho, n: xs.length });
     }
   }
   const totalTests = rawCorrs.length;
@@ -524,11 +571,13 @@ function main(): void {
     const p = twoTailedPFromR(c.r, c.n);
     const sig = Number.isFinite(p) && p < bonferroniAlpha;
     const pr = round(c.r, 6);
+    const rho = c.rho == null ? null : round(c.rho, 6);
     const pc = round(p, 8);
     const eA: CorrelationEntry = {
       other_param_id: c.b,
       other_param_name: idToName.get(c.b) ?? '',
       pearson_r: pr,
+      spearman_rho: rho,
       n: c.n,
       p_corrected: pc,
       significant: sig,
@@ -537,6 +586,7 @@ function main(): void {
       other_param_id: c.a,
       other_param_name: idToName.get(c.a) ?? '',
       pearson_r: pr,
+      spearman_rho: rho,
       n: c.n,
       p_corrected: pc,
       significant: sig,

@@ -7,28 +7,43 @@ function computeStatsFromValues(values: number[]): ProvStats | null {
   if (values.length === 0) return null;
   const sorted = [...values].sort((a, b) => a - b);
   const n = sorted.length;
-  const quantile = (q: number) => {
-    const pos = (n - 1) * q;
+  const quantile = (arr: number[], q: number) => {
+    const pos = (arr.length - 1) * q;
     const base = Math.floor(pos);
     const rest = pos - base;
-    const next = sorted[base + 1] ?? sorted[base];
-    return sorted[base] + rest * (next - sorted[base]);
+    const next = arr[base + 1] ?? arr[base];
+    return arr[base] + rest * (next - arr[base]);
   };
   const mean = sorted.reduce((s, v) => s + v, 0) / n;
   const variance = n > 1
     ? sorted.reduce((s, v) => s + (v - mean) ** 2, 0) / (n - 1)
     : 0;
+  const median = quantile(sorted, 0.5);
+  const p25 = quantile(sorted, 0.25);
+  const p75 = quantile(sorted, 0.75);
+  const iqr = p75 - p25;
+  const absDevs = sorted.map((v) => Math.abs(v - median)).sort((a, b) => a - b);
+  const mad = quantile(absDevs, 0.5) * 1.4826;
+  const lowerFence = p25 - 1.5 * iqr;
+  const upperFence = p75 + 1.5 * iqr;
+  const n_outliers = sorted.reduce(
+    (s, v) => s + (v < lowerFence || v > upperFence ? 1 : 0),
+    0,
+  );
   return {
     n,
     min: sorted[0],
     max: sorted[n - 1],
     mean,
-    median: quantile(0.5),
-    p05: quantile(0.05),
-    p25: quantile(0.25),
-    p75: quantile(0.75),
-    p95: quantile(0.95),
+    median,
+    p05: quantile(sorted, 0.05),
+    p25,
+    p75,
+    p95: quantile(sorted, 0.95),
     std: Math.sqrt(variance),
+    mad,
+    iqr,
+    n_outliers,
   };
 }
 

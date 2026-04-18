@@ -51,6 +51,14 @@ export function CorrelationMiniMatrix({ correlations, paramNameToSlug }: Props) 
               <span className="text-mes-text-primary w-14 text-right">
                 r = {c.pearson_r.toFixed(2)}
               </span>
+              {c.spearman_rho != null && (
+                <span
+                  className="text-mes-text-muted w-16 text-right"
+                  title="Spearman ρ — robust to non-linear monotone relationships"
+                >
+                  ρ = {c.spearman_rho.toFixed(2)}
+                </span>
+              )}
               <span className="text-mes-text-muted w-10">n={c.n}</span>
               {c.significant ? (
                 <span className="text-green-700 text-[10px] border border-green-200 bg-green-50 px-1">
@@ -63,9 +71,10 @@ export function CorrelationMiniMatrix({ correlations, paramNameToSlug }: Props) 
           </div>
         );
       })}
-      <div className="text-[10px] text-mes-text-muted pt-1 border-t border-gray-100">
-        Significance is Bonferroni-corrected across all tested pairs. Only correlations with n ≥ 30
-        shared papers are tested.
+      <div className="text-[10px] text-mes-text-muted pt-1 border-t border-gray-100 leading-relaxed">
+        <span className="font-medium">r</span> Pearson (linear) ·
+        <span className="font-medium ml-1">ρ</span> Spearman (rank, robust to non-linear monotone).
+        Significance is Bonferroni-corrected across all tested pairs; n ≥ 30 shared papers required.
       </div>
     </div>
   );
