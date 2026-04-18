@@ -281,6 +281,164 @@ function spearman(xs: number[], ys: number[]): number | null {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
+// Tier A — scientific-integrity filters applied before aggregation.
+// 1. Sanity clamps: reject physically-impossible values (pH > 14, CE > 110%,
+//    negative concentrations, etc.). Prevents a single nonsense regex hit
+//    from skewing every aggregate for that parameter.
+// 2. Unit normalization: convert values in a parameter family to a canonical
+//    unit so aggregates across papers use the same basis.
+// ═══════════════════════════════════════════════════════════════════════
+
+// Hardcoded sanity ranges keyed by case-insensitive parameter name. Values
+// outside the range are rejected before stats + correlations are computed.
+// Use generous bounds — the goal is to filter nonsense, not enforce typical
+// ranges.
+const SANITY_RANGES: Record<string, { min: number; max: number; unit_hint?: string }> = {
+  'ph':                        { min: 0,    max: 14,      unit_hint: '-' },
+  'temperature':               { min: -20,  max: 200,     unit_hint: '°C' },
+  'ambient temperature':       { min: -20,  max: 200,     unit_hint: '°C' },
+  'coulombic efficiency':      { min: 0,    max: 110,     unit_hint: '%' },
+  'coulombicefficiency':       { min: 0,    max: 110,     unit_hint: '%' },
+  'faradaic efficiency':       { min: 0,    max: 110,     unit_hint: '%' },
+  'cod removal':               { min: 0,    max: 110,     unit_hint: '%' },
+  'cod removal efficiency':    { min: 0,    max: 110,     unit_hint: '%' },
+  'bod removal':               { min: 0,    max: 110,     unit_hint: '%' },
+  'voltage':                   { min: -5,   max: 10,      unit_hint: 'V' },
+  'open circuit voltage':      { min: 0,    max: 5,       unit_hint: 'V' },
+  'internal resistance':       { min: 0,    max: 1e7 },  // up to 10 MΩ
+  'external resistance':       { min: 0,    max: 1e7 },
+  'maxpowerdensity':           { min: 0,    max: 1e6 },   // 1 kW/m² ceiling
+  'max power density':         { min: 0,    max: 1e6 },
+  'power density':             { min: 0,    max: 1e6 },
+  'current density':           { min: 0,    max: 1e6 },
+  'peak current':              { min: -1e4, max: 1e4 },   // mA
+  'short circuit current':     { min: 0,    max: 1e4 },
+  'overpotential':             { min: -2000, max: 2000 }, // mV
+  'hydraulic retention time':  { min: 0,    max: 2000,    unit_hint: 'h' },
+  'hydraulicretentiontime':    { min: 0,    max: 2000,    unit_hint: 'h' },
+  'flow rate':                 { min: 0,    max: 1e5 },   // mL/min
+  'reactor volume':            { min: 0,    max: 1e6 },   // mL
+  'volume':                    { min: 0,    max: 1e6 },
+  'batch volume':              { min: 0,    max: 1e6 },
+  'electrode surface area':    { min: 0,    max: 1e4 },   // cm²
+  'electrode diameter':        { min: 0,    max: 100 },   // cm
+  'electrode spacing':         { min: 0,    max: 100 },   // cm
+  'cod concentration':         { min: 0,    max: 5e5 },   // mg/L
+  'bod concentration':         { min: 0,    max: 5e5 },
+  'ionic strength':            { min: 0,    max: 10 },    // M
+  'conductivity':              { min: 0,    max: 1e6 },
+  'scan rate':                 { min: 0,    max: 1e5 },   // mV/s
+};
+
+function passesSanity(paramName: string, value: number): { ok: boolean; reason?: string } {
+  if (!Number.isFinite(value)) return { ok: false, reason: 'non-finite' };
+  const name = paramName.trim().toLowerCase();
+  const range = SANITY_RANGES[name];
+  if (!range) return { ok: true };
+  if (value < range.min) return { ok: false, reason: `below min ${range.min}` };
+  if (value > range.max) return { ok: false, reason: `above max ${range.max}` };
+  return { ok: true };
+}
+
+// Unit normalization. Keyed by case-insensitive parameter name → (canonical
+// unit, conversion table). Unknown units pass through unchanged with a
+// flag so we don't silently co-mingle incomparable values.
+interface UnitNorm {
+  canonical: string;
+  convert: Record<string, number>; // multiplier to canonical; unit names case-insensitive
+}
+
+const SURFACE_POWER: UnitNorm = {
+  canonical: 'mW/m²',
+  convert: {
+    'mw/m²': 1, 'mw/m2': 1, 'mw m-2': 1, 'mw/m^2': 1,
+    'w/m²':  1000, 'w/m2':  1000, 'w m-2':  1000,
+    'mw/cm²': 10000, 'mw/cm2': 10000,
+    'w/cm²':  1e7, 'w/cm2':  1e7,
+    'µw/m²':  0.001, 'uw/m²':  0.001, 'uw/m2': 0.001,
+  },
+};
+const SURFACE_CURRENT: UnitNorm = {
+  canonical: 'mA/m²',
+  convert: {
+    'ma/m²': 1, 'ma/m2': 1, 'ma m-2': 1,
+    'a/m²': 1000, 'a/m2': 1000, 'a m-2': 1000,
+    'ma/cm²': 10000, 'ma/cm2': 10000,
+    'a/cm²': 1e7, 'a/cm2': 1e7,
+    'µa/m²': 0.001, 'ua/m²': 0.001, 'ua/m2': 0.001,
+  },
+};
+const CONCENTRATION_WATER: UnitNorm = {
+  canonical: 'mg/L',
+  convert: {
+    'mg/l': 1, 'mg l-1': 1,
+    'g/l': 1000, 'g l-1': 1000,
+    'µg/l': 0.001, 'ug/l': 0.001,
+    'ppm': 1,  // for dilute aqueous — 1 ppm ≈ 1 mg/L
+    'ppb': 0.001,
+  },
+};
+const VOLUME: UnitNorm = {
+  canonical: 'mL',
+  convert: {
+    'ml': 1, 'cm³': 1, 'cm3': 1, 'cc': 1,
+    'l': 1000,
+    'µl': 0.001, 'ul': 0.001,
+    'm³': 1e6, 'm3': 1e6,
+  },
+};
+const RESISTANCE: UnitNorm = {
+  canonical: 'Ω',
+  convert: {
+    'ω': 1, 'ohm': 1, 'ohms': 1,
+    'kω': 1000, 'kohm': 1000, 'kohms': 1000,
+    'mω': 1e6, 'mohm': 1e6,
+  },
+};
+const VOLTAGE: UnitNorm = {
+  canonical: 'V',
+  convert: { 'v': 1, 'volt': 1, 'volts': 1, 'mv': 0.001 },
+};
+const TIME_HOURS: UnitNorm = {
+  canonical: 'h',
+  convert: {
+    'h': 1, 'hr': 1, 'hrs': 1, 'hour': 1, 'hours': 1,
+    'min': 1/60, 'mins': 1/60, 'minutes': 1/60,
+    's': 1/3600, 'sec': 1/3600, 'seconds': 1/3600,
+    'd': 24, 'day': 24, 'days': 24,
+  },
+};
+
+const UNIT_NORMALIZATIONS: Record<string, UnitNorm> = {
+  'power density':         SURFACE_POWER,
+  'max power density':     SURFACE_POWER,
+  'maxpowerdensity':       SURFACE_POWER,
+  'current density':       SURFACE_CURRENT,
+  'cod concentration':     CONCENTRATION_WATER,
+  'bod concentration':     CONCENTRATION_WATER,
+  'volume':                VOLUME,
+  'reactor volume':        VOLUME,
+  'batch volume':          VOLUME,
+  'internal resistance':   RESISTANCE,
+  'external resistance':   RESISTANCE,
+  'voltage':               VOLTAGE,
+  'open circuit voltage':  VOLTAGE,
+  'overpotential':         { canonical: 'mV', convert: { 'mv': 1, 'v': 1000 } },
+  'hydraulic retention time': TIME_HOURS,
+  'hydraulicretentiontime':   TIME_HOURS,
+};
+
+function normalizeUnit(paramName: string, value: number, unit: string): { value: number; unit: string; converted: boolean } {
+  const norm = UNIT_NORMALIZATIONS[paramName.trim().toLowerCase()];
+  if (!norm) return { value, unit, converted: false };
+  const u = (unit || '').trim().toLowerCase();
+  const factor = norm.convert[u];
+  if (factor == null) return { value, unit, converted: false };
+  if (factor === 1) return { value, unit: norm.canonical, converted: true };
+  return { value: value * factor, unit: norm.canonical, converted: true };
+}
+
+// ═══════════════════════════════════════════════════════════════════════
 // Main
 // ═══════════════════════════════════════════════════════════════════════
 
@@ -430,11 +588,13 @@ function main(): void {
     if (rec.title) pmByTitle.set(rec.title, rec);
   }
 
-  console.log('[3/5] Grouping rows by parameter...');
+  console.log('[3/5] Grouping rows by parameter (with sanity + unit normalization)...');
   const byParam = new Map<string, PpvRow[]>();
   let skippedLowConf = 0;
   let skippedNonNumeric = 0;
   let skippedNoMatch = 0;
+  let skippedSanity = 0;
+  let unitsNormalized = 0;
 
   for (const row of ppv.rows) {
     const rec = toRecord(ppv.header, row);
@@ -449,6 +609,17 @@ function main(): void {
     const paperKey = rec.paper_doi || rec.paper_title;
     if (!paperKey) continue;
 
+    // Tier A: unit normalization. Convert value to the canonical unit for
+    // this parameter family so cross-paper aggregates share a basis.
+    const normalized = normalizeUnit(rec.parameter_name, num, rec.parameter_unit);
+    if (normalized.converted) unitsNormalized++;
+
+    // Tier A: sanity filter. Reject values outside physical/chemical
+    // bounds (pH > 14, negative resistance, etc.) — a single nonsense
+    // regex hit can otherwise blow out every downstream stat.
+    const sanity = passesSanity(rec.parameter_name, normalized.value);
+    if (!sanity.ok) { skippedSanity++; continue; }
+
     // Parse optional extended-context columns from local-corpus rows.
     let ctx: Record<string, unknown> | null = null;
     const ctxStr = rec.context_json;
@@ -462,8 +633,8 @@ function main(): void {
       paper_year: toNumOrNull(rec.paper_year),
       system_type: rec.system_type || 'UNSPECIFIED',
       parameter_name: rec.parameter_name,
-      numeric_value: num,
-      parameter_unit: rec.parameter_unit,
+      numeric_value: normalized.value,
+      parameter_unit: normalized.unit,
       confidence: conf,
       extraction_method: rec.extraction_method,
       source_section: rec.source_section,
@@ -480,6 +651,8 @@ function main(): void {
   console.log(`  skipped (low confidence): ${skippedLowConf}`);
   console.log(`  skipped (non-numeric):    ${skippedNonNumeric}`);
   console.log(`  skipped (no ontology match): ${skippedNoMatch}`);
+  console.log(`  skipped (sanity clamp):  ${skippedSanity}`);
+  console.log(`  unit-normalized:         ${unitsNormalized}`);
 
   console.log('[4/5] Computing per-parameter stats, distributions, sources...');
   const entries: ProvenanceEntry[] = [];
