@@ -1,23 +1,29 @@
 #!/usr/bin/env node
 
 /**
- * Validate parameters/index.json structure and data integrity.
+ * Validate parameters/index.json and data/parameter-definitions-rich.json.
  *
- * Checks:
- * - index.json is valid JSON
- * - All parameters have required fields (id, name, type, description, unit)
- * - No duplicate parameter IDs
- * - Numeric parameters with ranges have min < max
- * - Default values fall within defined ranges
- * - Category/subcategory references are consistent
+ * Two passes:
+ *   1. index.json — hand-written structural checks (required fields, dup ids,
+ *      range sanity, category/subcategory consistency).
+ *   2. parameter-definitions-rich.json — AJV-validated against
+ *      schemas/rich-parameters.schema.json (which references richParameter in
+ *      schemas/parameter.schema.json). This is the contract messai-ai and other
+ *      consumers import directly.
  *
  * Run: npm run validate
  */
 
 const fs = require('fs');
 const path = require('path');
+const Ajv = require('ajv');
 
-const INDEX_PATH = path.resolve(__dirname, '..', 'parameters', 'index.json');
+const ROOT = path.resolve(__dirname, '..');
+const INDEX_PATH = path.join(ROOT, 'parameters', 'index.json');
+const RICH_PATH = path.join(ROOT, 'data', 'parameter-definitions-rich.json');
+const PARAM_SCHEMA_PATH = path.join(ROOT, 'schemas', 'parameter.schema.json');
+const RICH_SCHEMA_PATH = path.join(ROOT, 'schemas', 'rich-parameters.schema.json');
+const MIN_RICH_ENTRIES = 687;
 const REQUIRED_FIELDS = ['id', 'name', 'type', 'description', 'unit', 'category', 'subcategory'];
 
 let errors = 0;
@@ -127,6 +133,39 @@ console.log(`\nValidated ${paramCount} parameters (${allIds.size} unique IDs)`);
 
 if (paramCount !== data.metadata.totalParameters) {
   warn(`Actual count (${paramCount}) != metadata.totalParameters (${data.metadata.totalParameters})`);
+}
+
+// ── Pass 2: AJV-validate data/parameter-definitions-rich.json ──
+console.log('\nrich.json: AJV pass');
+
+try {
+  const rich = JSON.parse(fs.readFileSync(RICH_PATH, 'utf-8'));
+  const paramSchema = JSON.parse(fs.readFileSync(PARAM_SCHEMA_PATH, 'utf-8'));
+  const richSchema = JSON.parse(fs.readFileSync(RICH_SCHEMA_PATH, 'utf-8'));
+
+  const ajv = new Ajv({ strict: false, allErrors: true });
+  ajv.addSchema(paramSchema, 'parameter.schema.json');
+  const validate = ajv.compile(richSchema);
+
+  if (!validate(rich)) {
+    const shown = validate.errors.slice(0, 20);
+    for (const e of shown) {
+      const i = (e.instancePath.match(/^\/(\d+)/) || [])[1];
+      const id = i !== undefined && rich[Number(i)] ? rich[Number(i)].id : '(root)';
+      error(`rich.json ${id} ${e.instancePath} ${e.message}`);
+    }
+    if (validate.errors.length > shown.length) {
+      error(`... and ${validate.errors.length - shown.length} more AJV errors`);
+    }
+  } else {
+    console.log(`  rich.json: ${rich.length} entries, schema-valid`);
+  }
+
+  if (rich.length < MIN_RICH_ENTRIES) {
+    error(`rich.json has ${rich.length} entries, expected >= ${MIN_RICH_ENTRIES}`);
+  }
+} catch (e) {
+  error(`Cannot AJV-validate rich.json: ${e.message}`);
 }
 
 console.log(`\nResult: ${errors} errors, ${warnings} warnings`);

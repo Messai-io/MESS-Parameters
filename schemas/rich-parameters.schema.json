@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://messai.io/schemas/rich-parameters.schema.json",
+  "title": "MESS Rich Parameter Array",
+  "description": "JSON Schema for data/parameter-definitions-rich.json — the canonical per-parameter payload generated from the MESSAI Postgres ParameterDefinition table by scripts/sync-from-database.js. Consumed directly (no transformation) by downstream projects such as messai-ai.",
+  "type": "array",
+  "minItems": 687,
+  "items": { "$ref": "parameter.schema.json#/definitions/richParameter" }
+}

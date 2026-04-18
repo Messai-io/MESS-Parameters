@@ -50,5 +50,8 @@
   "homepage": "https://github.com/Messai-io/MESS-Parameters",
   "bugs": {
     "url": "https://github.com/Messai-io/MESS-Parameters/issues"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
   }
 }

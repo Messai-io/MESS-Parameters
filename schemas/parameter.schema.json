@@ -164,6 +164,157 @@
         }
       },
       "additionalProperties": false
+    },
+    "richParameter": {
+      "type": "object",
+      "description": "Per-parameter entry in data/parameter-definitions-rich.json, generated from the MESSAI Postgres ParameterDefinition table by scripts/sync-from-database.js. Keys match DB column aliases verbatim (snake_case).",
+      "required": ["id", "name", "category", "data_type", "is_required", "usage_count"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "DB-generated parameter identifier (CUID-like or camelCase)"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "ENVIRONMENTAL",
+            "BIOLOGICAL",
+            "ELECTROCHEMICAL",
+            "MATERIALS",
+            "OPERATIONAL",
+            "PERFORMANCE",
+            "REACTOR_DESIGN",
+            "MONITORING_CONTROL",
+            "ECONOMIC",
+            "SAFETY_REGULATORY",
+            "APPLICATION_SPECIFIC",
+            "EMERGING_TECHNOLOGY",
+            "INTEGRATION_SCALING"
+          ]
+        },
+        "subcategory": { "type": ["string", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "data_type": {
+          "type": "string",
+          "enum": ["NUMBER", "SELECT", "OBJECT", "STRING", "BOOLEAN", "ARRAY"]
+        },
+        "description": { "type": ["string", "null"] },
+        "min_value": { "type": ["number", "null"] },
+        "max_value": { "type": ["number", "null"] },
+        "allowed_values": {
+          "type": ["string", "null"],
+          "description": "Comma-separated list of permitted values for SELECT-type parameters"
+        },
+        "is_required": { "type": "boolean" },
+        "definition": { "type": ["string", "null"] },
+        "typical_values": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["ranges"],
+              "properties": {
+                "ranges": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["label", "range"],
+                    "properties": {
+                      "label": { "type": "string" },
+                      "range": { "type": "string" }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": ["text"],
+              "properties": { "text": { "type": "string" } },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "measurement_methods": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        "affecting_factors": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["primary"],
+              "properties": {
+                "primary": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["factor"],
+                    "properties": {
+                      "factor": { "type": "string" },
+                      "effect": { "type": "string" }
+                    },
+                    "additionalProperties": false
+                  }
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "required": ["text"],
+              "properties": { "text": { "type": "string" } },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "performance_impact": { "type": ["string", "null"] },
+        "limitations": { "type": ["string", "null"] },
+        "cost_analysis": { "type": ["string", "null"] },
+        "related_parameters": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "relationship": { "type": "string" }
+                },
+                "additionalProperties": false
+              }
+            }
+          ]
+        },
+        "references": { "type": ["string", "null"] },
+        "compatible_systems": { "type": ["string", "null"] },
+        "priority": { "type": ["number", "null"] },
+        "usage_count": { "type": "integer", "minimum": 0 }
+      },
+      "additionalProperties": false
     }
   },
   "type": "object",
