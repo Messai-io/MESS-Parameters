@@ -72,6 +72,7 @@ interface Props {
 interface Filters {
   systems: Set<string>;
   minConfidence: number;
+  minReproducibility: number;
   verifiedOnly: boolean;
   yearMin: number | null;
   yearMax: number | null;
@@ -98,6 +99,7 @@ export function SourcesExplorer({ prov, unit }: Props) {
   const [filters, setFilters] = useState<Filters>(() => ({
     systems: new Set(allSystems),
     minConfidence: 0,
+    minReproducibility: 0,
     // Default ON when the parameter has any verified MES sources, so the
     // histogram and table reflect MES-domain data by default. User can toggle
     // off to see all extractions (including non-MES false positives).
@@ -113,6 +115,12 @@ export function SourcesExplorer({ prov, unit }: Props) {
       if (filters.verifiedOnly && !s.verified_mes) return false;
       if (filters.yearMin != null && s.year != null && s.year < filters.yearMin) return false;
       if (filters.yearMax != null && s.year != null && s.year > filters.yearMax) return false;
+      if (filters.minReproducibility > 0) {
+        // Keep only sources with a known repro score at or above the threshold.
+        // Sources lacking a score are excluded when the filter is active.
+        if (s.reproducibility_score == null) return false;
+        if (s.reproducibility_score < filters.minReproducibility) return false;
+      }
       return true;
     });
   }, [prov.sources, filters]);
@@ -120,7 +128,8 @@ export function SourcesExplorer({ prov, unit }: Props) {
   const activeFilters =
     filters.systems.size !== allSystems.length ||
     filters.minConfidence > 0 ||
-    filters.verifiedOnly ||
+    filters.minReproducibility > 0 ||
+    filters.verifiedOnly !== hasVerified ||
     (yearRange && (filters.yearMin !== yearRange[0] || filters.yearMax !== yearRange[1]));
 
   // Build a derived ProvEntry so the histogram recomputes on the filtered set.
@@ -152,6 +161,7 @@ export function SourcesExplorer({ prov, unit }: Props) {
     setFilters({
       systems: new Set(allSystems),
       minConfidence: 0,
+      minReproducibility: 0,
       verifiedOnly: hasVerified,
       yearMin: yearRange?.[0] ?? null,
       yearMax: yearRange?.[1] ?? null,
@@ -210,6 +220,25 @@ export function SourcesExplorer({ prov, unit }: Props) {
                 className="w-24"
               />
               <span className="font-mono w-8 text-right">{filters.minConfidence.toFixed(2)}</span>
+            </div>
+
+            <div
+              className="flex items-center gap-2"
+              title="Filter to papers scoring at or above this level on the 26-criterion reproducibility rubric. Sources without a score are excluded when active."
+            >
+              <span className="text-mes-text-muted">Min repro:</span>
+              <input
+                type="range"
+                min={0}
+                max={1}
+                step={0.05}
+                value={filters.minReproducibility}
+                onChange={(e) =>
+                  setFilters((f) => ({ ...f, minReproducibility: Number(e.target.value) }))
+                }
+                className="w-24"
+              />
+              <span className="font-mono w-8 text-right">{filters.minReproducibility.toFixed(2)}</span>
             </div>
 
             {yearRange && (

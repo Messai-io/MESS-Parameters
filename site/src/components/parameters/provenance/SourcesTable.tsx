@@ -9,7 +9,7 @@ interface Props {
 
 const PAGE_SIZE = 25;
 
-type SortKey = 'confidence' | 'year' | 'system_type' | 'value';
+type SortKey = 'confidence' | 'year' | 'system_type' | 'value' | 'reproducibility_score';
 type SortDir = 'asc' | 'desc';
 
 function ConfidenceBar({ value }: { value: number }) {
@@ -60,6 +60,10 @@ export function SourcesTable({ sources, unit }: Props) {
         case 'year': av = a.year ?? 0; bv = b.year ?? 0; break;
         case 'system_type': av = a.system_type; bv = b.system_type; break;
         case 'value': av = a.value; bv = b.value; break;
+        case 'reproducibility_score':
+          av = a.reproducibility_score ?? -1;
+          bv = b.reproducibility_score ?? -1;
+          break;
       }
       if (typeof av === 'string' && typeof bv === 'string') {
         return sortDir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
@@ -110,6 +114,7 @@ export function SourcesTable({ sources, unit }: Props) {
               {header('System', 'system_type')}
               {header(`Value${unit ? ` (${unit})` : ''}`, 'value', 'right')}
               {header('Confidence', 'confidence', 'right')}
+              {header('Reproducibility', 'reproducibility_score', 'right')}
               <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">
                 Verified
               </th>
@@ -138,6 +143,13 @@ export function SourcesTable({ sources, unit }: Props) {
                 </td>
                 <td className="px-3 py-2 text-right">
                   <ConfidenceBar value={s.confidence} />
+                </td>
+                <td className="px-3 py-2 text-right">
+                  {s.reproducibility_score == null ? (
+                    <span className="text-mes-text-muted text-xs">—</span>
+                  ) : (
+                    <ConfidenceBar value={s.reproducibility_score} />
+                  )}
                 </td>
                 <td className="px-3 py-2">
                   {s.verified_mes ? (

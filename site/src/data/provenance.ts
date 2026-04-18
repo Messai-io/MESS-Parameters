@@ -27,6 +27,7 @@ export interface ProvSource {
   source_section: string;
   verified: boolean;
   verified_mes: boolean;
+  reproducibility_score: number | null;
 }
 
 export interface ProvCorrelation {

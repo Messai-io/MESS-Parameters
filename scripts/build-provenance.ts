@@ -320,6 +320,9 @@ interface Source {
   source_section: string;
   verified: boolean;
   verified_mes: boolean;
+  // Per-paper reproducibility score (0..1) from the 26-criterion rubric.
+  // Null when we can't join the paper back to paper-metadata.csv.
+  reproducibility_score: number | null;
 }
 
 interface CorrelationEntry {
@@ -471,6 +474,8 @@ function main(): void {
       if (seen.has(dedupKey)) continue;
       seen.add(dedupKey);
       const pmRec = pmByDoi.get(r.paper_doi) ?? pmByTitle.get(r.paper_title);
+      const repro = pmRec?.reproducibility_score;
+      const reproNum = repro != null && repro !== '' ? Number(repro) : NaN;
       dedupedSources.push({
         doi: r.paper_doi,
         title: pmRec?.title ?? r.paper_title,
@@ -484,6 +489,7 @@ function main(): void {
         source_section: r.source_section,
         verified: r.is_verified,
         verified_mes: r.verified_mes,
+        reproducibility_score: Number.isFinite(reproNum) ? round(reproNum, 3) : null,
       });
       if (dedupedSources.length >= SOURCES_CAP) break;
     }
