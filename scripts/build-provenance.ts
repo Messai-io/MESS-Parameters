@@ -306,6 +306,10 @@ interface PpvRow {
   source_section: string;
   is_verified: boolean;
   verified_mes: boolean;
+  // Extended scientific context — populated from the local PDF pipeline
+  // (null when missing, e.g. from the DB-derived rows).
+  snippet: string | null;
+  context: Record<string, unknown> | null;
 }
 
 interface Source {
@@ -324,6 +328,14 @@ interface Source {
   // Per-paper reproducibility score (0..1) from the 26-criterion rubric.
   // Null when we can't join the paper back to paper-metadata.csv.
   reproducibility_score: number | null;
+  // Extended scientific context from the local-PDF extractor:
+  //   snippet: the reporting sentence
+  //   context: object with conditions + system config (see
+  //            scripts/papers/extract_parameters.py PAPER_CONTEXT_FIELDS +
+  //            OBSERVATION_FIELDS for the vocabulary).
+  // Both null for rows sourced from the DB CSV (which lacks these columns).
+  snippet: string | null;
+  context: Record<string, unknown> | null;
 }
 
 interface CorrelationEntry {
@@ -376,19 +388,36 @@ function main(): void {
   console.log(`  paper-metadata:         ${pm.rows.length} rows`);
 
   // Optional sibling file emitted by scripts/papers/rollup_local_corpus.ts
-  // from the local PDF pipeline. Same schema as paper-parameter-values;
-  // union the two before grouping so local extractions get mixed in.
+  // from the local PDF pipeline. Shares the leading columns of
+  // paper-parameter-values.csv plus trailing extended-context columns
+  // (snippet, context_json). Extend the ppv header with the extra columns
+  // so toRecord() picks them up below; DB rows simply get empty strings
+  // for those positions.
   if (fs.existsSync(LOCAL_PATH)) {
     const localText = fs.readFileSync(LOCAL_PATH, 'utf8');
     const local = parseCsv(localText);
-    // Sanity: skip union if headers differ (columns out of order = silent bug)
-    const ppvHeader = ppv.header.join('|');
-    const localHeader = local.header.join('|');
-    if (ppvHeader === localHeader) {
-      ppv.rows.push(...local.rows);
-      console.log(`  local-corpus-values:    ${local.rows.length} rows (unioned)`);
+    const localIdx: Record<string, number> = {};
+    local.header.forEach((c, i) => { localIdx[c] = i; });
+    const sharedCols = ppv.header.filter(c => c in localIdx);
+    const extraCols = local.header.filter(c => !ppv.header.includes(c));
+
+    if (sharedCols.length !== ppv.header.length) {
+      console.log(`  [warn] local-corpus-values.csv missing shared columns — skipping`);
     } else {
-      console.log(`  [warn] local-corpus-values.csv header mismatch — skipping`);
+      // Pad existing ppv rows with empty strings for the extra columns.
+      for (const row of ppv.rows) {
+        while (row.length < ppv.header.length + extraCols.length) row.push('');
+      }
+      ppv.header.push(...extraCols);
+      // Project local rows onto the combined header by column name.
+      const combinedHeader = ppv.header;
+      let unioned = 0;
+      for (const row of local.rows) {
+        const projected = combinedHeader.map(c => row[localIdx[c]] ?? '');
+        ppv.rows.push(projected);
+        unioned++;
+      }
+      console.log(`  local-corpus-values:    ${unioned} rows (unioned, +${extraCols.length} extra cols)`);
     }
   }
 
@@ -420,6 +449,12 @@ function main(): void {
     const paperKey = rec.paper_doi || rec.paper_title;
     if (!paperKey) continue;
 
+    // Parse optional extended-context columns from local-corpus rows.
+    let ctx: Record<string, unknown> | null = null;
+    const ctxStr = rec.context_json;
+    if (ctxStr) {
+      try { ctx = JSON.parse(ctxStr); } catch { ctx = null; }
+    }
     const ppvRow: PpvRow = {
       paper_key: paperKey,
       paper_doi: rec.paper_doi,
@@ -434,6 +469,8 @@ function main(): void {
       source_section: rec.source_section,
       is_verified: rec.is_verified === 't',
       verified_mes: rec.verified_mes_paper === 't',
+      snippet: (rec.snippet || null),
+      context: ctx,
     };
     const key = r.id;
     const bucket = byParam.get(key);
@@ -508,6 +545,8 @@ function main(): void {
         verified: r.is_verified,
         verified_mes: r.verified_mes,
         reproducibility_score: Number.isFinite(reproNum) ? round(reproNum, 3) : null,
+        snippet: r.snippet,
+        context: r.context,
       });
       if (dedupedSources.length >= SOURCES_CAP) break;
     }

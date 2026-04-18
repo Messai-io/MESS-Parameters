@@ -30,14 +30,56 @@ interface Source {
   canonical_sha256?: string;
   doi?: string;
 }
+// Observations emitted by scripts/papers/extract_parameters.py. The new
+// schema (2026-04-18) adds full scientific context: snippet, value_type,
+// measurement_technique, conditions (temp/ph/substrate/...), system config
+// (type/anode/cathode/membrane/...), uncertainty, replicates.
+// Backward compat: we accept both camelCase (old) and snake_case (new) for
+// the core fields.
 interface Observation {
-  parameterId: string;
+  // Core measurement
+  parameter_id?: string;
+  parameterId?: string;
   value: number;
   unit?: string;
+  extraction_confidence?: number;
+  extraction_method?: string;
   confidence?: number;
   method?: string;
   section?: string | null;
+  page?: number | null;
   snippet?: string;
+
+  // Scientific context (all optional, null when not extracted)
+  location_hint?: string | null;
+  value_type?: string | null;
+  is_normalized_to?: string | null;
+  uncertainty?: { value: number; type: string } | null;
+  replicates?: number | null;
+  measurement_technique?: string | null;
+
+  temperature_c?: number | null;
+  ph?: number | null;
+  substrate?: string | null;
+  substrate_concentration?: string | null;
+  inoculum?: string | null;
+  electrolyte?: string | null;
+  operation_mode?: string | null;
+  conductivity_ms_cm?: number | null;
+  dissolved_oxygen_mg_l?: number | null;
+
+  system_type?: string | null;
+  reactor_configuration?: string | null;
+  reactor_volume_ml?: number | null;
+  anode_material?: string | null;
+  cathode_material?: string | null;
+  membrane?: string | null;
+  electrode_surface_area_cm2?: number | null;
+  electrode_spacing_cm?: number | null;
+
+  dominant_organism?: string | null;
+  is_pure_culture?: boolean | null;
+  pretreatment?: string | null;
 }
 interface Parameter {
   id: string;
@@ -128,12 +170,18 @@ function main(): void {
   const dirs = walkPaperDirs(BY_DOI);
   console.log(`Rolling up ${dirs.length} paper dirs from ${BY_DOI}`);
 
+  // Base columns match paper-parameter-values.csv schema so build-provenance.ts
+  // can union them. Extra context columns (context_json) trail the core set;
+  // existing consumers see the same leading columns.
   const header = [
     'id', 'paper_doi', 'paper_title', 'paper_year', 'system_type',
     'parameter_name', 'parameter_category', 'parameter_subcategory',
     'extracted_value', 'numeric_value', 'parameter_unit',
     'has_numeric_value', 'confidence', 'extraction_method',
     'source_section', 'is_verified', 'verified_mes_paper',
+    // Extended — scientific context as a compact JSON blob so schema can
+    // grow without rewriting the union logic in build-provenance.ts.
+    'snippet', 'context_json',
   ];
   const rows: string[] = [header.join(',')];
   let obsCount = 0;
@@ -146,14 +194,39 @@ function main(): void {
     const meta = pm.get(src.doi) ?? { title: '', year: '', journal: '', system_type: '' };
     for (const o of obs) {
       if (typeof o.value !== 'number' || !Number.isFinite(o.value)) continue;
-      const p = ontology.get(o.parameterId);
+      const paramId = o.parameter_id ?? o.parameterId;
+      if (!paramId) { skippedNoOntology++; continue; }
+      const p = ontology.get(paramId);
       if (!p) { skippedNoOntology++; continue; }
+      const conf = o.extraction_confidence ?? o.confidence ?? 0.5;
+      const method = o.extraction_method ?? o.method ?? 'local';
+
+      // Bundle scientific context into a single JSON column. Only non-null
+      // fields are included to keep the payload compact.
+      const ctx: Record<string, unknown> = {};
+      const ctxFields: (keyof Observation)[] = [
+        'value_type', 'is_normalized_to', 'uncertainty', 'replicates',
+        'measurement_technique', 'location_hint',
+        'temperature_c', 'ph', 'substrate', 'substrate_concentration',
+        'inoculum', 'electrolyte', 'operation_mode',
+        'conductivity_ms_cm', 'dissolved_oxygen_mg_l',
+        'reactor_configuration', 'reactor_volume_ml',
+        'anode_material', 'cathode_material', 'membrane',
+        'electrode_surface_area_cm2', 'electrode_spacing_cm',
+        'dominant_organism', 'is_pure_culture', 'pretreatment',
+      ];
+      for (const f of ctxFields) {
+        const v = o[f];
+        if (v != null && v !== '') ctx[f as string] = v;
+      }
+      const obsSysType = o.system_type || meta.system_type || '';
+
       rows.push([
-        `${src.canonical_sha256}-${o.parameterId}`,
+        `${src.canonical_sha256}-${paramId}`,
         src.doi,
         meta.title,
         meta.year,
-        meta.system_type,
+        obsSysType,
         p.name,
         (p.category || '').toUpperCase().replace(/-/g, '_'),
         p.subcategory || '',
@@ -161,11 +234,13 @@ function main(): void {
         String(o.value),
         o.unit ?? p.unit ?? '',
         't',
-        String(o.confidence ?? 0.5),
-        o.method ?? 'local',
+        String(conf),
+        method,
         o.section ?? '',
         'f',
         't',
+        o.snippet ?? '',
+        Object.keys(ctx).length ? JSON.stringify(ctx) : '',
       ].map(csvCell).join(','));
       obsCount++;
     }

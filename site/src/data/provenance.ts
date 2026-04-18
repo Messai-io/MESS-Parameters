@@ -14,6 +14,42 @@ export interface ProvStats {
   n_outliers: number;
 }
 
+// Extended scientific-context fields carried through from the local-PDF
+// extractor. All optional and nullable; DB-derived sources have them null.
+export interface ProvSourceContext {
+  // Observation-specific
+  value_type?: string;
+  is_normalized_to?: string;
+  uncertainty?: { value: number; type: string };
+  replicates?: number;
+  measurement_technique?: string;
+  location_hint?: string;
+  // Measurement conditions (observation-level or inherited from paper context)
+  temperature_c?: number;
+  ph?: number;
+  substrate?: string;
+  substrate_concentration?: string;
+  inoculum?: string;
+  electrolyte?: string;
+  operation_mode?: string;
+  conductivity_ms_cm?: number;
+  dissolved_oxygen_mg_l?: number;
+  // System configuration (paper-level)
+  reactor_configuration?: string;
+  reactor_volume_ml?: number;
+  anode_material?: string;
+  cathode_material?: string;
+  membrane?: string;
+  electrode_surface_area_cm2?: number;
+  electrode_spacing_cm?: number;
+  // Microbial context
+  dominant_organism?: string;
+  is_pure_culture?: boolean;
+  pretreatment?: string;
+  // Allow unknown keys so schema can grow without TS breaks
+  [k: string]: unknown;
+}
+
 export interface ProvSource {
   doi: string;
   title: string;
@@ -28,6 +64,8 @@ export interface ProvSource {
   verified: boolean;
   verified_mes: boolean;
   reproducibility_score: number | null;
+  snippet: string | null;
+  context: ProvSourceContext | null;
 }
 
 export interface ProvCorrelation {

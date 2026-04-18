@@ -93,7 +93,7 @@
         "doi", "title", "year", "journal", "system_type",
         "value", "unit", "confidence", "extraction_method",
         "source_section", "verified", "verified_mes",
-        "reproducibility_score"
+        "reproducibility_score", "snippet", "context"
       ],
       "additionalProperties": false,
       "properties": {
@@ -113,6 +113,17 @@
           "oneOf": [
             { "type": "null" },
             { "type": "number", "minimum": 0, "maximum": 1 }
+          ]
+        },
+        "snippet": { "type": ["string", "null"] },
+        "context": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": true,
+              "description": "Optional scientific context bundle: measurement technique, value_type, uncertainty, replicates, observed conditions (temperature_c, ph, substrate, ...), system configuration (anode_material, cathode_material, membrane, ...), and microbial context (dominant_organism, is_pure_culture, pretreatment). All fields optional."
+            }
           ]
         }
       }

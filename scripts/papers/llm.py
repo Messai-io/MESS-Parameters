@@ -25,7 +25,12 @@ from typing import Any
 
 DEFAULT_OLLAMA_HOST = "http://localhost:11434"
 DEFAULT_OLLAMA_MODEL = "qwen3:latest"
-DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"
+# 8B model has 500k TPD on Groq free tier vs 100k for the 70B version.
+# At ~2.5k tokens/paper that's ~200 papers/day per org, which fits bulk
+# extraction overnight without upgrading. Quality is noticeably lower on
+# complex paper-context extraction but still beats the previous regex-only
+# baseline by a wide margin.
+DEFAULT_GROQ_MODEL = "llama-3.1-8b-instant"
 GROQ_BASE = "https://api.groq.com/openai/v1"
 
 
@@ -101,7 +106,19 @@ def chat_json(
         return None
 
     if backend == "groq":
-        return _groq_chat(prompt, max_tokens, system, temperature)
+        out = _groq_chat(prompt, max_tokens, system, temperature)
+        # Groq free tier is daily-token-limited; when all keys are exhausted,
+        # automatically degrade to Ollama (if reachable) so bulk runs don't
+        # silently lose half the corpus to 429s.
+        if out is None and os.environ.get("MESS_LLM_FALLBACK", "ollama") == "ollama":
+            try:
+                import requests
+                host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST).rstrip("/")
+                if requests.get(f"{host}/api/tags", timeout=1.5).status_code == 200:
+                    return _ollama_chat(prompt, max_tokens, system, temperature)
+            except Exception:
+                pass
+        return out
     if backend == "ollama":
         return _ollama_chat(prompt, max_tokens, system, temperature)
     if backend == "anthropic":
@@ -195,9 +212,10 @@ def _ollama_chat(
                 "options": {
                     "temperature": temperature,
                     "num_predict": max_tokens,
+                    "num_ctx": 16384,  # ensure enough context for our 10k-char prompts
                 },
             },
-            timeout=120,
+            timeout=300,  # local models with 16k ctx can take > 2min on CPU
         )
         r.raise_for_status()
         content = r.json().get("message", {}).get("content", "")
@@ -240,6 +258,9 @@ def _anthropic_chat(
 def describe_backend() -> str:
     """One-line description of which backend is active (for logs)."""
     b = _backend()
+    if b == "groq":
+        model = os.environ.get("GROQ_MODEL", DEFAULT_GROQ_MODEL)
+        return f"groq ({model}, {len(_groq_keys())} key(s) rotating)"
     if b == "ollama":
         model = os.environ.get("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL)
         host = os.environ.get("OLLAMA_HOST", DEFAULT_OLLAMA_HOST)
