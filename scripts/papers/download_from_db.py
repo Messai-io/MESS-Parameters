@@ -42,7 +42,9 @@ import json
 import os
 import re
 import sys
+import threading
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Iterable, Any
@@ -53,6 +55,25 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 PAPERS_ROOT = REPO_ROOT / "papers"
 STAGING = PAPERS_ROOT / "staging"
 DOWNLOADED = PAPERS_ROOT / "downloaded"
+
+
+def _load_dotenv(path: Path) -> None:
+    """Small .env loader — no external dep. Later file env wins."""
+    if not path.exists():
+        return
+    with path.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, _, v = line.partition("=")
+            k = k.strip()
+            v = v.strip().strip('"').strip("'")
+            if k and k not in os.environ:
+                os.environ[k] = v
+
+
+_load_dotenv(REPO_ROOT / ".env")
 ATTEMPTS_LOG = STAGING / "download-attempts.jsonl"
 SUMMARY_MD = STAGING / "download-summary.md"
 INPUT_CSV = STAGING / "papers-to-download.csv"
@@ -63,28 +84,34 @@ USER_AGENT = os.environ.get(
     f"MESSAI-PDF/1.0 mailto:{os.environ.get('CROSSREF_MAILTO', 'samfrons@gmail.com')}",
 )
 UNPAYWALL_EMAIL = os.environ.get("UNPAYWALL_EMAIL", os.environ.get("CROSSREF_MAILTO", ""))
-HTTP_TIMEOUT = float(os.environ.get("HTTP_TIMEOUT_SEC", "30"))
+HTTP_TIMEOUT = float(os.environ.get("HTTP_TIMEOUT_SEC", "15"))
 
 # Per-provider min seconds between calls. arXiv is strict (1 req / 3 s ToS).
 PROVIDER_RPS = {
     "externalUrl": 0.3,
     "unpaywall": 0.1,
+    "semanticscholar": 3.5,  # 100 req/5min unauth = 1/3s; be conservative
     "arxiv": 3.0,
     "biorxiv": 0.5,
     "pmc": 0.5,
     "crossref": 0.1,
 }
 _last_call: dict[str, float] = {}
+_throttle_lock = threading.Lock()
+_log_lock = threading.Lock()
 
 
 def _throttle(provider: str) -> None:
+    """Thread-safe per-provider rate limiter. Holds the lock while sleeping so
+    concurrent workers queue behind each other rather than flooding."""
     min_gap = PROVIDER_RPS.get(provider, 0.5)
-    now = time.time()
-    last = _last_call.get(provider, 0.0)
-    elapsed = now - last
-    if elapsed < min_gap:
-        time.sleep(min_gap - elapsed)
-    _last_call[provider] = time.time()
+    with _throttle_lock:
+        now = time.time()
+        last = _last_call.get(provider, 0.0)
+        elapsed = now - last
+        if elapsed < min_gap:
+            time.sleep(min_gap - elapsed)
+        _last_call[provider] = time.time()
 
 
 def _http_get(url: str, *, provider: str, stream: bool = False, timeout: float | None = None) -> requests.Response | None:
@@ -208,11 +235,40 @@ def prov_unpaywall(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
         data = r.json()
     except ValueError:
         return None, None
-    loc = data.get("best_oa_location") or {}
-    pdf_url = loc.get("url_for_pdf") or ""
+    # Try best_oa_location first, then fall back to any OA location with a PDF.
+    candidates: list[str] = []
+    best = data.get("best_oa_location") or {}
+    if best.get("url_for_pdf"):
+        candidates.append(best["url_for_pdf"])
+    for loc in data.get("oa_locations") or []:
+        if loc.get("url_for_pdf"):
+            candidates.append(loc["url_for_pdf"])
+    for pdf_url in candidates:
+        out = _try_url(pdf_url, paper["id"], "unpaywall")
+        if out is not None:
+            return out, pdf_url
+    return None, (candidates[0] if candidates else None)
+
+
+def prov_semanticscholar(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
+    doi = (paper.get("doi") or "").strip()
+    if not doi:
+        return None, None
+    api = (
+        f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}"
+        "?fields=openAccessPdf"
+    )
+    r = _http_get(api, provider="semanticscholar")
+    if r is None or r.status_code != 200:
+        return None, None
+    try:
+        data = r.json()
+    except ValueError:
+        return None, None
+    pdf_url = (data.get("openAccessPdf") or {}).get("url")
     if not pdf_url:
         return None, None
-    return _try_url(pdf_url, paper["id"], "unpaywall"), pdf_url
+    return _try_url(pdf_url, paper["id"], "semanticscholar"), pdf_url
 
 
 def prov_arxiv(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
@@ -283,12 +339,13 @@ def prov_crossref(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
 
 
 PROVIDERS = [
-    ("externalUrl", prov_external_url),
-    ("unpaywall",   prov_unpaywall),
-    ("arxiv",       prov_arxiv),
-    ("biorxiv",     prov_biorxiv),
-    ("pmc",         prov_pmc),
-    ("crossref",    prov_crossref),
+    ("externalUrl",     prov_external_url),
+    ("unpaywall",       prov_unpaywall),
+    ("semanticscholar", prov_semanticscholar),
+    ("arxiv",           prov_arxiv),
+    ("biorxiv",         prov_biorxiv),
+    ("pmc",             prov_pmc),
+    ("crossref",        prov_crossref),
 ]
 
 # ═════════════════════════════════════════════════════════════════════
@@ -322,8 +379,13 @@ def load_already_on_disk_dois() -> set[str]:
     return seen
 
 
-def load_already_attempted(paper_ids: set[str]) -> set[str]:
-    """Resume support — skip paper ids we've already tried to download."""
+def load_already_attempted(paper_ids: set[str], skip_failed: bool = False) -> set[str]:
+    """Resume support — skip paper ids that have already succeeded.
+
+    By default, failed papers are retried (lets a new provider pick up past
+    misses). Pass skip_failed=True to also skip ids with a final-attempt log
+    entry, which is faster but misses retry opportunities.
+    """
     seen: set[str] = set()
     if ATTEMPTS_LOG.exists():
         with ATTEMPTS_LOG.open() as f:
@@ -331,7 +393,11 @@ def load_already_attempted(paper_ids: set[str]) -> set[str]:
                 try:
                     row = json.loads(line)
                     pid = row.get("paper_id")
-                    if pid in paper_ids and (row.get("success") or row.get("final", False)):
+                    if pid not in paper_ids:
+                        continue
+                    if row.get("success"):
+                        seen.add(pid)
+                    elif skip_failed and row.get("final"):
                         seen.add(pid)
                 except Exception:
                     pass
@@ -351,6 +417,13 @@ def canonicalize(tmp_path: Path) -> tuple[Path, str, int]:
     else:
         tmp_path.replace(final)
     return final, sha, size
+
+
+def _log_write(log: Any, row: dict) -> None:
+    """Thread-safe JSONL write."""
+    with _log_lock:
+        log.write(json.dumps(row) + "\n")
+        log.flush()
 
 
 def download_paper(paper: dict, log: Any) -> Attempt | None:
@@ -376,16 +449,12 @@ def download_paper(paper: dict, log: Any) -> Attempt | None:
             final, sha, size = canonicalize(result)
             attempt.sha256 = sha
             attempt.bytes_written = size
-            log.write(json.dumps(asdict(attempt)) + "\n")
-            log.flush()
+            _log_write(log, asdict(attempt))
             return attempt
-        log.write(json.dumps(asdict(attempt)) + "\n")
-        log.flush()
+        _log_write(log, asdict(attempt))
         last_attempt = attempt
-    # All providers exhausted — mark as final (used by resume logic).
     if last_attempt:
-        log.write(json.dumps({**asdict(last_attempt), "final": True}) + "\n")
-        log.flush()
+        _log_write(log, {**asdict(last_attempt), "final": True})
     return None
 
 
@@ -429,6 +498,10 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true", help="list what would be downloaded, then exit")
     ap.add_argument("--no-skip-disk", action="store_true",
                     help="do not skip papers whose DOIs already appear in resolution.jsonl")
+    ap.add_argument("--skip-failed", action="store_true",
+                    help="also skip papers that failed on a previous run (default: retry failures)")
+    ap.add_argument("--workers", type=int, default=8,
+                    help="number of concurrent download workers (default: 8)")
     args = ap.parse_args()
 
     if not INPUT_CSV.exists():
@@ -447,7 +520,7 @@ def main() -> int:
 
     # Resume: skip papers already attempted to completion.
     paper_ids = {p["id"] for p in papers}
-    already = load_already_attempted(paper_ids)
+    already = load_already_attempted(paper_ids, skip_failed=args.skip_failed)
     if already:
         before = len(papers)
         papers = [p for p in papers if p["id"] not in already]
@@ -477,22 +550,38 @@ def main() -> int:
 
     wins = 0
     fails = 0
+    processed = 0
     start = time.time()
-    with ATTEMPTS_LOG.open("a") as log:
-        for i, paper in enumerate(papers, 1):
-            r = download_paper(paper, log)
+    progress_lock = threading.Lock()
+
+    def _one(paper: dict, log: Any) -> bool:
+        nonlocal wins, fails, processed
+        r = download_paper(paper, log)
+        with progress_lock:
+            processed += 1
+            i = processed
             if r is not None:
                 wins += 1
             else:
                 fails += 1
-            if i % 25 == 0:
+            if i % 25 == 0 or i == len(papers):
                 elapsed = time.time() - start
                 rate = i / elapsed if elapsed else 0
                 eta_min = (len(papers) - i) / rate / 60 if rate else 0
                 print(
                     f"  {i}/{len(papers)}  wins={wins} fails={fails}  "
-                    f"rate={rate:.1f}/s  eta={eta_min:.1f}min"
+                    f"rate={rate:.1f}/s  eta={eta_min:.1f}min",
+                    flush=True,
                 )
+        return r is not None
+
+    workers = max(1, args.workers)
+    print(f"  Workers:          {workers}")
+    with ATTEMPTS_LOG.open("a") as log:
+        with ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = [pool.submit(_one, p, log) for p in papers]
+            for _ in as_completed(futures):
+                pass
 
     # Write a brief markdown summary.
     with SUMMARY_MD.open("w") as f:
