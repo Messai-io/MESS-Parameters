@@ -34,7 +34,8 @@
     "papers:rollup": "npx tsx scripts/papers/rollup_to_csv.ts",
     "papers:all": "snakemake -s scripts/papers/Snakefile -j 8 all",
     "papers:export-db": "bash scripts/papers/export_papers_from_db.sh",
-    "papers:download": "papers/.venv/bin/python scripts/papers/download_from_db.py"
+    "papers:download": "papers/.venv/bin/python scripts/papers/download_from_db.py",
+    "papers:status": "papers/.venv/bin/python scripts/papers/download_status.py"
   },
   "keywords": [
     "parameters",
