@@ -17,8 +17,11 @@ describe('ParameterDetailPage', () => {
       },
       { timeout: 8000 },
     );
-    // "Verified MES" label is unique to ProvenanceBadges
-    expect(screen.getByText(/Verified MES/i)).toBeInTheDocument();
+    // ProvenanceBadges label and the explorer filter toggle both mention MES;
+    // just confirm we have at least one provenance badge rendered.
+    expect(screen.getAllByText(/Verified MES/i).length).toBeGreaterThan(0);
+    // The badges include a "Mean confidence" label that's unique to them.
+    expect(screen.getByText(/Mean confidence/i)).toBeInTheDocument();
   });
 
   it('renders a parameter without provenance without errors', () => {

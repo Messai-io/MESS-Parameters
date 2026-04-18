@@ -137,6 +137,39 @@ values: confidence ≥ 0.3, per-system n ≥ 10, sources capped at 200, histogra
   verified-only) that re-aggregate histogram + sources in-memory. Vitest setup
   (15 tests). CI drift check + site-test job.
 
+### Shipped (2026-04-18 — Tier 1 UX)
+- **Empty-state card** on parameter detail pages with no extractions (453 of 687
+  parameters). Replaces a bare "--" with a clear explanation and feedback links.
+- **Sources expanded 3.5×** (826 → 2,863) by including extractions without DOIs
+  — `SourcesTable` shows the title inline when no DOI is present.
+- **Verified-MES filter defaults ON** in `SourcesExplorer` when any verified
+  source exists, so the histogram and stats reflect MES-domain papers by
+  default. User can toggle off to see all extractions.
+
+### PDF corpus status (audited 2026-04-18)
+
+The local PDF corpus under `papers/` has **4,770 PDFs, zero processed** through
+`scripts/papers/Snakefile`. The pipeline has never been run. Existing
+`data/*.csv` files are populated from the MESSAI Postgres DB via
+`scripts/sync-from-database.js`, not from local PDFs.
+
+Prerequisites to run the local pipeline:
+
+- `python3 -m venv papers/.venv && source papers/.venv/bin/activate &&
+  pip install -r scripts/papers/requirements.txt`
+- Start Docker Desktop and `docker run --rm -d -p 8070:8070
+  lfoppiano/grobid:0.8.1`
+- Export `ANTHROPIC_API_KEY` (used for DOI tiebreaks + ambiguous parameter
+  extraction)
+- Set `MESSAI_ORG_PAPERS=/Users/.../MESS-Parameters/papers` and
+  `MESSAI_AI_PAPERS=...` for this machine
+
+Expect a multi-hour run on CPU (marker-pdf is the bottleneck) and material
+Anthropic API spend on 4,770 papers. Recommended first pass: `npm run
+papers:discover` (read-only) → review `papers/staging/discover-report.md` for
+dedup/unresolved counts → `papers:resolve` (no extraction cost yet) → budget
+review → `papers:all`.
+
 ### Known limitations
 
 - Only **214 of 687 parameters** have sidecar entries (the rest have
@@ -153,15 +186,34 @@ values: confidence ≥ 0.3, per-system n ≥ 10, sources capped at 200, histogra
 
 ### Next candidates (not started)
 
-- Expand `sources[]` cap or persist full distribution by-system so filters
-  reflect the complete set, not the top-200 cache.
+**Tier 2 — data quality (weeks):**
+- **Per-paper multi-parameter extraction pass** — single largest lever for
+  cross-parameter correlations (currently only 1 pair reaches n ≥ 30).
+- **Unit normalization** — power density tracked in mW/m², W/m³, mW/cm²
+  simultaneously; aggregate stats across units are unsound.
+- **Spearman alongside Pearson** for monotonic non-linear relationships.
+- **Outlier flagging (IQR or MAD)** so extraction-noise outliers don't skew
+  reported means.
+- **Process the local PDF corpus** — run the papers pipeline end-to-end (see
+  corpus status above).
+
+**Tier 3 — scientific rigor (longer):**
+- Gold-standard validation set (~50 manually-annotated papers) to benchmark
+  extraction precision/recall.
+- Bootstrap confidence intervals on distribution stats.
+- Hierarchical stratification beyond MFC/MEC/MDC (material, substrate, scale).
+- Crossref live-lookup for missing journal/title on extractions with a DOI.
+- Per-paper reproducibility scores surfaced on sources as a quality filter.
+- Publish a methodology/data paper for the ontology.
+
+**Infrastructure:**
+- Expand `sources[]` cap or persist full distribution by-system so client-side
+  filters reflect the complete set, not the top-200 cache.
 - Publish `parameter-reproducibility.json` sidecar (per-paper 26-criterion
-  scores) and surface on detail pages.
+  scores).
 - Add Playwright smoke spec (single file, three routes).
 - Stratify Bonferroni α by category so cross-category pairs don't eat the
   significance budget.
-- Investigate using Spearman alongside Pearson for robustness to non-linear
-  monotone relationships.
 
 ## When you're about to edit
 

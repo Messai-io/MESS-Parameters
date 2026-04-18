@@ -408,16 +408,20 @@ function main(): void {
       }
     }
 
-    // sources — only rows with a DOI, cap 200, sort by confidence DESC then year DESC
-    const withDoi = rows.filter(r => r.paper_doi);
-    // dedupe per (doi, value) so identical extractions don't flood the list
+    // sources — include every extraction row (with or without DOI), cap 200,
+    // prioritize verified MES rows, then confidence, then recency. UI decides
+    // how to display rows without a DOI (shows title only, no link).
     const seen = new Set<string>();
     const dedupedSources: Source[] = [];
-    for (const r of withDoi.sort((a, b) => {
+    const sortedRows = [...rows].sort((a, b) => {
+      if (a.verified_mes !== b.verified_mes) return a.verified_mes ? -1 : 1;
       if (b.confidence !== a.confidence) return b.confidence - a.confidence;
       return (b.paper_year ?? 0) - (a.paper_year ?? 0);
-    })) {
-      const dedupKey = `${r.paper_doi}|${r.numeric_value}|${r.system_type}`;
+    });
+    for (const r of sortedRows) {
+      // paper_key is doi or title; if both missing, drop silently
+      if (!r.paper_key) continue;
+      const dedupKey = `${r.paper_key}|${r.numeric_value}|${r.system_type}`;
       if (seen.has(dedupKey)) continue;
       seen.add(dedupKey);
       const pmRec = pmByDoi.get(r.paper_doi) ?? pmByTitle.get(r.paper_title);

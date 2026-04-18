@@ -75,10 +75,18 @@ export function SourcesExplorer({ prov, unit }: Props) {
   );
   const yearRange = useMemo(() => getYearRange(prov.sources), [prov.sources]);
 
+  const hasVerified = useMemo(
+    () => prov.sources.some((s) => s.verified_mes),
+    [prov.sources],
+  );
+
   const [filters, setFilters] = useState<Filters>(() => ({
     systems: new Set(allSystems),
     minConfidence: 0,
-    verifiedOnly: false,
+    // Default ON when the parameter has any verified MES sources, so the
+    // histogram and table reflect MES-domain data by default. User can toggle
+    // off to see all extractions (including non-MES false positives).
+    verifiedOnly: hasVerified,
     yearMin: yearRange?.[0] ?? null,
     yearMax: yearRange?.[1] ?? null,
   }));
@@ -129,7 +137,7 @@ export function SourcesExplorer({ prov, unit }: Props) {
     setFilters({
       systems: new Set(allSystems),
       minConfidence: 0,
-      verifiedOnly: false,
+      verifiedOnly: hasVerified,
       yearMin: yearRange?.[0] ?? null,
       yearMax: yearRange?.[1] ?? null,
     });

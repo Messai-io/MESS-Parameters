@@ -213,8 +213,13 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
         <Card padding="sm" className="text-center">
           <span className="text-xs text-mes-text-muted uppercase tracking-wider block">Papers</span>
           <span className="text-lg font-medium text-mes-text-primary mt-1 block">
-            {p.usage_count > 0 ? p.usage_count.toLocaleString() : '--'}
+            {p.usage_count > 0 ? p.usage_count.toLocaleString() : '0'}
           </span>
+          {p.usage_count === 0 && (
+            <span className="text-[10px] text-mes-text-muted mt-0.5 block">
+              Not yet observed
+            </span>
+          )}
         </Card>
         <Card padding="sm" className="text-center">
           <span className="text-xs text-mes-text-muted uppercase tracking-wider block">Range</span>
@@ -292,6 +297,42 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
                 <Section title="Performance Impact">
                   <TextBlock text={p.performance_impact} />
                 </Section>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Empty state — ontology-defined, not yet extracted */}
+          {!prov && !provLoading && !p.has_provenance && (
+            <Card padding="sm" className="border-dashed bg-gray-50">
+              <CardContent>
+                <h2 className="text-lg font-serif font-semibold text-mes-text-primary mb-2">
+                  No Extracted Measurements Yet
+                </h2>
+                <p className="text-sm text-mes-text-secondary leading-relaxed">
+                  <span className="font-medium text-mes-text-primary">{p.name}</span> is defined in the MESS
+                  ontology, but hasn't been observed with acceptable confidence (≥ 0.3) in our paper corpus
+                  of ~21,000 MES publications. The sections above reflect the canonical definition, typical
+                  ranges, and measurement methods. Empirical sources, distribution, and correlations will
+                  appear here once extractions land.
+                </p>
+                <div className="mt-3 flex flex-wrap gap-3 text-xs">
+                  <a
+                    href={`${issueBase}?title=${encodeURIComponent(`Data: ${p.name}`)}&body=${issueBody}${encodeURIComponent('**New data to add:**\n\n**Source publication (DOI):**\n\n**Measurement section/table:**\n')}&labels=parameter-feedback`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mes-text-link hover:underline"
+                  >
+                    Suggest a paper with this measurement →
+                  </a>
+                  <a
+                    href={`${issueBase}?title=${encodeURIComponent(`Extraction gap: ${p.name}`)}&body=${issueBody}${encodeURIComponent('**Why this should be extractable from existing papers:**\n\n**Example paper (DOI):**\n')}&labels=parameter-feedback`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-mes-text-link hover:underline"
+                  >
+                    Flag an extraction gap →
+                  </a>
+                </div>
               </CardContent>
             </Card>
           )}
