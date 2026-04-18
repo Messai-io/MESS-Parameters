@@ -1,0 +1,32 @@
+# Pipeline dependencies for the papers/ corpus.
+# Install into papers/.venv (gitignored):
+#   python3 -m venv papers/.venv
+#   source papers/.venv/bin/activate
+#   pip install -r scripts/papers/requirements.txt
+
+# DAG orchestration
+snakemake>=8.0
+
+# PDF parsing
+pymupdf>=1.24                # fitz: page render, bbox, text
+marker-pdf>=0.2              # transformer body OCR (Nougat successor)
+pdfminer.six>=20231228       # fallback plain-text extraction
+
+# Metadata
+crossref-commons>=0.0.7      # CrossRef REST client with throttling
+requests>=2.31
+
+# LLM-assisted resolution + extraction
+anthropic>=0.39
+
+# Embeddings
+sentence-transformers>=2.7
+torch>=2.2                   # falls back to CPU if no CUDA
+
+# Manifest + tabular IO
+pyarrow>=15
+pandas>=2.2
+
+# Utilities
+tqdm>=4.66
+python-slugify>=8.0

@@ -1,0 +1,149 @@
+# Snakemake DAG for the papers/ corpus pipeline.
+#
+# Usage:
+#   cd <repo-root>
+#   snakemake -s scripts/papers/Snakefile -j 8 all
+#
+# Targets:
+#   discover    fingerprint both source dirs
+#   resolve     resolve sha256 -> DOI
+#   import      hardlink resolved PDFs into by-doi/ and by-hash/
+#   extract     run text + figures + metadata + parameters + embed for each paper
+#   manifest    build manifest.parquet/jsonl/index.csv
+#   rollup      regenerate data/*.csv from the corpus
+#   all         end-to-end (default)
+#
+# Per-paper rules use sha256 wildcards so adding a single PDF and rerunning
+# only processes the new file.
+
+import json
+import os
+from pathlib import Path
+
+REPO = Path(workflow.basedir).resolve().parents[1]
+PAPERS = Path(os.environ.get("PAPERS_ROOT", REPO / "papers"))
+SCRIPTS = REPO / "scripts" / "papers"
+
+STAGING = PAPERS / "staging"
+BY_DOI = PAPERS / "by-doi"
+
+
+def imported_paper_dirs():
+    """All by-doi/<DOI> directories that have a paper.pdf."""
+    if not BY_DOI.exists():
+        return []
+    return [str(p.parent) for p in BY_DOI.rglob("paper.pdf")]
+
+
+rule all:
+    input:
+        PAPERS / "manifest.parquet",
+        REPO / "data" / "paper-parameter-values.csv",
+
+
+rule discover:
+    output:
+        fingerprints=STAGING / "fingerprints.jsonl",
+        report=STAGING / "discover-report.md",
+    shell:
+        "python {SCRIPTS}/discover.py"
+
+
+rule resolve:
+    input:
+        STAGING / "fingerprints.jsonl",
+    output:
+        STAGING / "resolution.jsonl",
+    shell:
+        "python {SCRIPTS}/resolve.py"
+
+
+checkpoint import_pdfs:
+    input:
+        fingerprints=STAGING / "fingerprints.jsonl",
+        resolution=STAGING / "resolution.jsonl",
+    output:
+        marker=touch(PAPERS / ".state" / "import.done"),
+    shell:
+        "python {SCRIPTS}/import_pdfs.py"
+
+
+def _per_paper(wildcards, suffix):
+    # Snakemake calls this after import_pdfs has run.
+    checkpoints.import_pdfs.get()
+    return [Path(d) / suffix for d in imported_paper_dirs()]
+
+
+rule extract_text:
+    input:
+        pdf="{paper_dir}/paper.pdf",
+    output:
+        sections="{paper_dir}/text/sections.json",
+    shell:
+        "python {SCRIPTS}/extract_text.py {wildcards.paper_dir}"
+
+
+rule extract_figures:
+    input:
+        pdf="{paper_dir}/paper.pdf",
+    output:
+        marker=touch("{paper_dir}/.state-figures.done"),
+    shell:
+        "python {SCRIPTS}/extract_figures.py {wildcards.paper_dir}"
+
+
+rule extract_metadata:
+    input:
+        pdf="{paper_dir}/paper.pdf",
+        src="{paper_dir}/source.json",
+    output:
+        meta="{paper_dir}/metadata.json",
+    shell:
+        "python {SCRIPTS}/extract_metadata.py {wildcards.paper_dir}"
+
+
+rule extract_parameters:
+    input:
+        sections="{paper_dir}/text/sections.json",
+    output:
+        obs="{paper_dir}/parameters/observations.json",
+    shell:
+        "python {SCRIPTS}/extract_parameters.py {wildcards.paper_dir}"
+
+
+rule embed:
+    input:
+        sections="{paper_dir}/text/sections.json",
+    output:
+        chunks="{paper_dir}/embeddings/chunks.jsonl",
+    shell:
+        "python {SCRIPTS}/embed.py {wildcards.paper_dir}"
+
+
+def all_observations(wildcards):
+    return _per_paper(wildcards, "parameters/observations.json")
+
+
+def all_metadata(wildcards):
+    return _per_paper(wildcards, "metadata.json")
+
+
+rule manifest:
+    input:
+        meta=all_metadata,
+        obs=all_observations,
+    output:
+        parquet=PAPERS / "manifest.parquet",
+    shell:
+        "python {SCRIPTS}/build_manifest.py"
+
+
+rule rollup:
+    input:
+        meta=all_metadata,
+        obs=all_observations,
+    output:
+        REPO / "data" / "paper-parameter-values.csv",
+        REPO / "data" / "paper-metadata.csv",
+    shell:
+        "npx tsx {SCRIPTS}/rollup_to_csv.ts"

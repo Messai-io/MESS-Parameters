@@ -25,7 +25,13 @@
     "export:all": "npx tsx scripts/export-all-data.ts",
     "site:dev": "cd site && npm run dev",
     "site:build": "cd site && npm run build",
-    "site:preview": "cd site && npm run preview"
+    "site:preview": "cd site && npm run preview",
+    "papers:discover": "python scripts/papers/discover.py",
+    "papers:resolve": "python scripts/papers/resolve.py",
+    "papers:import": "python scripts/papers/import_pdfs.py",
+    "papers:manifest": "python scripts/papers/build_manifest.py",
+    "papers:rollup": "npx tsx scripts/papers/rollup_to_csv.ts",
+    "papers:all": "snakemake -s scripts/papers/Snakefile -j 8 all"
   },
   "keywords": [
     "parameters",

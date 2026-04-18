@@ -101,9 +101,25 @@ Regenerated from JSON sources — they should never be edited manually:
 npx tsx scripts/generate-csv-exports.ts
 ```
 
-### Database re-export
+### Local PDF corpus pipeline (preferred)
 
-To refresh the data files from the database:
+A new in-repo pipeline under `scripts/papers/` reads PDFs from a gitignored
+`papers/` directory and regenerates `paper-metadata.csv`,
+`paper-parameter-values.csv`, and `extracted-parameter-data.csv` directly.
+This decouples the repo from the upstream MESSAI database for routine
+updates. See `docs/PAPERS_CORPUS.md` for the layout, stack
+(marker-pdf + GROBID + CrossRef + Claude Sonnet 4.6 + BGE embeddings), and
+the resumable Snakemake DAG.
+
+```bash
+npm run papers:discover   # fingerprint the source dirs (read-only)
+npm run papers:all        # run the full DAG
+npm run papers:rollup     # regenerate data/*.csv from the corpus
+```
+
+### Database re-export (legacy)
+
+To refresh the data files from the upstream MESSAI database:
 
 ```bash
 DATABASE_URL="..." npx tsx scripts/export-all-data.ts

@@ -10,3 +10,8 @@ coverage/
 .claude-flow/
 .swarm/
 .claude/
+
+# Local PDF corpus and derived per-paper artifacts.
+# Managed by scripts/papers/; see docs/PAPERS_CORPUS.md.
+# Anchored to repo root so scripts/papers/ stays tracked.
+/papers/
