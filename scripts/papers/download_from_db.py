@@ -114,19 +114,73 @@ def _throttle(provider: str) -> None:
         _last_call[provider] = time.time()
 
 
-def _http_get(url: str, *, provider: str, stream: bool = False, timeout: float | None = None) -> requests.Response | None:
+# Lazy import so the script still works if curl_cffi isn't installed.
+_CURL_CFFI_AVAILABLE: bool | None = None
+
+
+def _curl_cffi_available() -> bool:
+    global _CURL_CFFI_AVAILABLE
+    if _CURL_CFFI_AVAILABLE is None:
+        try:
+            from curl_cffi import requests as _cr  # noqa: F401
+            _CURL_CFFI_AVAILABLE = True
+        except ImportError:
+            _CURL_CFFI_AVAILABLE = False
+    return _CURL_CFFI_AVAILABLE
+
+
+def _http_get(url: str, *, provider: str, stream: bool = False, timeout: float | None = None,
+              referer: str | None = None) -> requests.Response | None:
+    """Fetch with stdlib requests first. On 403 (Akamai/Cloudflare TLS
+    fingerprint block), transparently retry with curl_cffi's Chrome
+    impersonation. Publishers like MDPI, Frontiers, Wiley return 403 for
+    plain Python requests but serve the PDF happily to a real Chrome
+    TLS handshake."""
     _throttle(provider)
-    headers = {"User-Agent": USER_AGENT, "Accept": "application/pdf,*/*"}
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/pdf,text/html;q=0.9,*/*;q=0.8",
+    }
+    if referer:
+        headers["Referer"] = referer
     try:
-        return requests.get(
-            url,
-            headers=headers,
-            timeout=timeout or HTTP_TIMEOUT,
-            stream=stream,
-            allow_redirects=True,
-        )
+        r = requests.get(url, headers=headers, timeout=timeout or HTTP_TIMEOUT,
+                         stream=stream, allow_redirects=True)
     except requests.RequestException:
-        return None
+        r = None
+
+    if r is not None and r.status_code != 403:
+        return r
+
+    # 403 or connection error — try curl_cffi Chrome impersonation.
+    if not _curl_cffi_available():
+        return r  # stdlib failure is what we return
+    try:
+        from curl_cffi import requests as cr
+        cffi_headers = {"Accept": headers["Accept"]}
+        if referer:
+            cffi_headers["Referer"] = referer
+        resp = cr.get(url, impersonate="chrome", timeout=timeout or HTTP_TIMEOUT,
+                      allow_redirects=True, headers=cffi_headers)
+        # curl_cffi returns its own Response type; wrap it to look like requests.
+        class _Wrap:
+            def __init__(self, rr):
+                self._rr = rr
+                self.status_code = rr.status_code
+                self.headers = rr.headers
+                self.url = rr.url
+                self._content = rr.content
+            def iter_content(self, chunk_size=8192):
+                for i in range(0, len(self._content), chunk_size):
+                    yield self._content[i:i+chunk_size]
+            @property
+            def content(self):
+                return self._content
+            def close(self):
+                pass
+        return _Wrap(resp)
+    except Exception:
+        return r
 
 
 def _is_pdf_response(r: requests.Response) -> bool:
@@ -221,6 +275,31 @@ def prov_external_url(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]
     if "mdpi.com" in url and url.endswith("/htm"):
         return _try_url(url[:-4] + "/pdf", paper["id"], "externalUrl"), url
     return None, None
+
+
+def prov_mdpi(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
+    """MDPI is 100% open-access but their CDN (Akamai) 403s plain-Python
+    requests. `_http_get` already falls back to curl_cffi on 403; this
+    provider just constructs the PDF URL from the DOI.
+
+    MDPI DOI pattern: 10.3390/<journal>{volume}{issue}{article}
+    Landing URL: https://www.mdpi.com/<issn>/<vol>/<iss>/<art> (from DOI
+    resolution). PDF URL: append /pdf to the landing URL."""
+    doi = (paper.get("doi") or "").strip()
+    if not doi.startswith("10.3390/"):
+        return None, None
+    # Resolve DOI once to get the canonical MDPI landing URL, then fetch /pdf.
+    try:
+        r = _http_get(f"https://doi.org/{doi}", provider="mdpi")
+    except Exception:
+        return None, None
+    if r is None or r.status_code != 200:
+        return None, None
+    landing = getattr(r, "url", "") or ""
+    if "mdpi.com" not in landing:
+        return None, None
+    pdf_url = landing.rstrip("/") + "/pdf"
+    return _try_url(pdf_url, paper["id"], "mdpi"), pdf_url
 
 
 def prov_unpaywall(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
@@ -339,6 +418,7 @@ def prov_crossref(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
 
 
 PROVIDERS = [
+    ("mdpi",            prov_mdpi),          # OA but Akamai-protected; curl_cffi fallback
     ("externalUrl",     prov_external_url),
     ("unpaywall",       prov_unpaywall),
     ("semanticscholar", prov_semanticscholar),
@@ -347,6 +427,7 @@ PROVIDERS = [
     ("pmc",             prov_pmc),
     ("crossref",        prov_crossref),
 ]
+PROVIDER_RPS.setdefault("mdpi", 1.0)  # throttle MDPI to 1 rps to stay polite
 
 # ═════════════════════════════════════════════════════════════════════
 # Main
