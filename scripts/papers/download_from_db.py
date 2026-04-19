@@ -287,6 +287,63 @@ _ALT_PDF_LINK_RE = re.compile(
 )
 
 
+def prov_llm_link_finder(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
+    """LLM fallback: fetch the landing page and ask a free-tier LLM to
+    pick any URL that leads to a PDF. Catches publishers whose landing
+    pages don't emit `<meta name="citation_pdf_url">` but do render a
+    visible "Download PDF" link elsewhere in the HTML. Uses the
+    round-robin shim in scripts/papers/llm.py, so it costs nothing on
+    the Anthropic side — Groq/Gemini/Cerebras/OpenRouter/Mistral carry
+    the load.
+
+    Returns None quickly if no LLM backend is configured, or if the LLM
+    can't identify a PDF URL in the page.
+    """
+    doi = (paper.get("doi") or "").strip()
+    if not doi:
+        return None, None
+    try:
+        r = _http_get(f"https://doi.org/{doi}", provider="llm_linkfinder")
+    except Exception:
+        return None, None
+    if r is None or r.status_code != 200:
+        return None, None
+    try:
+        html = r.content.decode("utf-8", errors="replace") if hasattr(r, "content") else r.text
+    except Exception:
+        return None, None
+    landing_url = getattr(r, "url", "") or f"https://doi.org/{doi}"
+
+    # Strip scripts/styles to save tokens; keep meta tags and anchors.
+    snippet = re.sub(r"<script[\s\S]*?</script>", " ", html, flags=re.IGNORECASE)
+    snippet = re.sub(r"<style[\s\S]*?</style>", " ", snippet, flags=re.IGNORECASE)
+    snippet = re.sub(r"\s+", " ", snippet)[:10000]
+
+    try:
+        from llm import chat_json
+    except ImportError:
+        return None, None
+    out = chat_json(
+        prompt=(
+            "Given the HTML of an academic paper's landing page, return the single "
+            "URL that downloads the paper's full-text PDF. If there's no such URL "
+            "available (paywall, no OA version), return null.\n\n"
+            f"Landing URL: {landing_url}\n\n"
+            f"HTML (truncated):\n---\n{snippet}\n---\n\n"
+            'Respond ONLY with JSON: {"pdf_url": "<absolute URL or null>"}'
+        ),
+        system="You extract PDF-download URLs from publisher landing pages. Never invent URLs; only report ones present in the HTML. Return absolute URLs, not relative paths.",
+        max_tokens=200,
+        temperature=0,
+    )
+    if not out or not isinstance(out.get("pdf_url"), str):
+        return None, None
+    pdf_url = out["pdf_url"].strip()
+    if not pdf_url.lower().startswith(("http://", "https://")):
+        return None, None
+    return _try_url(pdf_url, paper["id"], "llm_linkfinder", referer=landing_url), pdf_url
+
+
 def prov_citation_meta(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
     """Universal landing-page → PDF provider. Works for any publisher that
     emits the Highwire Press `<meta name="citation_pdf_url">` tag — which
@@ -448,13 +505,15 @@ PROVIDERS = [
     ("externalUrl",     prov_external_url),
     ("unpaywall",       prov_unpaywall),
     ("semanticscholar", prov_semanticscholar),
-    ("citation_meta",   prov_citation_meta),  # DOI landing → Highwire citation_pdf_url meta tag (universal)
+    ("citation_meta",   prov_citation_meta),     # DOI landing → Highwire citation_pdf_url meta tag (universal)
     ("arxiv",           prov_arxiv),
     ("biorxiv",         prov_biorxiv),
     ("pmc",             prov_pmc),
     ("crossref",        prov_crossref),
+    ("llm_linkfinder",  prov_llm_link_finder),   # free-tier LLM scans landing HTML when citation_meta fails
 ]
-PROVIDER_RPS.setdefault("citation_meta", 1.0)  # throttle landing-page hits to 1 rps
+PROVIDER_RPS.setdefault("citation_meta", 1.0)   # throttle landing-page hits to 1 rps
+PROVIDER_RPS.setdefault("llm_linkfinder", 2.0)  # one LLM call per 2s to stay under free-tier TPM
 
 # ═════════════════════════════════════════════════════════════════════
 # Main
