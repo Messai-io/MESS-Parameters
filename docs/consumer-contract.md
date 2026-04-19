@@ -85,6 +85,77 @@ by `scripts/papers/import_pdfs.py`'s `doi_to_dirname()`, which preserves
 should accept `^[A-Za-z0-9][A-Za-z0-9._/\-]*\.pdf$` and reject `..` to
 block path traversal.
 
+### Extraction row ID stability
+
+`ExtractedParameterData.id` values (both in `data/paper-parameter-values.csv`
+and in `data/local-corpus-values.csv`) follow two stable conventions:
+
+- **DB-sourced rows** (from `paper-parameter-values.csv`, produced by
+  `scripts/sync-from-database.js`): the `id` is the DB-generated CUID/UUID
+  on the source `PaperParameter` row, preserved verbatim on every export.
+  Stable unless a row is regenerated upstream.
+- **Local-corpus rows** (from `local-corpus-values.csv`, produced by
+  `scripts/papers/rollup_local_corpus.ts`): the `id` is composed as
+  `{sha256}-{parameter_id}` where `sha256` is the PDF's canonical hash
+  (stable across reruns as long as the PDF bytes don't change) and
+  `parameter_id` is the ontology id. Stable across reruns.
+
+Consumers may use `id` as a foreign key. On a given rerun, a row's `id`
+will not change unless the underlying source row (or PDF+parameter pair)
+genuinely changed. Inserts use `skipDuplicates` on `id` for idempotence.
+
+### Confidence scale
+
+`confidence` values (in both CSVs and in provenance sources) are on the
+scale `[0, 1]`. Canonical values:
+
+- **Regex extraction**: `0.6` (tight-window `value unit` match).
+- **LLM extraction**: whatever the model returns, clamped to `[0, 1]`. If
+  the model omits confidence, default `0.65`.
+- **DB-sourced extractions**: the original value as stored in the MESSAI
+  `PaperParameter.confidence` column, unchanged by the pipeline.
+
+Directly comparable across any `[0, 1]`-scaled consumer. A consumer using
+a `[0, 100]` scale must multiply by 100 before comparison. The pipeline's
+Tier A sanity filter drops rows below `0.3` before aggregation.
+
+### `paper-metadata.csv` write-back safety
+
+Consumers that write back fields like `reproducibility_score` or
+`parameter_completeness` into the upstream DB do not create a feedback loop
+with this repo's `paper-metadata.csv`. Those scores, when present on
+rows exported from this repo, come from
+`scripts/analyze-reproducibility.ts` (26-criterion rubric) and
+`scripts/build-provenance.ts` — both computed from the local corpus, never
+ingested from `paper-metadata.csv` itself. The CSV is write-out only from
+this repo's perspective.
+
+### Verification sidecar (optional, future)
+
+`data/verification/tier1-summary.json` is emitted by `scripts/verify/tier1_rollup.ts`
+(pending; see producer plan) and captures a headline data-quality verdict
+for the corpus. When present, its schema:
+
+```json
+{
+  "schema_version": "0.1.0",
+  "corpus_snapshot_date": "YYYY-MM-DD",
+  "corpus_source_count": 4300,
+  "grounding_rate": 0.94,
+  "literature_pass_count": "13/15",
+  "unit_coverage": 0.98,
+  "duplicate_agreement": 0.91,
+  "noisy_paper_count": 7,
+  "median_shift_after_quarantine": 0.08,
+  "overall_verdict": "PASS"
+}
+```
+
+Keys are `snake_case` matching the rest of the contract. `overall_verdict`
+is `PASS`, `FLAG`, or `FAIL`. Consumers may render the verdict as a
+data-quality badge without interpreting the per-check fields. Producer-internal
+(never part of `rich.json`); changes are never breaking.
+
 ## The schema is the contract
 
 ```
