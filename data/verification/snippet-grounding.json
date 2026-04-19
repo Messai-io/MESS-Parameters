@@ -1,0 +1,14 @@
+{
+  "schema_version": "0.1.0",
+  "corpus_snapshot": "2026-04-19T09:53:28.661Z",
+  "total_sources": 6729,
+  "sources_with_snippet": 4156,
+  "snippet_coverage": 0.6176,
+  "grounded_sources": 3572,
+  "grounding_rate": 0.8595,
+  "failure_count": 584,
+  "pass_threshold": 0.92,
+  "fail_threshold": 0.8,
+  "tolerance_relative": 0.01,
+  "verdict": "FLAG"
+}

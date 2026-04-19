@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "corpus_snapshot_date": "2026-04-19",
+  "corpus_source_count": 6729,
+  "grounding_rate": 0.8595,
+  "literature_pass_count": "12/15",
+  "unit_coverage": 0.9718,
+  "duplicate_agreement": 0.9737,
+  "noisy_paper_count": 10,
+  "median_shift_after_quarantine": 96,
+  "overall_verdict": "FLAG",
+  "sub_verdicts": {
+    "snippet_grounding": "FLAG",
+    "literature_crosscheck": "PASS",
+    "unit_audit": "PASS",
+    "noise_floor": "FAIL",
+    "duplicate_consistency": "PASS"
+  }
+}

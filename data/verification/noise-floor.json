@@ -1,0 +1,926 @@
+{
+  "schema_version": "0.1.0",
+  "noisy_threshold_obs_per_paper": 50,
+  "min_n_for_eval": 30,
+  "total_papers": 1462,
+  "noisy_papers": 10,
+  "noisy_paper_share": 0.0068,
+  "parameters_evaluated": 101,
+  "parameters_emptied_by_quarantine": 14,
+  "median_shift_max": 96,
+  "median_shift_p50": 0.3684,
+  "pass_threshold": 0.15,
+  "fail_threshold": 0.3,
+  "verdict": "FAIL",
+  "shifts": [
+    {
+      "parameter_name": "Control Effectiveness",
+      "n_before": 36,
+      "n_after": 1,
+      "median_before": 1,
+      "median_after": 97,
+      "relative_shift": 96,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Total System Weight",
+      "n_before": 70,
+      "n_after": 1,
+      "median_before": 30,
+      "median_after": 800,
+      "relative_shift": 25.6667,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Startup Time",
+      "n_before": 78,
+      "n_after": 2,
+      "median_before": 5,
+      "median_after": 73.5,
+      "relative_shift": 13.7,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Total Dissolved Solids",
+      "n_before": 35,
+      "n_after": 13,
+      "median_before": 7.23,
+      "median_after": 100,
+      "relative_shift": 12.8313,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Batch Volume",
+      "n_before": 215,
+      "n_after": 77,
+      "median_before": 10,
+      "median_after": 100,
+      "relative_shift": 9,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Chemical Stability",
+      "n_before": 172,
+      "n_after": 3,
+      "median_before": 10,
+      "median_after": 72,
+      "relative_shift": 6.2,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Dawn Duration",
+      "n_before": 272,
+      "n_after": 1,
+      "median_before": 5,
+      "median_after": 35,
+      "relative_shift": 6,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Stack Current",
+      "n_before": 38,
+      "n_after": 4,
+      "median_before": 2,
+      "median_after": 13.5,
+      "relative_shift": 5.75,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "hydraulicRetentionTime",
+      "n_before": 92,
+      "n_after": 2,
+      "median_before": 3,
+      "median_after": 16.5,
+      "relative_shift": 4.5,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Coulombic Efficiency",
+      "n_before": 82,
+      "n_after": 17,
+      "median_before": 20,
+      "median_after": 80,
+      "relative_shift": 3,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Drain Time",
+      "n_before": 97,
+      "n_after": 2,
+      "median_before": 20,
+      "median_after": 62.5,
+      "relative_shift": 2.125,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Short Circuit Current",
+      "n_before": 247,
+      "n_after": 14,
+      "median_before": 20,
+      "median_after": 48.5,
+      "relative_shift": 1.425,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Dissolved Oxygen",
+      "n_before": 44,
+      "n_after": 16,
+      "median_before": 2.5,
+      "median_after": 6.05,
+      "relative_shift": 1.42,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Energy Efficiency",
+      "n_before": 61,
+      "n_after": 4,
+      "median_before": 22,
+      "median_after": 50.43,
+      "relative_shift": 1.2923,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Cell Length",
+      "n_before": 44,
+      "n_after": 4,
+      "median_before": 110,
+      "median_after": 0.6,
+      "relative_shift": 0.9945,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Overpotential",
+      "n_before": 252,
+      "n_after": 13,
+      "median_before": 299,
+      "median_after": 1.83,
+      "relative_shift": 0.9939,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Ionic Strength",
+      "n_before": 198,
+      "n_after": 48,
+      "median_before": 1,
+      "median_after": 0.1,
+      "relative_shift": 0.9,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Faradaic Efficiency",
+      "n_before": 162,
+      "n_after": 46,
+      "median_before": 41.5,
+      "median_after": 4.25,
+      "relative_shift": 0.8976,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "BOD Concentration",
+      "n_before": 393,
+      "n_after": 55,
+      "median_before": 500,
+      "median_after": 57,
+      "relative_shift": 0.886,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Peak Current",
+      "n_before": 145,
+      "n_after": 31,
+      "median_before": 40,
+      "median_after": 4.91,
+      "relative_shift": 0.8773,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "pH Monitoring Interval",
+      "n_before": 55,
+      "n_after": 4,
+      "median_before": 12,
+      "median_after": 22.5,
+      "relative_shift": 0.875,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Mixer Speed",
+      "n_before": 53,
+      "n_after": 1,
+      "median_before": 1200,
+      "median_after": 175,
+      "relative_shift": 0.8542,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Electrode Diameter",
+      "n_before": 570,
+      "n_after": 66,
+      "median_before": 6.5,
+      "median_after": 1,
+      "relative_shift": 0.8462,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Maximum Power Point",
+      "n_before": 110,
+      "n_after": 9,
+      "median_before": 50,
+      "median_after": 10,
+      "relative_shift": 0.8,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Klebsiella Pneumoniae",
+      "n_before": 31,
+      "n_after": 16,
+      "median_before": 203,
+      "median_after": 51,
+      "relative_shift": 0.7488,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Mixing Time",
+      "n_before": 233,
+      "n_after": 1,
+      "median_before": 16,
+      "median_after": 5,
+      "relative_shift": 0.6875,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Vibration Amplitude",
+      "n_before": 449,
+      "n_after": 4,
+      "median_before": 20,
+      "median_after": 7,
+      "relative_shift": 0.65,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "volume",
+      "n_before": 524,
+      "n_after": 312,
+      "median_before": 14,
+      "median_after": 5.029999999999999,
+      "relative_shift": 0.6407,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Discount Rate",
+      "n_before": 72,
+      "n_after": 2,
+      "median_before": 26,
+      "median_after": 42.5,
+      "relative_shift": 0.6346,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Maximum Power Density",
+      "n_before": 51,
+      "n_after": 4,
+      "median_before": 131,
+      "median_after": 50.105000000000004,
+      "relative_shift": 0.6175,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Reactor Length",
+      "n_before": 75,
+      "n_after": 2,
+      "median_before": 9,
+      "median_after": 3.5,
+      "relative_shift": 0.6111,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "COD Concentration",
+      "n_before": 361,
+      "n_after": 104,
+      "median_before": 460,
+      "median_after": 180,
+      "relative_shift": 0.6087,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Spirulina Platensis",
+      "n_before": 49,
+      "n_after": 25,
+      "median_before": 169,
+      "median_after": 71,
+      "relative_shift": 0.5799,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Electrode Thickness",
+      "n_before": 70,
+      "n_after": 5,
+      "median_before": 3,
+      "median_after": 1.4,
+      "relative_shift": 0.5333,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Shewanella Oneidensis",
+      "n_before": 36,
+      "n_after": 32,
+      "median_before": 1279,
+      "median_after": 623.5,
+      "relative_shift": 0.5125,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Reactor Volume Total",
+      "n_before": 44,
+      "n_after": 1,
+      "median_before": 30,
+      "median_after": 14.75,
+      "relative_shift": 0.5083,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Centrifugal Acceleration",
+      "n_before": 411,
+      "n_after": 4,
+      "median_before": 8,
+      "median_after": 4,
+      "relative_shift": 0.5,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Substrate Concentration",
+      "n_before": 38,
+      "n_after": 31,
+      "median_before": 50,
+      "median_after": 25,
+      "relative_shift": 0.5,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Power Efficiency",
+      "n_before": 47,
+      "n_after": 2,
+      "median_before": 95,
+      "median_after": 49.45,
+      "relative_shift": 0.4795,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Graphene Oxide",
+      "n_before": 69,
+      "n_after": 59,
+      "median_before": 387,
+      "median_after": 568,
+      "relative_shift": 0.4677,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Blue Light Ratio",
+      "n_before": 1718,
+      "n_after": 26,
+      "median_before": 50,
+      "median_after": 28.25,
+      "relative_shift": 0.435,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Ammonia Recovery",
+      "n_before": 38,
+      "n_after": 1,
+      "median_before": 70,
+      "median_after": 98,
+      "relative_shift": 0.4,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Power Density",
+      "n_before": 128,
+      "n_after": 114,
+      "median_before": 36.7,
+      "median_after": 23.15,
+      "relative_shift": 0.3692,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Cell Diameter",
+      "n_before": 106,
+      "n_after": 1,
+      "median_before": 19,
+      "median_after": 12,
+      "relative_shift": 0.3684,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Working Volume",
+      "n_before": 107,
+      "n_after": 19,
+      "median_before": 350,
+      "median_after": 230,
+      "relative_shift": 0.3429,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Geobacter Sulfurreducens",
+      "n_before": 54,
+      "n_after": 44,
+      "median_before": 948,
+      "median_after": 631,
+      "relative_shift": 0.3344,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Reactor Volume",
+      "n_before": 302,
+      "n_after": 5,
+      "median_before": 150,
+      "median_after": 100,
+      "relative_shift": 0.3333,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Payback Period",
+      "n_before": 139,
+      "n_after": 7,
+      "median_before": 30,
+      "median_after": 20,
+      "relative_shift": 0.3333,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Carbon Felt",
+      "n_before": 35,
+      "n_after": 29,
+      "median_before": 183,
+      "median_after": 239,
+      "relative_shift": 0.306,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Photoperiod",
+      "n_before": 63,
+      "n_after": 3,
+      "median_before": 16,
+      "median_after": 12,
+      "relative_shift": 0.25,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Ultrasound Frequency",
+      "n_before": 71,
+      "n_after": 1,
+      "median_before": 20,
+      "median_after": 15,
+      "relative_shift": 0.25,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Ambient Temperature",
+      "n_before": 518,
+      "n_after": 137,
+      "median_before": 32.95,
+      "median_after": 25,
+      "relative_shift": 0.2413,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Proton Exchange Membrane",
+      "n_before": 187,
+      "n_after": 156,
+      "median_before": 360,
+      "median_after": 440,
+      "relative_shift": 0.2222,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Pressure Accuracy",
+      "n_before": 30,
+      "n_after": 2,
+      "median_before": 76,
+      "median_after": 61,
+      "relative_shift": 0.1974,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Stainless Steel",
+      "n_before": 46,
+      "n_after": 40,
+      "median_before": 206.5,
+      "median_after": 243.5,
+      "relative_shift": 0.1792,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Salt Concentration",
+      "n_before": 62,
+      "n_after": 4,
+      "median_before": 23.75,
+      "median_after": 20,
+      "relative_shift": 0.1579,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "design",
+      "n_before": 760,
+      "n_after": 665,
+      "median_before": 160,
+      "median_after": 185,
+      "relative_shift": 0.1563,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Metal Removal Efficiency",
+      "n_before": 62,
+      "n_after": 2,
+      "median_before": 83,
+      "median_after": 93.33500000000001,
+      "relative_shift": 0.1245,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Current Density",
+      "n_before": 173,
+      "n_after": 151,
+      "median_before": 12,
+      "median_after": 10.6,
+      "relative_shift": 0.1167,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Light Wavelength",
+      "n_before": 396,
+      "n_after": 2,
+      "median_before": 454,
+      "median_after": 501.5,
+      "relative_shift": 0.1046,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Biofilm Density",
+      "n_before": 84,
+      "n_after": 2,
+      "median_before": 10,
+      "median_after": 9,
+      "relative_shift": 0.1,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Carbon Cloth",
+      "n_before": 63,
+      "n_after": 62,
+      "median_before": 44,
+      "median_after": 47,
+      "relative_shift": 0.0682,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "substrate",
+      "n_before": 513,
+      "n_after": 438,
+      "median_before": 149,
+      "median_after": 140,
+      "relative_shift": 0.0604,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Reactor Height",
+      "n_before": 48,
+      "n_after": 3,
+      "median_before": 17,
+      "median_after": 16,
+      "relative_shift": 0.0588,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "mode",
+      "n_before": 1429,
+      "n_after": 1217,
+      "median_before": 183,
+      "median_after": 173,
+      "relative_shift": 0.0546,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Dark Duration",
+      "n_before": 238,
+      "n_after": 5,
+      "median_before": 19,
+      "median_after": 20,
+      "relative_shift": 0.0526,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Activated Carbon",
+      "n_before": 88,
+      "n_after": 82,
+      "median_before": 198,
+      "median_after": 207,
+      "relative_shift": 0.0455,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Open Circuit Voltage",
+      "n_before": 82,
+      "n_after": 75,
+      "median_before": 0.648,
+      "median_after": 0.676,
+      "relative_shift": 0.0432,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Chlorella Vulgaris",
+      "n_before": 34,
+      "n_after": 27,
+      "median_before": 208.5,
+      "median_after": 216,
+      "relative_shift": 0.036,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Bod Removal",
+      "n_before": 160,
+      "n_after": 52,
+      "median_before": 78,
+      "median_after": 80,
+      "relative_shift": 0.0256,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "maxPowerDensity",
+      "n_before": 260,
+      "n_after": 259,
+      "median_before": 74.75,
+      "median_after": 73.7,
+      "relative_shift": 0.014,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "voltage",
+      "n_before": 627,
+      "n_after": 491,
+      "median_before": 0.6542,
+      "median_after": 0.652,
+      "relative_shift": 0.0034,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Operating Temperature",
+      "n_before": 49,
+      "n_after": 25,
+      "median_before": 60,
+      "median_after": 60,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "pH",
+      "n_before": 1221,
+      "n_after": 1053,
+      "median_before": 4,
+      "median_after": 4,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "coulombicEfficiency",
+      "n_before": 427,
+      "n_after": 427,
+      "median_before": 7,
+      "median_after": 7,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Cell Voltage",
+      "n_before": 33,
+      "n_after": 32,
+      "median_before": 0.6,
+      "median_after": 0.6,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Electrode Spacing",
+      "n_before": 66,
+      "n_after": 65,
+      "median_before": 1,
+      "median_after": 1,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Electrode Surface Area",
+      "n_before": 68,
+      "n_after": 60,
+      "median_before": 10,
+      "median_after": 10,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Internal Resistance",
+      "n_before": 113,
+      "n_after": 105,
+      "median_before": 100,
+      "median_after": 100,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Acclimation Time",
+      "n_before": 222,
+      "n_after": 1,
+      "median_before": 3,
+      "median_after": 3,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Flow Rate",
+      "n_before": 102,
+      "n_after": 67,
+      "median_before": 10,
+      "median_after": 10,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Hydraulic Retention Time",
+      "n_before": 119,
+      "n_after": 66,
+      "median_before": 10,
+      "median_after": 10,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "temperature",
+      "n_before": 773,
+      "n_after": 505,
+      "median_before": 30,
+      "median_after": 30,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Cod Removal",
+      "n_before": 149,
+      "n_after": 54,
+      "median_before": 80,
+      "median_after": 80,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Local Content",
+      "n_before": 91,
+      "n_after": 5,
+      "median_before": 42,
+      "median_after": 42,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Pseudomonas Aeruginosa",
+      "n_before": 75,
+      "n_after": 75,
+      "median_before": 248,
+      "median_after": 248,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Carbon Nanotubes",
+      "n_before": 67,
+      "n_after": 63,
+      "median_before": 481,
+      "median_after": 481,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Ambient CO₂ Concentration",
+      "n_before": 64,
+      "n_after": 0,
+      "median_before": 204,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Hydrostatic Pressure",
+      "n_before": 35,
+      "n_after": 0,
+      "median_before": 4,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Magnetic Field Frequency",
+      "n_before": 32,
+      "n_after": 0,
+      "median_before": 20,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Mediator Concentration",
+      "n_before": 50,
+      "n_after": 0,
+      "median_before": 10,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "scanRate",
+      "n_before": 115,
+      "n_after": 0,
+      "median_before": 10,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Voltage Stability",
+      "n_before": 125,
+      "n_after": 0,
+      "median_before": 499,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Cooling Capacity",
+      "n_before": 47,
+      "n_after": 0,
+      "median_before": 20,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Filter Window",
+      "n_before": 51,
+      "n_after": 0,
+      "median_before": 10,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Historian Retention",
+      "n_before": 31,
+      "n_after": 0,
+      "median_before": 20,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Plc Scan Time",
+      "n_before": 49,
+      "n_after": 0,
+      "median_before": 1,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Detection Limit",
+      "n_before": 61,
+      "n_after": 0,
+      "median_before": 10,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Influent Tss",
+      "n_before": 39,
+      "n_after": 0,
+      "median_before": 158,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Interface Strength",
+      "n_before": 63,
+      "n_after": 0,
+      "median_before": 36,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    },
+    {
+      "parameter_name": "Charge Rate",
+      "n_before": 101,
+      "n_after": 0,
+      "median_before": 3,
+      "median_after": null,
+      "relative_shift": null,
+      "emptied_by_quarantine": true
+    }
+  ]
+}

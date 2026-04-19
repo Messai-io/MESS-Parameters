@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1.0",
+  "description": "Curated p10-p90 benchmarks for headline MES parameters, used by scripts/verify/literature_crosscheck.ts. Sources: Logan 2008 (ES&T 42:8630), Rabaey & Rozendal 2010 (Nature Rev Microbiol 8:706), Santoro et al 2017 (J Power Sources 356:225), Pant et al 2010 (Bioresource Tech 101:1533). Ranges are deliberately generous to accommodate multi-system-type corpus.",
+  "tolerance_notes": "p10/p90 are the lower/upper envelopes within which the corpus median must fall. Canonical units match scripts/verify/unit_families.ts. Corpus median outside [p10,p90] = FLAG; outside [p5,p95] = FAIL.",
+  "benchmarks": [
+    {
+      "parameter_name": "power density",
+      "canonical_unit": "mW/m²",
+      "p10": 50,
+      "p90": 5000,
+      "p5": 10,
+      "p95": 10000,
+      "source": "Logan 2008 Table 2; Santoro 2017 Fig 4 (air-cathode MFCs)"
+    },
+    {
+      "parameter_name": "current density",
+      "canonical_unit": "mA/m²",
+      "p10": 200,
+      "p90": 20000,
+      "p5": 50,
+      "p95": 50000,
+      "source": "Logan 2008; Rabaey & Rozendal 2010"
+    },
+    {
+      "parameter_name": "coulombic efficiency",
+      "canonical_unit": "%",
+      "p10": 5,
+      "p90": 80,
+      "p5": 1,
+      "p95": 95,
+      "source": "Logan 2008 Eq 5; Pant 2010 Table 1"
+    },
+    {
+      "parameter_name": "cod removal",
+      "canonical_unit": "%",
+      "p10": 40,
+      "p90": 95,
+      "p5": 20,
+      "p95": 99,
+      "source": "Pant 2010; Santoro 2017"
+    },
+    {
+      "parameter_name": "voltage",
+      "canonical_unit": "V",
+      "p10": 0.1,
+      "p90": 0.8,
+      "p5": 0.05,
+      "p95": 1.1,
+      "source": "Logan 2008 Fig 3 (cell voltage under load)"
+    },
+    {
+      "parameter_name": "open circuit voltage",
+      "canonical_unit": "V",
+      "p10": 0.3,
+      "p90": 0.85,
+      "p5": 0.15,
+      "p95": 1.1,
+      "source": "Logan 2008 Table 1"
+    },
+    {
+      "parameter_name": "internal resistance",
+      "canonical_unit": "Ω",
+      "p10": 20,
+      "p90": 5000,
+      "p5": 5,
+      "p95": 20000,
+      "source": "Logan 2008; Fan 2008 (J Power Sources 171:348)"
+    },
+    {
+      "parameter_name": "external resistance",
+      "canonical_unit": "Ω",
+      "p10": 100,
+      "p90": 10000,
+      "p5": 50,
+      "p95": 100000,
+      "source": "Logan 2008 (typical operating load)"
+    },
+    {
+      "parameter_name": "ph",
+      "canonical_unit": "-",
+      "p10": 5.5,
+      "p90": 8.5,
+      "p5": 4.0,
+      "p95": 10.0,
+      "source": "Logan 2008; typical anolyte operating range"
+    },
+    {
+      "parameter_name": "temperature",
+      "canonical_unit": "°C",
+      "p10": 18,
+      "p90": 37,
+      "p5": 10,
+      "p95": 55,
+      "source": "Logan 2008; meso-to-thermophile operating span"
+    },
+    {
+      "parameter_name": "hydraulic retention time",
+      "canonical_unit": "h",
+      "p10": 1,
+      "p90": 96,
+      "p5": 0.5,
+      "p95": 240,
+      "source": "Pant 2010; Rozendal 2008"
+    },
+    {
+      "parameter_name": "cod concentration",
+      "canonical_unit": "mg/L",
+      "p10": 100,
+      "p90": 10000,
+      "p5": 30,
+      "p95": 50000,
+      "source": "Pant 2010 Table 2"
+    },
+    {
+      "parameter_name": "bod concentration",
+      "canonical_unit": "mg/L",
+      "p10": 50,
+      "p90": 5000,
+      "p5": 10,
+      "p95": 20000,
+      "source": "Pant 2010"
+    },
+    {
+      "parameter_name": "reactor volume",
+      "canonical_unit": "mL",
+      "p10": 10,
+      "p90": 2000,
+      "p5": 2,
+      "p95": 20000,
+      "source": "Lab-scale MFC/MEC literature (Santoro 2017)"
+    },
+    {
+      "parameter_name": "electrode surface area",
+      "canonical_unit": "cm²",
+      "p10": 1,
+      "p90": 200,
+      "p5": 0.5,
+      "p95": 1000,
+      "source": "Typical lab electrode footprints (Logan 2008)"
+    }
+  ]
+}

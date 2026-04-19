@@ -38,7 +38,11 @@
     "papers:status": "papers/.venv/bin/python scripts/papers/download_status.py",
     "papers:export-without-id": "bash scripts/papers/export_papers_without_id.sh",
     "papers:backfill-ids": "papers/.venv/bin/python scripts/papers/backfill_identifiers.py",
-    "papers:manifest-json": "papers/.venv/bin/python scripts/papers/build_papers_manifest.py"
+    "papers:manifest-json": "papers/.venv/bin/python scripts/papers/build_papers_manifest.py",
+    "papers:playwright-install": "papers/.venv/bin/pip install playwright playwright-stealth && papers/.venv/bin/python -m playwright install chromium",
+    "papers:download-playwright": "papers/.venv/bin/python scripts/papers/download_playwright.py",
+    "verify:tier1": "python3 scripts/verify/snippet_grounding.py && npx tsx scripts/verify/literature_crosscheck.ts && npx tsx scripts/verify/unit_audit.ts && npx tsx scripts/verify/outlier_report.ts && npx tsx scripts/verify/noise_floor.ts && npx tsx scripts/verify/duplicate_consistency.ts && npx tsx scripts/verify/tier1_rollup.ts",
+    "verify:test": "papers/.venv/bin/python -m pytest tests/test_snippet_grounding_negative.py -v"
   },
   "keywords": [
     "parameters",

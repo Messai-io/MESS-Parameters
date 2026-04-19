@@ -262,7 +262,66 @@ These dimensions may introduce confounding in cross-study analyses.
 
 ---
 
-## 7. Planned Improvements
+## 7. Verification Results (Tier 1, zero-LLM)
+
+Snapshot: 2026-04-19. Scripts in `scripts/verify/`, headline JSON at
+`data/verification/tier1-summary.json`.
+
+| Check | Value | Verdict |
+|---|---|---|
+| Snippet grounding (extracted value appears in quoted snippet ±1%) | 85.95% | FLAG (pass ≥ 92%, fail < 80%) |
+| Literature cross-check (15 headline parameters vs Logan/Rabaey/Santoro/Pant) | 12/15 in [p10,p90] | PASS |
+| Unit-family coverage (known-unit rows ÷ known-family rows) | 97.18% | PASS |
+| Duplicate-DOI consistency (same title, multiple DOIs, value agreement ±10%) | 97.37% (37/38) | PASS |
+| Noise-floor sensitivity (quarantine ≥50-obs papers, per-parameter median shift) | 96× max shift | FAIL |
+| **Overall** | — | **FLAG** |
+
+### Reading the flags
+
+- **Grounding 85.95% (FLAG):** 584 of 4,156 sources with snippets have a
+  value whose digits do not appear in the quoted sentence within ±1% (or
+  common unit-conversion factors). Candidates: snippet truncation,
+  unit-scale mismatches the tolerance list does not cover, and genuine
+  LLM hallucinations. Full failing-row CSV at
+  `data/verification/snippet-grounding-failures.csv`.
+
+- **Noise floor FAIL:** Ten papers (0.7% of the corpus) each emit more
+  than 50 observations, some with clearly nonsensical ontology rows
+  ("Dawn Duration", "Control Effectiveness"). Quarantining them moves
+  multiple per-parameter medians by >10×. The published rich.json stats
+  are therefore not robust against a handful of noisy extractions;
+  downstream consumers should prefer `stats_by_system` and filter to
+  `verified_mes = true` for critical decisions. Ranked shift list in
+  `data/verification/noise-floor.json`.
+
+- **Literature cross-check 12/15 PASS:** Two FLAGs are `power density`
+  (median 35.4 mW/m² vs expected p10=50 — plausibly real; many
+  sediment / early-MFC papers) and `ph` (median 4.0 vs p10=5.5 —
+  likely collision with acid-reactor parameters; needs per-system-type
+  disaggregation). No hard fails.
+
+See `data/verification/{outliers/index.html, literature-crosscheck.json,
+unit-audit-unknowns.csv}` for the per-item drill-downs.
+
+### Re-running
+
+```bash
+python3 scripts/verify/snippet_grounding.py
+npx tsx scripts/verify/literature_crosscheck.ts
+npx tsx scripts/verify/unit_audit.ts
+npx tsx scripts/verify/outlier_report.ts
+npx tsx scripts/verify/noise_floor.ts
+npx tsx scripts/verify/duplicate_consistency.ts
+npx tsx scripts/verify/tier1_rollup.ts
+```
+
+Verification-of-verification controls live in
+`tests/test_snippet_grounding_negative.py` (synthetic bad pairs; the
+grounder must flag 50/50) and are run under `pytest`.
+
+---
+
+## 8. Planned Improvements
 
 The following improvements are planned for future releases:
 

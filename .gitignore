@@ -15,3 +15,10 @@ coverage/
 # Managed by scripts/papers/; see docs/PAPERS_CORPUS.md.
 # Anchored to repo root so scripts/papers/ stays tracked.
 /papers/
+
+# Build / language caches
+*.tsbuildinfo
+__pycache__/
+
+# Local developer profile (per-machine model + prompt config)
+.ollama-profile

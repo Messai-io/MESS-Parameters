@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1.0",
+  "titles_with_multiple_dois": 17,
+  "duplicate_pairs_evaluated": 38,
+  "agreeing_pairs": 37,
+  "disagreeing_pairs": 1,
+  "agreement_rate": 0.9737,
+  "relative_tolerance": 0.1,
+  "pass_threshold": 0.85,
+  "fail_threshold": 0.7,
+  "verdict": "PASS",
+  "examples": [
+    {
+      "title": "investigatingtheeffectsoffluidicconnectionbetweenmicrobialfuelcells",
+      "param": "voltage",
+      "values": [
+        {
+          "doi": "",
+          "median": 0.18
+        },
+        {
+          "doi": "10.1007/s00449-010-0491-x",
+          "median": 2.25
+        }
+      ]
+    }
+  ]
+}
