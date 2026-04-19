@@ -1,7 +1,9 @@
-import type { ProvEntry } from './provenance';
+import type { ProvEntry, ProvSource } from './provenance';
 
-// Student's t-distribution two-tailed p-value — mirrors scripts/build-provenance.ts
-// (Lanczos lgamma + regularized incomplete beta). Matches Python impl to 1e-10.
+// ─────────────────────────────────────────────────────────────────────
+// Student's t two-tailed p-value (Lanczos lgamma + regularized
+// incomplete beta). Mirrors scripts/build-provenance.ts → 1e-10.
+// ─────────────────────────────────────────────────────────────────────
 
 function lgamma(x: number): number {
   const g = 7;
@@ -71,6 +73,10 @@ export function studentsTTwoTailP(r: number, n: number): number {
   return betainc(df / 2, 0.5, df / (df + t * t));
 }
 
+// ─────────────────────────────────────────────────────────────────────
+// Unweighted Pearson / Spearman (kept for tests + legacy callers).
+// ─────────────────────────────────────────────────────────────────────
+
 export function pearson(xs: number[], ys: number[]): number | null {
   if (xs.length !== ys.length || xs.length < 3) return null;
   const n = xs.length;
@@ -109,52 +115,146 @@ export function spearman(xs: number[], ys: number[]): number | null {
   return pearson(averageRanks(xs), averageRanks(ys));
 }
 
+// ─────────────────────────────────────────────────────────────────────
+// Weighted variants. Weights reflect paper quality (reproducibility).
+// ─────────────────────────────────────────────────────────────────────
+
+export function weightedPearson(xs: number[], ys: number[], ws: number[]): number | null {
+  if (xs.length !== ys.length || xs.length !== ws.length || xs.length < 3) return null;
+  const sw = ws.reduce((s, w) => s + w, 0);
+  if (sw <= 0) return null;
+  let mx = 0, my = 0;
+  for (let i = 0; i < xs.length; i++) { mx += ws[i] * xs[i]; my += ws[i] * ys[i]; }
+  mx /= sw;
+  my /= sw;
+  let num = 0, dx = 0, dy = 0;
+  for (let i = 0; i < xs.length; i++) {
+    const ax = xs[i] - mx, ay = ys[i] - my;
+    num += ws[i] * ax * ay;
+    dx += ws[i] * ax * ax;
+    dy += ws[i] * ay * ay;
+  }
+  if (dx === 0 || dy === 0) return null;
+  return num / Math.sqrt(dx * dy);
+}
+
+export function weightedSpearman(xs: number[], ys: number[], ws: number[]): number | null {
+  if (xs.length !== ys.length || xs.length < 3) return null;
+  return weightedPearson(averageRanks(xs), averageRanks(ys), ws);
+}
+
+// Kish's effective sample size — under weighting, the power to reject H₀
+// is set by (Σw)²/Σw² rather than raw n. Fractional; round for use with
+// Student's t (which takes integer df).
+export function effectiveSampleSize(ws: number[]): number {
+  const sw = ws.reduce((s, w) => s + w, 0);
+  const sw2 = ws.reduce((s, w) => s + w * w, 0);
+  return sw2 > 0 ? (sw * sw) / sw2 : 0;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Benjamini-Hochberg FDR adjustment. Returns per-test adjusted p-values
+// such that p_adj_i ≤ q implies FDR ≤ q (under independence).
+// ─────────────────────────────────────────────────────────────────────
+
+export function bhAdjustPValues(pvals: number[]): number[] {
+  const m = pvals.length;
+  if (m === 0) return [];
+  const indexed = pvals
+    .map((p, i) => ({ p: Number.isFinite(p) ? p : 1, i }))
+    .sort((a, b) => a.p - b.p);
+  const adjusted = new Array<number>(m);
+  let runningMin = 1;
+  for (let k = m - 1; k >= 0; k--) {
+    const { p, i } = indexed[k];
+    const candidate = Math.min(1, (p * m) / (k + 1));
+    runningMin = Math.min(runningMin, candidate);
+    adjusted[i] = runningMin;
+  }
+  return adjusted;
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// System-type whitelist. Upstream extractors occasionally leak journal
+// names, years, or quoted titles into this field; collapse everything
+// unfamiliar to UNSPECIFIED so downstream aggregates aren't polluted.
+// ─────────────────────────────────────────────────────────────────────
+
+const CANONICAL_SYSTEMS = new Set(['MFC', 'MEC', 'MDC', 'MES', 'BES', 'SMFC']);
+
+export function normalizeSystemType(raw: string | null | undefined): string {
+  const s = (raw ?? '').trim();
+  const upper = s.toUpperCase();
+  if (CANONICAL_SYSTEMS.has(upper)) return upper;
+  if (/microbial\s+fuel\s+cell/i.test(s)) return /sediment/i.test(s) ? 'SMFC' : 'MFC';
+  if (/microbial\s+electrolysis\s+cell/i.test(s)) return 'MEC';
+  if (/microbial\s+desalination\s+cell/i.test(s)) return 'MDC';
+  if (/microbial\s+electrochemical\s+system/i.test(s)) return 'MES';
+  if (/bioelectrochemical\s+system/i.test(s)) return 'BES';
+  return 'UNSPECIFIED';
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Per-source weighting. reproducibility_score (0..1) is the 26-criterion
+// rubric output; fall back to 0.5 (neutral) when the paper wasn't scored.
+// Floored at 0.1 so unscored papers still contribute some signal.
+// ─────────────────────────────────────────────────────────────────────
+
+export function sourceWeight(s: ProvSource): number {
+  const r = s.reproducibility_score;
+  const base = r != null && Number.isFinite(r) ? r : 0.5;
+  return Math.max(0.1, base);
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// Pairwise correlation computation with weighting + log + BH.
+// ─────────────────────────────────────────────────────────────────────
+
 export interface ComputedPair {
   a_id: string;
   a_name: string;
   b_id: string;
   b_name: string;
-  pearson_r: number;
-  spearman_rho: number | null;
-  n: number;
-  p_raw: number;
-  p_corrected: number;
-  significant: boolean;
+  pearson_r: number;          // weighted Pearson on raw values
+  pearson_r_log: number | null; // weighted Pearson on log10(values) — null if any value ≤ 0
+  spearman_rho: number | null;  // weighted Spearman (rank-based, log-invariant)
+  n: number;                    // raw sample count (shared papers)
+  n_eff: number;                // Kish effective sample size under weighting
+  p_raw: number;                // uncorrected two-tailed p on weighted r at n_eff
+  p_corrected: number;          // BH-FDR adjusted p across the family
+  significant: boolean;         // p_corrected < 0.05 (q<0.05)
 }
 
-// Build a DOI → value map per parameter (first occurrence wins, ties by higher confidence).
+interface JoinRow {
+  value: number;
+  weight: number;
+  confidence: number;
+}
+
 function indexSourcesByDoi(
   entry: ProvEntry,
   systemType: string | null,
-): Map<string, number> {
-  const map = new Map<string, { value: number; confidence: number }>();
+): Map<string, JoinRow> {
+  const map = new Map<string, JoinRow>();
   for (const s of entry.sources) {
     if (!s.doi) continue;
-    if (systemType && s.system_type !== systemType) continue;
+    if (systemType && normalizeSystemType(s.system_type) !== systemType) continue;
     if (!Number.isFinite(s.value)) continue;
+    const w = sourceWeight(s);
     const existing = map.get(s.doi);
     if (!existing || s.confidence > existing.confidence) {
-      map.set(s.doi, { value: s.value, confidence: s.confidence });
+      map.set(s.doi, { value: s.value, weight: w, confidence: s.confidence });
     }
   }
-  const out = new Map<string, number>();
-  for (const [doi, v] of map) out.set(doi, v.value);
-  return out;
+  return map;
 }
 
-/**
- * Recompute all pairwise correlations for a given system-type subset.
- *
- * Joins parameter sources by DOI, filters by system_type when provided,
- * then runs Pearson + Spearman + Bonferroni-corrected p-values on pairs
- * meeting the minimum-n threshold.
- */
 export function computePairs(
   entries: ProvEntry[],
   systemType: string | null,
   minN: number,
-): { pairs: ComputedPair[]; alpha: number } {
-  const doiMaps: Array<{ entry: ProvEntry; dois: Map<string, number> }> = [];
+): { pairs: ComputedPair[]; nTests: number } {
+  const doiMaps: Array<{ entry: ProvEntry; dois: Map<string, JoinRow> }> = [];
   for (const entry of entries) {
     const dois = indexSourcesByDoi(entry, systemType);
     if (dois.size >= 3) doiMaps.push({ entry, dois });
@@ -166,22 +266,32 @@ export function computePairs(
     const a = doiMaps[i];
     for (let j = i + 1; j < doiMaps.length; j++) {
       const b = doiMaps[j];
-      const shared: string[] = [];
       const small = a.dois.size < b.dois.size ? a.dois : b.dois;
       const big = small === a.dois ? b.dois : a.dois;
-      for (const doi of small.keys()) if (big.has(doi)) shared.push(doi);
-      if (shared.length < minN) continue;
-
       const xs: number[] = [];
       const ys: number[] = [];
-      for (const doi of shared) {
-        xs.push(a.dois.get(doi)!);
-        ys.push(b.dois.get(doi)!);
+      const ws: number[] = [];
+      for (const [doi, row] of small) {
+        const other = big.get(doi);
+        if (!other) continue;
+        const aRow = small === a.dois ? row : other;
+        const bRow = small === a.dois ? other : row;
+        xs.push(aRow.value);
+        ys.push(bRow.value);
+        ws.push(Math.sqrt(aRow.weight * bRow.weight));
       }
-      const r = pearson(xs, ys);
+      if (xs.length < minN) continue;
+
+      const r = weightedPearson(xs, ys, ws);
       if (r === null) continue;
-      const rho = spearman(xs, ys);
-      const p = studentsTTwoTailP(r, xs.length);
+      const rho = weightedSpearman(xs, ys, ws);
+      const allPositive = xs.every((v) => v > 0) && ys.every((v) => v > 0);
+      const rLog = allPositive
+        ? weightedPearson(xs.map((v) => Math.log10(v)), ys.map((v) => Math.log10(v)), ws)
+        : null;
+      const nEff = effectiveSampleSize(ws);
+      const nForP = Math.max(3, Math.round(nEff));
+      const p = studentsTTwoTailP(r, nForP);
 
       rawPairs.push({
         a_id: a.entry.id,
@@ -189,21 +299,21 @@ export function computePairs(
         b_id: b.entry.id,
         b_name: b.entry.name,
         pearson_r: r,
+        pearson_r_log: rLog,
         spearman_rho: rho,
         n: xs.length,
+        n_eff: nEff,
         p_raw: p,
       });
     }
   }
 
-  const total = Math.max(1, rawPairs.length);
-  const alpha = 0.05 / total;
-
-  const pairs: ComputedPair[] = rawPairs.map((p) => {
-    const p_corrected = Math.min(1, p.p_raw * total);
-    return { ...p, p_corrected, significant: p.p_raw < alpha };
-  });
-
+  const adjusted = bhAdjustPValues(rawPairs.map((p) => p.p_raw));
+  const pairs: ComputedPair[] = rawPairs.map((p, i) => ({
+    ...p,
+    p_corrected: adjusted[i],
+    significant: adjusted[i] < 0.05,
+  }));
   pairs.sort((x, y) => Math.abs(y.pearson_r) - Math.abs(x.pearson_r));
-  return { pairs, alpha };
+  return { pairs, nTests: pairs.length };
 }
