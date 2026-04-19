@@ -45,12 +45,14 @@ scripts/
 site/                              ← Vite + React SPA. Hash routing. Tailwind. Recharts.
   src/components/parameters/       ← Catalog, detail page, provenance UI.
   src/components/correlations/     ← Parameter-metric + parameter-pair views.
-  src/data/loader.ts               ← Synchronous access to rich.json + index.
+  src/data/loader.ts               ← Synchronous access to rich.json + index. Exports fmtNum/fmtPct/fmtFixed.
   src/data/provenance.ts           ← Lazy (dynamic import) sidecar loader.
   src/lib/doi.ts                   ← DOI/URL linkifier for citation strings.
+  (full guide: docs/EXPLORER.md — routes, data wiring, flexible-type pattern)
 
 docs/
   consumer-contract.md             ← The contract. Required reading before schema edits.
+  EXPLORER.md                      ← Parameter Explorer site: run, routes, data wiring.
   AGENTS.md                        ← This file.
   PAPERS_CORPUS.md                 ← Upstream PDF corpus pipeline (scripts/papers/).
 ```

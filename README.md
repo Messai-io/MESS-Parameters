@@ -121,7 +121,7 @@ MESS-Parameters/
     enrich-parameters.ts           # Add references/dependencies
     export-*.ts                    # Database export scripts
 
-  site/                            # Parameter Explorer (React + Vite)
+  site/                            # Parameter Explorer (React + Vite) — see docs/EXPLORER.md
 ```
 
 ## Corpus Statistics
