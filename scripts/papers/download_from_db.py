@@ -240,10 +240,10 @@ def _validate_pdf(path: Path) -> bool:
 # Providers — each returns a downloaded-file Path or None
 # ═════════════════════════════════════════════════════════════════════
 
-def _try_url(url: str, paper_id: str, provider: str) -> Path | None:
+def _try_url(url: str, paper_id: str, provider: str, referer: str | None = None) -> Path | None:
     if not url or not url.startswith(("http://", "https://")):
         return None
-    r = _http_get(url, provider=provider, stream=True)
+    r = _http_get(url, provider=provider, stream=True, referer=referer)
     if r is None or r.status_code != 200:
         return None
     if not _is_pdf_response(r):
@@ -277,29 +277,56 @@ def prov_external_url(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]
     return None, None
 
 
-def prov_mdpi(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
-    """MDPI is 100% open-access but their CDN (Akamai) 403s plain-Python
-    requests. `_http_get` already falls back to curl_cffi on 403; this
-    provider just constructs the PDF URL from the DOI.
+_CITATION_PDF_META_RE = re.compile(
+    r'<meta\s+[^>]*name=["\']citation_pdf_url["\'][^>]*content=["\']([^"\']+)',
+    re.IGNORECASE,
+)
+_ALT_PDF_LINK_RE = re.compile(
+    r'<link\s+[^>]*rel=["\']alternate["\'][^>]*type=["\']application/pdf["\'][^>]*href=["\']([^"\']+)',
+    re.IGNORECASE,
+)
 
-    MDPI DOI pattern: 10.3390/<journal>{volume}{issue}{article}
-    Landing URL: https://www.mdpi.com/<issn>/<vol>/<iss>/<art> (from DOI
-    resolution). PDF URL: append /pdf to the landing URL."""
+
+def prov_citation_meta(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
+    """Universal landing-page → PDF provider. Works for any publisher that
+    emits the Highwire Press `<meta name="citation_pdf_url">` tag — which
+    is most of them (MDPI, Frontiers, Wiley, Springer, Elsevier, ACS, RSC,
+    Sage, Taylor & Francis, IOP, PMC, BMC, PLoS, …) because Google Scholar
+    mandates it for indexing.
+
+    We rely on `_http_get`'s transparent curl_cffi fallback for the landing
+    page (Akamai/Cloudflare block plain Python TLS fingerprints); most
+    `citation_pdf_url` values are on the same domain as the landing page,
+    so the same TLS-impersonation cookies carry over.
+
+    Returns None for papers where the landing page is paywalled or the
+    meta tag is absent.
+    """
     doi = (paper.get("doi") or "").strip()
-    if not doi.startswith("10.3390/"):
+    if not doi:
         return None, None
-    # Resolve DOI once to get the canonical MDPI landing URL, then fetch /pdf.
     try:
-        r = _http_get(f"https://doi.org/{doi}", provider="mdpi")
+        r = _http_get(f"https://doi.org/{doi}", provider="citation_meta")
     except Exception:
         return None, None
     if r is None or r.status_code != 200:
         return None, None
-    landing = getattr(r, "url", "") or ""
-    if "mdpi.com" not in landing:
+    try:
+        html = r.content.decode("utf-8", errors="replace") if hasattr(r, "content") else r.text
+    except Exception:
         return None, None
-    pdf_url = landing.rstrip("/") + "/pdf"
-    return _try_url(pdf_url, paper["id"], "mdpi"), pdf_url
+    # Prefer the Highwire meta tag; fall back to rel=alternate.
+    m = _CITATION_PDF_META_RE.search(html)
+    if not m:
+        m = _ALT_PDF_LINK_RE.search(html)
+    if not m:
+        return None, None
+    pdf_url = m.group(1)
+    # Resolve relative URLs against the landing page.
+    if pdf_url.startswith("/"):
+        from urllib.parse import urljoin
+        pdf_url = urljoin(r.url, pdf_url)
+    return _try_url(pdf_url, paper["id"], "citation_meta", referer=r.url), pdf_url
 
 
 def prov_unpaywall(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
@@ -418,16 +445,16 @@ def prov_crossref(paper: dict, _ctx: dict) -> tuple[Path | None, str | None]:
 
 
 PROVIDERS = [
-    ("mdpi",            prov_mdpi),          # OA but Akamai-protected; curl_cffi fallback
     ("externalUrl",     prov_external_url),
     ("unpaywall",       prov_unpaywall),
     ("semanticscholar", prov_semanticscholar),
+    ("citation_meta",   prov_citation_meta),  # DOI landing → Highwire citation_pdf_url meta tag (universal)
     ("arxiv",           prov_arxiv),
     ("biorxiv",         prov_biorxiv),
     ("pmc",             prov_pmc),
     ("crossref",        prov_crossref),
 ]
-PROVIDER_RPS.setdefault("mdpi", 1.0)  # throttle MDPI to 1 rps to stay polite
+PROVIDER_RPS.setdefault("citation_meta", 1.0)  # throttle landing-page hits to 1 rps
 
 # ═════════════════════════════════════════════════════════════════════
 # Main
