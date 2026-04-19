@@ -114,6 +114,20 @@ function main() {
   const richData = JSON.parse(richJson);
   console.log(`  ${richData.length} parameters exported`);
 
+  // Tag each parameter with whether it has a provenance sidecar entry.
+  // Consumer UIs use this as a fast pre-filter; the sidecar fetch is the contract.
+  const provenancePath = path.join(DATA_DIR, 'parameter-provenance.json');
+  if (fs.existsSync(provenancePath)) {
+    const provenance = JSON.parse(fs.readFileSync(provenancePath, 'utf-8'));
+    const provIds = new Set((provenance.parameters || []).map(p => p.id));
+    for (const p of richData) {
+      p.has_provenance = provIds.has(p.id);
+    }
+    fs.writeFileSync(richPath, JSON.stringify(richData) + '\n', 'utf-8');
+    const flagged = richData.filter(p => p.has_provenance).length;
+    console.log(`  has_provenance set on ${flagged}/${richData.length} parameters`);
+  }
+
   // ── Step 2: Rebuild index.json ──
   step(2, 'Rebuilding parameters/index.json...');
   const indexData = buildIndexJson(richData);
