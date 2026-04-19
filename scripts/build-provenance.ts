@@ -26,15 +26,33 @@ const RICH_PATH = path.join(DATA_DIR, 'parameter-definitions-rich.json');
 const PPV_PATH = path.join(DATA_DIR, 'paper-parameter-values.csv');
 const LOCAL_PATH = path.join(DATA_DIR, 'local-corpus-values.csv');
 const PM_PATH = path.join(DATA_DIR, 'paper-metadata.csv');
+const BLOCKLIST_PATH = path.join(DATA_DIR, 'ontology-blocklist.txt');
 const OUT_PATH = path.join(DATA_DIR, 'parameter-provenance.json');
 
 const SCHEMA_VERSION = '0.1.0';
 const MIN_CONFIDENCE = 0.3;
 const MIN_SYSTEM_N = 10;
+const MIN_PAPERS_FOR_STATS = 5;   // parameters with < N distinct papers get null stats_global
 const SOURCES_CAP = 200;
 const HIST_BINS = 20;
 const CORR_MIN_N = 30;
 const TOP_CORR_PER_PARAM = 10;
+
+// ─── Ontology blocklist ────────────────────────────────────────────────
+// Parameter names appearing in data/parameter-definitions-rich.json but
+// not representing MES performance measurements (photobiology, sample
+// prep, generic). Rows matching these names are dropped in Tier A.
+function loadBlocklist(): Set<string> {
+  if (!fs.existsSync(BLOCKLIST_PATH)) return new Set();
+  const out = new Set<string>();
+  for (const raw of fs.readFileSync(BLOCKLIST_PATH, 'utf8').split('\n')) {
+    const line = raw.trim();
+    if (!line || line.startsWith('#')) continue;
+    out.add(line.toLowerCase());
+  }
+  return out;
+}
+const BLOCKLIST = loadBlocklist();
 
 // ═══════════════════════════════════════════════════════════════════════
 // RFC-4180 CSV parser — handles quoted fields with embedded commas/quotes
@@ -588,12 +606,13 @@ function main(): void {
     if (rec.title) pmByTitle.set(rec.title, rec);
   }
 
-  console.log('[3/5] Grouping rows by parameter (with sanity + unit normalization)...');
+  console.log('[3/5] Grouping rows by parameter (with blocklist + sanity + unit normalization)...');
   const byParam = new Map<string, PpvRow[]>();
   let skippedLowConf = 0;
   let skippedNonNumeric = 0;
   let skippedNoMatch = 0;
   let skippedSanity = 0;
+  let skippedBlocklist = 0;
   let unitsNormalized = 0;
 
   for (const row of ppv.rows) {
@@ -603,6 +622,13 @@ function main(): void {
     if (conf == null || conf < MIN_CONFIDENCE) { skippedLowConf++; continue; }
     const num = toNumOrNull(rec.numeric_value);
     if (num == null) { skippedNonNumeric++; continue; }
+    // Tier A: ontology blocklist. Parameters hand-curated as non-MES
+    // (e.g. Blue Light Ratio, Centrifugal Acceleration) are dropped
+    // before aggregation. Raw rows remain in the CSV for audit.
+    if (BLOCKLIST.has(rec.parameter_name.trim().toLowerCase())) {
+      skippedBlocklist++;
+      continue;
+    }
     const r = rNameMap.get(rec.parameter_name.toLowerCase());
     if (!r) { skippedNoMatch++; continue; }
 
@@ -650,6 +676,7 @@ function main(): void {
   console.log(`  kept: ${[...byParam.values()].reduce((s, a) => s + a.length, 0)} rows across ${byParam.size} parameters`);
   console.log(`  skipped (low confidence): ${skippedLowConf}`);
   console.log(`  skipped (non-numeric):    ${skippedNonNumeric}`);
+  console.log(`  skipped (ontology blocklist): ${skippedBlocklist}`);
   console.log(`  skipped (no ontology match): ${skippedNoMatch}`);
   console.log(`  skipped (sanity clamp):  ${skippedSanity}`);
   console.log(`  unit-normalized:         ${unitsNormalized}`);
@@ -737,6 +764,11 @@ function main(): void {
       paperParamMap.set(paperKey, paramMap);
     }
 
+    // Parameters with too few distinct papers suppress aggregate stats
+    // (the sources list is retained so consumers can still show raw
+    // rows, but per-parameter distributions are not statistically
+    // meaningful at n < MIN_PAPERS_FOR_STATS).
+    const enoughEvidence = uniquePapers.size >= MIN_PAPERS_FOR_STATS;
     entries.push({
       id: paramId,
       name: richEntry?.name ?? '',
@@ -744,9 +776,9 @@ function main(): void {
       n_values: rows.length,
       n_verified: verifiedPapers.size,
       mean_confidence: round(meanConf, 3),
-      stats_global: computeStats(values),
-      stats_by_system: bySys,
-      distribution: computeHistogram(values, HIST_BINS),
+      stats_global: enoughEvidence ? computeStats(values) : null,
+      stats_by_system: enoughEvidence ? bySys : {},
+      distribution: enoughEvidence ? computeHistogram(values, HIST_BINS) : { bins: [], counts: [] },
       sources: dedupedSources,
       correlations: [], // filled in step 5
     });

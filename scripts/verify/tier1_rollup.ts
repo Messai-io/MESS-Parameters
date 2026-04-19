@@ -40,6 +40,7 @@ function main() {
   const unit = readJson(path.join(V_DIR, 'unit-audit.json'));
   const noise = readJson(path.join(V_DIR, 'noise-floor.json'));
   const dups = readJson(path.join(V_DIR, 'duplicate-consistency.json'));
+  const gate = readJson(path.join(V_DIR, 'ontology-gate.json'));
 
   const missing: string[] = [];
   if (!grounding) missing.push('snippet-grounding.json');
@@ -97,6 +98,11 @@ function main() {
       noise_floor: noise.verdict,
       duplicate_consistency: dups.verdict,
     },
+    ontology_gate: gate ? {
+      blocklist_size: gate.blocklist_size,
+      rows_dropped: gate.total_rows_raw - gate.total_rows_post_blocklist,
+      drop_rate: gate.blocklist_drop_rate,
+    } : null,
   };
 
   fs.writeFileSync(OUT, JSON.stringify(summary, null, 2) + '\n');

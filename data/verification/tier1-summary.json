@@ -1,13 +1,13 @@
 {
   "schema_version": "0.1.0",
   "corpus_snapshot_date": "2026-04-19",
-  "corpus_source_count": 6729,
-  "grounding_rate": 0.8595,
+  "corpus_source_count": 6118,
+  "grounding_rate": 0.8592,
   "literature_pass_count": "12/15",
   "unit_coverage": 0.9718,
-  "duplicate_agreement": 0.9737,
-  "noisy_paper_count": 10,
-  "median_shift_after_quarantine": 96,
+  "duplicate_agreement": 0.9583,
+  "noisy_paper_count": 9,
+  "median_shift_after_quarantine": 12.8313,
   "overall_verdict": "FLAG",
   "sub_verdicts": {
     "snippet_grounding": "FLAG",
@@ -15,5 +15,10 @@
     "unit_audit": "PASS",
     "noise_floor": "FAIL",
     "duplicate_consistency": "PASS"
+  },
+  "ontology_gate": {
+    "blocklist_size": 25,
+    "rows_dropped": 3990,
+    "drop_rate": 0.1274
   }
 }

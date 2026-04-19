@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "total_rows": 31311,
+  "total_rows": 27321,
   "rows_with_known_family": 4956,
   "rows_with_known_unit": 4816,
   "rows_with_unknown_unit": 140,

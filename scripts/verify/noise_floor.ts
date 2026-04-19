@@ -20,11 +20,13 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { SANITY_RANGES, passesSanity } from './unit_families';
+import { loadBlocklist, isBlocklisted } from './ontology_gate';
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const PPV = path.join(ROOT, 'data', 'paper-parameter-values.csv');
 const LOCAL = path.join(ROOT, 'data', 'local-corpus-values.csv');
 const OUT = path.join(ROOT, 'data', 'verification', 'noise-floor.json');
+const BLOCK = loadBlocklist();
 
 const NOISY_THRESHOLD = 50;
 const MIN_N = 30;
@@ -82,6 +84,7 @@ function main() {
       if (Number.isFinite(conf) && conf < 0.3) continue;
       const param = (r[iParam] || '').trim();
       if (!param) continue;
+      if (isBlocklisted(param, BLOCK)) continue;
       if (!passesSanity(param, v).ok) continue;
       all.push({ doi: (r[iDoi] || '').trim(), param, value: v });
     }

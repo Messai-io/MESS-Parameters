@@ -1,0 +1,234 @@
+{
+  "schema_version": "0.1.0",
+  "blocklist_path": "data/ontology-blocklist.txt",
+  "blocklist_size": 25,
+  "total_rows_raw": 31311,
+  "total_rows_post_blocklist": 27321,
+  "total_rows_post_verified_mes": 7078,
+  "total_rows_post_both": 7040,
+  "blocklist_drop_rate": 0.1274,
+  "verified_drop_rate": 0.7739,
+  "combined_retention_rate": 0.2248,
+  "top_blocked_params": [
+    {
+      "parameter": "Blue Light Ratio",
+      "raw_rows": 1719
+    },
+    {
+      "parameter": "Vibration Amplitude",
+      "raw_rows": 449
+    },
+    {
+      "parameter": "Centrifugal Acceleration",
+      "raw_rows": 411
+    },
+    {
+      "parameter": "Light Wavelength",
+      "raw_rows": 396
+    },
+    {
+      "parameter": "Dawn Duration",
+      "raw_rows": 272
+    },
+    {
+      "parameter": "Dark Duration",
+      "raw_rows": 238
+    },
+    {
+      "parameter": "Chemical Stability",
+      "raw_rows": 172
+    },
+    {
+      "parameter": "Startup Time",
+      "raw_rows": 78
+    },
+    {
+      "parameter": "Total System Weight",
+      "raw_rows": 70
+    },
+    {
+      "parameter": "Ambient CO₂ Concentration",
+      "raw_rows": 64
+    },
+    {
+      "parameter": "Photoperiod",
+      "raw_rows": 63
+    },
+    {
+      "parameter": "Control Effectiveness",
+      "raw_rows": 36
+    },
+    {
+      "parameter": "Sound Intensity",
+      "raw_rows": 5
+    },
+    {
+      "parameter": "Copy Number",
+      "raw_rows": 5
+    },
+    {
+      "parameter": "Chemical Resistance",
+      "raw_rows": 5
+    },
+    {
+      "parameter": "ATP Concentration",
+      "raw_rows": 4
+    },
+    {
+      "parameter": "Vibration Frequency",
+      "raw_rows": 3
+    }
+  ],
+  "top_low_verified_ratio_params": [
+    {
+      "parameter": "Absolute Pressure",
+      "raw_rows": 7,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Air Flow Rate",
+      "raw_rows": 20,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Ambient CO₂ Concentration",
+      "raw_rows": 64,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Dew Point",
+      "raw_rows": 5,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Diurnal Temperature Range",
+      "raw_rows": 24,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Electromagnetic Frequency",
+      "raw_rows": 6,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Green Light Ratio",
+      "raw_rows": 17,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Hydrostatic Pressure",
+      "raw_rows": 35,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Light Intensity",
+      "raw_rows": 4,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Light Intensity Lux",
+      "raw_rows": 10,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Magnetic Field Frequency",
+      "raw_rows": 32,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Magnetic Field Strength",
+      "raw_rows": 9,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Oxygen Concentration",
+      "raw_rows": 9,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Relative Humidity",
+      "raw_rows": 29,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Shear Stress",
+      "raw_rows": 18,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Sound Intensity",
+      "raw_rows": 5,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Temperature Ramp Rate",
+      "raw_rows": 1,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Total Solar Irradiance",
+      "raw_rows": 12,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Ultrasound Frequency",
+      "raw_rows": 71,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "ATP Concentration",
+      "raw_rows": 4,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Biofilm Adhesion Strength",
+      "raw_rows": 1,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Biofilm Coverage",
+      "raw_rows": 10,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Biofilm Porosity",
+      "raw_rows": 18,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "C/N Ratio",
+      "raw_rows": 199,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    },
+    {
+      "parameter": "Cell Doubling Time",
+      "raw_rows": 26,
+      "verified_rows": 0,
+      "verified_ratio": 0
+    }
+  ]
+}

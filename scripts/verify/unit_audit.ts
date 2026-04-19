@@ -19,6 +19,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { UNIT_NORMALIZATIONS } from './unit_families';
+import { loadBlocklist, isBlocklisted } from './ontology_gate';
+const BLOCK = loadBlocklist();
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const PPV = path.join(ROOT, 'data', 'paper-parameter-values.csv');
@@ -69,6 +71,7 @@ function main() {
       const param = (r[idxParam] || '').trim();
       const unit = (r[idxUnit] || '').trim();
       if (!param) continue;
+      if (isBlocklisted(param, BLOCK)) continue;
       all.push({ param, unit });
     }
   }

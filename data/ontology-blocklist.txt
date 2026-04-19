@@ -1,0 +1,53 @@
+# Ontology blocklist — parameters excluded from published aggregates.
+#
+# These names appear in `data/parameter-definitions-rich.json` (the broad
+# 687-entry ontology) but are not MES performance parameters: they either
+# belong to adjacent fields (photobiology, sample prep, mechanical) or are
+# extractor artifacts where the LLM tagged a generic word with a
+# parameter name.
+#
+# Keeping these rows in the raw CSV (the `is_mes_core=false` column on
+# local-corpus-values.csv) preserves audit, but build-provenance.ts
+# skips them for stats_global / stats_by_system.
+#
+# Rule of thumb for adding here: if the parameter can never be the
+# primary measured output of an MFC/MEC/MDC/MES experiment, block it.
+# If it's occasionally relevant (e.g., Temperature, pH) but often
+# spurious, do NOT block — those are cleaned by sanity ranges and the
+# verified_mes filter instead.
+#
+# One name per line, case-insensitive match. Lines starting with `#` are
+# comments.
+
+# Photobiology / light (contaminate from photosynthesis papers)
+Blue Light Ratio
+Light Wavelength
+Dark Duration
+Dawn Duration
+Dusk Duration
+Light Duration
+Light Intensity Ratio
+Photoperiod
+
+# Mechanical / sample prep (contaminate from biology method sections)
+Vibration Amplitude
+Vibration Frequency
+Centrifugal Acceleration
+Centrifugation Speed
+Sound Intensity
+Sonication Power
+
+# Molecular biology (contaminate from cell biology papers)
+ATP Concentration
+Copy Number
+Gene Expression Level
+mRNA Level
+
+# Generic / too broad to stratify meaningfully
+Ambient CO₂ Concentration
+Ambient CO2 Concentration
+Control Effectiveness
+Chemical Resistance
+Chemical Stability
+Total System Weight
+Startup Time

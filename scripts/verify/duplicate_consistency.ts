@@ -24,6 +24,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { passesSanity } from './unit_families';
+import { loadBlocklist, isBlocklisted } from './ontology_gate';
+const BLOCK = loadBlocklist();
 
 const ROOT = path.resolve(__dirname, '..', '..');
 const PPV = path.join(ROOT, 'data', 'paper-parameter-values.csv');
@@ -92,6 +94,7 @@ function main() {
       const title = normTitle(r[iTitle] || '');
       const doi = (r[iDoi] || '').trim().toLowerCase();
       if (!param || !title || title.length < MIN_TITLE_LEN) continue;
+      if (isBlocklisted(param, BLOCK)) continue;
       if (!passesSanity(param, v).ok) continue;
       all.push({ title, doi, param, value: v });
     }

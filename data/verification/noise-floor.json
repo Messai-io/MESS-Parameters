@@ -2,44 +2,17 @@
   "schema_version": "0.1.0",
   "noisy_threshold_obs_per_paper": 50,
   "min_n_for_eval": 30,
-  "total_papers": 1462,
-  "noisy_papers": 10,
-  "noisy_paper_share": 0.0068,
-  "parameters_evaluated": 101,
-  "parameters_emptied_by_quarantine": 14,
-  "median_shift_max": 96,
-  "median_shift_p50": 0.3684,
+  "total_papers": 1452,
+  "noisy_papers": 9,
+  "noisy_paper_share": 0.0062,
+  "parameters_evaluated": 89,
+  "parameters_emptied_by_quarantine": 13,
+  "median_shift_max": 12.8313,
+  "median_shift_p50": 0.3333,
   "pass_threshold": 0.15,
   "fail_threshold": 0.3,
   "verdict": "FAIL",
   "shifts": [
-    {
-      "parameter_name": "Control Effectiveness",
-      "n_before": 36,
-      "n_after": 1,
-      "median_before": 1,
-      "median_after": 97,
-      "relative_shift": 96,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Total System Weight",
-      "n_before": 70,
-      "n_after": 1,
-      "median_before": 30,
-      "median_after": 800,
-      "relative_shift": 25.6667,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Startup Time",
-      "n_before": 78,
-      "n_after": 2,
-      "median_before": 5,
-      "median_after": 73.5,
-      "relative_shift": 13.7,
-      "emptied_by_quarantine": false
-    },
     {
       "parameter_name": "Total Dissolved Solids",
       "n_before": 35,
@@ -56,24 +29,6 @@
       "median_before": 10,
       "median_after": 100,
       "relative_shift": 9,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Chemical Stability",
-      "n_before": 172,
-      "n_after": 3,
-      "median_before": 10,
-      "median_after": 72,
-      "relative_shift": 6.2,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Dawn Duration",
-      "n_before": 272,
-      "n_after": 1,
-      "median_before": 5,
-      "median_after": 35,
-      "relative_shift": 6,
       "emptied_by_quarantine": false
     },
     {
@@ -248,15 +203,6 @@
       "emptied_by_quarantine": false
     },
     {
-      "parameter_name": "Vibration Amplitude",
-      "n_before": 449,
-      "n_after": 4,
-      "median_before": 20,
-      "median_after": 7,
-      "relative_shift": 0.65,
-      "emptied_by_quarantine": false
-    },
-    {
       "parameter_name": "volume",
       "n_before": 524,
       "n_after": 312,
@@ -338,15 +284,6 @@
       "emptied_by_quarantine": false
     },
     {
-      "parameter_name": "Centrifugal Acceleration",
-      "n_before": 411,
-      "n_after": 4,
-      "median_before": 8,
-      "median_after": 4,
-      "relative_shift": 0.5,
-      "emptied_by_quarantine": false
-    },
-    {
       "parameter_name": "Substrate Concentration",
       "n_before": 38,
       "n_after": 31,
@@ -362,24 +299,6 @@
       "median_before": 95,
       "median_after": 49.45,
       "relative_shift": 0.4795,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Graphene Oxide",
-      "n_before": 69,
-      "n_after": 59,
-      "median_before": 387,
-      "median_after": 568,
-      "relative_shift": 0.4677,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Blue Light Ratio",
-      "n_before": 1718,
-      "n_after": 26,
-      "median_before": 50,
-      "median_after": 28.25,
-      "relative_shift": 0.435,
       "emptied_by_quarantine": false
     },
     {
@@ -455,15 +374,6 @@
       "emptied_by_quarantine": false
     },
     {
-      "parameter_name": "Photoperiod",
-      "n_before": 63,
-      "n_after": 3,
-      "median_before": 16,
-      "median_after": 12,
-      "relative_shift": 0.25,
-      "emptied_by_quarantine": false
-    },
-    {
       "parameter_name": "Ultrasound Frequency",
       "n_before": 71,
       "n_after": 1,
@@ -479,15 +389,6 @@
       "median_before": 32.95,
       "median_after": 25,
       "relative_shift": 0.2413,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Proton Exchange Membrane",
-      "n_before": 187,
-      "n_after": 156,
-      "median_before": 360,
-      "median_after": 440,
-      "relative_shift": 0.2222,
       "emptied_by_quarantine": false
     },
     {
@@ -520,10 +421,10 @@
     {
       "parameter_name": "design",
       "n_before": 760,
-      "n_after": 665,
+      "n_after": 668,
       "median_before": 160,
-      "median_after": 185,
-      "relative_shift": 0.1563,
+      "median_after": 184,
+      "relative_shift": 0.15,
       "emptied_by_quarantine": false
     },
     {
@@ -545,21 +446,21 @@
       "emptied_by_quarantine": false
     },
     {
-      "parameter_name": "Light Wavelength",
-      "n_before": 396,
-      "n_after": 2,
-      "median_before": 454,
-      "median_after": 501.5,
-      "relative_shift": 0.1046,
-      "emptied_by_quarantine": false
-    },
-    {
       "parameter_name": "Biofilm Density",
       "n_before": 84,
       "n_after": 2,
       "median_before": 10,
       "median_after": 9,
       "relative_shift": 0.1,
+      "emptied_by_quarantine": false
+    },
+    {
+      "parameter_name": "Proton Exchange Membrane",
+      "n_before": 187,
+      "n_after": 168,
+      "median_before": 360,
+      "median_after": 387,
+      "relative_shift": 0.075,
       "emptied_by_quarantine": false
     },
     {
@@ -596,15 +497,6 @@
       "median_before": 183,
       "median_after": 173,
       "relative_shift": 0.0546,
-      "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Dark Duration",
-      "n_before": 238,
-      "n_after": 5,
-      "median_before": 19,
-      "median_after": 20,
-      "relative_shift": 0.0526,
       "emptied_by_quarantine": false
     },
     {
@@ -673,7 +565,7 @@
     {
       "parameter_name": "pH",
       "n_before": 1221,
-      "n_after": 1053,
+      "n_after": 1059,
       "median_before": 4,
       "median_after": 4,
       "relative_shift": 0,
@@ -754,7 +646,7 @@
     {
       "parameter_name": "temperature",
       "n_before": 773,
-      "n_after": 505,
+      "n_after": 516,
       "median_before": 30,
       "median_after": 30,
       "relative_shift": 0,
@@ -779,6 +671,15 @@
       "emptied_by_quarantine": false
     },
     {
+      "parameter_name": "Graphene Oxide",
+      "n_before": 69,
+      "n_after": 69,
+      "median_before": 387,
+      "median_after": 387,
+      "relative_shift": 0,
+      "emptied_by_quarantine": false
+    },
+    {
       "parameter_name": "Pseudomonas Aeruginosa",
       "n_before": 75,
       "n_after": 75,
@@ -790,20 +691,11 @@
     {
       "parameter_name": "Carbon Nanotubes",
       "n_before": 67,
-      "n_after": 63,
+      "n_after": 67,
       "median_before": 481,
       "median_after": 481,
       "relative_shift": 0,
       "emptied_by_quarantine": false
-    },
-    {
-      "parameter_name": "Ambient CO₂ Concentration",
-      "n_before": 64,
-      "n_after": 0,
-      "median_before": 204,
-      "median_after": null,
-      "relative_shift": null,
-      "emptied_by_quarantine": true
     },
     {
       "parameter_name": "Hydrostatic Pressure",
