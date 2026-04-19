@@ -1,6 +1,6 @@
 # spacing
 
-Electrode spacing
+Electrode spacing is the distance between anode and cathode surfaces in a microbial electrochemical system. It directly controls ohmic resistance of the electrolyte path — internal resistance increases linearly with gap distance. Minimizing spacing improves power density but may cause oxygen crossover or short-circuiting.
 
 ## Basic Information
 
@@ -10,6 +10,29 @@ Electrode spacing
 | **Type** | number |
 | **Unit** | cm |
 | **Papers Reporting** | 13 |
+
+## Typical Values
+
+- **Close-spaced MFC**: 0.5-5 mm
+- **Standard MFC**: 5-20 mm
+- **H-type cell**: 50-200 mm
+- **Optimal**: 1-4 mm (air-cathode MFC)
+
+## Measurement Methods
+
+- **Calipers/micrometer**: Direct measurement between electrode surfaces. Report mean of 3+ measurements at different locations.
+
+## Affecting Factors
+
+### Primary
+
+- **Internal resistance**: Ohmic resistance scales as R = rho * d / A where d is spacing. Each mm adds ~1-5 ohm depending on conductivity.
+- **Membrane swelling**: PEM membranes swell 10-20% in water, reducing effective gap over time.
+
+## References
+
+1. Cheng, S. & Logan, B.E. (2007). Electrochem. Commun. 9:492-496.
+2. Fan, Y. et al. (2012). Environ. Sci. Technol. 46:8009-8015.
 
 ---
 

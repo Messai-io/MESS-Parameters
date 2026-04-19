@@ -1,6 +1,6 @@
 # modifications
 
-Electrode modifications
+Electrode modifications encompass physical, chemical, and biological treatments applied to electrode surfaces to enhance bioelectrochemical performance. Common approaches include heat treatment (700-1000C N2), acid washing (HNO3, H2SO4), ammonia treatment, nanomaterial coating (CNT, graphene), metal nanoparticle deposition, and polymer functionalization.
 
 ## Basic Information
 
@@ -9,6 +9,29 @@ Electrode modifications
 | **Category** | Materials |
 | **Type** | string |
 | **Papers Reporting** | 30 |
+
+## Typical Values
+
+- **None**: Untreated carbon cloth/felt
+- **Heat treatment**: 700-1000C in N2 for 30-60 min
+- **Acid treatment**: Conc. HNO3 soak 2-24 h
+- **Nanomaterial coating**: CNT, graphene, or MnO2 at 0.1-5 mg/cm2
+
+## Measurement Methods
+
+- **Surface characterization**: SEM/TEM for morphology, XPS for surface chemistry, BET for surface area, contact angle for wettability, CV for electrochemical surface area.
+
+## Affecting Factors
+
+### Primary
+
+- **Base material**: Carbon cloth, carbon felt, graphite plate respond differently to treatments. Felt benefits most from heat treatment.
+- **Treatment duration**: Over-treatment degrades structural integrity. Acid treatment >24h can weaken carbon fibers.
+
+## References
+
+1. Wei, J. et al. (2011). Bioresource Technol. 102:9335-9344.
+2. Zhou, M. et al. (2011). Biosens. Bioelectron. 26:4169-4176.
 
 ---
 

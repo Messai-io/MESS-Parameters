@@ -1,6 +1,6 @@
 # reactorType
 
-Reactor type/configuration
+Reactor type describes the physical configuration of the electrochemical cell. Single-chamber designs integrate anode and cathode in one compartment (simpler, cheaper, but risk O2 crossover). Dual-chamber designs separate compartments with an ion exchange membrane (higher CE, but more complex). H-type cells are standard for lab research. Tubular and stacked designs target scale-up.
 
 ## Basic Information
 
@@ -8,6 +8,29 @@ Reactor type/configuration
 |---|---|
 | **Category** | Materials |
 | **Type** | string |
+
+## Typical Values
+
+- **Single-chamber**: Air-cathode MFC, most common lab design
+- **Dual-chamber**: H-type, separated by PEM
+- **Tubular**: Continuous flow, scale-up designs
+- **Stacked**: Multiple cells in series/parallel
+
+## Measurement Methods
+
+- **Design classification**: Categorized by chamber count, membrane presence, flow pattern, and electrode arrangement.
+
+## Affecting Factors
+
+### Primary
+
+- **Application**: MFC prefers single-chamber air-cathode for simplicity. MEC requires gas-tight sealed chambers.
+- **Scale**: Lab uses H-type or cube cells. Pilot uses tubular or flat-plate. Commercial uses stacked.
+
+## References
+
+1. Logan, B.E. et al. (2006). Environ. Sci. Technol. 40:5181-5192.
+2. Rozendal, R.A. et al. (2008). Trends Biotechnol. 26:450-459.
 
 ---
 

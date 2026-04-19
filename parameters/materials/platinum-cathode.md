@@ -1,6 +1,6 @@
 # Platinum Cathode
 
-Pt catalyst
+Platinum cathode refers to the use of platinum-based catalysts for the oxygen reduction reaction (ORR) or hydrogen evolution reaction (HER) at the cathode of microbial electrochemical systems. Pt/C is the benchmark ORR catalyst, but its high cost ($30-50/g Pt) and susceptibility to biofouling and sulfide poisoning drive research toward non-precious metal alternatives.
 
 ## Basic Information
 
@@ -10,9 +10,32 @@ Pt catalyst
 | **Subcategory** | Metal-Based Cathodes |
 | **Type** | object |
 
+## Typical Values
+
+- **Standard loading**: 0.5 mg-Pt/cm2 (most MFC studies)
+- **Low loading**: 0.1-0.3 mg-Pt/cm2
+- **High loading**: 1-2 mg-Pt/cm2
+- **Pt/C ratio**: 10-40 wt% Pt on carbon support
+
+## Measurement Methods
+
+- **Loading verification**: ICP-MS or ICP-OES for Pt content. Electrochemical surface area via CV hydrogen underpotential deposition. ORR activity via rotating disk electrode.
+
+## Affecting Factors
+
+### Primary
+
+- **Poisoning**: Sulfide (H2S) irreversibly poisons Pt at ppm levels. Chloride reduces activity 20-50%.
+- **Biofouling**: Biofilm growth on cathode blocks O2 access and reduces Pt utilization over 30-90 days.
+
 ## Compatible Systems
 
 Cathode Materials
+
+## References
+
+1. Cheng, S. et al. (2006). Environ. Sci. Technol. 40:364-369.
+2. Zhang, F. et al. (2009). Environ. Sci. Technol. 43:1648-1654.
 
 ---
 

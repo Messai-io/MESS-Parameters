@@ -1,6 +1,6 @@
 # reactorVolume
 
-Reactor volume
+Reactor volume (legacy alias for volume). See Volume parameter for full documentation. Total liquid volume of the reactor chamber available for electrochemical reactions.
 
 ## Basic Information
 
@@ -9,6 +9,25 @@ Reactor volume
 | **Category** | Materials |
 | **Type** | number |
 | **Unit** | mL |
+
+## Typical Values
+
+- **Lab**: 10-500 mL
+- **Pilot**: 5-50 L
+
+## Measurement Methods
+
+- **Water displacement**: Fill and measure displaced volume, subtract internal components.
+
+## Affecting Factors
+
+### Primary
+
+- **Reactor geometry**: Shape determines volume-to-surface ratio and mixing.
+
+## References
+
+1. Logan, B.E. et al. (2006). Environ. Sci. Technol. 40:5181-5192.
 
 ---
 

@@ -278,7 +278,7 @@ mode,mode,Operating mode of the system,-,string,operational,general,,,,,operatio
 recirculation_ratio,Recirculation Ratio,Ratio of recirculated to fresh feed,-,number,operational,general,,,,,operational|general
 temperature,temperature,Operating temperature,°C,number,operational,general,,,,,operational|general
 dilution_rate,Dilution Rate,D = 1/HRT,1/h,number,operational,continuous-operation,0.001,0.001,10,0.001,operational|continuous-operation
-hydraulic_retention_time,Hydraulic Retention Time,HRT,h,number,operational,continuous-operation,0.1,0.1,1000,0.1,operational|continuous-operation
+hydraulic_retention_time,Hydraulic Retention Time,HRT,h,number,operational,continuous-operation,4,0.1,1000,4,operational|continuous-operation
 recycle_ratio,Recycle Ratio,Recycle flow/feed flow,-,number,operational,continuous-operation,0.2,0,10,0.2,operational|continuous-operation
 startup_time,Startup Time,Time to reach steady state,h,number,operational,continuous-operation,7,1,1000,7,operational|continuous-operation
 steady_state_criteria,Steady State Criteria,Variation for steady state,%,number,operational,continuous-operation,0.1,0.1,10,0.1,operational|continuous-operation

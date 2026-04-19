@@ -1,6 +1,6 @@
 # voltammetryType
 
-Type of voltammetry used
+Voltammetry type specifies the electroanalytical technique used to characterize electrode kinetics, biofilm redox activity, and electron transfer mechanisms in MES. Cyclic voltammetry (CV) is most common for biofilm characterization. Linear sweep voltammetry (LSV) generates polarization curves. Differential pulse voltammetry (DPV) improves resolution for identifying individual redox species.
 
 ## Basic Information
 
@@ -9,6 +9,30 @@ Type of voltammetry used
 | **Category** | Electrochemical |
 | **Type** | string |
 | **Papers Reporting** | 10 |
+
+## Typical Values
+
+- **CV**: Cyclic voltammetry: 1-50 mV/s, most common
+- **LSV**: Linear sweep: 0.1-1 mV/s for polarization curves
+- **DPV**: Differential pulse: better peak resolution
+- **SWV**: Square wave: fast, sensitive
+- **CA**: Chronoamperometry: fixed potential, current vs time
+
+## Measurement Methods
+
+- **Potentiostat**: Three-electrode setup: working (biofilm anode), counter (cathode), reference (Ag/AgCl or SCE). Record I vs E.
+
+## Affecting Factors
+
+### Primary
+
+- **Scan rate**: Slow rates (1-5 mV/s) for catalytic currents. Fast rates (>50 mV/s) for redox peak identification.
+- **Biofilm state**: Turnover (substrate present) vs non-turnover (no substrate) reveal different information.
+
+## References
+
+1. Marsili, E. et al. (2008). Appl. Environ. Microbiol. 74:7329-7337.
+2. Fricke, K. et al. (2008). Energy Environ. Sci. 1:144-147.
 
 ---
 

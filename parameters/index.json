@@ -1,7 +1,7 @@
 {
   "metadata": {
     "version": "4.0.0",
-    "lastUpdated": "2026-04-18",
+    "lastUpdated": "2026-04-19",
     "totalParameters": 687,
     "majorCategories": 13,
     "subcategories": 125,
@@ -4552,9 +4552,9 @@
               "range": {
                 "min": 0.1,
                 "max": 1000,
-                "typical": 0.1
+                "typical": 4
               },
-              "default": 0.1,
+              "default": 4,
               "references": [
                 "Min & Logan (2004) Environmental Science & Technology 38:5809-5814. doi:10.1021/es0491026",
                 "Liu et al. (2005) Environmental Science & Technology 39:5488-5493. doi:10.1021/es050316c"

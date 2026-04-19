@@ -1,6 +1,6 @@
 # volume
 
-Reactor volume
+Reactor working volume is the liquid volume available for electrochemical reactions in a microbial electrochemical system. It determines hydraulic retention time, substrate loading rate, and the basis for volumetric power density normalization. Scaling from lab (1-500 mL) to pilot (1-50 L) changes mass transfer, mixing, and biofilm development patterns.
 
 ## Basic Information
 
@@ -10,6 +10,31 @@ Reactor volume
 | **Type** | number |
 | **Unit** | mL |
 | **Papers Reporting** | 1141 |
+
+## Typical Values
+
+- **Microfluidic**: <1 mL
+- **Lab bench**: 10-500 mL
+- **Scaled lab**: 0.5-5 L
+- **Pilot**: 5-50 L
+- **Commercial**: >50 L
+
+## Measurement Methods
+
+- **Water displacement**: Fill reactor with water, measure displaced volume. Subtract electrode and membrane volumes for net working volume.
+- **CAD calculation**: Calculate from reactor geometry dimensions. Account for internal components.
+
+## Affecting Factors
+
+### Primary
+
+- **Reactor geometry**: Cylindrical, rectangular, and tubular designs yield different volume-to-surface-area ratios affecting mass transfer.
+- **Electrode configuration**: Electrode size and spacing consume working volume. High electrode area reduces liquid volume.
+
+## References
+
+1. Logan, B.E. et al. (2006). Environ. Sci. Technol. 40:5181-5192.
+2. Rabaey, K. & Verstraete, W. (2005). Trends Biotechnol. 23:291-298.
 
 ---
 
