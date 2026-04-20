@@ -321,7 +321,52 @@ grounder must flag 50/50) and are run under `pytest`.
 
 ---
 
-## 8. Planned Improvements
+## 8. Phase 1–4 upgrades (2026-04-19)
+
+Four producer-side capabilities shipped alongside the verification suite:
+
+- **Phase 1 — ontology hygiene.** `data/ontology-blocklist.txt` (25
+  parameters) is applied at Tier A in `scripts/build-provenance.ts`
+  and every verify/analyze script. Drops 3,989 rows (12.7%) of
+  photobiology / mechanical / molecular-biology contamination; noise-
+  floor max median shift 9,600% → 1,283% (still FAIL but remaining
+  shifts are from legitimate-but-paper-heavy aggregations, not
+  hallucinated ontology). Parameters with < 5 distinct papers now
+  suppress `stats_global` / `stats_by_system` / `distribution` —
+  sources are retained for audit but aggregates are null.
+
+- **Phase 2 — multi-dim conditional stats.**
+  `data/parameter-conditional-stats.json` emits per-parameter buckets
+  stratified on 13 axes (substrate, anode_material, operation_mode,
+  temperature_bin, ph_bin, etc.) plus four 2D crosses. Top-25
+  parameters, 672 buckets in the current corpus. Schema pinned at
+  `schemas/conditional-stats.schema.json`.
+
+- **Phase 3 — gap + contradiction sidecars.**
+  `data/analysis/contradictions.json` flags cross-paper numerical
+  disagreements (1,118 flagged on current corpus, thresholds matched
+  to messai-ai defaults).
+  `data/analysis/research-gaps.json` scores the twelve MES research
+  areas from messai-ai's taxonomy on urgency/impact/feasibility.
+  Both files are schema-compatible with the consumer's
+  `ContradictionResult` / `ScoredGap` interfaces so the consumer can
+  switch to reading the sidecar instead of recomputing at API time.
+
+- **Phase 4 — protocol recommender v0.** `npm run recommend` CLI
+  accepts `--given K=V` constraints (substrate, anode_material,
+  system_type, etc.) plus `--target "PARAM OP VALUE"` and returns
+  ranked DOIs + a "common protocol features" block (mode for
+  categorical fields, median ± IQR for temperature / pH). Ranks by
+  confidence × reproducibility_score; falls back to 0.5 when
+  reproducibility missing.
+
+Consumer-contract additions in `docs/consumer-contract.md` under
+§conditional-stats-sidecar, §analysis-sidecars, §ontology-blocklist.
+Consumer migration notes in `docs/consumer-migration-notes.md`.
+
+---
+
+## 9. Planned Improvements
 
 The following improvements are planned for future releases:
 

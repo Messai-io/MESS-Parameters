@@ -130,6 +130,95 @@ rows exported from this repo, come from
 ingested from `paper-metadata.csv` itself. The CSV is write-out only from
 this repo's perspective.
 
+### Conditional-stats sidecar
+
+`data/parameter-conditional-stats.json` is emitted by
+`scripts/build-conditional-stats.ts`. Per-parameter stratified stats
+across multiple context axes (substrate, anode_material,
+cathode_material, membrane, operation_mode, reactor_configuration,
+inoculum, dominant_organism, electrolyte, temperature_bin, ph_bin,
+system_type, value_type, measurement_technique) plus precomputed 2D
+cross-pairs (`system_type × substrate`, `substrate × anode_material`,
+`system_type × anode_material`, `substrate × temperature_bin`).
+
+Schema at `schemas/conditional-stats.schema.json` (`schema_version
+0.1.0`). Top-25 parameters by `n_values` post-blocklist get the full
+breakdown; `MIN_BUCKET_N = 5` (smaller buckets dropped); 2D crosses
+require ≥ 3 distinct labels on both axes.
+
+Producer-internal sidecar; independent semver evolution from
+`rich.json`. Optional — consumers may ignore it without error.
+
+### Analysis sidecars (contradictions, research gaps)
+
+`data/analysis/contradictions.json` is emitted by
+`scripts/analyze/contradiction_detector.ts`. Per-paper-pair flags where
+the same parameter under equivalent context (`system_type` +
+substrate / anode / cathode / operation / reactor) reports values
+disagreeing beyond the producer-default thresholds (30% relative for
+power/current, 20% for efficiency, 1.0 pH units absolute, 10°C
+absolute). Record shape matches the `ContradictionResult` interface
+used by consumers today so sidecar-reading can be a drop-in replacement
+for request-time computation:
+
+```json
+{
+  "paper1Id": "10.xxx",
+  "paper2Id": "10.yyy",
+  "paper1Title": "...",
+  "paper2Title": "...",
+  "contradictionType": "numerical",
+  "parameterName": "Power Density",
+  "value1": 1900,
+  "value2": 50,
+  "deviation": 37.0,
+  "confidence": 0.75,
+  "evidence": "Under context 'system=MFC|substrate=wastewater|anode=carbon_cloth', Power Density: 1900 mW/m² (doi1) vs 50 mW/m² (doi2). Deviation 3700% exceeds threshold."
+}
+```
+
+`data/analysis/research-gaps.json` is emitted by
+`scripts/analyze/research_gaps.ts`. Twelve pre-defined MES research
+areas scored on weighted urgency (40%) / impact (40%) / feasibility
+(20%). Record shape matches the `ScoredGap` interface:
+
+```json
+{
+  "id": "scale-up",
+  "topic": "scale-up",
+  "description": "Maintaining laboratory-scale performance at ...",
+  "critical_parameters": ["Reactor Volume", "Power Density", ...],
+  "metrics": {
+    "papers_in_area": 316,
+    "recent_year_max": 2025,
+    "contradiction_count": 8,
+    "parameter_coverage": 1.0
+  },
+  "urgencyScore": 0.62,
+  "impactScore": 0.78,
+  "feasibilityScore": 0.55,
+  "totalScore": 0.65,
+  "urgencyLevel": "high",
+  "reasoning": ["Only 316 papers directly address this area", ...],
+  "priorityRank": 1
+}
+```
+
+Both sidecars are producer-internal; changes are never breaking for
+`rich.json`. Each file carries its own `schema_version` field.
+Consumers may read either, both, or neither.
+
+### Ontology blocklist
+
+`data/ontology-blocklist.txt` is a plain-text list of parameter names
+that appear in the 687-entry ontology but do NOT represent MES
+performance measurements (photobiology, sample prep, mechanical, generic-
+too-broad). Applied at the producer Tier A filter in
+`scripts/build-provenance.ts` and in the verify + analyze scripts so
+every sidecar reads a clean corpus. If a consumer applies its own
+filter, using this list avoids double-counting. One name per line,
+case-insensitive, `#`-prefixed comments.
+
 ### Verification sidecar (optional, future)
 
 `data/verification/tier1-summary.json` is emitted by `scripts/verify/tier1_rollup.ts`
