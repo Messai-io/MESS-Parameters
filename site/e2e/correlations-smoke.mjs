@@ -36,8 +36,14 @@ try {
   await page.waitForSelector('text=Parameter-Pair Correlation Explorer', { timeout: 10000 });
   check(true, 'Explorer heading rendered');
 
+  // Subtitle must advertise BH-FDR (not Bonferroni)
+  const subtitle = await page.locator('text=/BH-FDR corrected across the displayed family/').count();
+  check(subtitle > 0, 'Subtitle mentions BH-FDR');
+
   // Wait until provenance load finishes (banner text appears)
   await page.waitForSelector('text=/Using precomputed global correlations/', { timeout: 15000 });
+  const globalBanner = await page.locator('text=/BH-FDR q < 0\\.05/').count();
+  check(globalBanner > 0, 'Global banner mentions BH-FDR q threshold');
 
   // Matrix is default view; it contains many rects + the legend "opacity ∝ |r|"
   await page.waitForSelector('text=/opacity ∝ \\|r\\|/', { timeout: 5000 });
@@ -69,7 +75,20 @@ try {
   const hasTable = (await page.$('table')) !== null;
   const hasEmpty = (await page.locator('text=/No pairs meet the current filters/').count()) > 0;
   check(hasTable || hasEmpty, 'Table view renders either table or empty-state');
+  // Table must include the new log-r column when any rows are present
+  if (hasTable) {
+    const logRHeader = await page.locator('th:has-text("log r")').count();
+    check(logRHeader > 0, 'Table has a log-r column');
+  }
   await page.screenshot({ path: `${ART}/04-table-mfc.png`, fullPage: false });
+
+  // Cycle through MEC, MDC, BES — the old alpha crash would page-error here.
+  for (const sys of ['MEC', 'MDC', 'BES']) {
+    await page.getByRole('button', { name: new RegExp(`^${sys}$`) }).first().click();
+    await page.waitForTimeout(400);
+  }
+  const crashErrors = logs.filter((l) => /pageerror|\[error\]/i.test(l) && !/favicon|404/.test(l));
+  check(crashErrors.length === 0, `no page errors across MEC/MDC/BES (found ${crashErrors.length})`);
 
   // Back to All + matrix + verify |r| slider filters
   await page.getByRole('button', { name: /All systems/ }).first().click();

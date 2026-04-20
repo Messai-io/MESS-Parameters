@@ -298,6 +298,56 @@ function spearman(xs: number[], ys: number[]): number | null {
   return pearson(averageRanks(xs), averageRanks(ys));
 }
 
+// Weighted Pearson — weights reflect per-observation reproducibility score.
+function weightedPearson(xs: number[], ys: number[], ws: number[]): number | null {
+  if (xs.length !== ys.length || xs.length !== ws.length || xs.length < 3) return null;
+  const sw = ws.reduce((s, w) => s + w, 0);
+  if (sw <= 0) return null;
+  let mx = 0, my = 0;
+  for (let i = 0; i < xs.length; i++) { mx += ws[i] * xs[i]; my += ws[i] * ys[i]; }
+  mx /= sw; my /= sw;
+  let num = 0, dx = 0, dy = 0;
+  for (let i = 0; i < xs.length; i++) {
+    const ax = xs[i] - mx, ay = ys[i] - my;
+    num += ws[i] * ax * ay;
+    dx += ws[i] * ax * ax;
+    dy += ws[i] * ay * ay;
+  }
+  if (dx === 0 || dy === 0) return null;
+  return num / Math.sqrt(dx * dy);
+}
+
+function weightedSpearman(xs: number[], ys: number[], ws: number[]): number | null {
+  if (xs.length !== ys.length || xs.length < 3) return null;
+  return weightedPearson(averageRanks(xs), averageRanks(ys), ws);
+}
+
+// Kish effective sample size — denominator for Student's t under weighting.
+function effectiveSampleSize(ws: number[]): number {
+  const sw = ws.reduce((s, w) => s + w, 0);
+  const sw2 = ws.reduce((s, w) => s + w * w, 0);
+  return sw2 > 0 ? (sw * sw) / sw2 : 0;
+}
+
+// Benjamini–Hochberg FDR adjustment. Returns per-test q-values such that
+// q_i ≤ α ⇒ FDR ≤ α (under independence or positive dependence).
+function bhAdjustPValues(pvals: number[]): number[] {
+  const m = pvals.length;
+  if (m === 0) return [];
+  const indexed = pvals
+    .map((p, i) => ({ p: Number.isFinite(p) ? p : 1, i }))
+    .sort((a, b) => a.p - b.p);
+  const adjusted = new Array<number>(m);
+  let runningMin = 1;
+  for (let k = m - 1; k >= 0; k--) {
+    const { p, i } = indexed[k];
+    const candidate = Math.min(1, (p * m) / (k + 1));
+    runningMin = Math.min(runningMin, candidate);
+    adjusted[i] = runningMin;
+  }
+  return adjusted;
+}
+
 // ═══════════════════════════════════════════════════════════════════════
 // Tier A — scientific-integrity filters applied before aggregation.
 // 1. Sanity clamps: reject physically-impossible values (pH > 14, CE > 110%,
@@ -518,8 +568,12 @@ interface CorrelationEntry {
   other_param_id: string;
   other_param_name: string;
   pearson_r: number;
+  // Weighted Pearson on log10 values; null when any joined value ≤ 0.
+  pearson_r_log: number | null;
   spearman_rho: number | null;
   n: number;
+  // Kish effective sample size under per-paper reproducibility weighting.
+  n_eff: number;
   p_corrected: number;
   significant: boolean;
 }
@@ -686,6 +740,22 @@ function main(): void {
   // For correlations pass: paper_key → { param_id → mean numeric_value }
   const paperParamMap = new Map<string, Map<string, number[]>>();
 
+  // Per-paper weight for weighted correlations. Pulls the 26-criterion
+  // reproducibility_score from paper-metadata.csv (when available), floors
+  // at 0.1 so unscored papers still contribute signal. Neutral 0.5 when we
+  // can't join the paper back to the metadata file.
+  const paperWeight = new Map<string, number>();
+  function weightFor(paperKey: string): number {
+    if (paperWeight.has(paperKey)) return paperWeight.get(paperKey)!;
+    const pmRec = pmByDoi.get(paperKey) ?? pmByTitle.get(paperKey);
+    const raw = pmRec?.reproducibility_score;
+    const n = raw != null && raw !== '' ? Number(raw) : NaN;
+    const base = Number.isFinite(n) ? n : 0.5;
+    const w = Math.max(0.1, base);
+    paperWeight.set(paperKey, w);
+    return w;
+  }
+
   for (const [paramId, rows] of byParam) {
     const richEntry = rIdMap.get(paramId);
     // values for stats
@@ -798,7 +868,11 @@ function main(): void {
 
   const paramIds = [...paramPaperValue.keys()];
   const idToName = new Map(entries.map(e => [e.id, e.name]));
-  type RawCorr = { a: string; b: string; r: number; rho: number | null; n: number };
+  type RawCorr = {
+    a: string; b: string;
+    r: number; rLog: number | null; rho: number | null;
+    n: number; nEff: number; pRaw: number;
+  };
   const rawCorrs: RawCorr[] = [];
 
   for (let i = 0; i < paramIds.length; i++) {
@@ -813,6 +887,7 @@ function main(): void {
       // find shared papers
       const xs: number[] = [];
       const ys: number[] = [];
+      const ws: number[] = [];
       // iterate smaller map
       const [small, large] = aMap.size <= bMap.size ? [aMap, bMap] : [bMap, aMap];
       const smallIsA = aMap === small;
@@ -821,32 +896,53 @@ function main(): void {
         if (other == null) continue;
         if (smallIsA) { xs.push(v); ys.push(other); }
         else { xs.push(other); ys.push(v); }
+        ws.push(weightFor(k));
       }
       if (xs.length < CORR_MIN_N) continue;
-      const r = pearson(xs, ys);
+      const r = weightedPearson(xs, ys, ws);
       if (r == null) continue;
-      const rho = spearman(xs, ys);
-      rawCorrs.push({ a: aId, b: bId, r, rho, n: xs.length });
+      const rho = weightedSpearman(xs, ys, ws);
+      const allPositive = xs.every((v) => v > 0) && ys.every((v) => v > 0);
+      const rLog = allPositive
+        ? weightedPearson(xs.map((v) => Math.log10(v)), ys.map((v) => Math.log10(v)), ws)
+        : null;
+      const nEff = effectiveSampleSize(ws);
+      const nForP = Math.max(3, Math.round(nEff));
+      const pRaw = twoTailedPFromR(r, nForP);
+      rawCorrs.push({
+        a: aId, b: bId,
+        r, rLog, rho,
+        n: xs.length,
+        nEff,
+        pRaw: Number.isFinite(pRaw) ? pRaw : 1,
+      });
     }
   }
   const totalTests = rawCorrs.length;
-  const bonferroniAlpha = totalTests > 0 ? 0.05 / totalTests : 0.05;
-  console.log(`  tested ${totalTests} pairs; Bonferroni α = ${bonferroniAlpha.toExponential(3)}`);
+  const qValues = bhAdjustPValues(rawCorrs.map((c) => c.pRaw));
+  const BH_Q_THRESHOLD = 0.05;
+  const nSig = qValues.reduce((s, q) => s + (q < BH_Q_THRESHOLD ? 1 : 0), 0);
+  console.log(`  tested ${totalTests} pairs; BH-FDR q < ${BH_Q_THRESHOLD}: ${nSig} significant`);
 
   // Annotate both directions
   const corrByParam = new Map<string, CorrelationEntry[]>();
-  for (const c of rawCorrs) {
-    const p = twoTailedPFromR(c.r, c.n);
-    const sig = Number.isFinite(p) && p < bonferroniAlpha;
+  for (let idx = 0; idx < rawCorrs.length; idx++) {
+    const c = rawCorrs[idx];
+    const q = qValues[idx];
+    const sig = Number.isFinite(q) && q < BH_Q_THRESHOLD;
     const pr = round(c.r, 6);
+    const prLog = c.rLog == null ? null : round(c.rLog, 6);
     const rho = c.rho == null ? null : round(c.rho, 6);
-    const pc = round(p, 8);
+    const pc = round(q, 8);
+    const nEff = round(c.nEff, 3);
     const eA: CorrelationEntry = {
       other_param_id: c.b,
       other_param_name: idToName.get(c.b) ?? '',
       pearson_r: pr,
+      pearson_r_log: prLog,
       spearman_rho: rho,
       n: c.n,
+      n_eff: nEff,
       p_corrected: pc,
       significant: sig,
     };
@@ -854,8 +950,10 @@ function main(): void {
       other_param_id: c.a,
       other_param_name: idToName.get(c.a) ?? '',
       pearson_r: pr,
+      pearson_r_log: prLog,
       spearman_rho: rho,
       n: c.n,
+      n_eff: nEff,
       p_corrected: pc,
       significant: sig,
     };
@@ -897,7 +995,7 @@ function main(): void {
       },
       correlations: {
         total_tests: totalTests,
-        bonferroni_alpha: bonferroniAlpha,
+        bh_q_threshold: BH_Q_THRESHOLD,
       },
       counts: {
         parameters_with_provenance: entries.length,

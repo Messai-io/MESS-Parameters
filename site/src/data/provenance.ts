@@ -72,8 +72,10 @@ export interface ProvCorrelation {
   other_param_id: string;
   other_param_name: string;
   pearson_r: number;
+  pearson_r_log?: number | null;
   spearman_rho: number | null;
   n: number;
+  n_eff?: number;
   p_corrected: number;
   significant: boolean;
 }
@@ -98,7 +100,7 @@ export interface ProvenanceFile {
     generated_at: string;
     generator: string;
     thresholds: Record<string, number>;
-    correlations: { total_tests: number; bonferroni_alpha: number };
+    correlations: { total_tests: number; bh_q_threshold: number };
     counts: { parameters_with_provenance: number; total_sources: number };
   };
   parameters: ProvEntry[];

@@ -35,9 +35,10 @@
         "correlations": {
           "type": "object",
           "additionalProperties": true,
-          "required": ["total_tests", "bonferroni_alpha"],
+          "required": ["total_tests"],
           "properties": {
             "total_tests": { "type": "integer", "minimum": 0 },
+            "bh_q_threshold": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
             "bonferroni_alpha": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
           }
         },
@@ -136,6 +137,12 @@
         "other_param_id": { "type": "string", "minLength": 1 },
         "other_param_name": { "type": "string" },
         "pearson_r": { "type": "number", "minimum": -1, "maximum": 1 },
+        "pearson_r_log": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "number", "minimum": -1, "maximum": 1 }
+          ]
+        },
         "spearman_rho": {
           "oneOf": [
             { "type": "null" },
@@ -143,6 +150,7 @@
           ]
         },
         "n": { "type": "integer", "minimum": 3 },
+        "n_eff": { "type": "number", "minimum": 0 },
         "p_corrected": { "type": "number", "minimum": 0, "maximum": 1 },
         "significant": { "type": "boolean" }
       }

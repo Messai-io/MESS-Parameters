@@ -20,11 +20,19 @@ export function PairDetailPopover({ pair, x, y }: Props) {
       <div className="grid grid-cols-2 gap-x-3 gap-y-1 tabular-nums">
         <span className="text-mes-text-muted">Pearson r</span>
         <span className="text-right" style={{ color }}>{pair.pearson_r.toFixed(3)}</span>
+        <span className="text-mes-text-muted">log₁₀ r</span>
+        <span className="text-right">{pair.pearson_r_log !== null ? pair.pearson_r_log.toFixed(3) : '—'}</span>
         <span className="text-mes-text-muted">Spearman ρ</span>
         <span className="text-right">{pair.spearman_rho !== null ? pair.spearman_rho.toFixed(3) : '—'}</span>
         <span className="text-mes-text-muted">n</span>
         <span className="text-right">{pair.n}</span>
-        <span className="text-mes-text-muted">p (corr.)</span>
+        {Math.abs(pair.n_eff - pair.n) >= 0.5 ? (
+          <>
+            <span className="text-mes-text-muted">n_eff</span>
+            <span className="text-right">{pair.n_eff.toFixed(1)}</span>
+          </>
+        ) : null}
+        <span className="text-mes-text-muted" title="BH-FDR q-value across currently displayed pairs">q (BH)</span>
         <span className="text-right">{pair.p_corrected.toExponential(2)}</span>
         <span className="text-mes-text-muted">Sig.</span>
         <span className="text-right">{pair.significant ? 'yes' : 'ns'}</span>

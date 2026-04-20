@@ -38,7 +38,7 @@ export function CorrelationExplorer() {
   }, [view]);
 
   const result = useCorrelationPairs(filters);
-  const { loading, error, pairs, nodes, totalPairs, alpha, systemPaperCount, totalTests } = result;
+  const { loading, error, pairs, nodes, totalPairs, systemPaperCount, totalTests } = result;
 
   const availableCategories = useMemo(() => {
     const set = new Set<string>();
@@ -53,9 +53,9 @@ export function CorrelationExplorer() {
 
   const banner =
     filters.systemType === 'all'
-      ? `Using precomputed global correlations. ${totalTests.toLocaleString()} pair(s) tested, α = ${alpha.toExponential(2)}.`
+      ? `Using precomputed global correlations. ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.`
       : systemPaperCount !== null
-      ? `Recomputed in-browser over ${systemPaperCount.toLocaleString()} ${filters.systemType} paper(s). ${totalTests.toLocaleString()} pair(s) tested, α = ${alpha.toExponential(2)}.`
+      ? `Recomputed in-browser over ${systemPaperCount.toLocaleString()} ${filters.systemType} paper(s). ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.`
       : `Recomputing over ${filters.systemType} subset…`;
 
   return (
@@ -64,8 +64,8 @@ export function CorrelationExplorer() {
         <div>
           <CardTitle level={2}>Parameter-Pair Correlation Explorer</CardTitle>
           <p className="text-xs text-mes-text-muted mt-1">
-            Pearson & Spearman across parameter values reported in the same paper (n shared ≥ threshold).
-            Bonferroni-corrected.
+            Weighted Pearson & Spearman across parameter values reported in the same paper (n shared ≥ threshold).
+            p-values BH-FDR corrected across the displayed family (q &lt; 0.05).
           </p>
         </div>
         <div className="inline-flex border border-gray-300">

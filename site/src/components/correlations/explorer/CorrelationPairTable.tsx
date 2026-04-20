@@ -21,9 +21,10 @@ export function CorrelationPairTable({ pairs }: Props) {
             <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">Parameter A</th>
             <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">Parameter B</th>
             <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">r</th>
+            <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted" title="Weighted Pearson on log10-transformed values; only defined when both parameters are strictly positive">log r</th>
             <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">ρ</th>
             <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">n</th>
-            <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">p (corr.)</th>
+            <th className="px-3 py-2 text-right text-[10px] uppercase tracking-wider font-medium text-mes-text-muted" title="BH-FDR q-value across the currently displayed family">q (BH)</th>
             <th className="px-3 py-2 text-left text-[10px] uppercase tracking-wider font-medium text-mes-text-muted">Sig.</th>
           </tr>
         </thead>
@@ -50,6 +51,9 @@ export function CorrelationPairTable({ pairs }: Props) {
                 <span className={r.pearson_r > 0 ? 'text-[#5C7A5C]' : 'text-[#6B3E3E]'}>
                   {r.pearson_r.toFixed(3)}
                 </span>
+              </td>
+              <td className={'px-3 py-2 text-right font-mono tabular-nums ' + (r.pearson_r_log === null ? 'text-mes-text-muted' : 'text-mes-text-secondary')}>
+                {r.pearson_r_log !== null ? r.pearson_r_log.toFixed(3) : '—'}
               </td>
               <td className="px-3 py-2 text-right font-mono tabular-nums text-mes-text-secondary">
                 {r.spearman_rho !== null ? r.spearman_rho.toFixed(3) : '—'}

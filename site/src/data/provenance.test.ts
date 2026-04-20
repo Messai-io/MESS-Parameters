@@ -37,10 +37,10 @@ describe('provenance sidecar', () => {
     }
   });
 
-  it('exposes metadata with Bonferroni alpha', async () => {
+  it('exposes correlation metadata with BH-FDR threshold', async () => {
     const meta = await getProvenanceMeta();
     expect(meta.schema_version).toMatch(/^\d+\.\d+\.\d+$/);
-    expect(meta.correlations.bonferroni_alpha).toBeGreaterThan(0);
+    expect(meta.correlations.bh_q_threshold).toBeGreaterThan(0);
     expect(meta.correlations.total_tests).toBeGreaterThanOrEqual(0);
   });
 });
