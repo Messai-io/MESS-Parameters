@@ -1,0 +1,761 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-04-20T02:25:05.819Z",
+  "corpus_snapshot": "2026-04-19T20:53:19.039Z",
+  "n_gaps": 12,
+  "n_areas_analyzed": 12,
+  "corpus_size": 23340,
+  "gaps": [
+    {
+      "id": "cost-reduction",
+      "topic": "cost reduction",
+      "description": "Electrode materials and proton-exchange membranes dominate MES capital costs. Search for earth-abundant, low-cost alternatives (Fe-N-C cathodes, ceramic separators, carbon-cloth anodes) with sustained performance.",
+      "critical_parameters": [
+        "Power Density",
+        "Current Density",
+        "Reactor Volume"
+      ],
+      "keywords": [
+        "cost",
+        "economic",
+        "commercial",
+        "techno-economic",
+        "capital expenditure",
+        "capex",
+        "affordable"
+      ],
+      "metrics": {
+        "topic": "cost reduction",
+        "description": "Electrode materials and proton-exchange membranes dominate MES capital costs. Search for earth-abundant, low-cost alternatives (Fe-N-C cathodes, ceramic separators, carbon-cloth anodes) with sustained performance.",
+        "papers_in_area": 316,
+        "recent_year_max": 2026,
+        "contradiction_count": 58,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "breakthrough",
+        "scientific_impact": "significant",
+        "technical_difficulty": "medium",
+        "est_time_to_solution_months": 48
+      },
+      "urgencyScore": 0.515,
+      "impactScore": 0.7,
+      "feasibilityScore": 0.813,
+      "totalScore": 0.649,
+      "urgencyLevel": "high",
+      "reasoning": [
+        "58 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: breakthrough; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.45,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.515
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 1,
+          "field": 0,
+          "total": 0.7000000000000001
+        },
+        "feasibility": {
+          "technical": 0.75,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.8125
+        }
+      },
+      "priorityRank": 1
+    },
+    {
+      "id": "ai-optimization",
+      "topic": "AI optimization",
+      "description": "AI-driven process control and scale-up prediction are feasible but require the standardized multi-variable datasets the field has not yet produced at scale.",
+      "critical_parameters": [
+        "Power Density",
+        "Current Density",
+        "Coulombic Efficiency"
+      ],
+      "keywords": [
+        "machine learning",
+        "deep learning",
+        "artificial intelligence",
+        "neural network",
+        "optimization",
+        "predictive control"
+      ],
+      "metrics": {
+        "topic": "AI optimization",
+        "description": "AI-driven process control and scale-up prediction are feasible but require the standardized multi-variable datasets the field has not yet produced at scale.",
+        "papers_in_area": 752,
+        "recent_year_max": 2026,
+        "contradiction_count": 61,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "breakthrough",
+        "scientific_impact": "significant",
+        "technical_difficulty": "medium",
+        "est_time_to_solution_months": 24
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.7,
+      "feasibilityScore": 0.9,
+      "totalScore": 0.616,
+      "urgencyLevel": "high",
+      "reasoning": [
+        "61 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: breakthrough; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 1,
+          "field": 0,
+          "total": 0.7000000000000001
+        },
+        "feasibility": {
+          "technical": 0.75,
+          "resources": 1,
+          "timeCap": 1,
+          "total": 0.9
+        }
+      },
+      "priorityRank": 2
+    },
+    {
+      "id": "membrane-alternatives",
+      "topic": "membrane alternatives",
+      "description": "Proton-exchange membranes (Nafion) cost hundreds of dollars per m². Ceramic, cloth, and membraneless alternatives introduce selectivity/durability trade-offs that are not fully characterized.",
+      "critical_parameters": [
+        "Internal Resistance",
+        "Power Density"
+      ],
+      "keywords": [
+        "membrane",
+        "separator",
+        "nafion",
+        "proton exchange membrane",
+        "membraneless",
+        "ceramic separator"
+      ],
+      "metrics": {
+        "topic": "membrane alternatives",
+        "description": "Proton-exchange membranes (Nafion) cost hundreds of dollars per m². Ceramic, cloth, and membraneless alternatives introduce selectivity/durability trade-offs that are not fully characterized.",
+        "papers_in_area": 783,
+        "recent_year_max": 2026,
+        "contradiction_count": 70,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 2,
+        "critical_parameters_total": 2,
+        "commercial_potential": "breakthrough",
+        "scientific_impact": "moderate",
+        "technical_difficulty": "medium",
+        "est_time_to_solution_months": 36
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.6,
+      "feasibilityScore": 0.813,
+      "totalScore": 0.559,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "70 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: breakthrough; scientific impact: moderate"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.5,
+          "commercial": 1,
+          "field": 0,
+          "total": 0.6000000000000001
+        },
+        "feasibility": {
+          "technical": 0.75,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.8125
+        }
+      },
+      "priorityRank": 3
+    },
+    {
+      "id": "electron-transfer",
+      "topic": "electron transfer",
+      "description": "Relative contributions of direct-contact, nanowire, and mediator-based electron transfer pathways in mixed communities remain poorly resolved. Genetic / regulatory networks controlling EET under varied conditions are undercharacterized.",
+      "critical_parameters": [
+        "Current Density",
+        "Power Density"
+      ],
+      "keywords": [
+        "extracellular electron transfer",
+        "EET",
+        "nanowire",
+        "cytochrome",
+        "pili",
+        "mediator",
+        "mtrcab",
+        "omcs"
+      ],
+      "metrics": {
+        "topic": "electron transfer",
+        "description": "Relative contributions of direct-contact, nanowire, and mediator-based electron transfer pathways in mixed communities remain poorly resolved. Genetic / regulatory networks controlling EET under varied conditions are undercharacterized.",
+        "papers_in_area": 384,
+        "recent_year_max": 2026,
+        "contradiction_count": 57,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 2,
+        "critical_parameters_total": 2,
+        "commercial_potential": "medium",
+        "scientific_impact": "breakthrough",
+        "technical_difficulty": "extreme",
+        "est_time_to_solution_months": 72
+      },
+      "urgencyScore": 0.515,
+      "impactScore": 0.6,
+      "feasibilityScore": 0.525,
+      "totalScore": 0.551,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "57 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: medium; scientific impact: breakthrough"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.45,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.515
+        },
+        "impact": {
+          "scientific": 1,
+          "commercial": 0.5,
+          "field": 0,
+          "total": 0.6000000000000001
+        },
+        "feasibility": {
+          "technical": 0.25,
+          "resources": 1,
+          "timeCap": 0.5,
+          "total": 0.525
+        }
+      },
+      "priorityRank": 4
+    },
+    {
+      "id": "microbial-consortia",
+      "topic": "microbial consortia",
+      "description": "Real wastewater relies on mixed consortia; community assembly dynamics and keystone-species effects on performance are undercharacterized. Multi-omics integration is a bottleneck.",
+      "critical_parameters": [
+        "Current Density",
+        "Power Density",
+        "Coulombic Efficiency"
+      ],
+      "keywords": [
+        "consortia",
+        "community",
+        "mixed culture",
+        "synergy",
+        "synthetic community",
+        "co-culture"
+      ],
+      "metrics": {
+        "topic": "microbial consortia",
+        "description": "Real wastewater relies on mixed consortia; community assembly dynamics and keystone-species effects on performance are undercharacterized. Multi-omics integration is a bottleneck.",
+        "papers_in_area": 870,
+        "recent_year_max": 2026,
+        "contradiction_count": 61,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "high",
+        "scientific_impact": "breakthrough",
+        "technical_difficulty": "extreme",
+        "est_time_to_solution_months": 60
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.7,
+      "feasibilityScore": 0.525,
+      "totalScore": 0.541,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "61 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: breakthrough"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 1,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.7000000000000001
+        },
+        "feasibility": {
+          "technical": 0.25,
+          "resources": 1,
+          "timeCap": 0.5,
+          "total": 0.525
+        }
+      },
+      "priorityRank": 5
+    },
+    {
+      "id": "cathode-optimization",
+      "topic": "cathode optimization",
+      "description": "Platinum-group metal cathodes are prohibitively expensive at scale. Fe-N-C, MnO2, and bioinspired catalysts show promise but cost/durability/selectivity trade-offs are poorly mapped.",
+      "critical_parameters": [
+        "Power Density",
+        "Open Circuit Voltage",
+        "Internal Resistance"
+      ],
+      "keywords": [
+        "cathode",
+        "catalyst",
+        "oxygen reduction",
+        "ORR",
+        "fe-n-c",
+        "manganese",
+        "bioinspired"
+      ],
+      "metrics": {
+        "topic": "cathode optimization",
+        "description": "Platinum-group metal cathodes are prohibitively expensive at scale. Fe-N-C, MnO2, and bioinspired catalysts show promise but cost/durability/selectivity trade-offs are poorly mapped.",
+        "papers_in_area": 1223,
+        "recent_year_max": 2026,
+        "contradiction_count": 81,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "high",
+        "scientific_impact": "significant",
+        "technical_difficulty": "high",
+        "est_time_to_solution_months": 48
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.6,
+      "feasibilityScore": 0.712,
+      "totalScore": 0.539,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "81 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.6000000000000001
+        },
+        "feasibility": {
+          "technical": 0.5,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.7124999999999999
+        }
+      },
+      "priorityRank": 6
+    },
+    {
+      "id": "in-situ-monitoring",
+      "topic": "in-situ monitoring",
+      "description": "No commercially available real-time biofilm-health or community-composition sensors. Electrochemical impedance spectroscopy and miniaturized sequencing are emerging candidates.",
+      "critical_parameters": [
+        "Voltage",
+        "Current Density",
+        "Power Density"
+      ],
+      "keywords": [
+        "monitoring",
+        "sensor",
+        "real-time",
+        "in-situ",
+        "biosensor",
+        "impedance spectroscopy"
+      ],
+      "metrics": {
+        "topic": "in-situ monitoring",
+        "description": "No commercially available real-time biofilm-health or community-composition sensors. Electrochemical impedance spectroscopy and miniaturized sequencing are emerging candidates.",
+        "papers_in_area": 651,
+        "recent_year_max": 2026,
+        "contradiction_count": 82,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "high",
+        "scientific_impact": "significant",
+        "technical_difficulty": "high",
+        "est_time_to_solution_months": 36
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.6,
+      "feasibilityScore": 0.712,
+      "totalScore": 0.539,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "82 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.6000000000000001
+        },
+        "feasibility": {
+          "technical": 0.5,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.7124999999999999
+        }
+      },
+      "priorityRank": 7
+    },
+    {
+      "id": "scale-up",
+      "topic": "scale-up",
+      "description": "Maintaining laboratory-scale performance at liter / cubic-meter scale. Current literature reports 50-90% performance loss on scale-up; digital-twin calibration against multi-scale datasets is an open problem.",
+      "critical_parameters": [
+        "Reactor Volume",
+        "Power Density",
+        "Coulombic Efficiency",
+        "Internal Resistance"
+      ],
+      "keywords": [
+        "scale-up",
+        "scale up",
+        "scaling",
+        "pilot",
+        "pilot-scale",
+        "industrial",
+        "large-scale",
+        "demonstration"
+      ],
+      "metrics": {
+        "topic": "scale-up",
+        "description": "Maintaining laboratory-scale performance at liter / cubic-meter scale. Current literature reports 50-90% performance loss on scale-up; digital-twin calibration against multi-scale datasets is an open problem.",
+        "papers_in_area": 480,
+        "recent_year_max": 2026,
+        "contradiction_count": 75,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 4,
+        "critical_parameters_total": 4,
+        "commercial_potential": "high",
+        "scientific_impact": "significant",
+        "technical_difficulty": "high",
+        "est_time_to_solution_months": 60
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.6,
+      "feasibilityScore": 0.625,
+      "totalScore": 0.521,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "75 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.6000000000000001
+        },
+        "feasibility": {
+          "technical": 0.5,
+          "resources": 1,
+          "timeCap": 0.5,
+          "total": 0.625
+        }
+      },
+      "priorityRank": 8
+    },
+    {
+      "id": "long-term-stability",
+      "topic": "long-term stability",
+      "description": "MES performance consistently degrades over time due to biofilm aging, membrane fouling, and cathode catalyst degradation. Most studies report weeks to months; few extend beyond 6 months.",
+      "critical_parameters": [
+        "Power Density",
+        "Voltage",
+        "Internal Resistance",
+        "Coulombic Efficiency"
+      ],
+      "keywords": [
+        "long-term",
+        "stability",
+        "degradation",
+        "durability",
+        "lifetime",
+        "aging",
+        "lifespan"
+      ],
+      "metrics": {
+        "topic": "long-term stability",
+        "description": "MES performance consistently degrades over time due to biofilm aging, membrane fouling, and cathode catalyst degradation. Most studies report weeks to months; few extend beyond 6 months.",
+        "papers_in_area": 652,
+        "recent_year_max": 2026,
+        "contradiction_count": 99,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 4,
+        "critical_parameters_total": 4,
+        "commercial_potential": "high",
+        "scientific_impact": "moderate",
+        "technical_difficulty": "medium",
+        "est_time_to_solution_months": 36
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.5,
+      "feasibilityScore": 0.813,
+      "totalScore": 0.519,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "99 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: moderate"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.5,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.5
+        },
+        "feasibility": {
+          "technical": 0.75,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.8125
+        }
+      },
+      "priorityRank": 9
+    },
+    {
+      "id": "substrate-flexibility",
+      "topic": "substrate flexibility",
+      "description": "Most lab studies use acetate or glucose; real-world wastewater is compositionally variable. AI-guided community tuning to adapt MES performance to shifting substrate profiles is largely absent.",
+      "critical_parameters": [
+        "Power Density",
+        "Coulombic Efficiency",
+        "COD Removal",
+        "BOD Concentration"
+      ],
+      "keywords": [
+        "substrate",
+        "feedstock",
+        "wastewater",
+        "organic load",
+        "versatile",
+        "complex substrate"
+      ],
+      "metrics": {
+        "topic": "substrate flexibility",
+        "description": "Most lab studies use acetate or glucose; real-world wastewater is compositionally variable. AI-guided community tuning to adapt MES performance to shifting substrate profiles is largely absent.",
+        "papers_in_area": 2239,
+        "recent_year_max": 2026,
+        "contradiction_count": 26,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 4,
+        "critical_parameters_total": 4,
+        "commercial_potential": "high",
+        "scientific_impact": "moderate",
+        "technical_difficulty": "medium",
+        "est_time_to_solution_months": 36
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.5,
+      "feasibilityScore": 0.813,
+      "totalScore": 0.519,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "26 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: moderate"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.5,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.5
+        },
+        "feasibility": {
+          "technical": 0.75,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.8125
+        }
+      },
+      "priorityRank": 10
+    },
+    {
+      "id": "biofilm-engineering",
+      "topic": "biofilm engineering",
+      "description": "Biofilm structure, thickness, and spatial metabolic activity profoundly affect current density, yet real-time, non-invasive monitoring methods do not exist. Regeneration strategies remain rudimentary.",
+      "critical_parameters": [
+        "Current Density",
+        "Power Density",
+        "Coulombic Efficiency"
+      ],
+      "keywords": [
+        "biofilm",
+        "thickness",
+        "biofilm formation",
+        "anode biofilm",
+        "electrode biofilm"
+      ],
+      "metrics": {
+        "topic": "biofilm engineering",
+        "description": "Biofilm structure, thickness, and spatial metabolic activity profoundly affect current density, yet real-time, non-invasive monitoring methods do not exist. Regeneration strategies remain rudimentary.",
+        "papers_in_area": 594,
+        "recent_year_max": 2026,
+        "contradiction_count": 61,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "medium",
+        "scientific_impact": "significant",
+        "technical_difficulty": "high",
+        "est_time_to_solution_months": 48
+      },
+      "urgencyScore": 0.39,
+      "impactScore": 0.5,
+      "feasibilityScore": 0.712,
+      "totalScore": 0.499,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "61 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: medium; scientific impact: significant"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 1,
+          "total": 0.39
+        },
+        "impact": {
+          "scientific": 0.75,
+          "commercial": 0.5,
+          "field": 0,
+          "total": 0.5
+        },
+        "feasibility": {
+          "technical": 0.5,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.7124999999999999
+        }
+      },
+      "priorityRank": 11
+    },
+    {
+      "id": "hybrid-systems",
+      "topic": "hybrid systems",
+      "description": "MES coupled with anaerobic digestion, solar driving, or advanced oxidation processes can exceed single-stage performance. Integration rules and optimal operating windows are undercharacterized.",
+      "critical_parameters": [
+        "Power Density",
+        "COD Removal",
+        "Reactor Volume"
+      ],
+      "keywords": [
+        "hybrid",
+        "integrated",
+        "combined",
+        "coupling",
+        "anaerobic digestion",
+        "photo-bioelectrochemical"
+      ],
+      "metrics": {
+        "topic": "hybrid systems",
+        "description": "MES coupled with anaerobic digestion, solar driving, or advanced oxidation processes can exceed single-stage performance. Integration rules and optimal operating windows are undercharacterized.",
+        "papers_in_area": 934,
+        "recent_year_max": 2026,
+        "contradiction_count": 8,
+        "parameter_coverage": 1,
+        "parameters_with_stats": 3,
+        "critical_parameters_total": 3,
+        "commercial_potential": "high",
+        "scientific_impact": "moderate",
+        "technical_difficulty": "high",
+        "est_time_to_solution_months": 48
+      },
+      "urgencyScore": 0.27,
+      "impactScore": 0.5,
+      "feasibilityScore": 0.712,
+      "totalScore": 0.451,
+      "urgencyLevel": "medium",
+      "reasoning": [
+        "8 cross-paper contradictions flagged in related parameters",
+        "Commercial potential: high; scientific impact: moderate"
+      ],
+      "scoreBreakdown": {
+        "urgency": {
+          "scarcity": 0.2,
+          "recency": 0.3,
+          "contradictions": 0.4,
+          "total": 0.27
+        },
+        "impact": {
+          "scientific": 0.5,
+          "commercial": 0.75,
+          "field": 0,
+          "total": 0.5
+        },
+        "feasibility": {
+          "technical": 0.5,
+          "resources": 1,
+          "timeCap": 0.75,
+          "total": 0.7124999999999999
+        }
+      },
+      "priorityRank": 12
+    }
+  ]
+}
