@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Messai-org/MESS-Parameters/schemas/conditional-stats.schema.json",
+  "title": "parameter-conditional-stats.json",
+  "description": "Producer-computed multi-dim conditional statistics sidecar. Per-parameter buckets stratified by substrate, anode_material, temperature_bin, etc. See scripts/build-conditional-stats.ts and docs/consumer-contract.md §conditional-stats-sidecar.",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "config", "parameters"],
+  "properties": {
+    "schema_version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "generated_at":   { "type": "string", "format": "date-time" },
+    "corpus_snapshot": { "type": ["string", "null"] },
+    "config": {
+      "type": "object",
+      "required": ["top_n_parameters", "min_bucket_n"],
+      "properties": {
+        "top_n_parameters":             { "type": "integer", "minimum": 1 },
+        "min_bucket_n":                 { "type": "integer", "minimum": 1 },
+        "min_distinct_keys_for_cross":  { "type": "integer", "minimum": 1 },
+        "categorical_axes":             { "type": "array", "items": { "type": "string" } },
+        "source_level_axes":            { "type": "array", "items": { "type": "string" } },
+        "numeric_axes":                 { "type": "array" },
+        "cross_pairs":                  { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "parameters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "n_total", "buckets"],
+        "properties": {
+          "id":       { "type": "string" },
+          "name":     { "type": "string" },
+          "n_total":  { "type": "integer", "minimum": 0 },
+          "n_papers": { "type": ["integer", "null"] },
+          "buckets": {
+            "type": "object",
+            "description": "Map of axis name ('by_substrate', 'by_system_type_x_substrate', ...) → (bucket-key → Stats).",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": { "$ref": "#/definitions/Stats" }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Stats": {
+      "type": "object",
+      "required": ["n", "min", "max", "mean", "median", "p25", "p75", "std"],
+      "properties": {
+        "n":      { "type": "integer" },
+        "min":    { "type": "number" },
+        "max":    { "type": "number" },
+        "mean":   { "type": "number" },
+        "median": { "type": "number" },
+        "p05":    { "type": "number" },
+        "p25":    { "type": "number" },
+        "p75":    { "type": "number" },
+        "p95":    { "type": "number" },
+        "std":    { "type": "number" },
+        "mad":    { "type": "number" },
+        "iqr":    { "type": "number" },
+        "n_outliers": { "type": "integer" }
+      }
+    }
+  }
+}
