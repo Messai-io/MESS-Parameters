@@ -1,0 +1,15 @@
+{
+  "_comment": "Map of duplicate/legacy parameter names (lowercased, no punctuation normalization beyond that) to canonical rich.id. Consulted by scripts/build-provenance.ts during CSV row ingestion so evidence split across duplicate rich entries consolidates into one distribution. Only merges where BOTH rich entries describe the same physical concept are listed here. See scripts/build-provenance.ts for how this is applied.",
+  "aliases": {
+    "coulombicefficiency": "coulombic_efficiency",
+    "powerdensity": "cme1qmy6n008xlllgn3t1ijkj",
+    "flowrate": "cme1qoa9x00q6lllgm2qj3hx8",
+    "hydraulicretentiontime": "cme1qondh00uxlllg6kh5gl1a"
+  },
+  "not_merged": {
+    "voltage_vs_open_circuit_voltage": "different quantities — applied/cell voltage vs OCV",
+    "volume_vs_batch_volume": "generic vs specific",
+    "maxpowerdensity_vs_powerdensity": "max summary stat vs raw density values",
+    "temperature_vs_ambient_temperature": "heated reactors can differ from ambient"
+  }
+}

@@ -27,6 +27,8 @@ const PPV_PATH = path.join(DATA_DIR, 'paper-parameter-values.csv');
 const LOCAL_PATH = path.join(DATA_DIR, 'local-corpus-values.csv');
 const PM_PATH = path.join(DATA_DIR, 'paper-metadata.csv');
 const BLOCKLIST_PATH = path.join(DATA_DIR, 'ontology-blocklist.txt');
+const ALIASES_PATH = path.join(DATA_DIR, 'parameter-aliases.json');
+const PROD_MATERIALS_CSV = path.join(DATA_DIR, 'paper-materials-prod.csv');
 const OUT_PATH = path.join(DATA_DIR, 'parameter-provenance.json');
 
 const SCHEMA_VERSION = '0.1.0';
@@ -53,6 +55,21 @@ function loadBlocklist(): Set<string> {
   return out;
 }
 const BLOCKLIST = loadBlocklist();
+
+// Parameter alias map: lowercase(parameter_name) → canonical rich.id.
+// Used to consolidate evidence split across duplicate rich entries
+// (e.g. coulombicEfficiency + Coulombic Efficiency). See
+// data/parameter-aliases.json for the authoritative list and rationale.
+function loadAliases(): Map<string, string> {
+  if (!fs.existsSync(ALIASES_PATH)) return new Map();
+  try {
+    const doc = JSON.parse(fs.readFileSync(ALIASES_PATH, 'utf8')) as { aliases?: Record<string, string> };
+    return new Map(Object.entries(doc.aliases ?? {}));
+  } catch {
+    return new Map();
+  }
+}
+const ALIASES = loadAliases();
 
 // ═══════════════════════════════════════════════════════════════════════
 // RFC-4180 CSV parser — handles quoted fields with embedded commas/quotes
@@ -660,6 +677,20 @@ function main(): void {
     if (rec.title) pmByTitle.set(rec.title, rec);
   }
 
+  // Optional prod-derived paper metadata overlay: when a DOI's local
+  // reproducibility_score / citation_count are missing, fall back to the
+  // prod value. Increases quality-signal coverage from ~10% to ~80%.
+  const prodByDoi = new Map<string, Record<string, string>>();
+  if (fs.existsSync(PROD_MATERIALS_CSV)) {
+    const prodText = fs.readFileSync(PROD_MATERIALS_CSV, 'utf8');
+    const prodParsed = parseCsv(prodText);
+    for (const row of prodParsed.rows) {
+      const rec = toRecord(prodParsed.header, row);
+      if (rec.doi) prodByDoi.set(rec.doi, rec);
+    }
+    console.log(`  prod-materials overlay: ${prodByDoi.size} DOIs available`);
+  }
+
   console.log('[3/5] Grouping rows by parameter (with blocklist + sanity + unit normalization)...');
   const byParam = new Map<string, PpvRow[]>();
   let skippedLowConf = 0;
@@ -668,6 +699,7 @@ function main(): void {
   let skippedSanity = 0;
   let skippedBlocklist = 0;
   let unitsNormalized = 0;
+  let aliasedRows = 0;
 
   for (const row of ppv.rows) {
     const rec = toRecord(ppv.header, row);
@@ -676,14 +708,23 @@ function main(): void {
     if (conf == null || conf < MIN_CONFIDENCE) { skippedLowConf++; continue; }
     const num = toNumOrNull(rec.numeric_value);
     if (num == null) { skippedNonNumeric++; continue; }
+    const nameLc = rec.parameter_name.trim().toLowerCase();
     // Tier A: ontology blocklist. Parameters hand-curated as non-MES
     // (e.g. Blue Light Ratio, Centrifugal Acceleration) are dropped
     // before aggregation. Raw rows remain in the CSV for audit.
-    if (BLOCKLIST.has(rec.parameter_name.trim().toLowerCase())) {
+    if (BLOCKLIST.has(nameLc)) {
       skippedBlocklist++;
       continue;
     }
-    const r = rNameMap.get(rec.parameter_name.toLowerCase());
+    let r = rNameMap.get(nameLc);
+    // Alias redirect: consolidate evidence split across duplicate rich
+    // entries by mapping the camelCase variant onto its Title Case
+    // canonical (or vice versa — see data/parameter-aliases.json).
+    const aliasId = ALIASES.get(nameLc);
+    if (aliasId) {
+      const canonical = rIdMap.get(aliasId);
+      if (canonical) { r = canonical; aliasedRows++; }
+    }
     if (!r) { skippedNoMatch++; continue; }
 
     const paperKey = rec.paper_doi || rec.paper_title;
@@ -728,6 +769,7 @@ function main(): void {
     if (bucket) bucket.push(ppvRow); else byParam.set(key, [ppvRow]);
   }
   console.log(`  kept: ${[...byParam.values()].reduce((s, a) => s + a.length, 0)} rows across ${byParam.size} parameters`);
+  console.log(`  alias redirects:          ${aliasedRows}`);
   console.log(`  skipped (low confidence): ${skippedLowConf}`);
   console.log(`  skipped (non-numeric):    ${skippedNonNumeric}`);
   console.log(`  skipped (ontology blocklist): ${skippedBlocklist}`);
@@ -740,18 +782,31 @@ function main(): void {
   // For correlations pass: paper_key → { param_id → mean numeric_value }
   const paperParamMap = new Map<string, Map<string, number[]>>();
 
-  // Per-paper weight for weighted correlations. Pulls the 26-criterion
-  // reproducibility_score from paper-metadata.csv (when available), floors
-  // at 0.1 so unscored papers still contribute signal. Neutral 0.5 when we
-  // can't join the paper back to the metadata file.
+  // Per-paper weight for weighted correlations. Combines two signals:
+  //   1. reproducibility_score from paper-metadata.csv (26-criterion rubric)
+  //      — falls back to prod overlay when local is missing.
+  //   2. citation_count saturating boost: log10(1+cites)/4, capped at 1.0.
+  //      Recent uncited papers get no boost; highly-cited papers get up
+  //      to +1.0 added to the base score before flooring. Tempered by a
+  //      0.25 weight so reproducibility remains primary signal.
+  // Weight floored at 0.1 so no paper is effectively dropped; neutral
+  // 0.5 when no metadata joins at all.
   const paperWeight = new Map<string, number>();
   function weightFor(paperKey: string): number {
     if (paperWeight.has(paperKey)) return paperWeight.get(paperKey)!;
     const pmRec = pmByDoi.get(paperKey) ?? pmByTitle.get(paperKey);
-    const raw = pmRec?.reproducibility_score;
-    const n = raw != null && raw !== '' ? Number(raw) : NaN;
-    const base = Number.isFinite(n) ? n : 0.5;
-    const w = Math.max(0.1, base);
+    const prodRec = prodByDoi.get(paperKey);
+    const reproRaw = pmRec?.reproducibility_score || prodRec?.reproducibilityScore;
+    const reproNum = reproRaw != null && reproRaw !== '' ? Number(reproRaw) : NaN;
+    const reproBase = Number.isFinite(reproNum) ? Math.min(1, Math.max(0, reproNum)) : 0.5;
+
+    const citeRaw = pmRec?.citation_count || prodRec?.citationCount;
+    const citeNum = citeRaw != null && citeRaw !== '' ? Number(citeRaw) : NaN;
+    const citeBoost = Number.isFinite(citeNum) && citeNum > 0
+      ? Math.min(1, Math.log10(1 + citeNum) / 4)
+      : 0;
+
+    const w = Math.max(0.1, reproBase + 0.25 * citeBoost);
     paperWeight.set(paperKey, w);
     return w;
   }
@@ -799,7 +854,8 @@ function main(): void {
       if (seen.has(dedupKey)) continue;
       seen.add(dedupKey);
       const pmRec = pmByDoi.get(r.paper_doi) ?? pmByTitle.get(r.paper_title);
-      const repro = pmRec?.reproducibility_score;
+      const prodRec = prodByDoi.get(r.paper_doi);
+      const repro = pmRec?.reproducibility_score || prodRec?.reproducibilityScore;
       const reproNum = repro != null && repro !== '' ? Number(repro) : NaN;
       dedupedSources.push({
         doi: r.paper_doi,
