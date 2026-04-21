@@ -64,6 +64,12 @@ export interface ProvSource {
   verified: boolean;
   verified_mes: boolean;
   reproducibility_score: number | null;
+  // Parsed from the snippet field by scripts/parse-uncertainty.ts.
+  // Optional — not present on sources built before the uncertainty
+  // overlay landed, and not every snippet yields a parseable pattern.
+  uncertainty_abs?: number | null;
+  uncertainty_rel_pct?: number | null;
+  uncertainty_kind?: string | null;
   snippet: string | null;
   context: ProvSourceContext | null;
 }

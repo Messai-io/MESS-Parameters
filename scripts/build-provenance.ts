@@ -29,6 +29,8 @@ const PM_PATH = path.join(DATA_DIR, 'paper-metadata.csv');
 const BLOCKLIST_PATH = path.join(DATA_DIR, 'ontology-blocklist.txt');
 const ALIASES_PATH = path.join(DATA_DIR, 'parameter-aliases.json');
 const PROD_MATERIALS_CSV = path.join(DATA_DIR, 'paper-materials-prod.csv');
+const QUALITY_SCORES_CSV = path.join(DATA_DIR, 'paper-quality-scores.csv');
+const UNCERTAINTY_CSV = path.join(DATA_DIR, 'source-uncertainty.csv');
 const OUT_PATH = path.join(DATA_DIR, 'parameter-provenance.json');
 
 const SCHEMA_VERSION = '0.1.0';
@@ -571,6 +573,12 @@ interface Source {
   // Per-paper reproducibility score (0..1) from the 26-criterion rubric.
   // Null when we can't join the paper back to paper-metadata.csv.
   reproducibility_score: number | null;
+  // Parsed uncertainty from the source snippet (see
+  // scripts/parse-uncertainty.ts). Optional; populated only when the
+  // snippet yielded a ±/SD/range pattern matching the source's value.
+  uncertainty_abs?: number | null;
+  uncertainty_rel_pct?: number | null;
+  uncertainty_kind?: string | null;
   // Extended scientific context from the local-PDF extractor:
   //   snippet: the reporting sentence
   //   context: object with conditions + system config (see
@@ -691,6 +699,42 @@ function main(): void {
     console.log(`  prod-materials overlay: ${prodByDoi.size} DOIs available`);
   }
 
+  // Proxy quality score — 5-criterion rubric computed from existing
+  // metadata by scripts/build-paper-quality-scores.ts. Used as the third
+  // tier of weightFor() when both local and prod reproducibility_score
+  // are absent.
+  const qualityByDoi = new Map<string, number>();
+  if (fs.existsSync(QUALITY_SCORES_CSV)) {
+    const qText = fs.readFileSync(QUALITY_SCORES_CSV, 'utf8');
+    const qParsed = parseCsv(qText);
+    for (const row of qParsed.rows) {
+      const rec = toRecord(qParsed.header, row);
+      const s = Number(rec.score);
+      if (rec.doi && Number.isFinite(s)) qualityByDoi.set(rec.doi, s);
+    }
+    console.log(`  quality-scores overlay: ${qualityByDoi.size} DOIs scored`);
+  }
+
+  // Parsed uncertainty from source snippets — attached to sources below
+  // for popover display and future inverse-variance weighting.
+  const uncByKey = new Map<string, { abs: number | null; rel_pct: number | null; kind: string }>();
+  if (fs.existsSync(UNCERTAINTY_CSV)) {
+    const uText = fs.readFileSync(UNCERTAINTY_CSV, 'utf8');
+    const uParsed = parseCsv(uText);
+    for (const row of uParsed.rows) {
+      const rec = toRecord(uParsed.header, row);
+      const key = `${rec.paper_doi}|${rec.parameter_id}|${rec.value}`;
+      const abs = rec.uncertainty_abs !== '' ? Number(rec.uncertainty_abs) : null;
+      const rel = rec.uncertainty_rel_pct !== '' ? Number(rec.uncertainty_rel_pct) : null;
+      uncByKey.set(key, {
+        abs: abs != null && Number.isFinite(abs) ? abs : null,
+        rel_pct: rel != null && Number.isFinite(rel) ? rel : null,
+        kind: rec.kind ?? '',
+      });
+    }
+    console.log(`  uncertainty overlay:    ${uncByKey.size} sources parsed`);
+  }
+
   console.log('[3/5] Grouping rows by parameter (with blocklist + sanity + unit normalization)...');
   const byParam = new Map<string, PpvRow[]>();
   let skippedLowConf = 0;
@@ -798,7 +842,14 @@ function main(): void {
     const prodRec = prodByDoi.get(paperKey);
     const reproRaw = pmRec?.reproducibility_score || prodRec?.reproducibilityScore;
     const reproNum = reproRaw != null && reproRaw !== '' ? Number(reproRaw) : NaN;
-    const reproBase = Number.isFinite(reproNum) ? Math.min(1, Math.max(0, reproNum)) : 0.5;
+    // Three-tier base score:
+    //   1. genuine reproducibility_score (26-criterion rubric, ~280 papers)
+    //   2. proxy quality_score (5-criterion, computed for ~10.9k papers)
+    //   3. neutral 0.5 when neither is available
+    const qualityScore = qualityByDoi.get(paperKey);
+    const reproBase = Number.isFinite(reproNum)
+      ? Math.min(1, Math.max(0, reproNum))
+      : (qualityScore ?? 0.5);
 
     const citeRaw = pmRec?.citation_count || prodRec?.citationCount;
     const citeNum = citeRaw != null && citeRaw !== '' ? Number(citeRaw) : NaN;
@@ -857,6 +908,8 @@ function main(): void {
       const prodRec = prodByDoi.get(r.paper_doi);
       const repro = pmRec?.reproducibility_score || prodRec?.reproducibilityScore;
       const reproNum = repro != null && repro !== '' ? Number(repro) : NaN;
+      const uncKey = `${r.paper_doi}|${paramId}|${r.numeric_value}`;
+      const unc = uncByKey.get(uncKey);
       dedupedSources.push({
         doi: r.paper_doi,
         title: pmRec?.title ?? r.paper_title,
@@ -871,6 +924,9 @@ function main(): void {
         verified: r.is_verified,
         verified_mes: r.verified_mes,
         reproducibility_score: Number.isFinite(reproNum) ? round(reproNum, 3) : null,
+        uncertainty_abs: unc?.abs ?? null,
+        uncertainty_rel_pct: unc?.rel_pct ?? null,
+        uncertainty_kind: unc?.kind ?? null,
         snippet: r.snippet,
         context: r.context,
       });

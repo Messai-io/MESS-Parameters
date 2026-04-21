@@ -116,6 +116,9 @@
             { "type": "number", "minimum": 0, "maximum": 1 }
           ]
         },
+        "uncertainty_abs": { "type": ["number", "null"] },
+        "uncertainty_rel_pct": { "type": ["number", "null"] },
+        "uncertainty_kind": { "type": ["string", "null"] },
         "snippet": { "type": ["string", "null"] },
         "context": {
           "oneOf": [

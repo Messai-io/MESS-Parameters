@@ -80,6 +80,12 @@ const MATERIAL_ALIASES: Record<string, string> = {
   'reduced graphene oxide': 'graphene_oxide',
   'go': 'graphene_oxide',
   'graphene oxide': 'graphene_oxide',
+  // Extensions beyond MESS-Materials' curated set — proxies for slugs
+  // that cover the same carbon allotrope family. Upstream slug additions
+  // (gold, titanium, polyaniline, Nafion, etc.) would allow removing these
+  // from the proxy/null policy.
+  'carbon fiber': 'carbon_cloth',        // 9 papers; same allotrope fabric
+  'mxene': 'ti3c2tx_mxene',              // 5 papers; most-studied MXene variant
 };
 
 // Parse an anode/cathode cell. May be a JSON array ('["Pt","Cu"]'), a

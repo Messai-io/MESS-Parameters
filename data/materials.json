@@ -1,6 +1,6 @@
 {
   "schema_version": "0.1.0",
-  "generated_at": "2026-04-21T04:45:35.536Z",
+  "generated_at": "2026-04-21T05:19:27.149Z",
   "source": "../MESS-Materials/data",
   "slugs": [
     {
@@ -2460,7 +2460,8 @@
       "iron_oxide"
     ],
     "10.1016/j.bios.2010.03.030": [
-      "carbon_nanotubes"
+      "carbon_nanotubes",
+      "carbon_cloth"
     ],
     "10.1016/j.bios.2010.06.019": [
       "copper_cathode"
@@ -2755,6 +2756,9 @@
     "10.1016/j.jbiotec.2010.10.077": [
       "nickel_foam"
     ],
+    "10.1016/j.jcis.2022.08.040": [
+      "ti3c2tx_mxene"
+    ],
     "10.1016/j.jes.2014.06.009": [
       "iron_oxide",
       "nickel_foam"
@@ -2849,6 +2853,9 @@
     ],
     "10.1016/j.jtice.2013.05.003": [
       "copper_cathode"
+    ],
+    "10.1016/j.jwpe.2021.102454": [
+      "ti3c2tx_mxene"
     ],
     "10.1016/j.matpr.2019.02.075": [
       "copper_cathode"
@@ -3328,6 +3335,9 @@
     ],
     "10.1088/1755-1315/555/1/012004": [
       "platinum_cathode"
+    ],
+    "10.1088/1755-1315/927/1/012028": [
+      "carbon_cloth"
     ],
     "10.1088/1757-899x/330/1/012034": [
       "platinum_cathode"
@@ -4018,6 +4028,9 @@
     "10.21276/ijlssr.2018.4.6.7": [
       "copper_cathode"
     ],
+    "10.2139/ssrn.4103323": [
+      "ti3c2tx_mxene"
+    ],
     "10.2139/ssrn.4239421": [
       "iron_oxide"
     ],
@@ -4047,6 +4060,7 @@
       "iron_oxide"
     ],
     "10.2166/wst.2012.255": [
+      "carbon_cloth",
       "platinum_cathode",
       "copper_cathode",
       "iron_oxide",
@@ -4238,6 +4252,9 @@
     "10.3390/agriculture5030367": [
       "copper_cathode",
       "nickel_foam"
+    ],
+    "10.3390/app10092989": [
+      "carbon_cloth"
     ],
     "10.3390/app14167199": [
       "graphene_oxide",
@@ -4677,6 +4694,7 @@
       "iron_oxide"
     ],
     "10.5755/j02.mech.31732": [
+      "carbon_cloth",
       "iron_oxide",
       "nickel_foam"
     ],

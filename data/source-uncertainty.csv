@@ -1,0 +1,724 @@
+paper_doi,parameter_id,value,uncertainty_abs,uncertainty_rel_pct,kind,excerpt
+10.21924/cst.9.1.2024.1372,bod_removal,93.57,,0.100,plus_minus_pct,93.57 ± 0.10%
+10.22153/kej.2022.07.002,bod_removal,40,1,2.174,range_halfwidth, 45 and 47
+10.22153/kej.2022.07.002,bod_removal,55,1,2.174,range_halfwidth, 45 and 47
+10.3329/jes.v13i1.60561,bod_removal,67,,9.000,plus_minus_pct,67±9%
+10.1038/srep06779,bod_removal,90.2,,4.100,plus_minus_pct,90.2 ± 4.1%
+10.1038/srep06779,bod_removal,96.5,,4.100,plus_minus_pct,90.2 ± 4.1%
+10.55251/jmbfs.9703,bod_removal,98.38,,0.264,plus_minus_pct,98.38±0.264 %
+10.55251/jmbfs.9703,bod_removal,99.69,,0.276,plus_minus_pct,99.69±0.276 %
+10.48048/tis.2023.6900,bod_removal,53.77,,0.590,plus_minus_pct,53.77 ± 0.59 %
+10.1149/ma2006-02/24/1189,bod_removal,32,9,39.130,range_halfwidth, 14 to 32
+10.11159/iceptp25.142,cmduprc1m0001g3nc3eujv2ey,45,4,8.163,range_halfwidth, 45-53
+10.11159/iceptp25.142,cmduprc1m0001g3nc3eujv2ey,20463,4,0.020,range_halfwidth, 20463-20471
+10.11591/ijeecs.v37.i3.pp1452-1463,cmduprc1m0001g3nc3eujv2ey,1336,4,0.299,range_halfwidth, 1336-1344
+10.20873/pibic_2024_21014,cmduprc1m0001g3nc3eujv2ey,2359,646.5,21.511,range_halfwidth, 2359-3652
+10.4014/jmb.2502.02051,cmduprc1m0001g3nc3eujv2ey,11,1.5,12.000,range_halfwidth,11-14
+10.4314/jobasr.v3i3.9,cmduprc1m0001g3nc3eujv2ey,71,3,4.054,range_halfwidth, 71-77
+10.4314/jobasr.v3i3.9,cmduprc1m0001g3nc3eujv2ey,1720,3,0.174,range_halfwidth, 1720-1726
+10.4314/njb.v41i2.3,cmduprc1m0001g3nc3eujv2ey,29,7.5,20.548,range_halfwidth, 29-44
+10.4314/njb.v41i2.3,cmduprc1m0001g3nc3eujv2ey,10,3,23.077,range_halfwidth, 10-16
+10.4314/njb.v41i2.3,cmduprc1m0001g3nc3eujv2ey,2880,1.5,0.052,range_halfwidth, 2880-2883
+10.1515/znc-2023-0175,cmduprc1m0001g3nc3eujv2ey,2321,578,33.199,range_halfwidth, 2319-1163
+10.1515/znc-2023-0175,cmduprc1m0001g3nc3eujv2ey,259,2.5,0.956,range_halfwidth, 259-264
+10.21203/rs.3.rs-3939507/v1,cmduprc1m0001g3nc3eujv2ey,43,1.5,3.371,range_halfwidth,43-46
+10.21203/rs.3.rs-3939507/v1,cmduprc1m0001g3nc3eujv2ey,497,5.5,1.095,range_halfwidth, 497-508
+10.21924/cst.9.1.2024.1372,cmduprc1m0001g3nc3eujv2ey,1969,4.5,0.228,range_halfwidth, 1969-1978
+10.24857/rgsa.v18n6-187,cmduprc1m0001g3nc3eujv2ey,429,4.5,1.038,range_halfwidth, 429-438
+10.29244/coj.v8i2.55742,cmduprc1m0001g3nc3eujv2ey,52,8,13.333,range_halfwidth, 52-68
+10.33736/bjrst.6163.2024,cmduprc1m0001g3nc3eujv2ey,694,5.5,0.786,range_halfwidth, 694-705
+10.3389/fpls.2024.1420408,cmduprc1m0001g3nc3eujv2ey,883,10.5,1.175,range_halfwidth, 883–904
+10.36948/ijfmr.2024.v06i03.21785,cmduprc1m0001g3nc3eujv2ey,388,4.5,1.146,range_halfwidth, 388-397
+10.4314/njb.v41i1.12,cmduprc1m0001g3nc3eujv2ey,110,5,4.348,range_halfwidth, 110-120
+10.55251/jmbfs.9703,cmduprc1m0001g3nc3eujv2ey,170,3,1.734,range_halfwidth, 170-176
+10.55251/jmbfs.9703,cmduprc1m0001g3nc3eujv2ey,6584,4.5,0.068,range_halfwidth, 6584-6593
+10.62063/ecb-14,cmduprc1m0001g3nc3eujv2ey,275,3,1.079,range_halfwidth, 275-281
+10.9767/bcrec.20259,cmduprc1m0001g3nc3eujv2ey,1978,507.5,20.418,range_halfwidth, 1978-2993
+10.9767/bcrec.20259,cmduprc1m0001g3nc3eujv2ey,42,4,8.696,range_halfwidth, 42-50
+10.9767/bcrec.20259,cmduprc1m0001g3nc3eujv2ey,1844,5,0.325,range_halfwidth, 1533- 1543
+10.1002/adfm.202304790,cmduprc1m0001g3nc3eujv2ey,181,0.5,0.275,range_halfwidth,181-182
+10.15294/jbat.v12i2.44106,cmduprc1m0001g3nc3eujv2ey,10,3,42.857,range_halfwidth, 10-4
+10.24425/aep.2023.148683,cmduprc1m0001g3nc3eujv2ey,745,5.5,0.733,range_halfwidth, 745-756
+10.31026/j.eng.2013.08.08,cmduprc1m0001g3nc3eujv2ey,5181,5.5,0.106,range_halfwidth, 5181-5192
+10.35414/akufemubid.1027565,cmduprc1m0001g3nc3eujv2ey,79,4,4.819,range_halfwidth, 79-87
+10.35414/akufemubid.1027565,cmduprc1m0001g3nc3eujv2ey,598,11.5,1.887,range_halfwidth, 598-621
+10.48048/tis.2023.5490,cmduprc1m0001g3nc3eujv2ey,17,1,5.556,range_halfwidth,17-19
+10.48048/tis.2023.5490,cmduprc1m0001g3nc3eujv2ey,989,6.5,0.653,range_halfwidth, 989-1002
+10.52403/ijshr.20230217,cmduprc1m0001g3nc3eujv2ey,10,2.5,33.333,range_halfwidth,10-5
+10.52403/ijshr.20230217,cmduprc1m0001g3nc3eujv2ey,131,4.5,3.321,range_halfwidth, 131-140
+10.1088/1755-1315/1020/1/012008,cmduprc1m0001g3nc3eujv2ey,89.71,6.700000000000003,6.949,range_halfwidth, 89.71-103.11
+10.11113/jurnalteknologi.v84.17875,cmduprc1m0001g3nc3eujv2ey,17,1,5.556,range_halfwidth,17-19
+10.14710/reaktor.22.2.36-41,cmduprc1m0001g3nc3eujv2ey,36,2.5,6.494,range_halfwidth, 36-41
+10.31315/e.v19i1.6479,cmduprc1m0001g3nc3eujv2ey,40,2.5,5.882,range_halfwidth, 40-45
+10.3384/ecp192014,cmduprc1m0001g3nc3eujv2ey,50,10,25.000,range_halfwidth, 30-50
+10.3384/ecp192014,cmduprc1m0001g3nc3eujv2ey,10,3,42.857,range_halfwidth,10-4
+10.14710/reaktor.21.2.52-58,cmduprc1m0001g3nc3eujv2ey,154.61,8.409999999999997,5.159,range_halfwidth, 154.61-171.43
+10.21203/rs.3.rs-138288/v1,cmduprc1m0001g3nc3eujv2ey,6.5,0.5,7.143,range_halfwidth, 6.5 to 7.5
+10.5599/jese.1030,cmduprc1m0001g3nc3eujv2ey,279,5,1.761,range_halfwidth, 279-289
+10.5599/jese.924,cmduprc1m0001g3nc3eujv2ey,129,6.5,4.797,range_halfwidth, 129-142
+10.11591/ijeecs.v18.i3.pp1163-1171,cmduprc1m0001g3nc3eujv2ey,8,2,20.000,range_halfwidth,8-12
+10.14710/ijred.9.1.85-95,cmduprc1m0001g3nc3eujv2ey,69,2,2.817,range_halfwidth, 69-73
+10.14710/ijred.9.1.85-95,cmduprc1m0001g3nc3eujv2ey,9040,4,0.044,range_halfwidth,9040-9048
+10.14710/jksa.23.2.61-67,cmduprc1m0001g3nc3eujv2ey,84,3,3.448,range_halfwidth, 84-90
+10.14710/jksa.23.2.61-67,cmduprc1m0001g3nc3eujv2ey,75,3,3.448,range_halfwidth, 84-90
+10.14710/reaktor.20.2.96-102,cmduprc1m0001g3nc3eujv2ey,5,0.5,9.091,range_halfwidth,5-6
+10.17576/jsm-2020-4912-34,cmduprc1m0001g3nc3eujv2ey,104,6,5.455,range_halfwidth, 104-116
+10.17576/jsm-2020-4912-34,cmduprc1m0001g3nc3eujv2ey,1174,3.5,0.297,range_halfwidth, 1174-1181
+10.19053/01211129.v29.n54.2020.10468,cmduprc1m0001g3nc3eujv2ey,5,0.5,9.091,range_halfwidth,5-6
+10.19053/01211129.v29.n54.2020.10468,cmduprc1m0001g3nc3eujv2ey,51,7,12.069,range_halfwidth, 51-65
+10.15446/rev.colomb.quim.v48n3.77011,cmduprc1m0001g3nc3eujv2ey,1224,5.5,0.447,range_halfwidth, 1224-1235
+10.15446/rev.colomb.quim.v48n3.77011,cmduprc1m0001g3nc3eujv2ey,117,8,6.400,range_halfwidth, 117-133
+10.32792/utq/utj/vol12/3/11,cmduprc1m0001g3nc3eujv2ey,39,0.5,1.266,range_halfwidth,39-40
+10.4491/eer.2019.412,cmduprc1m0001g3nc3eujv2ey,15,1.5,9.091,range_halfwidth,15-18
+10.4491/eer.2019.412,cmduprc1m0001g3nc3eujv2ey,862,4,0.462,range_halfwidth, 862-870
+10.4491/eer.2019.412,cmduprc1m0001g3nc3eujv2ey,3999,2.5,0.062,range_halfwidth,3999-4004
+10.4491/eer.2019.412,cmduprc1m0001g3nc3eujv2ey,348,3,0.855,range_halfwidth,348-354
+10.14710/ijred.7.1.7-12,cmduprc1m0001g3nc3eujv2ey,6.4,0.44999999999999973,6.569,range_halfwidth,6.4-7.3
+10.19044/esj.2017.v13n30p173,cmduprc1m0001g3nc3eujv2ey,1897,3.5,0.184,range_halfwidth, 1897-1904
+10.14710/ijred.5.2.107-112,cmduprc1m0001g3nc3eujv2ey,28,1,3.448,range_halfwidth, 28-30
+10.14710/ijred.5.2.107-112,cmduprc1m0001g3nc3eujv2ey,80,20,20.000,range_halfwidth,from 80-120
+10.3126/ijasbt.v4i3.15395,cmduprc1m0001g3nc3eujv2ey,291,3.5,1.188,range_halfwidth, 291-298
+10.56431/p-7y6x87,cmduprc1m0001g3nc3eujv2ey,5,1,16.667,range_halfwidth, 5-7
+10.31026/j.eng.2015.07.03,cmduprc1m0001g3nc3eujv2ey,15729,3,0.019,range_halfwidth,15729-15735
+10.14710/reaktor.22.2.36-41,cmduprdi10002g3ncp3c2h79u,0.16,0.02,12.500,plus_minus_abs,0.16±0.02
+10.14710/reaktor.22.2.36-41,cmduprdi10002g3ncp3c2h79u,0.13,0.03,23.077,plus_minus_abs,0.13±0.03
+10.11159/iceptp25.142,cmduprdi10002g3ncp3c2h79u,0.025,0.001,3.571,plus_minus_abs,0.028 ± 0.001
+10.11159/iceptp25.142,cmduprdi10002g3ncp3c2h79u,0.032,0.001,3.571,plus_minus_abs,0.028 ± 0.001
+10.17113/ftb.63.02.25.9020,cmduprdi10002g3ncp3c2h79u,1.2,0.25,26.316,range_halfwidth, 0.7 and 1.2
+10.3389/fenrg.2024.1419785,cmduprdi10002g3ncp3c2h79u,0.7,0.15000000000000002,17.647,range_halfwidth,0.7–1.0
+10.5599/jese.2383,cmduprdi10002g3ncp3c2h79u,0.43,0.024999999999999994,6.173,range_halfwidth,from 0.38 to 0.43
+10.1051/e3sconf/202233408004,cmduprdi10002g3ncp3c2h79u,0.18,0.068,33.333,plus_minus_abs,0.204 ± 0.068
+10.14710/reaktor.22.2.36-41,cmduprdi10002g3ncp3c2h79u,0,1.15,12.221,plus_minus_abs,9.41±1.15
+10.14710/ijred.3.1.65-72,cmduprh970008g3ncgt3vekhm,85,10,13.333,range_halfwidth,from 65 to 85
+10.14710/ijred.3.1.65-72,cmduprh970008g3ncgt3vekhm,65,10,13.333,range_halfwidth,from 65 to 85
+10.1016/j.energy.2013.10.056,cmduprh970008g3ncgt3vekhm,25,6.25,20.000,range_halfwidth, 25 to 37.5
+10.1016/j.energy.2013.10.056,cmduprh970008g3ncgt3vekhm,37.5,6.25,20.000,range_halfwidth, 25 to 37.5
+10.21203/rs.3.rs-4559953/v1,cmduprh970008g3ncgt3vekhm,25,2,8.000,plus_minus_abs,25±2
+10.21203/rs.3.rs-8834018/v1,cmduprh970008g3ncgt3vekhm,100,2.5,2.564,range_halfwidth, 95–100
+10.1016/j.enconman.2024.118224,cmduprh970008g3ncgt3vekhm,180,10,5.882,range_halfwidth,between 160 and 180
+10.1016/j.enconman.2024.118224,cmduprh970008g3ncgt3vekhm,160,10,5.882,range_halfwidth,between 160 and 180
+10.1016/j.enconman.2024.118224,cmduprh970008g3ncgt3vekhm,40,2.5,6.667,range_halfwidth,35 - 40
+10.1016/j.enconman.2024.118224,cmduprh970008g3ncgt3vekhm,55,2.5,4.762,range_halfwidth,50 - 55
+10.1016/j.enconman.2024.118224,cmduprh970008g3ncgt3vekhm,60,17.5,41.176,range_halfwidth,between 25 and 60
+10.21203/rs.3.rs-3939507/v1,cmduprh970008g3ncgt3vekhm,32,1,3.226,range_halfwidth, 30 - 32
+10.21924/cst.9.1.2024.1372,cmduprh970008g3ncgt3vekhm,83.85,2,2.443,range_halfwidth, 79.85 - 83.85
+10.35414/akufemubid.1027565,cmduprh970008g3ncgt3vekhm,40,10,33.333,range_halfwidth,20–40
+10.3389/fenrg.2022.843768,cmduprh970008g3ncgt3vekhm,25,7.5,42.857,range_halfwidth,between 10 and 25
+10.4271/2022-01-0483,cmduprh970008g3ncgt3vekhm,40,2.5,6.667,range_halfwidth, 35–40
+10.4271/2022-01-0483,cmduprh970008g3ncgt3vekhm,42,2.5,6.667,range_halfwidth, 35–40
+10.4271/2022-01-0483,cmduprh970008g3ncgt3vekhm,35,1.5,3.704,range_halfwidth,between 39 to 42
+10.1038/srep06779,cmduprht80009g3ncxdbs0t0z,36,1.5,4.110,range_halfwidth, 35–38
+10.1038/s41419-026-08479-6,cmduprib5000ag3ncpc62x2d3,1419,3,0.211,range_halfwidth, 1419-1425
+10.1038/s41419-026-08479-6,cmduprib5000ag3ncpc62x2d3,3617,5.5,0.152,range_halfwidth, 3617-3628
+10.1038/s41419-026-08479-6,cmduprib5000ag3ncpc62x2d3,788,2,0.253,range_halfwidth, 788-792
+10.1523/ENEURO.0452-25.2026,cmduprib5000ag3ncpc62x2d3,100,20,16.667,range_halfwidth,100-140
+10.1523/ENEURO.0452-25.2026,cmduprib5000ag3ncpc62x2d3,3,2.5,71.429,range_halfwidth, 6-1
+10.18863/pgy.1700533,cmduprib5000ag3ncpc62x2d3,1234,4.5,0.363,range_halfwidth,1234-1243
+10.21203/rs.3.rs-8737816/v1,cmduprib5000ag3ncpc62x2d3,978,1.5,0.153,range_halfwidth,978-981
+10.21203/rs.3.rs-8737816/v1,cmduprib5000ag3ncpc62x2d3,981,1.5,0.153,range_halfwidth,978-981
+10.21203/rs.3.rs-8834018/v1,cmduprib5000ag3ncpc62x2d3,8,2,20.000,range_halfwidth,8-12
+10.21203/rs.3.rs-8834018/v1,cmduprib5000ag3ncpc62x2d3,13,2,20.000,range_halfwidth,8-12
+10.21203/rs.3.rs-8834018/v1,cmduprib5000ag3ncpc62x2d3,14,1,6.667,range_halfwidth,14-16
+10.21203/rs.3.rs-8834018/v1,cmduprib5000ag3ncpc62x2d3,179,47,35.606,range_halfwidth,179-85
+10.21203/rs.3.rs-8872349/v1,cmduprib5000ag3ncpc62x2d3,1524,4,0.262,range_halfwidth, 1524-1532
+10.21203/rs.3.rs-8872349/v1,cmduprib5000ag3ncpc62x2d3,143,5,3.378,range_halfwidth, 143-153
+10.21203/rs.3.rs-8872349/v1,cmduprib5000ag3ncpc62x2d3,183,5,3.378,range_halfwidth, 143-153
+10.21203/rs.3.rs-8872349/v1,cmduprib5000ag3ncpc62x2d3,7823,5,0.064,range_halfwidth, 7823-7833
+10.3389/fcimb.2026.1767035,cmduprib5000ag3ncpc62x2d3,1121,4.5,0.366,range_halfwidth, 1225–1234
+10.3389/fcimb.2026.1767035,cmduprib5000ag3ncpc62x2d3,1000,4.5,0.366,range_halfwidth, 1225–1234
+10.47260/jafb/1625,cmduprib5000ag3ncpc62x2d3,2008,2,0.100,range_halfwidth, 2008-2012
+10.59896/pesolah.v2i1.602,cmduprib5000ag3ncpc62x2d3,3090,384,11.054,range_halfwidth, 3090-3858
+10.1051/matecconf/202541001025,cmduprib5000ag3ncpc62x2d3,58,4,6.452,range_halfwidth, 58-66
+10.11591/ijeecs.v37.i3.pp1452-1463,cmduprib5000ag3ncpc62x2d3,1452,5.5,0.377,range_halfwidth, 1452-1463
+10.11591/ijeecs.v37.i3.pp1452-1463,cmduprib5000ag3ncpc62x2d3,863,3,0.346,range_halfwidth, 863-869
+10.11591/ijeecs.v37.i3.pp1452-1463,cmduprib5000ag3ncpc62x2d3,49,4.5,8.411,range_halfwidth, 49-58
+10.14710/jksa.28.4.183-194,cmduprib5000ag3ncpc62x2d3,183,5.5,2.918,range_halfwidth, 183-194
+10.14710/jksa.28.4.183-194,cmduprib5000ag3ncpc62x2d3,69,7.5,9.804,range_halfwidth, 69-84
+10.20873/pibic_2024_21014,cmduprib5000ag3ncpc62x2d3,223,23.5,9.533,range_halfwidth, 223-270
+10.3384/ecp212.037,cmduprib5000ag3ncpc62x2d3,267,12,4.301,range_halfwidth, 267-291
+10.61841/rae7bs08,cmduprib5000ag3ncpc62x2d3,21404,20790,99.913,range_halfwidth,41598-018
+10.61841/rae7bs08,cmduprib5000ag3ncpc62x2d3,2208,93.5,4.063,range_halfwidth, 2208-2395
+10.1051/bioconf/20248601027,cmduprib5000ag3ncpc62x2d3,77,4.5,5.521,range_halfwidth, 77-86
+10.21924/cst.9.1.2024.1372,cmduprib5000ag3ncpc62x2d3,1068,4,0.373,range_halfwidth, 1068-1076
+10.24084/repqj16.422,cmduprib5000ag3ncpc62x2d3,39,7,15.217,range_halfwidth, 39-53
+10.24857/rgsa.v18n1-119,cmduprib5000ag3ncpc62x2d3,303,6.5,2.100,range_halfwidth, 303-316
+10.24857/rgsa.v18n1-119,cmduprib5000ag3ncpc62x2d3,1061,5,0.469,range_halfwidth, 1061-1071
+10.24857/rgsa.v18n1-119,cmduprib5000ag3ncpc62x2d3,698,4.5,0.641,range_halfwidth, 698-707
+10.24857/rgsa.v18n6-187,cmduprib5000ag3ncpc62x2d3,464,9,1.903,range_halfwidth, 464-482
+10.24857/rgsa.v18n6-187,cmduprib5000ag3ncpc62x2d3,1773,2.5,0.141,range_halfwidth, 1773-1778
+10.29244/coj.v8i2.55742,cmduprib5000ag3ncpc62x2d3,198,3.5,1.737,range_halfwidth, 198-205
+10.29244/coj.v8i2.55742,cmduprib5000ag3ncpc62x2d3,166,3.5,1.737,range_halfwidth, 198-205
+10.30939/ijastech..1500314,cmduprib5000ag3ncpc62x2d3,10,2,16.667,range_halfwidth,10-14
+10.30939/ijastech..1508081,cmduprib5000ag3ncpc62x2d3,476,8,1.653,range_halfwidth, 476-492
+10.30939/ijastech..1508081,cmduprib5000ag3ncpc62x2d3,21,6,22.222,range_halfwidth,21-33
+10.30939/ijastech..1508081,cmduprib5000ag3ncpc62x2d3,465,11,2.311,range_halfwidth,465-487
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,10,0.5,5.263,range_halfwidth, 10-9
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,40,4,9.091,range_halfwidth, 40-48
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,15377,4.5,0.029,range_halfwidth, 15377-15386
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,369,12.5,3.277,range_halfwidth, 369-394
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,206,4,1.905,range_halfwidth, 206-214
+10.33736/bjrst.6163.2024,cmduprib5000ag3ncpc62x2d3,694,5.5,0.786,range_halfwidth, 694-705
+10.3389/fenrg.2024.1419785,cmduprib5000ag3ncpc62x2d3,7968,35.5,0.599,range_halfwidth, 5887–5958
+10.37934/cfdl.16.10.5463,cmduprib5000ag3ncpc62x2d3,21,1.5,6.667,range_halfwidth,21-24
+10.37934/cfdl.16.10.5463,cmduprib5000ag3ncpc62x2d3,54,4.5,7.692,range_halfwidth, 54-63
+10.37934/cfdl.16.10.5463,cmduprib5000ag3ncpc62x2d3,43,6,12.245,range_halfwidth, 43-55
+10.37934/cfdl.16.10.5463,cmduprib5000ag3ncpc62x2d3,5251,8,0.152,range_halfwidth, 5251-5267
+10.37934/cfdl.16.10.5463,cmduprib5000ag3ncpc62x2d3,6067,2.5,0.041,range_halfwidth, 6067-6072
+10.46338/ijetae142324_10,cmduprib5000ag3ncpc62x2d3,86,4.5,4.972,range_halfwidth, 86-95
+10.46338/ijetae142324_10,cmduprib5000ag3ncpc62x2d3,55,5.5,9.091,range_halfwidth, 55-66
+10.47430/ujmr.2493.041,cmduprib5000ag3ncpc62x2d3,99,5.5,5.263,range_halfwidth, 99-110
+10.48048/tis.2024.7867,cmduprib5000ag3ncpc62x2d3,27,1,3.571,range_halfwidth,27-29
+10.52783/anvi.v28.2270,cmduprib5000ag3ncpc62x2d3,1092,91,9.091,range_halfwidth, 1092-910
+10.12911/22998993/203696,cmduprix0000bg3ncjoo8oj0l,6.8,0.3,4.167,plus_minus_abs,7.2 ± 0.3
+10.12911/22998993/203696,cmduprix0000bg3ncjoo8oj0l,7.2,0.3,4.167,plus_minus_abs,7.2 ± 0.3
+10.12911/22998993/203696,cmduprix0000bg3ncjoo8oj0l,7.8,0.3,4.167,plus_minus_abs,7.2 ± 0.3
+10.3329/jce.v28i1.18105,cmduprix0000bg3ncjoo8oj0l,3.6,0.09999999999999987,3.125,range_halfwidth, 3.1-3.3
+10.3808/jei.201500308,cmduprix0000bg3ncjoo8oj0l,6.4,0.2,3.125,plus_minus_abs,6.4 ± 0.2
+10.47191/ijcsrr/V4-i3-06,cmduprix0000bg3ncjoo8oj0l,6.3,0.07500000000000018,1.176,range_halfwidth, 6.30-6.45
+10.47191/ijcsrr/V4-i3-06,cmduprix0000bg3ncjoo8oj0l,6.8,0.050000000000000266,0.730,range_halfwidth, 6.80-6.90
+10.1038/s41419-026-08479-6,cmduprix0000bg3ncjoo8oj0l,3,0.5,14.286,range_halfwidth,3-4
+10.21203/rs.3.rs-8834018/v1,cmduprix0000bg3ncjoo8oj0l,13,1.5,10.345,range_halfwidth,13-16
+10.21203/rs.3.rs-8834018/v1,cmduprix0000bg3ncjoo8oj0l,14,1,6.667,range_halfwidth,14-16
+10.21203/rs.3.rs-8834018/v1,cmduprix0000bg3ncjoo8oj0l,6,1,14.286,range_halfwidth,6-8
+10.21203/rs.3.rs-8834018/v1,cmduprix0000bg3ncjoo8oj0l,4,1,20.000,range_halfwidth, 4-6
+10.21203/rs.3.rs-8834018/v1,cmduprix0000bg3ncjoo8oj0l,5,0.5,9.091,range_halfwidth, 5-6
+10.37394/232032.2025.3.25,cmduprix0000bg3ncjoo8oj0l,11,2,15.385,range_halfwidth, 11-15
+10.4314/njb.v41i2.3,cmduprix0000bg3ncjoo8oj0l,8,1,11.111,range_halfwidth,8-10
+10.15294/sainteknol.v22i1.7752,cmduprix0000bg3ncjoo8oj0l,5,1,16.667,range_halfwidth,5-7
+10.25130/tjes.31.2.21,cmduprix0000bg3ncjoo8oj0l,6,1,14.286,range_halfwidth,6-8
+10.25130/tjes.31.2.21,cmduprix0000bg3ncjoo8oj0l,9,1.5,14.286,range_halfwidth,9-12
+10.54097/7522jp77,cmduprix0000bg3ncjoo8oj0l,8,0.5,5.882,range_halfwidth, 8-9
+10.55251/jmbfs.9703,cmduprix0000bg3ncjoo8oj0l,7,1.5,17.647,range_halfwidth,from 7-10
+10.1111/1462-2920.16546,cmduprix0000bg3ncjoo8oj0l,1,1,100.000,range_halfwidth,0000-0002
+10.1051/bioconf/202516803001,cmduprjha000cg3ncrfjudafb,66,7.5,10.204,range_halfwidth, 66-81
+10.1051/matecconf/202541001025,cmduprjha000cg3ncrfjudafb,5521,24.5,0.442,range_halfwidth, 5521-5570
+10.11591/ijeecs.v37.i3.pp1452-1463,cmduprjha000cg3ncrfjudafb,187,6.5,3.359,range_halfwidth, 187-200
+10.11648/j.epes.20251401.12,cmduprjha000cg3ncrfjudafb,19,1,5.000,range_halfwidth,19-21
+10.14710/jksa.28.4.183-194,cmduprjha000cg3ncrfjudafb,119,2.5,2.058,range_halfwidth, 119-124
+10.22531/muglajsci.1737770,cmduprjha000cg3ncrfjudafb,23,4,14.815,range_halfwidth, 23-31
+10.37394/232016.2025.20.5,cmduprjha000cg3ncrfjudafb,20,17.5,94.595,range_halfwidth, 1–36
+10.61841/rae7bs08,cmduprjha000cg3ncrfjudafb,21404,20790,99.913,range_halfwidth,41598-018
+10.1515/znc-2023-0175,cmduprjha000cg3ncrfjudafb,392,1,0.254,range_halfwidth, 392-394
+10.21924/cst.9.1.2024.1372,cmduprjha000cg3ncrfjudafb,157,3,1.875,range_halfwidth, 157-163
+10.21924/cst.9.1.2024.1372,cmduprjha000cg3ncrfjudafb,197,4.5,2.233,range_halfwidth, 197-206
+10.21924/cst.9.1.2024.1372,cmduprjha000cg3ncrfjudafb,3269,4,0.122,range_halfwidth, 3269-3277
+10.24084/repqj16.422,cmduprjha000cg3ncrfjudafb,39,7,15.217,range_halfwidth, 39-53
+10.24857/rgsa.v18n1-119,cmduprjha000cg3ncrfjudafb,303,6.5,2.100,range_halfwidth, 303-316
+10.24857/rgsa.v18n1-119,cmduprjha000cg3ncrfjudafb,23533,4.5,0.019,range_halfwidth, 23533-23542
+10.29244/coj.v8i2.55742,cmduprjha000cg3ncrfjudafb,52,8,13.333,range_halfwidth, 52-68
+10.30939/ijastech..1500314,cmduprjha000cg3ncrfjudafb,164,97.5,54.930,range_halfwidth,275–80
+10.30939/ijastech..1508081,cmduprjha000cg3ncrfjudafb,225,15.5,6.445,range_halfwidth, 225-256
+10.30939/ijastech..1508081,cmduprjha000cg3ncrfjudafb,319,15.5,6.445,range_halfwidth, 225-256
+10.30939/ijastech..1508081,cmduprjha000cg3ncrfjudafb,1845,8.5,0.459,range_halfwidth,1845-1862
+10.30939/ijastech..1508081,cmduprjha000cg3ncrfjudafb,1409,8.5,0.600,range_halfwidth,1409-1426
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,54,4.5,7.692,range_halfwidth, 54-63
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,21,1.5,6.667,range_halfwidth,21-24
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,363,10.5,2.811,range_halfwidth, 363-384
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,9210,4,0.043,range_halfwidth, 9210-9218
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,278,5,1.767,range_halfwidth,278-288
+10.37934/cfdl.16.10.5463,cmduprjha000cg3ncrfjudafb,770,6,0.773,range_halfwidth, 770-782
+10.4314/cajost.v6i2.3,cmduprjha000cg3ncrfjudafb,141,8.5,5.686,range_halfwidth, 141-158
+10.46338/ijetae142324_10,cmduprjha000cg3ncrfjudafb,489,10,2.004,range_halfwidth, 489-509
+10.46338/ijetae142324_10,cmduprjha000cg3ncrfjudafb,510,10,2.004,range_halfwidth, 489-509
+10.46338/ijetae142324_10,cmduprjha000cg3ncrfjudafb,86,4.5,4.972,range_halfwidth, 86-95
+10.46338/ijetae142324_10,cmduprjha000cg3ncrfjudafb,183,2.5,1.348,range_halfwidth, 183-188
+10.46338/ijetae142324_10,cmduprjha000cg3ncrfjudafb,27,0.5,1.818,range_halfwidth, 27-28
+10.5599/jese.2383,cmduprjha000cg3ncrfjudafb,8743,3.5,0.040,range_halfwidth, 8743-8750
+10.9767/bcrec.20259,cmduprjha000cg3ncrfjudafb,627,4.5,0.713,range_halfwidth, 627-636
+10.1002/adfm.202304790,cmduprjha000cg3ncrfjudafb,87,1,1.136,range_halfwidth,87-89
+10.1051/bioconf/20236101012,cmduprjha000cg3ncrfjudafb,6247,4,0.064,range_halfwidth,6247-6255
+10.1051/bioconf/20236101012,cmduprjha000cg3ncrfjudafb,2333,4,0.171,range_halfwidth,2333-2341
+10.1051/e3sconf/202455101010,cmduprjha000cg3ncrfjudafb,84,5.5,6.145,range_halfwidth, 84-95
+10.11591/ijpeds.v14.i2.pp1249-1259,cmduprjha000cg3ncrfjudafb,1337,3.5,0.261,range_halfwidth,1337-1344
+10.1186/s41205-023-00169-9,cmduprjha000cg3ncrfjudafb,2,0.5,20.000,range_halfwidth, 2-3
+10.15244/pjoes/168804,cmduprjha000cg3ncrfjudafb,2,0.5,20.000,range_halfwidth,2-3
+10.37134/bitara.vol16.sp2.18.2023,cmduprjha000cg3ncrfjudafb,2821,176,5.873,range_halfwidth, 2821-3173
+10.46519/ij3dptdi.1231076,cmduprjha000cg3ncrfjudafb,776,4.5,0.577,range_halfwidth, 776-785
+10.46519/ij3dptdi.1231076,cmduprjha000cg3ncrfjudafb,369,3,0.806,range_halfwidth, 369-375
+10.46519/ij3dptdi.1296247,cmduprjha000cg3ncrfjudafb,286,4,1.379,range_halfwidth, 286-294
+10.48048/tis.2023.5490,cmduprjha000cg3ncrfjudafb,296,4,1.333,range_halfwidth, 296-304
+10.1051/e3sconf/202342801011,cmduprjha000cg3ncrfjudafb,208,3.5,1.655,range_halfwidth, 208-215
+10.11113/jurnalteknologi.v84.17875,cmduprjha000cg3ncrfjudafb,4648,6,0.129,range_halfwidth, 4648-4660
+10.11591/ijpeds.v13.i1.pp58-67,cmduprjha000cg3ncrfjudafb,407,2.5,0.611,range_halfwidth, 407-412
+10.11591/ijpeds.v13.i1.pp58-67,cmduprjha000cg3ncrfjudafb,1328,1.5,0.113,range_halfwidth, 1328-1331
+10.11591/ijpeds.v13.i1.pp58-67,cmduprjha000cg3ncrfjudafb,12,9,81.818,range_halfwidth, 2-20
+10.14710/ijred.2022.47260,cmduprjha000cg3ncrfjudafb,14903,5.5,0.037,range_halfwidth, 14903-14914
+10.4186/ej.2022.26.10.11,cmduprjha000cg3ncrfjudafb,16,0.5,3.030,range_halfwidth, 16-17
+10.4186/ej.2022.26.10.11,cmduprjha000cg3ncrfjudafb,60,9.5,13.669,range_halfwidth, 60-79
+10.4186/ej.2022.26.10.11,cmduprjha000cg3ncrfjudafb,736,7,0.942,range_halfwidth, 736-750
+10.11591/ijeecs.v22.i3.pp1263-1271,cmduprjha000cg3ncrfjudafb,9568,2.5,0.026,range_halfwidth, 9568-9573
+10.21203/rs.3.rs-138288/v1,cmduprjha000cg3ncrfjudafb,57,7,10.938,range_halfwidth,57-71
+10.21203/rs.3.rs-442912/v1,cmduprjha000cg3ncrfjudafb,157,7.5,4.559,range_halfwidth, 157-172
+10.2339/politeknik.724033,cmduprjha000cg3ncrfjudafb,487,2.5,0.511,range_halfwidth, 487-492
+10.2339/politeknik.724033,cmduprjha000cg3ncrfjudafb,199,5.5,2.689,range_halfwidth, 199-210
+10.24843/ejes.2021.v15.i02.p05,cmduprjha000cg3ncrfjudafb,520,3.5,0.669,range_halfwidth,520-527
+10.4314/njpap.v10i1.2,cmduprjha000cg3ncrfjudafb,225,9.5,4.051,range_halfwidth, 225 -244
+10.64898/2026.03.04.709460,cmduprk18000dg3nc7daetmui,1500,220,14.332,range_halfwidth,1755-1315
+10.7554/eLife.53898,cmduprk18000dg3nc7daetmui,0.4,0.5,100.000,range_halfwidth, 0–1.0
+10.28991/esj-2019-01174,cmduprkkz000eg3nc1lfcsxu3,461,396,85.345,range_halfwidth, 860-68
+10.1016/j.solener.2018.12.009,cmduprkkz000eg3nc1lfcsxu3,0.16,0.045,21.951,range_halfwidth, 0.16-0.25
+10.14710/ijred.2021.34235,cmduprkkz000eg3nc1lfcsxu3,345,4.5,1.288,range_halfwidth, 345-354
+10.37934/arfmts.115.2.103112,cmduprkkz000eg3nc1lfcsxu3,103,4.5,4.186,range_halfwidth, 103-112
+10.55003/cast.2022.03.23.014,cmduprkkz000eg3nc1lfcsxu3,98,4,3.922,range_halfwidth, 98-106
+10.55003/cast.2022.03.23.014,cmduprkkz000eg3nc1lfcsxu3,103,4,3.922,range_halfwidth, 98-106
+10.17576/jsm-2020-4912-34,cme1qmc84002clllghj678hir,604,2.5,0.412,range_halfwidth, 604-609
+10.17576/jsm-2020-4912-34,cme1qmcgh002flllg785znrij,365,5.5,1.484,range_halfwidth, 365-376
+10.17576/jsm-2020-4912-34,cme1qmcgh002flllg785znrij,523,5.5,1.484,range_halfwidth, 365-376
+10.17576/jsm-2020-4912-34,cme1qmcgh002flllg785znrij,30524,3.5,0.011,range_halfwidth, 30524-30531
+10.17576/jsm-2020-4912-34,cme1qmcgh002flllg785znrij,4699,5,0.106,range_halfwidth, 4699-4709
+10.17576/jsm-2020-4912-34,cme1qmcgh002flllg785znrij,2639,2,0.076,range_halfwidth, 2639-2643
+10.14393/BJ-v39n0a2023-68225,cme1qmcgh002flllg785znrij,43,3,6.522,range_halfwidth, 43-49
+10.21203/rs.3.rs-6436698/v1,cme1qmcgh002flllg785znrij,138,4,2.817,range_halfwidth, 138-146
+10.31699/IJCPE.2024.1.1,cme1qmcgh002flllg785znrij,2686,6.5,0.241,range_halfwidth, 2686-2699
+10.31699/IJCPE.2024.1.1,cme1qmcgh002flllg785znrij,6230,2.5,0.040,range_halfwidth, 6230-6235
+10.37934/arfmts.115.2.103112,cme1qmcgh002flllg785znrij,32,4.5,12.329,range_halfwidth, 32-41
+10.47191/ijcsrr/V4-i3-06,cme1qmcgh002flllg785znrij,395,2.5,0.629,range_halfwidth, 395-400
+10.47191/ijcsrr/V4-i4-08,cme1qmcgh002flllg785znrij,2616,1,0.038,range_halfwidth, 2616-2618
+10.47191/ijcsrr/V4-i4-08,cme1qmcgh002flllg785znrij,1755,220,14.332,range_halfwidth, 1755-1315
+10.47191/ijcsrr/V4-i4-08,cme1qmcgh002flllg785znrij,59,2.5,4.065,range_halfwidth, 59-64
+10.22587/aeb.2020.14.1.3,cme1qmcoq002illlg34dhgi14,297,4.5,1.493,range_halfwidth, 297-306
+10.14710/ijred.6.1.83-92,cme1qmcoq002illlg34dhgi14,297,4.5,1.493,range_halfwidth, 297-306
+10.1007/978-3-030-11599-9_18,cme1qmcoq002illlg34dhgi14,519,5.5,1.049,range_halfwidth, 519-530
+10.1007/978-3-030-11599-9_18,cme1qmcoq002illlg34dhgi14,388,5,1.272,range_halfwidth, 388-398
+10.1007/978-3-030-11599-9_18,cme1qmcoq002illlg34dhgi14,442,5,1.272,range_halfwidth, 388-398
+10.4236/abb.2013.41015,cme1qmcoq002illlg34dhgi14,103,4,3.738,range_halfwidth, 103-111
+10.14710/ijred.9.1.85-95,cme1qmcwv002llllgdax30de6,1215,3.5,0.287,range_halfwidth,1215-1222
+10.5599/jese.924,cme1qmdlc002ulllg7ivrbz1g,10,1,9.091,range_halfwidth,10-12
+10.21203/rs.3.rs-4724466/v1,cme1qmdto002xlllgfm5ke68d,647,3.5,0.538,range_halfwidth, 647-654
+10.3389/fceng.2022.814987,cme1qmdto002xlllgfm5ke68d,1462,5,0.276,range_halfwidth, 1805–1815
+10.3389/fceng.2022.814987,cme1qmdto002xlllgfm5ke68d,4.2525,3.5,77.778,range_halfwidth, 1–8
+10.21203/rs.3.rs-138288/v1,cme1qmdto002xlllgfm5ke68d,6250,2.5,0.040,range_halfwidth,6250-6255
+10.22587/aeb.2020.14.1.3,cme1qmdto002xlllgfm5ke68d,129,2.5,1.901,range_halfwidth, 129-134
+10.14710/ijred.6.1.83-92,cme1qmdto002xlllgfm5ke68d,228,2.5,1.085,range_halfwidth, 228-233
+10.14710/ijred.6.1.83-92,cme1qmdto002xlllgfm5ke68d,107,2.5,2.283,range_halfwidth, 107-112
+10.12989/mwt.2015.6.1.053,cme1qmdto002xlllgfm5ke68d,43,2.5,5.495,range_halfwidth, 43-48
+10.1007/bf02472679,cme1qmdto002xlllgfm5ke68d,3725,5.5,0.147,range_halfwidth,3725-3736
+10.1007/bf02472679,cme1qmdto002xlllgfm5ke68d,1443,16.5,1.131,range_halfwidth,1443-1476
+10.1155/2023/6902054,cme1qmdto002xlllgfm5ke68d,8747,0.5,0.006,range_halfwidth, 8747-8748
+10.14393/BJ-v39n0a2023-68225,cme1qmdto002xlllgfm5ke68d,379,4,1.044,range_halfwidth, 379-387
+10.21203/rs.3.rs-2000255/v1,cme1qmdto002xlllgfm5ke68d,391,9,2.250,range_halfwidth, 391-409
+10.22487/gravitasi.v21i2.16034,cme1qmdto002xlllgfm5ke68d,1585,1.5,0.095,range_halfwidth, 1585-1588
+10.37575/b/sci/230030,cme1qmdto002xlllgfm5ke68d,1284,1144.5,98.792,range_halfwidth, 2303– 14
+10.37756/bk.21.3.10.1,cme1qmdto002xlllgfm5ke68d,896,8.5,0.940,range_halfwidth,896-913
+10.4028/www.scientific.net/AMM.855.91,cme1qmdto002xlllgfm5ke68d,13,3,18.750,range_halfwidth, 13-19
+10.4236/oalib.1102088,cme1qmdto002xlllgfm5ke68d,1444,1122.9876,99.537,range_halfwidth,5.2248-2251.2000
+10.5821/dissertation-2117-95792,cme1qmdto002xlllgfm5ke68d,22,5.5,20.000,range_halfwidth, 22-33
+10.5821/dissertation-2117-95792,cme1qmdto002xlllgfm5ke68d,1805,5,0.276,range_halfwidth, 1805-1815
+10.5821/dissertation-2117-95792,cme1qmdto002xlllgfm5ke68d,3401,3.5,0.103,range_halfwidth, 3401-3408
+10.59440/ceer/183171,cme1qmdto002xlllgfm5ke68d,615,0.5,0.081,range_halfwidth, 615-616
+10.14710/ijred.6.1.83-92,cme1qme1z0030lllg1w9r39hb,3498,2.5,0.071,range_halfwidth, 3498-3503
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,949,5,0.524,range_halfwidth, 949-959
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,1253,5,0.524,range_halfwidth, 949-959
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,2847,3.5,0.123,range_halfwidth, 2847-2854
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,3410,2,0.059,range_halfwidth, 3410-3414
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,338,5,1.458,range_halfwidth, 338-348
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,411,2,0.484,range_halfwidth, 411-415
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,3918,2,0.051,range_halfwidth, 3918-3922
+10.1007/978-3-030-11599-9_18,cme1qme1z0030lllg1w9r39hb,189,4,2.073,range_halfwidth, 189-197
+10.21203/rs.3.rs-3468211/v1,cme1qme1z0030lllg1w9r39hb,54,3.5,6.087,range_halfwidth, 54-61
+10.21926/cr.2203029,cme1qme1z0030lllg1w9r39hb,75,4,5.063,range_halfwidth, 75-83
+10.24925/turjaf.v10i2.134-141.4530,cme1qme1z0030lllg1w9r39hb,48,5.5,10.280,range_halfwidth, 48-59
+10.32553/ijmbs.v8i5.2887,cme1qme1z0030lllg1w9r39hb,12,3.5,41.176,range_halfwidth,12-5
+10.14710/ijred.9.1.85-95,cme1qmeaa0033lllgqiepkgfm,609,3,0.490,range_halfwidth, 609-615
+10.1016/j.renene.2012.10.051,cme1qmez3003clllg7pkkj4xk,7922,4.5,0.057,range_halfwidth, 7922-7931
+10.1007/978-3-642-20665-8_100083,cme1qmf7e003flllgtnjhqibg,855,4,0.374,range_halfwidth,1065–1073
+10.22531/muglajsci.1737770,cme1qmffp003illlgsmqf2new,238,2,0.833,range_halfwidth, 238-242
+10.31632/ijalsr.2025.v08i01.002,cme1qmffp003illlgsmqf2new,548,434,98.190,range_halfwidth,8-876
+10.31632/ijalsr.2025.v08i01.002,cme1qmffp003illlgsmqf2new,1755,220,14.332,range_halfwidth,1755-1315
+10.31632/ijalsr.2025.v08i01.002,cme1qmffp003illlgsmqf2new,1339,220,14.332,range_halfwidth,1755-1315
+10.14710/ijred.2023.52291,cme1qmffp003illlgsmqf2new,3,0.5,20.000,range_halfwidth,3-2
+10.24425/aep.2023.148683,cme1qmffp003illlgsmqf2new,2383,6,0.251,range_halfwidth, 2383-2395
+10.33448/rsd-v11i10.32132,cme1qmffp003illlgsmqf2new,213,2,0.930,range_halfwidth, 213-217
+10.5599/jese.1030,cme1qmffp003illlgsmqf2new,279,5,1.761,range_halfwidth, 279-289
+10.1111/jam.14243,cme1qmffp003illlgsmqf2new,251,2.5,0.986,range_halfwidth, 251-256
+10.1111/jam.14243,cme1qmffp003illlgsmqf2new,397,4,0.998,range_halfwidth, 397-405
+10.1111/jam.14243,cme1qmffp003illlgsmqf2new,297,297.5,87.116,range_halfwidth, 639-44
+10.1038/ncomms12217,cme1qmffp003illlgsmqf2new,1219,2.5,0.205,range_halfwidth, 1219-1224
+10.1007/978-1-349-15190-5_3,cme1qmffp003illlgsmqf2new,94,4,4.082,range_halfwidth,94-102
+10.1007/978-1-349-15190-5_3,cme1qmffp003illlgsmqf2new,9221,4.5,0.049,range_halfwidth,9221-9230
+10.1101/2022.05.11.22274950,cme1qmffp003illlgsmqf2new,4,3.5,77.778,range_halfwidth,1–8
+10.1103/physreve.87.012718,cme1qmffp003illlgsmqf2new,29,3.5,10.769,range_halfwidth, 29-36
+10.1103/physreve.87.012718,cme1qmffp003illlgsmqf2new,157,3.5,2.181,range_halfwidth, 157-164
+10.1103/physreve.87.012718,cme1qmffp003illlgsmqf2new,6482,3.5,0.054,range_halfwidth, 6482-6489
+10.21203/rs.3.rs-2000255/v1,cme1qmffp003illlgsmqf2new,14,3.5,20.000,range_halfwidth, 14-21
+10.24925/turjaf.v10i2.134-141.4530,cme1qmffp003illlgsmqf2new,203,2.5,1.217,range_halfwidth, 203-208
+10.4236/abb.2013.41015,cme1qmffp003illlgsmqf2new,1308,6.5,0.494,range_halfwidth, 1308-1321
+10.4236/abb.2013.41015,cme1qmffp003illlgsmqf2new,1365,6.5,0.494,range_halfwidth, 1308-1321
+10.1007/978-94-024-1026-6_4,cme1qmfnw003llllg58ten47s,40,3,6.977,range_halfwidth, 40-46
+10.21924/cst.9.1.2024.1372,cme1qmg4q003rlllgzno5tukf,4146,2.5,0.060,range_halfwidth, 4146-4151
+10.20535/ibb.2024.8.1.290311,cme1qmgd3003ulllg6h0whiyk,287,10,3.367,range_halfwidth,287-307
+10.11598/btb.2015.22.2.393,cme1qmgd3003ulllg6h0whiyk,72,11,16.176,range_halfwidth, 57–79
+10.21203/rs.3.rs-6436698/v1,cme1qmgd3003ulllg6h0whiyk,293,31,9.568,range_halfwidth, 293-355
+10.4014/jmb.2502.02051,cme1qmgld003xlllgrittsn8a,353,2.5,0.703,range_halfwidth, 353-358
+10.4014/jmb.2502.02051,cme1qmgld003xlllgrittsn8a,2121,5,0.235,range_halfwidth, 2121-2131
+10.4014/jmb.2502.02051,cme1qmgld003xlllgrittsn8a,1405,3.5,0.248,range_halfwidth, 1405-1412
+10.55251/jmbfs.9703,cme1qmgld003xlllgrittsn8a,1929,2.5,0.129,range_halfwidth, 1929-1934
+10.55251/jmbfs.9703,cme1qmgld003xlllgrittsn8a,1830,2.5,0.129,range_halfwidth, 1929-1934
+10.59717/j.xinn-energy.2024.100035,cme1qmgld003xlllgrittsn8a,1.5,0.30000000000000004,16.667,range_halfwidth, 1.5-2.1
+10.59717/j.xinn-energy.2024.100035,cme1qmgld003xlllgrittsn8a,2,0.30000000000000004,16.667,range_halfwidth, 1.5-2.1
+10.19053/01211129.v29.n54.2020.10468,cme1qmgld003xlllgrittsn8a,9183,4.5,0.049,range_halfwidth, 9183-9192
+10.19053/01211129.v29.n54.2020.10468,cme1qmgld003xlllgrittsn8a,155,5.5,3.427,range_halfwidth, 155-166
+10.15446/rev.colomb.quim.v48n3.77011,cme1qmgld003xlllgrittsn8a,315,4,1.254,range_halfwidth, 315-323
+10.12989/mwt.2015.6.1.053,cme1qmgld003xlllgrittsn8a,89,2.5,2.732,range_halfwidth, 89-94
+10.1055/s-0031-1285929,cme1qmgld003xlllgrittsn8a,894,3.5,0.390,range_halfwidth, 894-901
+10.15626/Eco-Tech.2014.006,cme1qmgld003xlllgrittsn8a,315,4,1.254,range_halfwidth, 315-323
+10.21009/jrskt,cme1qmgld003xlllgrittsn8a,315,4,1.254,range_halfwidth, 315-323
+10.21203/rs.3.rs-2000255/v1,cme1qmgld003xlllgrittsn8a,1808,2,0.110,range_halfwidth, 1808-1812
+10.2139/ssrn.4717924,cme1qmgld003xlllgrittsn8a,327,3.5,1.059,range_halfwidth,327-334
+10.37934/arfmts.115.2.103112,cme1qmgld003xlllgrittsn8a,42,5,10.638,range_halfwidth, 42-52
+10.5821/dissertation-2117-95792,cme1qmgld003xlllgrittsn8a,4376,1.5,0.034,range_halfwidth, 4376-4379
+10.5821/dissertation-2117-95792,cme1qmgld003xlllgrittsn8a,11358,2.5,0.022,range_halfwidth, 11358-11363
+10.5821/dissertation-2117-95792,cme1qmgld003xlllgrittsn8a,7345,1.5,0.020,range_halfwidth, 7345-7348
+10.7176/JSTR/5-2-17,cme1qmgld003xlllgrittsn8a,5,1.5,42.857,range_halfwidth,5-2
+10.7176/JSTR/5-2-17,cme1qmgld003xlllgrittsn8a,5181,5.5,0.106,range_halfwidth, 5181-5192
+10.29244/coj.v8i2.55742,cme1qmgti0040lllgm8y3jcb7,71,4,5.333,range_halfwidth, 71-79
+10.3389/fpls.2024.1420408,cme1qmgti0040lllgm8y3jcb7,11356,4.5,0.042,range_halfwidth, 10652–10661
+10.3389/fpls.2024.1420408,cme1qmgti0040lllgm8y3jcb7,8752,4.5,0.042,range_halfwidth, 10652–10661
+10.14710/ijred.2020.29980,cme1qmgti0040lllgm8y3jcb7,8273,3.5,0.042,range_halfwidth,8273-8280
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,50,10,16.667,range_halfwidth, 50-70
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,186,4,2.105,range_halfwidth, 186-194
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,395,2.5,0.629,range_halfwidth, 395-400
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,992,2,0.201,range_halfwidth, 992-996
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,1353,2,0.201,range_halfwidth, 992-996
+10.47191/ijcsrr/V4-i3-06,cme1qmgti0040lllgm8y3jcb7,1773,3.5,0.258,range_halfwidth, 1353-1360
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,34,41,97.619,range_halfwidth, 1-83
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,247,5,1.984,range_halfwidth, 247-257
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,185,2.5,1.333,range_halfwidth, 185-190
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,992,2,0.201,range_halfwidth, 992-996
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,1353,2,0.201,range_halfwidth, 992-996
+10.47191/ijcsrr/V4-i4-08,cme1qmgti0040lllgm8y3jcb7,32,6,15.789,range_halfwidth, 32-44
+10.1039/c9ra06255f,cme1qmhfs0046lllgaxitz0l1,3.74,0.16,4.278,plus_minus_abs,3.74 ± 0.16
+10.1039/c9ra06255f,cme1qmhfs0046lllgaxitz0l1,4.04,0.13,3.218,plus_minus_abs,4.04 ± 0.13
+10.1039/c9ra06255f,cme1qmhfs0046lllgaxitz0l1,4.47,0.11,2.461,plus_minus_abs,4.47 ± 0.11
+10.1039/c9ra06255f,cme1qmhfs0046lllgaxitz0l1,5.14,0.2,3.891,plus_minus_abs,5.14 ± 0.2
+10.4314/dujopas.v9i4a.8,cme1qmhfs0046lllgaxitz0l1,23398,98,0.419,plus_minus_abs,23398 ± 98
+10.33263/BRIAC124.56015609,cme1qmhfs0046lllgaxitz0l1,90.1,0.3,0.333,plus_minus_abs,90.10±0.30
+10.24857/rgsa.v18n11-121,cme1qmhfs0046lllgaxitz0l1,3700,752,18.966,plus_minus_abs,3965 ±752
+10.1016/0968-0004(92)90249-9,cme1qmhny0049lllglt0kurie,2859,692,31.934,range_halfwidth,1475-2859
+10.14710/presipitasi.crossmark,cme1qmhny0049lllglt0kurie,25,5,16.667,range_halfwidth,between 25-35
+10.14710/presipitasi.crossmark,cme1qmhny0049lllglt0kurie,324,4.5,1.370,range_halfwidth, 324-333
+10.4028/www.scientific.net/AMM.855.91,cme1qmhny0049lllglt0kurie,4,0.5,11.111,range_halfwidth, 4-5
+10.1039/c9ra06255f,cme1qmhwa004clllg90sbuhnr,3.74,0.16,4.278,plus_minus_abs,3.74 ± 0.16
+10.1039/c9ra06255f,cme1qmhwa004clllg90sbuhnr,4.04,0.13,3.218,plus_minus_abs,4.04 ± 0.13
+10.1039/c9ra06255f,cme1qmhwa004clllg90sbuhnr,4.47,0.11,2.461,plus_minus_abs,4.47 ± 0.11
+10.1039/c9ra06255f,cme1qmhwa004clllg90sbuhnr,5.14,0.2,3.891,plus_minus_abs,5.14 ± 0.2
+10.1038/srep06779,cme1qmhwa004clllg90sbuhnr,22,2.1,9.545,plus_minus_abs,22 ± 2.1
+10.4314/dujopas.v9i4a.8,cme1qmhwa004clllg90sbuhnr,30421,124,0.408,plus_minus_abs,30421 ± 124
+10.4186/ej.2022.26.10.11,cme1qmhwa004clllg90sbuhnr,0,0,0.000,plus_minus_abs,706±0.00
+10.55463/issn.1674-2974,cme1qmhwa004clllg90sbuhnr,5248,1045,24.863,range_halfwidth,from 3158 to 5248
+10.55463/issn.1674-2974,cme1qmhwa004clllg90sbuhnr,4094,1045,24.863,range_halfwidth,from 3158 to 5248
+10.21203/rs.3.rs-2847089/v1,cme1qmkp80059lllgr1bifp04,1.57,0.5,33.333,range_halfwidth, 1 and 2
+10.21203/rs.3.rs-2847089/v1,cme1qmkp80059lllgr1bifp04,1.33,0.5,33.333,range_halfwidth, 1 and 2
+10.3389/fsoil.2023.1129040,cme1qmkxi005clllgcfuibke5,5,0.5,9.091,range_halfwidth, 5-6
+10.3389/fsoil.2023.1129040,cme1qmkxi005clllgcfuibke5,7,0.5,9.091,range_halfwidth, 5-6
+10.36948/ijfmr.2023.v05i04.5618,cme1qmkxi005clllgcfuibke5,20,0.5,2.439,range_halfwidth,20-21
+10.1016/j.enconman.2024.118224,cme1qmpsy006nlllg8opfbtph,5,0.5,11.111,range_halfwidth, 4 - 5
+10.11159/iceptp25.142,cme1qmwli008clllgcxk5qh5r,40.314,6.813,16.900,plus_minus_abs,40.314 ± 6.813
+10.4186/ej.2022.26.10.11,cme1qmwli008clllgcxk5qh5r,0,75.2,192.821,plus_minus_abs,39.0±75.2
+10.1007/s11356-020-10167-7,cme1qmwli008clllgcxk5qh5r,18,10,47.619,plus_minus_abs,21 ± 10
+10.1016/b978-0-443-33600-3.00019-4,cme1qmx1q008illlgh8917pzi,0.25,0.024999999999999994,11.111,range_halfwidth, 0.2–0.25
+10.2166/wst.2007.490,cme1qmx1q008illlgh8917pzi,-0.325,0.03900000000000001,10.714,range_halfwidth,-0.403 and -0.325
+10.4314/njb.v41i2.3,cme1qmx9u008llllgtkaxr9do,9.38,2.5850000000000004,38.043,range_halfwidth,from 4.21 to 9.38
+10.21924/cst.9.1.2024.1372,cme1qmx9u008llllgtkaxr9do,20.96,0.18,0.859,plus_minus_abs,20.96 ± 0.18
+10.21924/cst.9.1.2024.1372,cme1qmx9u008llllgtkaxr9do,49.33,0.36,0.730,plus_minus_abs,49.33 ± 0.36
+10.48048/tis.2023.5490,cme1qmx9u008llllgtkaxr9do,0.5,0.01,2.000,plus_minus_abs,0.50 ± 0.01
+10.1016/b978-0-443-33600-3.00019-4,cme1qmx9u008llllgtkaxr9do,0.7,0.10000000000000003,12.500,range_halfwidth, 0.7 and 0.9
+10.1016/b978-0-443-33600-3.00019-4,cme1qmx9u008llllgtkaxr9do,0.9,0.10000000000000003,12.500,range_halfwidth, 0.7 and 0.9
+10.21203/rs.3.rs-2401313/v1,cme1qmx9u008llllgtkaxr9do,5,2.75,52.381,range_halfwidth,2.5–8
+10.21203/rs.3.rs-2401313/v1,cme1qmx9u008llllgtkaxr9do,7.5,2.75,52.381,range_halfwidth,2.5–8
+10.1201/9781351073783-7,cme1qmxy4008ulllgw8lo84nc,6.05,0.94,18.395,range_halfwidth,from 4.17 to 6.05
+10.48048/tis.2023.5490,cme1qmy6n008xlllgn3t1ijkj,0.11,0,0.000,plus_minus_abs,0.11 ± 0.00
+10.48048/tis.2023.5490,cme1qmy6n008xlllgn3t1ijkj,0.18,0.01,5.556,plus_minus_abs,0.18 ± 0.01
+10.14710/reaktor.22.2.36-41,cme1qmy6n008xlllgn3t1ijkj,18.4,1.98,10.761,plus_minus_abs,18.40±1.98
+10.22153/kej.2022.07.002,cme1qmy6n008xlllgn3t1ijkj,44,1,2.222,range_halfwidth, 44 and 46
+10.22153/kej.2022.07.002,cme1qmy6n008xlllgn3t1ijkj,46,1,2.222,range_halfwidth, 44 and 46
+10.22153/kej.2022.07.002,cme1qmy6n008xlllgn3t1ijkj,45,1,2.174,range_halfwidth, 45 and 47
+10.22153/kej.2022.07.002,cme1qmy6n008xlllgn3t1ijkj,47,1,2.174,range_halfwidth, 45 and 47
+10.14421/icse.v1.284,cme1qmy6n008xlllgn3t1ijkj,93.93,99.615,102.049,range_halfwidth,-2 and 197.23
+10.3126/ijasbt.v4i3.15395,cme1qmy6n008xlllgn3t1ijkj,0.042,0.010250000000000002,32.283,range_halfwidth, 0.0215-0.042
+10.31399/asm.ad.fe0120,cme1qmy6n008xlllgn3t1ijkj,1.5,1.39,92.667,plus_minus_abs,1.5 ± 1.39
+10.31699/IJCPE.2019.2.3,cme1qmy6n008xlllgn3t1ijkj,10,6.5,76.471,range_halfwidth,2 to 15
+10.4236/jsbs.2019.92002,cme1qmy6n008xlllgn3t1ijkj,36,24.8,58.491,range_halfwidth, 17.6 to 67.2
+10.3389/fenrg.2022.843768,cme1qmzmj009flllgm26od0t3,25,7.5,42.857,range_halfwidth,between 10 and 25
+10.1016/j.enconman.2024.118224,cme1qn1gp00a3lllgv7v2cx6u,60,17.5,41.176,range_halfwidth,between 25 and 60
+10.22452/ijrer.vol13no2.1,cme1qn1gp00a3lllgv7v2cx6u,55,30,60.000,range_halfwidth, 20 and 80
+10.21203/rs.3.rs-3939507/v1,cme1qnfpy00f6lllg3rwjyrp6,105,2.5,2.326,range_halfwidth, 105-110
+10.21203/rs.3.rs-3939507/v1,cme1qnfpy00f6lllg3rwjyrp6,209,96.5,65.424,range_halfwidth, 244-51
+10.21203/rs.3.rs-3939507/v1,cme1qnfpy00f6lllg3rwjyrp6,167,46,38.017,range_halfwidth, 167-75
+10.48048/tis.2023.5490,cme1qnfpy00f6lllg3rwjyrp6,52,4,7.143,range_halfwidth, 52-60
+10.11113/jurnalteknologi.v84.17875,cme1qnfpy00f6lllg3rwjyrp6,4648,6,0.129,range_halfwidth,4648-4660
+10.3389/fenrg.2022.843768,cme1qnfpy00f6lllg3rwjyrp6,14,2.5,15.152,range_halfwidth, 14-19
+10.48048/tis.2022.1521,cme1qnfpy00f6lllg3rwjyrp6,157,45,40.179,range_halfwidth, 157-67
+10.19053/01211129.v29.n54.2020.10468,cme1qnfpy00f6lllg3rwjyrp6,5181,5.5,0.106,range_halfwidth, 5181-5192
+10.31026/j.eng.2017.05.07,cme1qnfpy00f6lllg3rwjyrp6,4961,3.5,0.071,range_halfwidth, 4961-4968
+10.31026/j.eng.2015.07.03,cme1qnfpy00f6lllg3rwjyrp6,1123,5,0.443,range_halfwidth, 1123-1133
+10.31026/j.eng.2015.07.03,cme1qnfpy00f6lllg3rwjyrp6,1588,5,0.443,range_halfwidth, 1123-1133
+10.1002/elsa.202100210,cme1qnfpy00f6lllg3rwjyrp6,1301,8.5,0.649,range_halfwidth, 1301-1318
+10.15626/Eco-Tech.2014.006,cme1qnfpy00f6lllg3rwjyrp6,3341,2.5,0.075,range_halfwidth, 3341-3346
+10.21203/rs.3.rs-2167210/v1,cme1qnfpy00f6lllg3rwjyrp6,310,3.5,1.116,range_halfwidth,310-317
+10.21203/rs.3.rs-296577/v1,cme1qnfpy00f6lllg3rwjyrp6,137,3.5,2.491,range_halfwidth, 137-144
+10.31018/jans.v10i4.1836,cme1qnfpy00f6lllg3rwjyrp6,279,3,1.064,range_halfwidth, 279-285
+10.31018/jans.v10i4.1836,cme1qnfpy00f6lllg3rwjyrp6,95,5,5.000,range_halfwidth, 95-105
+10.31018/jans.v10i4.1836,cme1qnfpy00f6lllg3rwjyrp6,116,5,5.000,range_halfwidth, 95-105
+10.55463/issn.1674-2974,cme1qnfpy00f6lllg3rwjyrp6,5611,9,0.160,range_halfwidth, 5611-5629
+10.5821/dissertation-2117-95792,cme1qnfpy00f6lllg3rwjyrp6,1333,3.5,0.262,range_halfwidth, 1333-1340
+10.62638/ZasMat1184,cme1qnfpy00f6lllg3rwjyrp6,736,1.5,0.203,range_halfwidth, 736-739
+10.7567/ssdm.2008.i-8-3,cme1qnfpy00f6lllg3rwjyrp6,364,2.5,0.682,range_halfwidth,364-369
+10.3329/cerb.v22i1.54295,cme1qng8z00fclllgegkuqp6g,26,2.5,8.772,range_halfwidth, 26-31
+10.3329/cerb.v22i1.54295,cme1qng8z00fclllgegkuqp6g,44,3,6.383,range_halfwidth, 44-50
+10.19053/01211129.v29.n54.2020.10468,cme1qng8z00fclllgegkuqp6g,8,1.5,15.789,range_halfwidth,8-11
+10.21771/jrtppi.2020.v11.no.2.p19-27,cme1qng8z00fclllgegkuqp6g,19,4,17.391,range_halfwidth, 19-27
+10.29121/granthaalayah.v5.i4RAST.2017.3296,cme1qng8z00fclllgegkuqp6g,0.4,0.09999999999999998,20.000,range_halfwidth, 0.4-0.6
+10.31699/IJCPE.2019.2.3,cme1qng8z00fclllgegkuqp6g,4040,3,0.074,range_halfwidth,4040-4046
+10.3389/fceng.2022.765682,cme1qng8z00fclllgegkuqp6g,642,487.5,99.388,range_halfwidth,978-3
+10.37934/arfmts.115.2.103112,cme1qng8z00fclllgegkuqp6g,103,4.5,4.186,range_halfwidth, 103-112
+10.4236/abb.2013.41015,cme1qng8z00fclllgegkuqp6g,1308,6.5,0.494,range_halfwidth, 1308-1321
+10.4236/abb.2013.41015,cme1qng8z00fclllgegkuqp6g,1365,6.5,0.494,range_halfwidth, 1308-1321
+10.46488/NEPT.2021.v20i04.017,cme1qng8z00fclllgegkuqp6g,67,6,8.219,range_halfwidth, 67-79
+10.46488/NEPT.2024.v23i03.008,cme1qng8z00fclllgegkuqp6g,1048,9.5,0.898,range_halfwidth, 1048-1067
+10.57233/ijsgs.v5i2.143,cme1qng8z00fclllgegkuqp6g,24,1,4.000,range_halfwidth, 24-26
+10.5772/intechopen.91593,cme1qng8z00fclllgegkuqp6g,40,2.5,5.882,range_halfwidth,from 40-45
+10.14710/jksa.28.4.183-194,cme1qnghb00fflllgg6zb4dnr,8717,2.5,0.029,range_halfwidth, 8717-8722
+10.5599/jese.2383,cme1qnghb00fflllgg6zb4dnr,653,8,1.210,range_halfwidth, 653-669
+10.5599/jese.2383,cme1qnghb00fflllgg6zb4dnr,239,3.5,1.961,range_halfwidth, 175- 182
+10.14710/reaktor.22.2.36-41,cme1qnghb00fflllgg6zb4dnr,449,2.5,0.554,range_halfwidth,449-454
+10.14710/ijred.2021.32403,cme1qnghb00fflllgg6zb4dnr,10,1.5,17.647,range_halfwidth, 10-7
+10.14710/ijred.2021.32403,cme1qnghb00fflllgg6zb4dnr,71,3.5,4.698,range_halfwidth, 71-78
+10.14710/ijred.6.1.83-92,cme1qnghb00fflllgg6zb4dnr,1533,5.5,0.357,range_halfwidth, 1533-1544
+10.7176/JSTR/5-2-17,cme1qnghb00fflllgg6zb4dnr,5206,2.5,0.048,range_halfwidth, 5206-5211
+10.4314/njb.v41i1.12,cme1qngpp00filllgvf642apx,919,10,1.100,range_halfwidth, 899–919
+10.33448/rsd-v11i10.32132,cme1qngpp00filllgvf642apx,387,2.5,0.642,range_halfwidth, 387-392
+10.19053/01211129.v29.n54.2020.10468,cme1qngpp00filllgvf642apx,481,3.5,0.722,range_halfwidth, 481-488
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,863,1,0.116,range_halfwidth, 863-865
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,605,1,0.166,range_halfwidth, 603-605
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,787,1,0.166,range_halfwidth, 603-605
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,51,5.5,9.735,range_halfwidth, 51-62
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,756,1,0.132,range_halfwidth, 756-758
+10.1016/j.carbon.2017.02.003,cme1qngpp00filllgvf642apx,1021,2,0.196,range_halfwidth, 1021-1025
+10.14710/ijred.6.1.83-92,cme1qngpp00filllgvf642apx,2575,2.5,0.097,range_halfwidth, 2575-2580
+10.9767/bcrec.12.2.803.287-292,cme1qngpp00filllgvf642apx,1779,4,0.224,range_halfwidth, 1779-1787
+10.1021/acsomega.5c12506,cme1qngpp00filllgvf642apx,15064,4,0.027,range_halfwidth, 15064-15072
+10.11113/amst.v26n1.230,cme1qngpp00filllgvf642apx,22181,6,0.027,range_halfwidth, 22181-22193
+10.21926/cr.2203029,cme1qngpp00filllgvf642apx,641,2.5,0.389,range_halfwidth, 641-646
+10.22146/ijeis.54138,cme1qngpp00filllgvf642apx,4731,4.5,0.095,range_halfwidth, 4731-4740
+10.22452/ijrer.vol13no2.1,cme1qngpp00filllgvf642apx,840,0.5,0.059,range_halfwidth, 840-841
+10.22452/ijrer.vol13no2.1,cme1qngpp00filllgvf642apx,32,8,20.000,range_halfwidth, 32-48
+10.31018/jans.v10i4.1836,cme1qngpp00filllgvf642apx,6646,6.5,0.098,range_halfwidth, 6646-6659
+10.4028/www.scientific.net/amr.807-809.2713,cme1qngpp00filllgvf642apx,3358,3.5,0.104,range_halfwidth, 3358-3365
+10.4028/www.scientific.net/amr.807-809.2713,cme1qngpp00filllgvf642apx,3559,3.5,0.104,range_halfwidth, 3358-3365
+10.4314/dujopas.v9i4a.8,cme1qngpp00filllgvf642apx,291,4.5,1.523,range_halfwidth, 291-300
+10.33736/bjrst.6163.2024,cme1qngy100fllllgc5bbnwz6,294,3,1.010,range_halfwidth, 294-300
+10.19053/01211129.v29.n54.2020.10468,cme1qngy100fllllgc5bbnwz6,8,1.5,15.789,range_halfwidth,8-11
+10.15626/Eco-Tech.2014.006,cme1qngy100fllllgc5bbnwz6,929,2.5,0.268,range_halfwidth, 929-934
+10.21205/deufmd.2023257420,cme1qngy100fllllgc5bbnwz6,21,2,8.696,range_halfwidth,21-25
+10.21205/deufmd.2023257420,cme1qngy100fllllgc5bbnwz6,19,2,8.696,range_halfwidth,21-25
+10.4236/abb.2013.41015,cme1qngy100fllllgc5bbnwz6,1308,6.5,0.494,range_halfwidth, 1308-1321
+10.4236/abb.2013.41015,cme1qngy100fllllgc5bbnwz6,1365,6.5,0.494,range_halfwidth, 1308-1321
+10.31632/ijalsr.2025.v08i01.002,cme1qnh6i00folllgfizs934a,815,11.5,1.391,range_halfwidth, 815-838
+10.33448/rsd-v11i10.32132,cme1qnh6i00folllgfizs934a,387,2.5,0.642,range_halfwidth, 387-392
+10.1021/acsomega.5c12506,cme1qnh6i00folllgfizs934a,29563,3.5,0.012,range_halfwidth, 29563-29570
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,35,2.5,6.667,range_halfwidth, 35-40
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,2173,1.5,0.069,range_halfwidth, 2173-2176
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,118,4,3.279,range_halfwidth, 118-126
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,103,3,2.830,range_halfwidth, 103-109
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,86,3,2.830,range_halfwidth, 103-109
+10.11113/amst.v26n1.230,cme1qnh6i00folllgfizs934a,286,4.5,1.549,range_halfwidth, 286-295
+10.1201/9781003225430,cme1qnh6i00folllgfizs934a,129,2.5,1.901,range_halfwidth, 129-134
+10.21203/rs.3.rs-2747512/v1,cme1qnh6i00folllgfizs934a,30687,2,0.007,range_halfwidth, 30687-30691
+10.21203/rs.3.rs-2747512/v1,cme1qnh6i00folllgfizs934a,25423,6,0.024,range_halfwidth, 25423-25435
+10.21203/rs.3.rs-2747512/v1,cme1qnh6i00folllgfizs934a,59,6,9.231,range_halfwidth, 59-71
+10.21203/rs.3.rs-3513100/v1,cme1qnh6i00folllgfizs934a,9701,4.5,0.046,range_halfwidth, 9701-9710
+10.21203/rs.3.rs-3513100/v1,cme1qnh6i00folllgfizs934a,267,3.5,1.294,range_halfwidth, 267-274
+10.3389/fceng.2021.790314,cme1qnh6i00folllgfizs934a,819,4,0.577,range_halfwidth, 689–697
+10.46488/NEPT.2024.v23i03.008,cme1qnh6i00folllgfizs934a,2164,346.5,19.065,range_halfwidth,1471- 2164
+10.46488/NEPT.2024.v23i03.008,cme1qnh6i00folllgfizs934a,532,2,0.375,range_halfwidth, 532-536
+10.53555/ecb.v11:i9.17764,cme1qnh6i00folllgfizs934a,2520,5.5,0.218,range_halfwidth, 2520-2531
+10.53555/jaz.v45i3.4937,cme1qnh6i00folllgfizs934a,351,0.5,0.142,range_halfwidth, 351-352
+10.53555/jaz.v45i3.4937,cme1qnh6i00folllgfizs934a,338,0.5,0.142,range_halfwidth, 351-352
+10.53555/jaz.v45i3.4937,cme1qnh6i00folllgfizs934a,1178,3,0.254,range_halfwidth, 1178-1184
+10.53555/jaz.v45i3.4937,cme1qnh6i00folllgfizs934a,303,12,3.810,range_halfwidth, 303-327
+10.53555/jaz.v45i3.4937,cme1qnh6i00folllgfizs934a,966,5.5,0.566,range_halfwidth, 966-977
+10.52783/anvi.v28.2270,cme1qnijj00g6lllg7k4kt5b5,10049,4.5,0.045,range_halfwidth, 10049-10058
+10.18186/thermal.507919,cme1qnijj00g6lllg7k4kt5b5,2311,7,0.302,range_halfwidth, 2311-2325
+10.9767/bcrec.12.2.803.287-292,cme1qnijj00g6lllg7k4kt5b5,213,8,3.620,range_halfwidth, 213-229
+10.22452/ijrer.vol13no2.1,cme1qnijj00g6lllg7k4kt5b5,3609,4,0.111,range_halfwidth, 3609-3617
+10.46488/NEPT.2024.v23i03.008,cme1qnijj00g6lllg7k4kt5b5,5777,5,0.086,range_halfwidth, 5777-5787
+10.62063/ecb-14,cme1qnirs00g9lllgyxrs7o86,12980,3,0.023,range_halfwidth, 12980-12986
+10.37934/cfdl.16.10.5463,cme1qnj8800gflllgfslbh5b3,453,4,0.875,range_halfwidth, 453-461
+10.29109/gujsc.1334651,cme1qnj8800gflllgfslbh5b3,932,9,0.956,range_halfwidth, 932-950
+10.30939/ijastech..1209429,cme1qnj8800gflllgfslbh5b3,11,3,21.429,range_halfwidth, 11-17
+10.30939/ijastech..1209429,cme1qnj8800gflllgfslbh5b3,10,1.5,17.647,range_halfwidth,10-7
+10.31632/ijalsr.2025.v08i01.002,cme1qnjgf00gilllgqrmiett5,307,2,0.647,range_halfwidth, 307-311
+10.1002/pi.6510,cme1qnjgf00gilllgqrmiett5,5647,4,0.071,range_halfwidth, 5647-5655
+10.21924/cst.7.1.2022.799,cme1qnjgf00gilllgqrmiett5,4808,6,0.125,range_halfwidth, 4808-4820
+10.1016/j.solener.2018.12.009,cme1qnjgf00gilllgqrmiett5,7,1,12.500,range_halfwidth,7-9
+10.21203/rs.3.rs-296577/v1,cme1qnjgf00gilllgqrmiett5,1149,3.5,0.304,range_halfwidth, 1149-1156
+10.21203/rs.3.rs-296577/v1,cme1qnjgf00gilllgqrmiett5,208,3.5,1.655,range_halfwidth, 208-215
+10.5599/jese.1011,cme1qnjws00golllgdgi831hg,8,0.5,5.882,range_halfwidth, 8-9
+10.5599/jese.1011,cme1qnjws00golllgdgi831hg,209,3,1.415,range_halfwidth, 209-215
+10.24857/rgsa.v18n6-187,cme1qnkd100gulllgndgdfzk9,999,3.5,0.349,range_halfwidth, 999-1006
+10.47430/ujmr.2493.041,cme1qnkd100gulllgndgdfzk9,94,5,5.051,range_halfwidth, 94-104
+10.22545/2023/00229,cme1qnkd100gulllgndgdfzk9,308,2.5,0.805,range_halfwidth, 308-313
+10.35414/akufemubid.1027565,cme1qnkd100gulllgndgdfzk9,407,2.5,0.611,range_halfwidth, 407-412
+10.3808/jei.201500308,cme1qnkd100gulllgndgdfzk9,67,1.5,2.190,range_halfwidth, 67-70
+10.1007/bf02472679,cme1qnkd100gulllgndgdfzk9,80,3,3.614,range_halfwidth,80-86
+10.1016/j.solener.2018.12.009,cme1qnkd100gulllgndgdfzk9,20,1,4.762,range_halfwidth, 20-22
+10.1201/9781003225430,cme1qnkd100gulllgndgdfzk9,2716,3,0.110,range_halfwidth, 2716-2722
+10.18186/thermal.734719,cme1qnkd100gulllgndgdfzk9,10,1.5,17.647,range_halfwidth,10-7
+10.21203/rs.3.rs-2000255/v1,cme1qnkd100gulllgndgdfzk9,14,3.5,20.000,range_halfwidth, 14-21
+10.21203/rs.3.rs-2000255/v1,cme1qnkd100gulllgndgdfzk9,669,7,1.036,range_halfwidth, 669-683
+10.21203/rs.3.rs-2000255/v1,cme1qnkd100gulllgndgdfzk9,2204,2,0.091,range_halfwidth, 2204-2208
+10.21203/rs.3.rs-4559953/v1,cme1qnkd100gulllgndgdfzk9,1077,4.5,0.416,range_halfwidth, 1077-1086
+10.35208/ert.785556,cme1qnkd100gulllgndgdfzk9,163,7.5,4.399,range_halfwidth, 163-178
+10.35429/H.2023.6.97.104,cme1qnkd100gulllgndgdfzk9,3056,16.5,0.537,range_halfwidth, 3056-3089
+10.5599/jese.1011,cme1qnkd100gulllgndgdfzk9,209,3,1.415,range_halfwidth, 209-215
+10.58496/BJML/2023/005,cme1qnklb00gxlllgtuaikh75,296,3.5,1.169,range_halfwidth, 296-303
+10.1002/adfm.202304790,cme1qnpa100illllgbpkc49nd,60,15,33.333,range_halfwidth, 30 and 60
+10.48048/tis.2024.7867,cme1qnpqd00irlllgqkxi9rv9,65,3.5,5.109,range_halfwidth, 65-72
+10.4236/jsbs.2021.113009,cme1qnpqd00irlllgqkxi9rv9,340,2,0.585,range_halfwidth, 340-344
+10.14710/ijred.3.1.65-72,cme1qnpqd00irlllgqkxi9rv9,65,3.5,5.109,range_halfwidth, 65-72
+10.14710/ijred.3.1.65-72,cme1qnpqd00irlllgqkxi9rv9,1948,3,0.154,range_halfwidth,1948-1954
+10.14710/ijred.3.1.65-72,cme1qnpqd00irlllgqkxi9rv9,808,2.5,0.308,range_halfwidth,808-813
+10.1007/bf02472679,cme1qnpqd00irlllgqkxi9rv9,842,2.5,0.296,range_halfwidth,842-847
+10.11113/amst.v26n1.230,cme1qnpqd00irlllgqkxi9rv9,13,3.5,21.212,range_halfwidth, 13-20
+10.21203/rs.3.rs-2747512/v1,cme1qnpqd00irlllgqkxi9rv9,1104,5,0.451,range_halfwidth, 1104-1114
+10.24425/aep.2023.148683,cme1qnq6v00ixlllgytagk1so,603,0.5,0.083,range_halfwidth, 603-604
+10.24425/aep.2023.148683,cme1qnq6v00ixlllgytagk1so,320,4,1.235,range_halfwidth, 320-328
+10.24425/aep.2023.148683,cme1qnq6v00ixlllgytagk1so,205,3,1.442,range_halfwidth, 205-211
+10.48048/tis.2023.6900,cme1qnq6v00ixlllgytagk1so,297,2,0.669,range_halfwidth, 297-301
+10.21924/cst.7.1.2022.799,cme1qnq6v00ixlllgytagk1so,66,5,7.042,range_halfwidth, 66-76
+10.21924/cst.7.1.2022.799,cme1qnq6v00ixlllgytagk1so,39,2.5,6.024,range_halfwidth, 39-44
+10.14710/jksa.23.6.222-227,cme1qnq6v00ixlllgytagk1so,44,3,6.383,range_halfwidth, 44-50
+10.14710/jksa.23.6.222-227,cme1qnq6v00ixlllgytagk1so,320,5.5,1.716,range_halfwidth, 315-326
+10.31699/IJCPE.2022.3.3,cme1qnqfc00j0lllg1n265yf0,39,2.5,6.024,range_halfwidth, 39-44
+10.21926/rpse.2501001,cme1qnqnq00j3lllg3r0yl4zc,19,1,5.000,range_halfwidth,19-21
+10.22531/muglajsci.1737770,cme1qnqnq00j3lllg3r0yl4zc,2911,4.5,0.154,range_halfwidth, 2911-2920
+10.37934/cfdl.16.10.5463,cme1qnqnq00j3lllg3r0yl4zc,396,9.5,2.343,range_halfwidth, 396-415
+10.37934/cfdl.16.10.5463,cme1qnqnq00j3lllg3r0yl4zc,225,1.5,0.662,range_halfwidth, 225-228
+10.37934/cfdl.16.10.5463,cme1qnqnq00j3lllg3r0yl4zc,54,4.5,7.692,range_halfwidth, 54-63
+10.37934/cfdl.16.10.5463,cme1qnqnq00j3lllg3r0yl4zc,5251,8,0.152,range_halfwidth, 5251-5267
+10.37934/cfdl.16.10.5463,cme1qnqnq00j3lllg3r0yl4zc,10060,5,0.050,range_halfwidth, 10060-10070
+10.4314/njb.v41i1.12,cme1qnqnq00j3lllg3r0yl4zc,307,5.5,1.760,range_halfwidth, 307-318
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,489,10,2.004,range_halfwidth, 489-509
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,510,10,2.004,range_halfwidth, 489-509
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,640,11.5,1.765,range_halfwidth, 640-663
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,183,2.5,1.348,range_halfwidth, 183-188
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,27,0.5,1.818,range_halfwidth, 27-28
+10.46338/ijetae142324_10,cme1qnqnq00j3lllg3r0yl4zc,86,4.5,4.972,range_halfwidth, 86-95
+10.62063/ecb-14,cme1qnqnq00j3lllg3r0yl4zc,404,3,0.737,range_halfwidth, 404-410
+10.24191/jmeche.v20i3.23916,cme1qnqnq00j3lllg3r0yl4zc,10381,6.5,0.063,range_halfwidth, 10381-10394
+10.24425/aep.2023.148683,cme1qnqnq00j3lllg3r0yl4zc,315,5.5,1.716,range_halfwidth, 315-326
+10.31026/j.eng.2013.08.08,cme1qnqnq00j3lllg3r0yl4zc,2551,2,0.078,range_halfwidth, 2551-2555
+10.14447/jnmes.v25i1.a01,cme1qnqnq00j3lllg3r0yl4zc,173,3.5,1.983,range_halfwidth, 173-180
+10.14447/jnmes.v25i1.a01,cme1qnqnq00j3lllg3r0yl4zc,213,2.5,1.160,range_halfwidth, 213-218
+10.21924/cst.7.1.2022.799,cme1qnqnq00j3lllg3r0yl4zc,1426,3,0.210,range_halfwidth, 1426-1432
+10.21924/cst.7.1.2022.799,cme1qnqnq00j3lllg3r0yl4zc,22340,4,0.018,range_halfwidth, 22340-22348
+10.21924/cst.7.1.2022.799,cme1qnqnq00j3lllg3r0yl4zc,259,2.5,0.956,range_halfwidth, 259-264
+10.2478/bipie-2022-0008,cme1qnqnq00j3lllg3r0yl4zc,7538,7,0.093,range_halfwidth, 7538-7552
+10.30521/jes.871018,cme1qnqnq00j3lllg3r0yl4zc,421,6,1.405,range_halfwidth, 421-433
+10.30521/jes.871018,cme1qnqnq00j3lllg3r0yl4zc,51,3.5,6.422,range_halfwidth, 51-58
+10.14710/ijred.2020.29980,cme1qnqnq00j3lllg3r0yl4zc,1766,4,0.226,range_halfwidth, 1766-1774
+10.4491/eer.2019.412,cme1qnqnq00j3lllg3r0yl4zc,1575,5.5,0.348,range_halfwidth, 1575-1586
+10.18186/thermal.507919,cme1qnqnq00j3lllg3r0yl4zc,5510,5,0.091,range_halfwidth, 5510-5520
+10.14710/ijred.6.1.83-92,cme1qnqnq00j3lllg3r0yl4zc,1533,5.5,0.357,range_halfwidth, 1533-1544
+10.12989/mwt.2015.6.1.053,cme1qnqnq00j3lllg3r0yl4zc,244,4,1.613,range_halfwidth, 244-252
+10.12989/mwt.2015.6.1.053,cme1qnqnq00j3lllg3r0yl4zc,2505,4.5,0.179,range_halfwidth, 2505-2514
+10.14710/ijred.3.1.65-72,cme1qnqnq00j3lllg3r0yl4zc,79,1,1.250,range_halfwidth,79-81
+10.2478/ijame-2013-0006,cme1qnqnq00j3lllg3r0yl4zc,356,2.5,0.697,range_halfwidth,356-361
+10.1007/bf02472679,cme1qnqnq00j3lllg3r0yl4zc,495,3.5,0.702,range_halfwidth,495-502
+10.1016/j.ijhydene.2020.03.126,cme1qnqnq00j3lllg3r0yl4zc,4,1,20.000,range_halfwidth, 4-6
+10.1017/cbo9780511791284.009,cme1qnqnq00j3lllg3r0yl4zc,775,3,0.386,range_halfwidth, 775-781
+10.1017/cbo9780511791284.009,cme1qnqnq00j3lllg3r0yl4zc,861,3,0.386,range_halfwidth, 775-781
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,197,5.5,2.716,range_halfwidth, 197-208
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,162,0.5,0.308,range_halfwidth, 162-163
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,614,7,1.127,range_halfwidth, 614-628
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,306,3,0.971,range_halfwidth, 306-312
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,109,4.5,3.965,range_halfwidth, 109-118
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,103,3,2.830,range_halfwidth, 103-109
+10.11113/amst.v26n1.230,cme1qnqnq00j3lllg3r0yl4zc,86,3,2.830,range_halfwidth, 103-109
+10.14710/reaktor.21.4.161-170,cme1qnqnq00j3lllg3r0yl4zc,161,4.5,2.719,range_halfwidth, 161-170
+10.15626/Eco-Tech.2010.067,cme1qnqnq00j3lllg3r0yl4zc,22,1,4.348,range_halfwidth, 22-24
+10.20535/ibb.2022.6.3-4.273108,cme1qnqnq00j3lllg3r0yl4zc,59,3.5,5.600,range_halfwidth,59-66
+10.20535/ibb.2022.6.3-4.273108,cme1qnqnq00j3lllg3r0yl4zc,66,3.5,5.600,range_halfwidth,59-66
+10.21203/rs.3.rs-2167210/v1,cme1qnqnq00j3lllg3r0yl4zc,195,5.5,2.743,range_halfwidth, 195-206
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,1617,6,0.370,range_halfwidth, 1617-1629
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,9906,0.5,0.005,range_halfwidth, 9906-9907
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,7732,2.5,0.032,range_halfwidth, 7732-7737
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,15696,4.5,0.029,range_halfwidth, 15696-15705
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,15838,2,0.013,range_halfwidth, 15838-15842
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,25423,6,0.024,range_halfwidth, 25423-25435
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,3736,4,0.107,range_halfwidth, 3736-3744
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,798,6,0.746,range_halfwidth, 798-810
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,73,3,3.947,range_halfwidth, 73-79
+10.21203/rs.3.rs-2747512/v1,cme1qnqnq00j3lllg3r0yl4zc,59,3,3.947,range_halfwidth, 73-79
+10.21205/deufmd.2023257420,cme1qnqnq00j3lllg3r0yl4zc,19,1,5.000,range_halfwidth,19-21
+10.2139/ssrn.4717924,cme1qnqnq00j3lllg3r0yl4zc,658,2,0.303,range_halfwidth,658-662
+10.2139/ssrn.4717924,cme1qnqnq00j3lllg3r0yl4zc,942,2,0.303,range_halfwidth,658-662
+10.22452/ijrer.vol13no2.1,cme1qnqnq00j3lllg3r0yl4zc,2651,0.5,0.019,range_halfwidth, 2651-2652
+10.31699/IJCPE.2019.2.3,cme1qnqnq00j3lllg3r0yl4zc,658,2,0.303,range_halfwidth,658-662
+10.4028/www.scientific.net/AMM.773-774.511,cme1qnqnq00j3lllg3r0yl4zc,717,3,0.417,range_halfwidth, 717-723
+10.4314/dujopas.v9i4a.8,cme1qnqnq00j3lllg3r0yl4zc,94,5,5.051,range_halfwidth, 94-104
+10.46488/NEPT.2024.v23i03.008,cme1qnqnq00j3lllg3r0yl4zc,179,17,8.673,range_halfwidth,179-213
+10.46488/NEPT.2024.v23i03.008,cme1qnqnq00j3lllg3r0yl4zc,228,17,8.673,range_halfwidth,179-213
+10.53555/ecb.v11:i9.17764,cme1qnqnq00j3lllg3r0yl4zc,1070,3.5,0.326,range_halfwidth, 1070-1077
+10.5772/intechopen.91593,cme1qnqnq00j3lllg3r0yl4zc,1755,220,14.332,range_halfwidth,1755-1315
+10.5815/ijeme.2021.03.01,cme1qnqnq00j3lllg3r0yl4zc,7571,3,0.040,range_halfwidth, 7571-7577
+10.5821/dissertation-2117-95792,cme1qnqnq00j3lllg3r0yl4zc,1004,2.5,0.248,range_halfwidth, 1004-1009
+10.62638/ZasMat1184,cme1qnqnq00j3lllg3r0yl4zc,23,1,4.167,range_halfwidth,23-25
+10.7176/JETP/10-1-02,cme1qnqnq00j3lllg3r0yl4zc,2224,504,18.475,range_halfwidth, 2224-3232
+10.7176/JETP/10-1-02,cme1qnqnq00j3lllg3r0yl4zc,2225,504,18.475,range_halfwidth, 2224-3232
+10.1002/adfm.202304790,cme1qo7q800p9lllggzk31au9,29,8,21.622,range_halfwidth,29-45
+10.1002/adfm.202304790,cme1qo7q800p9lllggzk31au9,76,1,1.299,range_halfwidth,76-78
+10.1002/adfm.202304790,cme1qo7q800p9lllggzk31au9,118,1,0.840,range_halfwidth,118-120
+10.24425/aep.2023.148683,cme1qo7q800p9lllggzk31au9,128,4,3.030,range_halfwidth, 128-136
+10.12989/mwt.2015.6.1.053,cme1qo7q800p9lllggzk31au9,10294,3.5,0.034,range_halfwidth, 10294-10301
+10.1007/bf02472679,cme1qo7q800p9lllggzk31au9,3653,2,0.077,range_halfwidth,2587- 2591
+10.1016/j.solener.2018.12.009,cme1qo7q800p9lllggzk31au9,10,2.5,33.333,range_halfwidth, 5 to 10
+10.1201/9781351073783-7,cme1qo7q800p9lllggzk31au9,10,1,11.111,range_halfwidth, 10-8
+10.21926/jept.2102024,cme1qo7q800p9lllggzk31au9,563,4,0.705,range_halfwidth, 563-571
+10.25148/etd.fidc000135,cme1qo7q800p9lllggzk31au9,7,1.5,17.647,range_halfwidth, 7-10
+10.61180/vegsci.2025.v52.i1.20,cme1qo7yu00pclllg2vfogp1q,45,2.5,5.882,range_halfwidth,40–45
+10.7554/eLife.53898,cme1qoa9x00q6lllgm2qj3hx8,0.4,0.5,100.000,range_halfwidth, 0–1.0
+10.31026/j.eng.2017.05.07,cme1qoa9x00q6lllgm2qj3hx8,10,0.10000000000000009,1.408,range_halfwidth, 7-7.2
+10.20998/2074-272X.2021.5.05,cme1qocmp00r0lllgwyyh4axq,389,2,0.512,range_halfwidth, 389-393
+10.21203/rs.2.20986/v1,cme1qocmp00r0lllgwyyh4axq,0.004,0.001,20.000,range_halfwidth,0.004-0.006
+10.31026/j.eng.2013.08.08,cme1qondh00uxlllg6kh5gl1a,30,5,20.000,plus_minus_abs,25±5
+10.2166/wst.2007.490,cme1qondh00uxlllg6kh5gl1a,20,,92.000,plus_minus_pct,163±92%
+10.3389/fceng.2022.765682,cme1qondh00uxlllg6kh5gl1a,10,2.5,33.333,range_halfwidth, 5–10
+10.1038/srep06779,cme1qq0bm001fll61kf5fwm2t,30,1.5,4.110,range_halfwidth, 35–38
+10.1007/bf02472679,cme1qq0bm001fll61kf5fwm2t,29,20.5,80.392,range_halfwidth, 5-46
+10.1007/bf02472679,cme1qq1la001ull61akw1sjud,29,20.5,80.392,range_halfwidth, 5-46
+10.2339/politeknik.724033,cme1qqduu0052ll613bmr6d7i,10,1,11.111,range_halfwidth, 8 and 10
+10.53797/aseana.v2i2.1.2022,cme1qqja7006zll618jdke7hj,11,3,21.429,range_halfwidth, 11-17
+10.37934/cfdl.16.10.5463,cme1qqmpb0085ll619zuijix8,10060,5,0.050,range_halfwidth, 10060-10070
+10.1201/9781003657385-3,cme1qqmpb0085ll619zuijix8,200,50,20.000,range_halfwidth, 200-300
+10.1007/978-1-349-15190-5_3,cme1rc3ua000cllb8e9el7jjt,203,5,2.404,range_halfwidth,203-213
+10.1016/j.renene.2012.10.051,cme1rc6i7000rllb8f62kls8d,3779,2,0.053,range_halfwidth, 3779-3783
+10.51173/jt.v7i4.2757,cme1rc6i7000rllb8f62kls8d,514,5,0.963,range_halfwidth,514-524
+10.51173/jt.v7i4.2757,cme1rc6i7000rllb8f62kls8d,431,5,0.963,range_halfwidth,514-524
+10.1007/978-3-030-11599-9_18,cme1rc8zp0016llb83hxeegmi,18493,4.5,0.024,range_halfwidth, 18493-18502
+10.5821/dissertation-2117-168574,cme1rc8zp0016llb83hxeegmi,4754,3.5,0.074,range_halfwidth, 4754-4761
+10.58559/ijes.1412839,cme1rc8zp0016llb83hxeegmi,963,6,0.619,range_halfwidth, 963-975
+10.1002/fuce.201700135,cme1rcqwj003ollb8n771ft5z,39,9.5,19.588,range_halfwidth, 39-58
+10.1007/bf02472679,cme1rctfc0043llb85s1b96pc,2460,0.5,0.020,range_halfwidth,2460-2461
+10.9767/bcrec.12.2.803.287-292,cme1rd3s4005rllb8s9okr6kj,1978,507.5,20.418,range_halfwidth, 1978-2993
+10.21926/jept.2102024,cme1rd3s4005rllb8s9okr6kj,79,3,3.659,range_halfwidth, 79-85
+10.14710/reaktor.20.3.117-121,cme1rd40r005ullb8sk6hbbrx,607,3,0.492,range_halfwidth, 607-613
+10.14710/ijred.7.1.53-58,cme1rd40r005ullb8sk6hbbrx,145,3.5,2.357,range_halfwidth, 145-152
+10.1080/09593330.2013.788041,cme1rd40r005ullb8sk6hbbrx,4315,3,0.069,range_halfwidth, 4315-4321
+10.4028/www.scientific.net/amr.512-515.1456,cme1rd40r005ullb8sk6hbbrx,475,1.5,0.315,range_halfwidth,475-478
+10.1111/oet.6_12398,cme1rd40r005ullb8sk6hbbrx,475,1.5,0.315,range_halfwidth, 475-478
+10.4314/jasem.v22i7.5,cme1rd40r005ullb8sk6hbbrx,607,3,0.492,range_halfwidth, 607-613
+10.1038/srep06779,cod_removal,90.2,,4.100,plus_minus_pct,90.2 ± 4.1%
+10.1038/srep06779,cod_removal,96.5,,4.100,plus_minus_pct,90.2 ± 4.1%
+10.30955/gnc2019.00488,cod_removal,85.4,1.5,1.726,range_halfwidth, 85.4 and 88.4
+10.30955/gnc2019.00488,cod_removal,94.3,1.5,1.726,range_halfwidth, 85.4 and 88.4
+10.3329/jes.v13i1.60561,cod_removal,51,,9.000,plus_minus_pct,67±9%
+10.4314/njpap.v10i1.2,open_circuit_voltage,0.42,0.32999999999999996,84.615,range_halfwidth,from 0.06 to 0.72
+10.4314/njpap.v10i1.2,open_circuit_voltage,0.39,0.335,75.281,range_halfwidth,from 0.11 to 0.78
+10.11159/iceptp25.142,open_circuit_voltage,0.028,0.001,3.571,plus_minus_abs,0.028 ± 0.001
+10.55251/jmbfs.9703,open_circuit_voltage,0.466,0.003,0.644,plus_minus_abs,0.466±0.003
+10.55251/jmbfs.9703,open_circuit_voltage,0.807,0.002,0.248,plus_minus_abs,0.807±0.002
+10.5599/jese.2383,open_circuit_voltage,0.43,0.024999999999999994,6.173,range_halfwidth,from 0.38 to 0.43
+10.53797/aseana.v2i2.1.2022,open_circuit_voltage,1.1,0.15000000000000002,15.789,range_halfwidth, 0.8 to 1.1
+10.20535/ibb.2024.8.1.290311,short_circuit_current,480,24,5.000,plus_minus_abs,480 ± 24
