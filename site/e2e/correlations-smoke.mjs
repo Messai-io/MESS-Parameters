@@ -40,10 +40,12 @@ try {
   const subtitle = await page.locator('text=/BH-FDR corrected across the displayed family/').count();
   check(subtitle > 0, 'Subtitle mentions BH-FDR');
 
-  // Wait until provenance load finishes (banner text appears)
-  await page.waitForSelector('text=/Using precomputed global correlations/', { timeout: 15000 });
+  // Wait until provenance + materials load finishes (banner text appears).
+  // With materials loaded the recompute path is taken even at systemType=All,
+  // because physics pseudo-parameters are part of the family.
+  await page.waitForSelector('text=/BH-FDR q < 0\\.05/', { timeout: 15000 });
   const globalBanner = await page.locator('text=/BH-FDR q < 0\\.05/').count();
-  check(globalBanner > 0, 'Global banner mentions BH-FDR q threshold');
+  check(globalBanner > 0, 'Banner mentions BH-FDR q threshold');
 
   // Matrix is default view; it contains many rects + the legend "opacity ∝ |r|"
   await page.waitForSelector('text=/opacity ∝ \\|r\\|/', { timeout: 5000 });
@@ -58,11 +60,7 @@ try {
   check(ringCount > 0, `Network chord ring rendered (${ringCount} circles)`);
   await page.screenshot({ path: `${ART}/02-network-all.png`, fullPage: false });
 
-  // Check filter banner reflects system type
-  const bannerAll = await page.locator('text=/Using precomputed global correlations/').first();
-  check(await bannerAll.count() > 0, 'Banner says global when system = All');
-
-  // Switch system type to MFC and verify banner changes + recompute happens
+  // Switch system type to MFC and verify banner reflects the subset paper count.
   await page.getByRole('button', { name: /^MFC$/ }).first().click();
   await page.waitForTimeout(800); // let recompute run
   const bannerMFC = await page.locator('text=/Recomputed in-browser over .* MFC paper/').first();
@@ -89,6 +87,35 @@ try {
   }
   const crashErrors = logs.filter((l) => /pageerror|\[error\]/i.test(l) && !/favicon|404/.test(l));
   check(crashErrors.length === 0, `no page errors across MEC/MDC/BES (found ${crashErrors.length})`);
+
+  // Phase 2: back to All systems, check material filter chip row renders
+  await page.getByRole('button', { name: /All systems/ }).first().click();
+  await page.waitForTimeout(300);
+  const materialChips = page.locator('[data-testid="material-chips"]');
+  const hasChips = await materialChips.count() > 0;
+  check(hasChips, 'Material filter chip row renders');
+
+  if (hasChips) {
+    const chipCount = await materialChips.locator('button').count();
+    check(chipCount > 0, `${chipCount} material chips visible`);
+    // Click the first chip; banner should mention a material slug.
+    const firstChip = materialChips.locator('button').first();
+    const firstChipText = (await firstChip.textContent())?.trim() ?? '';
+    const slug = firstChipText.split(/\s+/)[0];
+    await firstChip.click();
+    await page.waitForTimeout(600);
+    const slugInBanner = await page.locator(`text=/filtered to 1 material/`).count();
+    check(slugInBanner > 0 && slug.length > 0, `Banner reflects material filter (${slug})`);
+    await page.screenshot({ path: `${ART}/06-material-filter.png`, fullPage: false });
+    // Deactivate the filter
+    await firstChip.click();
+  }
+
+  // Phase 2: physics pseudo-parameters should appear as ⊕ rows in table view
+  await page.getByRole('button', { name: /^table$/i }).first().click();
+  await page.waitForTimeout(300);
+  const physicsRows = await page.locator('td:has-text("⊕")').count();
+  check(physicsRows > 0, `Physics pseudo-parameter rows visible in table (${physicsRows})`);
 
   // Back to All + matrix + verify |r| slider filters
   await page.getByRole('button', { name: /All systems/ }).first().click();

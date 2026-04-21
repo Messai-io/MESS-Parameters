@@ -17,6 +17,7 @@ export const categoryColors: Record<string, string> = {
   'application-specific': '#5C7A5C',
   'emerging-technology': '#A67C52',
   'integration-scaling': '#5C6B7A',
+  material_physics: '#3C5A7A',
 };
 
 export const categoryLabels: Record<string, string> = {
@@ -38,4 +39,5 @@ export const categoryLabels: Record<string, string> = {
   'application-specific': 'Application-Specific',
   'emerging-technology': 'Emerging Technology',
   'integration-scaling': 'Integration & Scaling',
+  material_physics: '⊕ Material Physics',
 };

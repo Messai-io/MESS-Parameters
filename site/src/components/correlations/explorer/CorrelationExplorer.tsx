@@ -11,10 +11,13 @@ type ViewMode = 'matrix' | 'network' | 'table';
 const DEFAULT_FILTERS: Filters = {
   systemType: 'all',
   categories: new Set<string>(),
+  materials: new Set<string>(),
   minAbsR: 0,
   minN: 30,
   significantOnly: false,
 };
+
+const MIN_DOIS_FOR_MATERIAL_CHIP = 20;
 
 const STORAGE_KEY = 'correlation-explorer-view';
 
@@ -38,7 +41,7 @@ export function CorrelationExplorer() {
   }, [view]);
 
   const result = useCorrelationPairs(filters);
-  const { loading, error, pairs, nodes, totalPairs, systemPaperCount, totalTests } = result;
+  const { loading, error, pairs, nodes, totalPairs, systemPaperCount, totalTests, materials } = result;
 
   const availableCategories = useMemo(() => {
     const set = new Set<string>();
@@ -46,17 +49,40 @@ export function CorrelationExplorer() {
     return Array.from(set).sort();
   }, [nodes]);
 
+  const availableMaterials = useMemo(() => {
+    if (!materials) return [];
+    return materials.slugs
+      .map((s) => {
+        let n_dois = 0;
+        for (const [, slugs] of Object.entries(materials.doi_to_slugs)) {
+          if (slugs.includes(s.slug)) n_dois += 1;
+        }
+        return { slug: s.slug, n_dois };
+      })
+      .filter((m) => m.n_dois >= MIN_DOIS_FOR_MATERIAL_CHIP)
+      .sort((a, b) => b.n_dois - a.n_dois);
+  }, [materials]);
+
   const handleReset = () => {
     // Keep system type when resetting so users don't lose that context
-    setFilters({ ...DEFAULT_FILTERS, systemType: filters.systemType });
+    setFilters({
+      ...DEFAULT_FILTERS,
+      systemType: filters.systemType,
+      categories: new Set(),
+      materials: new Set(),
+    });
   };
 
+  const materialPart = filters.materials.size > 0
+    ? ` · filtered to ${filters.materials.size} material${filters.materials.size === 1 ? '' : 's'}: ${Array.from(filters.materials).join(', ')}`
+    : '';
+
   const banner =
-    filters.systemType === 'all'
+    filters.systemType === 'all' && filters.materials.size === 0 && (materials?.slugs.length ?? 0) === 0
       ? `Using precomputed global correlations. ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.`
       : systemPaperCount !== null
-      ? `Recomputed in-browser over ${systemPaperCount.toLocaleString()} ${filters.systemType} paper(s). ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.`
-      : `Recomputing over ${filters.systemType} subset…`;
+      ? `Recomputed in-browser over ${systemPaperCount.toLocaleString()} ${filters.systemType} paper(s). ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.${materialPart}`
+      : `Recomputed in-browser. ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.${materialPart}`;
 
   return (
     <Card padding="none">
@@ -95,6 +121,7 @@ export function CorrelationExplorer() {
           filters={filters}
           onChange={setFilters}
           availableCategories={availableCategories}
+          availableMaterials={availableMaterials}
           totalPairs={totalPairs}
           shownPairs={pairs.length}
           onReset={handleReset}
@@ -108,9 +135,9 @@ export function CorrelationExplorer() {
           ) : error ? (
             <div className="py-12 text-sm text-red-700">Failed to load correlations: {error}</div>
           ) : view === 'matrix' ? (
-            <CorrelationMatrix pairs={pairs} nodes={nodes} />
+            <CorrelationMatrix pairs={pairs} nodes={nodes} materials={materials} />
           ) : view === 'network' ? (
-            <CorrelationNetwork pairs={pairs} nodes={nodes} />
+            <CorrelationNetwork pairs={pairs} nodes={nodes} materials={materials} />
           ) : (
             <CorrelationPairTable pairs={pairs} />
           )}

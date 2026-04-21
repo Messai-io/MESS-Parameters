@@ -1,0 +1,2011 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-04-21T01:21:57.994Z",
+  "source": "../MESS-Materials/data",
+  "slugs": [
+    {
+      "slug": "nickel_foam",
+      "n_papers": 728,
+      "system_type_distribution": {
+        "MFC": 476,
+        "MEC": 95,
+        "MES": 37,
+        "BES": 115,
+        "MDC": 5
+      },
+      "physics": {
+        "work_function_eV": 4.979696758232965,
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 173.808,
+        "shear_modulus_GPa": 91.592,
+        "density_g_per_cm3": 9.289219853118466,
+        "weighted_surface_energy_J_per_m2": 2.0354403744082457,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "stable"
+      }
+    },
+    {
+      "slug": "iron_oxide",
+      "n_papers": 556,
+      "system_type_distribution": {
+        "MFC": 363,
+        "MES": 37,
+        "BES": 85,
+        "MEC": 67,
+        "MDC": 4
+      },
+      "physics": {
+        "band_gap_eV": 0,
+        "density_g_per_cm3": 5.108710522936223,
+        "energy_above_hull_eV_per_atom": 0.013059251428572002
+      },
+      "pourbaix": {
+        "mfc_anode": "corroding",
+        "mfc_cathode": "corroding",
+        "mec_cathode": "corroding"
+      }
+    },
+    {
+      "slug": "copper_cathode",
+      "n_papers": 390,
+      "system_type_distribution": {
+        "MFC": 246,
+        "BES": 63,
+        "MES": 30,
+        "MEC": 47,
+        "MDC": 4
+      },
+      "physics": {
+        "work_function_eV": 4.533632204404293,
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 151.394,
+        "shear_modulus_GPa": 49.843,
+        "density_g_per_cm3": 9.21899604714547,
+        "weighted_surface_energy_J_per_m2": 1.4219481602647859,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "stable",
+        "mfc_cathode": "corroding",
+        "mec_cathode": "stable"
+      }
+    },
+    {
+      "slug": "platinum_cathode",
+      "n_papers": 303,
+      "system_type_distribution": {
+        "MFC": 192,
+        "MES": 23,
+        "BES": 46,
+        "MEC": 38,
+        "MDC": 4
+      },
+      "physics": {
+        "work_function_eV": 5.536261798594178,
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 248.014,
+        "shear_modulus_GPa": 49.52,
+        "density_g_per_cm3": 21.134925743724082,
+        "weighted_surface_energy_J_per_m2": 1.595549957568911,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "stable",
+        "mfc_cathode": "stable",
+        "mec_cathode": "stable"
+      }
+    },
+    {
+      "slug": "graphene_oxide",
+      "n_papers": 164,
+      "system_type_distribution": {
+        "MFC": 110,
+        "MES": 13,
+        "MEC": 19,
+        "MDC": 1,
+        "BES": 21
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "carbon_nanotubes",
+      "n_papers": 110,
+      "system_type_distribution": {
+        "MFC": 74,
+        "MEC": 19,
+        "BES": 16,
+        "MES": 1
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "graphite_brush",
+      "n_papers": 48,
+      "system_type_distribution": {
+        "MFC": 35,
+        "BES": 7,
+        "MDC": 1,
+        "MEC": 4,
+        "MES": 1
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "carbon_cloth",
+      "n_papers": 13,
+      "system_type_distribution": {
+        "MFC": 12,
+        "BES": 1
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "stainless_steel",
+      "n_papers": 12,
+      "system_type_distribution": {
+        "MFC": 6,
+        "MEC": 3,
+        "BES": 3
+      },
+      "physics": {
+        "work_function_eV": 4.310025423250179,
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 207.093,
+        "shear_modulus_GPa": 67.563,
+        "density_g_per_cm3": 7.827781287780303,
+        "weighted_surface_energy_J_per_m2": 2.526923619112013,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "carbon_felt",
+      "n_papers": 12,
+      "system_type_distribution": {
+        "MFC": 10,
+        "MEC": 1,
+        "BES": 1
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "activated_carbon",
+      "n_papers": 12,
+      "system_type_distribution": {
+        "BES": 2,
+        "MFC": 6,
+        "MEC": 3,
+        "MES": 1
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "manganese_oxide",
+      "n_papers": 2,
+      "system_type_distribution": {
+        "MFC": 2
+      },
+      "physics": {
+        "band_gap_eV": 1.1467,
+        "density_g_per_cm3": 4.284801280941089,
+        "energy_above_hull_eV_per_atom": 0.016697983888889
+      },
+      "pourbaix": {
+        "mfc_anode": "corroding",
+        "mfc_cathode": "corroding",
+        "mec_cathode": "corroding"
+      }
+    },
+    {
+      "slug": "carbon_paper",
+      "n_papers": 2,
+      "system_type_distribution": {
+        "MFC": 2
+      },
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "cobalt_oxide",
+      "n_papers": 0,
+      "system_type_distribution": {},
+      "physics": {
+        "band_gap_eV": 0,
+        "density_g_per_cm3": 6.141460782418401,
+        "energy_above_hull_eV_per_atom": 0.010479931428569001
+      },
+      "pourbaix": {
+        "mfc_anode": "corroding",
+        "mfc_cathode": "corroding",
+        "mec_cathode": "corroding"
+      }
+    },
+    {
+      "slug": "gas_diffusion_layer",
+      "n_papers": 0,
+      "system_type_distribution": {},
+      "physics": {
+        "band_gap_eV": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "passivated",
+        "mfc_cathode": "passivated",
+        "mec_cathode": "passivated"
+      }
+    },
+    {
+      "slug": "ti3c2tx_mxene",
+      "n_papers": 0,
+      "system_type_distribution": {},
+      "physics": {
+        "band_gap_eV": 0,
+        "density_g_per_cm3": 4.521629297630674,
+        "energy_above_hull_eV_per_atom": 0.050928757333334004
+      },
+      "pourbaix": {
+        "mfc_anode": "unknown",
+        "mfc_cathode": "unknown",
+        "mec_cathode": "unknown"
+      }
+    },
+    {
+      "slug": "nb2ctx_mxene",
+      "n_papers": 0,
+      "system_type_distribution": {},
+      "physics": {
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 226.573,
+        "shear_modulus_GPa": 118.704,
+        "density_g_per_cm3": 7.678055954336023,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "unknown",
+        "mfc_cathode": "unknown",
+        "mec_cathode": "unknown"
+      }
+    },
+    {
+      "slug": "v2ctx_mxene",
+      "n_papers": 0,
+      "system_type_distribution": {},
+      "physics": {
+        "band_gap_eV": 0,
+        "bulk_modulus_GPa": 244.406,
+        "shear_modulus_GPa": 119.66,
+        "density_g_per_cm3": 5.8158693048957,
+        "energy_above_hull_eV_per_atom": 0
+      },
+      "pourbaix": {
+        "mfc_anode": "unknown",
+        "mfc_cathode": "unknown",
+        "mec_cathode": "unknown"
+      }
+    }
+  ],
+  "doi_to_slugs": {
+    "10.1088/2043-6262/6/4/045007": [
+      "platinum_cathode"
+    ],
+    "10.1088/1755-1315/922/1/012002": [
+      "platinum_cathode"
+    ],
+    "10.18174/443010": [
+      "platinum_cathode",
+      "carbon_felt"
+    ],
+    "10.1051/bioconf/202621613001": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.mlwa.2025.100698": [
+      "platinum_cathode",
+      "nickel_foam"
+    ],
+    "10.58496/bjml/2025/007": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2023.0182": [
+      "platinum_cathode"
+    ],
+    "10.1089/3dp.2024.0262": [
+      "platinum_cathode",
+      "nickel_foam"
+    ],
+    "10.1515/rams-2025-0106": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2024.133931": [
+      "platinum_cathode"
+    ],
+    "10.1089/3dp.2024.0211": [
+      "platinum_cathode",
+      "nickel_foam"
+    ],
+    "10.1093/lambio/ovaf010": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2024.0165": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.1051/matecconf/202541001015": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.biotechadv.2025.108521": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.watres.2024.122644": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1002/fuce.202400088": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.58496/bjml/2024/017": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.62063/rev-1": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1002/ceat.202300410": [
+      "platinum_cathode",
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1016/j.jenvman.2024.122252": [
+      "platinum_cathode"
+    ],
+    "10.3389/fenrg.2024.1419785": [
+      "platinum_cathode",
+      "nickel_foam",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2024/012": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.3390/bacteria3030008": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1111/1751-7915.14488": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.52783/jes.4093": [
+      "platinum_cathode",
+      "iron_oxide"
+    ],
+    "10.1515/znc-2023-0175": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1021/acs.est.4c00123": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.fuel.2023.130611": [
+      "platinum_cathode"
+    ],
+    "10.1515/ijcre-2023-0096": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1002/rem.21776": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.33140/amlai.05.01.02": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.scitotenv.2023.167778": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.2166/9781789063813": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.tibtech.2023.12.010": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.biortech.2024.131442": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.chemosphere.2024.142142": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1051/bioconf/202410101006": [
+      "platinum_cathode"
+    ],
+    "10.1149/ma2023-02371793mtgabs": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1149/ma2023-02271431mtgabs": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.33322/juke.v1i2.25": [
+      "platinum_cathode",
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1186/s41205-023-00200-z": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2022.0012": [
+      "platinum_cathode"
+    ],
+    "10.1088/1755-1315/1282/1/012046": [
+      "platinum_cathode"
+    ],
+    "10.52783/kjml.250": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2023/013": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.3390/membranes13110884": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s12934-023-02198-9": [
+      "platinum_cathode",
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s12934-023-02110-5": [
+      "platinum_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2023/005": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.46519/ij3dptdi.1231076": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2021.0189": [
+      "platinum_cathode"
+    ],
+    "10.1039/d3ew00344b": [
+      "platinum_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.jenvman.2023.118502": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1016/j.envpol.2023.121432": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.jhazmat.2023.131610": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1051/e3sconf/202337400035": [
+      "platinum_cathode"
+    ],
+    "10.25283/2587-9707-2023-1-77-90": [
+      "platinum_cathode",
+      "graphite_brush",
+      "iron_oxide"
+    ],
+    "10.1051/e3sconf/202342801011": [
+      "platinum_cathode"
+    ],
+    "10.59720/22-204": [
+      "platinum_cathode"
+    ],
+    "10.1007/s13205-023-03805-7": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.46519/ij3dptdi.1137028": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.54097/hset.v25i.3477": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1149/1945-7111/ac9d05": [
+      "platinum_cathode"
+    ],
+    "10.1089/3dp.2020.0311": [
+      "platinum_cathode"
+    ],
+    "10.1088/1755-1315/1084/1/012030": [
+      "platinum_cathode",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1149/ma2022-01412470mtgabs": [
+      "platinum_cathode",
+      "carbon_cloth"
+    ],
+    "10.1186/s41205-022-00145-9": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2022.100310": [
+      "platinum_cathode",
+      "copper_cathode"
+    ],
+    "10.1088/2631-8695/ac5fd9": [
+      "platinum_cathode",
+      "copper_cathode",
+      "graphene_oxide"
+    ],
+    "10.1016/j.jclepro.2022.131227": [
+      "platinum_cathode"
+    ],
+    "10.14710/reaktor.1.1.160-169": [
+      "platinum_cathode"
+    ],
+    "10.1038/s41598-022-16714-1": [
+      "platinum_cathode",
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.scitotenv.2021.151612": [
+      "platinum_cathode",
+      "copper_cathode"
+    ],
+    "10.1051/e3sconf/202233408006": [
+      "platinum_cathode",
+      "carbon_felt"
+    ],
+    "10.1016/j.scitotenv.2022.157125": [
+      "platinum_cathode",
+      "copper_cathode"
+    ],
+    "10.1016/j.scitotenv.2022.158035": [
+      "platinum_cathode",
+      "copper_cathode"
+    ],
+    "10.1016/j.chemosphere.2021.132386": [
+      "platinum_cathode",
+      "copper_cathode"
+    ],
+    "10.1016/j.chemosphere.2021.132248": [
+      "platinum_cathode"
+    ],
+    "10.32006/eeep.2021.3.2433": [
+      "platinum_cathode"
+    ],
+    "10.1186/s12961-021-00679-0": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.fuel.2021.121382": [
+      "platinum_cathode"
+    ],
+    "10.1186/s41205-021-00124-6": [
+      "platinum_cathode"
+    ],
+    "10.1186/s41205-021-00119-3": [
+      "platinum_cathode"
+    ],
+    "10.1002/slct.202102229": [
+      "platinum_cathode"
+    ],
+    "10.2174/1874070702115010131": [
+      "platinum_cathode"
+    ],
+    "10.1038/s41522-021-00218-3": [
+      "platinum_cathode"
+    ],
+    "10.1186/s41205-021-00100-0": [
+      "platinum_cathode"
+    ],
+    "10.1142/s2382624x21500065": [
+      "platinum_cathode"
+    ],
+    "10.33140/amlai.02.01.03": [
+      "platinum_cathode"
+    ],
+    "10.1186/s41205-021-00099-4": [
+      "platinum_cathode",
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2020.100010": [
+      "platinum_cathode"
+    ],
+    "10.3390/membranes11090661": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.isci.2021.102998": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.jenvman.2021.112723": [
+      "platinum_cathode",
+      "graphene_oxide"
+    ],
+    "10.1016/j.chemosphere.2021.130275": [
+      "platinum_cathode"
+    ],
+    "10.1007/s12010-020-03458-9": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.scitotenv.2021.146597": [
+      "platinum_cathode"
+    ],
+    "10.26351/architext/9/3": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.ijhydene.2020.09.023": [
+      "platinum_cathode"
+    ],
+    "10.1016/j.mlwa.2025.100693": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2025.100634": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2025.100645": [
+      "nickel_foam"
+    ],
+    "10.1016/j.neunet.2024.107055": [
+      "nickel_foam"
+    ],
+    "10.17798/bitlisfen.1491127": [
+      "nickel_foam"
+    ],
+    "10.3390/en18061350": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.jpowsour.2025.236405": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2025.100627": [
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.1016/j.mlwa.2025.100619": [
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1016/j.mlwa.2025.100630": [
+      "nickel_foam",
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2024.100603": [
+      "nickel_foam"
+    ],
+    "10.1063/5.0265450": [
+      "nickel_foam"
+    ],
+    "10.61841/rae7bs08": [
+      "nickel_foam",
+      "graphene_oxide"
+    ],
+    "10.1089/3dp.2024.0221": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2025/001": [
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.3934/mfc.2023039": [
+      "nickel_foam"
+    ],
+    "10.3934/mfc.2024020": [
+      "nickel_foam"
+    ],
+    "10.3934/mfc.2024017": [
+      "nickel_foam"
+    ],
+    "10.23977/autml.2025.060105": [
+      "nickel_foam"
+    ],
+    "10.3934/mfc.2025020": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.3934/mfc.2024025": [
+      "nickel_foam"
+    ],
+    "10.30595/rice.v3i2.225": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2024.100604": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2024.100600": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2024.132927": [
+      "nickel_foam"
+    ],
+    "10.1089/3dp.2023.0323": [
+      "nickel_foam"
+    ],
+    "10.3390/catal14120862": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s41205-024-00243-w": [
+      "nickel_foam"
+    ],
+    "10.1089/3dp.2023.0188": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1007/s12021-024-09684-4": [
+      "nickel_foam"
+    ],
+    "10.58496/bjml/2024/015": [
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.21275/mr24914003151": [
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.1016/j.mlwa.2024.100567": [
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.54254/2755-2721/70/20241017": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s41205-024-00227-w": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.3390/bacteria3030013": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.3390/app14156705": [
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1016/j.jpowsour.2024.234714": [
+      "nickel_foam"
+    ],
+    "10.1089/3dp.2023.0010": [
+      "nickel_foam"
+    ],
+    "10.1089/3dp.2023.0165": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2024.100540": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2024.100537": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.mlwa.2024.100539": [
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.1016/j.mlwa.2024.100550": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2024.100560": [
+      "nickel_foam"
+    ],
+    "10.54097/47fqqg62": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2022.0278": [
+      "nickel_foam",
+      "graphene_oxide"
+    ],
+    "10.1089/3dp.2023.0191": [
+      "nickel_foam"
+    ],
+    "10.1016/j.fuel.2023.130497": [
+      "nickel_foam",
+      "copper_cathode"
+    ],
+    "10.1016/j.mlwa.2023.100516": [
+      "nickel_foam"
+    ],
+    "10.1016/j.mlwa.2023.100511": [
+      "nickel_foam"
+    ],
+    "10.1016/j.bej.2023.109195": [
+      "nickel_foam"
+    ],
+    "10.1561/2200000106": [
+      "nickel_foam"
+    ],
+    "10.23977/autml.2024.050205": [
+      "nickel_foam"
+    ],
+    "10.18178/ijml.2024.14.2.1157": [
+      "nickel_foam"
+    ],
+    "10.3934/mfc.2023023": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1561/2200000093": [
+      "nickel_foam"
+    ],
+    "10.3934/mfc.2023020": [
+      "nickel_foam"
+    ],
+    "10.24425/aep.2023.148683": [
+      "nickel_foam"
+    ],
+    "10.24135/teacherswork.v20i2.371": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2023/012": [
+      "nickel_foam",
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1002/ep.14191": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2023.129058": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2023.128646": [
+      "nickel_foam",
+      "graphene_oxide"
+    ],
+    "10.1016/j.lcsi.2023.100738": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.21625/resourceedings.v3i2.998": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.3390/en16186581": [
+      "nickel_foam",
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.46519/ij3dptdi.1296247": [
+      "nickel_foam",
+      "iron_oxide"
+    ],
+    "10.12911/22998993/156081": [
+      "graphite_brush"
+    ],
+    "10.1051/E3SCONF/20186702027": [
+      "graphite_brush"
+    ],
+    "10.1093/ce/zkaf013": [
+      "graphite_brush"
+    ],
+    "10.1051/matecconf/202541001032": [
+      "graphite_brush",
+      "graphene_oxide"
+    ],
+    "10.3390/microorganisms12030604": [
+      "graphite_brush"
+    ],
+    "10.21203/rs.3.rs-3312674/v1": [
+      "graphite_brush"
+    ],
+    "10.18038/estubtda.1031449": [
+      "graphite_brush",
+      "copper_cathode",
+      "graphene_oxide"
+    ],
+    "10.1007/s13205-022-03241-z": [
+      "graphite_brush"
+    ],
+    "10.20508/ijrer.v11i4.12572.g8322": [
+      "graphite_brush"
+    ],
+    "10.46488/nept.2021.v20i04.017": [
+      "graphite_brush"
+    ],
+    "10.1002/bkcs.12001": [
+      "graphite_brush"
+    ],
+    "10.14710/jksa.23.2.61-67": [
+      "graphite_brush"
+    ],
+    "10.1038/s41598-020-61038-7": [
+      "graphite_brush"
+    ],
+    "10.4028/www.scientific.net/df.23.75": [
+      "graphite_brush",
+      "carbon_nanotubes"
+    ],
+    "10.1149/ma2019-04/8/414": [
+      "graphite_brush"
+    ],
+    "10.1016/j.joei.2017.12.004": [
+      "graphite_brush",
+      "carbon_nanotubes"
+    ],
+    "10.17576/jkukm-2018-si1(2)-08": [
+      "graphite_brush",
+      "graphene_oxide"
+    ],
+    "10.1002/slct.201802171": [
+      "graphite_brush"
+    ],
+    "10.31593/ijeat.426846": [
+      "graphite_brush"
+    ],
+    "10.20944/preprints201809.0452.v1": [
+      "graphite_brush"
+    ],
+    "10.1051/e3sconf/20186702008": [
+      "graphite_brush",
+      "stainless_steel"
+    ],
+    "10.5714/cl.2016.20.076": [
+      "graphite_brush"
+    ],
+    "10.1002/ep.12397": [
+      "graphite_brush"
+    ],
+    "10.1149/ma2016-01/36/1852": [
+      "graphite_brush"
+    ],
+    "10.1149/ma2014-02/50/2282": [
+      "graphite_brush"
+    ],
+    "10.14447/jnmes.v16i3.6": [
+      "graphite_brush"
+    ],
+    "10.1002/cphc.201300046": [
+      "graphite_brush"
+    ],
+    "10.4172/1948-5948.s12-004": [
+      "graphite_brush"
+    ],
+    "10.1016/j.bioelechem.2011.12.012": [
+      "graphite_brush"
+    ],
+    "10.1128/aem.00480-12": [
+      "graphite_brush"
+    ],
+    "10.4028/www.scientific.net/amr.183-185.1549": [
+      "graphite_brush"
+    ],
+    "10.1149/1.3492222": [
+      "graphite_brush"
+    ],
+    "10.1016/j.biortech.2009.08.046": [
+      "graphite_brush"
+    ],
+    "10.1002/fuce.200900023": [
+      "graphite_brush"
+    ],
+    "10.2166/wst.2009.139": [
+      "graphite_brush"
+    ],
+    "10.1002/jctb.1937": [
+      "graphite_brush"
+    ],
+    "10.1002/elan.200603560": [
+      "graphite_brush"
+    ],
+    "10.1111/j.1472-4669.2006.00071.x": [
+      "graphite_brush"
+    ],
+    "10.2166/wst.2005.0561": [
+      "graphite_brush"
+    ],
+    "10.1016/s0022-0728(99)00503-3": [
+      "graphite_brush"
+    ],
+    "10.3390/microorganisms10102051": [
+      "graphite_brush"
+    ],
+    "10.3390/bioengineering10030378": [
+      "graphite_brush"
+    ],
+    "10.35940/ijrte.d1021.1284s219": [
+      "graphite_brush"
+    ],
+    "10.4491/eer.2018.361": [
+      "graphite_brush"
+    ],
+    "10.3390/catal14030208": [
+      "graphite_brush"
+    ],
+    "10.24925/turjaf.v10i2.134-141.4530": [
+      "graphite_brush"
+    ],
+    "10.22487/kovalen.2022.v8.i3.16033": [
+      "graphite_brush"
+    ],
+    "10.1186/s41205-025-00285-8": [
+      "copper_cathode"
+    ],
+    "10.1089/3dp.2024.0204": [
+      "copper_cathode"
+    ],
+    "10.1016/j.bioelechem.2023.108622": [
+      "copper_cathode"
+    ],
+    "10.1089/3dp.2021.0281": [
+      "copper_cathode"
+    ],
+    "10.1089/3dp.2021.0044": [
+      "copper_cathode"
+    ],
+    "10.37134/bitara.vol16.sp2.18.2023": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2021.0199": [
+      "copper_cathode"
+    ],
+    "10.1089/3dp.2021.0248": [
+      "copper_cathode"
+    ],
+    "10.1186/s41205-022-00167-3": [
+      "copper_cathode"
+    ],
+    "10.1186/s41205-023-00175-x": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1002/fuce.202200088": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s41205-023-00169-9": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1186/s41205-023-00172-0": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.wasman.2023.08.017": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.scitotenv.2023.162508": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2024/002": [
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1021/acs.est.2c08443": [
+      "copper_cathode"
+    ],
+    "10.58496/bjml/2023/001": [
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.3390/bioengineering10020199": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1016/j.chemosphere.2023.139445": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1002/gch2.202300138": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1007/s12010-023-04397-x": [
+      "copper_cathode",
+      "iron_oxide"
+    ],
+    "10.1097/iop.0000000000002202": [
+      "copper_cathode",
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.38007/ml.2022.030301": [
+      "copper_cathode"
+    ],
+    "10.1016/j.fuel.2022.124443": [
+      "copper_cathode"
+    ],
+    "10.1016/j.mlwa.2022.100379": [
+      "copper_cathode"
+    ],
+    "10.1177/1548512920963904": [
+      "copper_cathode"
+    ],
+    "10.1186/s41205-022-00142-y": [
+      "copper_cathode"
+    ],
+    "10.48146/odusobiad.1076832": [
+      "copper_cathode"
+    ],
+    "10.1016/j.fuproc.2021.107096": [
+      "copper_cathode"
+    ],
+    "10.1016/j.cej.2021.132208": [
+      "copper_cathode"
+    ],
+    "10.1016/j.envres.2021.112605": [
+      "copper_cathode"
+    ],
+    "10.1016/j.envpol.2021.118771": [
+      "copper_cathode"
+    ],
+    "10.1051/e3sconf/202233408009": [
+      "copper_cathode"
+    ],
+    "10.2139/ssrn.4196412": [
+      "copper_cathode"
+    ],
+    "10.1089/3dp.2023.0151": [
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2024.131234": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.fuel.2023.130271": [
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.3390/make5010011": [
+      "graphene_oxide"
+    ],
+    "10.3934/mfc.2022028": [
+      "graphene_oxide"
+    ],
+    "10.1002/fuce.202200086": [
+      "graphene_oxide",
+      "iron_oxide"
+    ],
+    "10.1016/j.mlwa.2021.100206": [
+      "graphene_oxide"
+    ],
+    "10.3390/make4010005": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.tibtech.2021.11.005": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2021.100186": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2021.100164": [
+      "graphene_oxide"
+    ],
+    "10.33140/amlai.02.01.09": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.mlwa.2021.100074": [
+      "graphene_oxide"
+    ],
+    "10.1016/s1464-2859(21)00183-8": [
+      "graphene_oxide"
+    ],
+    "10.3390/catal11020242": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1186/s41205-021-00095-8": [
+      "graphene_oxide"
+    ],
+    "10.1063/5.0024382": [
+      "graphene_oxide"
+    ],
+    "10.1002/er.6277": [
+      "graphene_oxide"
+    ],
+    "10.17576/jkukm-2020-32(4)-02": [
+      "graphene_oxide"
+    ],
+    "10.1149/ma2020-0271090mtgabs": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.electacta.2020.136949": [
+      "graphene_oxide"
+    ],
+    "10.14710/reaktor.20.3.117-121": [
+      "graphene_oxide"
+    ],
+    "10.33153/artistic.v1i1.2996": [
+      "graphene_oxide"
+    ],
+    "10.1007/s10450-020-00214-7": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.jpowsour.2019.227490": [
+      "graphene_oxide"
+    ],
+    "10.1088/1757-899x/737/1/012192": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.2174/2210681208666180904102649": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1002/adma.201908178": [
+      "graphene_oxide"
+    ],
+    "10.26565/2312-4334-2020-1-05": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.mset.2019.06.006": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.bcab.2019.101369": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.cej.2019.05.132": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1002/fuce.201800167": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.biortech.2019.03.080": [
+      "graphene_oxide"
+    ],
+    "10.1149/ma2019-04/8/395": [
+      "graphene_oxide"
+    ],
+    "10.1007/s10853-019-03718-y": [
+      "graphene_oxide"
+    ],
+    "10.1149/ma2019-01/1/88": [
+      "graphene_oxide",
+      "activated_carbon"
+    ],
+    "10.1149/ma2019-01/25/1248": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.2166/wst.2019.107": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.electacta.2019.01.055": [
+      "graphene_oxide"
+    ],
+    "10.5599/jese.636": [
+      "graphene_oxide"
+    ],
+    "10.1002/er.4351": [
+      "graphene_oxide"
+    ],
+    "10.24247/ijcptjun20191": [
+      "graphene_oxide"
+    ],
+    "10.3390/app8122628": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.biortech.2018.09.060": [
+      "graphene_oxide"
+    ],
+    "10.20964/2018.11.77": [
+      "graphene_oxide"
+    ],
+    "10.1089/ees.2017.0543": [
+      "graphene_oxide",
+      "carbon_cloth"
+    ],
+    "10.1016/j.jclepro.2018.02.159": [
+      "graphene_oxide"
+    ],
+    "10.1149/ma2018-01/44/2541": [
+      "graphene_oxide"
+    ],
+    "10.3389/fchem.2018.00050": [
+      "graphene_oxide"
+    ],
+    "10.1051/e3sconf/20187305004": [
+      "graphene_oxide"
+    ],
+    "10.1039/c8ra06951d": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.pnsc.2017.11.003": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.biortech.2017.06.020": [
+      "graphene_oxide"
+    ],
+    "10.22219/jemmme.v1i1.4478": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1149/07711.1359ecst": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.jpowsour.2017.03.135": [
+      "graphene_oxide"
+    ],
+    "10.20964/2017.06.64": [
+      "graphene_oxide"
+    ],
+    "10.1049/iet-pel.2016.0225": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.ijhydene.2017.03.012": [
+      "graphene_oxide"
+    ],
+    "10.11591/ijeei.v5i1.255": [
+      "graphene_oxide"
+    ],
+    "10.1007/s11274-017-2223-8": [
+      "graphene_oxide"
+    ],
+    "10.1007/s00216-017-0232-y": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.electacta.2017.01.016": [
+      "graphene_oxide"
+    ],
+    "10.1016/j.carbon.2016.10.017": [
+      "graphene_oxide",
+      "carbon_nanotubes",
+      "activated_carbon"
+    ],
+    "10.1007/s11581-016-1920-x": [
+      "graphene_oxide",
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.cej.2025.163430": [
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2024.0023": [
+      "iron_oxide"
+    ],
+    "10.1007/s11270-025-07765-x": [
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2024.132645": [
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2024.0139": [
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2024.131756": [
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2023.0287": [
+      "iron_oxide"
+    ],
+    "10.1007/s10800-024-02137-5": [
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2023.0254": [
+      "iron_oxide"
+    ],
+    "10.1089/3dp.2023.0304": [
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2023.129656": [
+      "iron_oxide"
+    ],
+    "10.1016/j.fuel.2023.129072": [
+      "iron_oxide"
+    ],
+    "10.58496/bjml/2023/006": [
+      "iron_oxide"
+    ],
+    "10.1016/j.mlwa.2023.100462": [
+      "iron_oxide"
+    ],
+    "10.57634/rcr5073": [
+      "iron_oxide"
+    ],
+    "10.25303/1805rjbt1220133": [
+      "iron_oxide"
+    ],
+    "10.1016/j.biortech.2023.128778": [
+      "iron_oxide"
+    ],
+    "10.3934/mfc.2022024": [
+      "iron_oxide"
+    ],
+    "10.3390/eng5040134": [
+      "stainless_steel"
+    ],
+    "10.1016/j.envres.2024.120159": [
+      "stainless_steel"
+    ],
+    "10.1088/1755-1315/1268/1/012049": [
+      "stainless_steel"
+    ],
+    "10.1002/eng2.12458": [
+      "stainless_steel"
+    ],
+    "10.1038/s41598-018-21404-y": [
+      "stainless_steel"
+    ],
+    "10.20964/2018.01.54": [
+      "stainless_steel"
+    ],
+    "10.7763/jocet.2015.v3.189": [
+      "stainless_steel"
+    ],
+    "10.1039/c4ra06398h": [
+      "stainless_steel"
+    ],
+    "10.1016/j.biortech.2014.05.049": [
+      "stainless_steel"
+    ],
+    "10.1016/j.jpowsour.2010.08.011": [
+      "stainless_steel"
+    ],
+    "10.1016/j.elecom.2009.11.017": [
+      "stainless_steel"
+    ],
+    "10.1016/j.fuel.2024.132367": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2020.08.001": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2020.07.045": [
+      "carbon_nanotubes"
+    ],
+    "10.1063/5.0031219": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2020.04.016": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2020.02.079": [
+      "carbon_nanotubes"
+    ],
+    "10.1007/s12274-020-2801-1": [
+      "carbon_nanotubes"
+    ],
+    "10.3390/pr8040416": [
+      "carbon_nanotubes"
+    ],
+    "10.29194/njes.23010021": [
+      "carbon_nanotubes"
+    ],
+    "10.1002/adma.202070034": [
+      "carbon_nanotubes"
+    ],
+    "10.3788/col202018.060603": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2019.07.018": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2019.05.062": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2019.04.118": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.memsci.2019.03.062": [
+      "carbon_nanotubes"
+    ],
+    "10.1177/0021998319853341": [
+      "carbon_nanotubes"
+    ],
+    "10.1134/s1560090419030072": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2019.01.073": [
+      "carbon_nanotubes"
+    ],
+    "10.33552/sjrr.2019.01.000519": [
+      "carbon_nanotubes"
+    ],
+    "10.12693/aphyspola.135.668": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2018.12.041": [
+      "carbon_nanotubes"
+    ],
+    "10.1038/s41477-019-0409-9": [
+      "carbon_nanotubes"
+    ],
+    "10.1007/s12257-018-0470-7": [
+      "carbon_nanotubes"
+    ],
+    "10.1063/1.5088145": [
+      "carbon_nanotubes"
+    ],
+    "10.1007/s42823-019-00007-1": [
+      "carbon_nanotubes"
+    ],
+    "10.3390/jcs3010009": [
+      "carbon_nanotubes"
+    ],
+    "10.1149/2.f10194if": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2018.08.064": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2018.06.075": [
+      "carbon_nanotubes"
+    ],
+    "10.1002/admi.201870099": [
+      "carbon_nanotubes"
+    ],
+    "10.1007/s12221-018-8182-3": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2018.03.006": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2017.10.053": [
+      "carbon_nanotubes"
+    ],
+    "10.7567/jjap.57.04fp08": [
+      "carbon_nanotubes"
+    ],
+    "10.1088/1361-6528/aaa053": [
+      "carbon_nanotubes"
+    ],
+    "10.1299/jsmemecj.2018.j2220103": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2017.09.107": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.repl.2017.09.066": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2017.03.036": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.12.095": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2017.02.043": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2017.02.003": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.11.056": [
+      "carbon_nanotubes"
+    ],
+    "10.21275/art20164401": [
+      "carbon_nanotubes"
+    ],
+    "10.4028/www.scientific.net/amr.1142.206": [
+      "carbon_nanotubes"
+    ],
+    "10.1557/jmr.2016.446": [
+      "carbon_nanotubes"
+    ],
+    "10.1002/adem.201600596": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.07.058": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.07.050": [
+      "carbon_nanotubes"
+    ],
+    "10.1080/03602559.2016.1233273": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.05.040": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.06.094": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.06.088": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.06.008": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.06.041": [
+      "carbon_nanotubes"
+    ],
+    "10.1111/jace.14425": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.04.019": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.04.002": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.02.072": [
+      "carbon_nanotubes"
+    ],
+    "10.1002/app.43738": [
+      "carbon_nanotubes"
+    ],
+    "10.1002/adfm.201670112": [
+      "carbon_nanotubes"
+    ],
+    "10.5714/cl.2016.18.067": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2016.01.050": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.12.077": [
+      "carbon_nanotubes"
+    ],
+    "10.1149/ma2016-01/8/644": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.micromeso.2015.10.012": [
+      "carbon_nanotubes"
+    ],
+    "10.3390/nano6030052": [
+      "carbon_nanotubes"
+    ],
+    "10.21275/v5i3.nov162343": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.11.012": [
+      "carbon_nanotubes"
+    ],
+    "10.1109/mnano.2015.2506278": [
+      "carbon_nanotubes"
+    ],
+    "10.3390/polym8020050": [
+      "carbon_nanotubes"
+    ],
+    "10.18494/sam.2016.1157": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.09.044": [
+      "carbon_nanotubes"
+    ],
+    "10.1039/c6ra02461k": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.matpr.2016.02.030": [
+      "carbon_nanotubes"
+    ],
+    "10.1299/jsmeth.2016.51.77": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.09.074": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.10.055": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.carbon.2015.10.022": [
+      "carbon_nanotubes"
+    ],
+    "10.1016/j.jpowsour.2014.09.165": [
+      "carbon_nanotubes"
+    ],
+    "10.1080/09593330.2014.974680": [
+      "carbon_nanotubes",
+      "carbon_felt"
+    ],
+    "10.1002/fuce.201400041": [
+      "carbon_nanotubes",
+      "carbon_paper"
+    ],
+    "10.1039/c3ra42257g": [
+      "carbon_nanotubes"
+    ],
+    "10.4028/www.scientific.net/kem.523-524.1025": [
+      "carbon_nanotubes"
+    ],
+    "10.1007/s43832-024-00085-x": [
+      "carbon_cloth"
+    ],
+    "10.1002/fuce.202000191": [
+      "carbon_cloth"
+    ],
+    "10.1051/e3sconf/202020210006": [
+      "carbon_cloth"
+    ],
+    "10.11113/aej.v10.15539": [
+      "carbon_cloth"
+    ],
+    "10.32792/utq/utj/vol12/3/11": [
+      "carbon_cloth"
+    ],
+    "10.1002/jctb.5527": [
+      "carbon_cloth"
+    ],
+    "10.1142/s2339547816400124": [
+      "carbon_cloth"
+    ],
+    "10.1096/fasebj.24.1_supplement.1065.1": [
+      "carbon_cloth"
+    ],
+    "10.3390/en12173229": [
+      "carbon_cloth"
+    ],
+    "10.1201/9781003204442-22": [
+      "carbon_cloth",
+      "carbon_felt"
+    ],
+    "10.1039/c1ra00839k": [
+      "carbon_cloth"
+    ],
+    "10.1051/rees/2023009": [
+      "carbon_felt"
+    ],
+    "10.59440/ceer/183171": [
+      "carbon_felt"
+    ],
+    "10.9734/jerr/2021/v21i417456": [
+      "carbon_felt"
+    ],
+    "10.1051/e3sconf/202126104037": [
+      "carbon_felt"
+    ],
+    "10.14710/ijred.2021.32403": [
+      "carbon_felt"
+    ],
+    "10.21831/jps.v25i1.30210": [
+      "carbon_felt"
+    ],
+    "10.1149/ma2006-01/13/578": [
+      "carbon_felt"
+    ],
+    "10.32388/yzx8i6.2": [
+      "carbon_felt"
+    ],
+    "10.20964/2020.02.57": [
+      "manganese_oxide"
+    ],
+    "10.1016/j.jpowsour.2011.07.069": [
+      "manganese_oxide"
+    ],
+    "10.18178/ijcea.2019.10.1.732": [
+      "activated_carbon"
+    ],
+    "10.20964/2017.05.43": [
+      "activated_carbon"
+    ],
+    "10.20964/2017.01.61": [
+      "activated_carbon"
+    ],
+    "10.1128/aem.00895-14": [
+      "activated_carbon"
+    ],
+    "10.4028/www.scientific.net/amr.610-613.1522": [
+      "activated_carbon"
+    ],
+    "10.1016/j.nbt.2011.04.014": [
+      "activated_carbon"
+    ],
+    "10.1016/j.ijhydene.2009.11.124": [
+      "activated_carbon"
+    ],
+    "10.2166/wst.2001.0663": [
+      "activated_carbon"
+    ],
+    "10.3390/fermentation9080769": [
+      "activated_carbon"
+    ],
+    "10.2166/wpt.2021.035": [
+      "activated_carbon"
+    ],
+    "10.1021/es049652w": [
+      "carbon_paper"
+    ]
+  },
+  "features": [
+    {
+      "key": "work_function_eV",
+      "n_slugs_with_value": 12,
+      "dropped_as_proxy": true,
+      "distinct_values": 5
+    },
+    {
+      "key": "band_gap_eV",
+      "n_slugs_with_value": 18,
+      "dropped_as_proxy": false,
+      "distinct_values": 2
+    },
+    {
+      "key": "bulk_modulus_GPa",
+      "n_slugs_with_value": 14,
+      "dropped_as_proxy": true,
+      "distinct_values": 7
+    },
+    {
+      "key": "shear_modulus_GPa",
+      "n_slugs_with_value": 14,
+      "dropped_as_proxy": true,
+      "distinct_values": 7
+    },
+    {
+      "key": "density_g_per_cm3",
+      "n_slugs_with_value": 18,
+      "dropped_as_proxy": true,
+      "distinct_values": 11
+    },
+    {
+      "key": "weighted_surface_energy_J_per_m2",
+      "n_slugs_with_value": 12,
+      "dropped_as_proxy": true,
+      "distinct_values": 5
+    },
+    {
+      "key": "energy_above_hull_eV_per_atom",
+      "n_slugs_with_value": 18,
+      "dropped_as_proxy": true,
+      "distinct_values": 6
+    }
+  ]
+}

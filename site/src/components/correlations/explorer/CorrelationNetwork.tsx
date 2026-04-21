@@ -3,10 +3,12 @@ import type { PairRow, NodeMeta } from '../useCorrelationPairs';
 import { nameToSlug } from '../useCorrelationPairs';
 import { categoryColors } from '../../../styles/category-colors';
 import { PairDetailPopover } from './PairDetailPopover';
+import type { MaterialsFile } from '../../../data/materials';
 
 interface Props {
   pairs: PairRow[];
   nodes: NodeMeta[];
+  materials?: MaterialsFile | null;
 }
 
 const POS_COLOR = '#5C7A5C';
@@ -24,7 +26,7 @@ const CX = SIZE / 2;
 const CY = SIZE / 2;
 const RADIUS = SIZE / 2 - 140;
 
-export function CorrelationNetwork({ pairs, nodes }: Props) {
+export function CorrelationNetwork({ pairs, nodes, materials = null }: Props) {
   const [hover, setHover] = useState<{ pair: PairRow; x: number; y: number } | null>(null);
   const [activeNodeId, setActiveNodeId] = useState<string | null>(null);
 
@@ -146,7 +148,7 @@ export function CorrelationNetwork({ pairs, nodes }: Props) {
       {hover && (
         <div className="fixed pointer-events-none z-20"
           style={{ left: 0, top: 0, transform: `translate(${hover.x}px, ${hover.y}px)` }}>
-          <PairDetailPopover pair={hover.pair} x={0} y={0} />
+          <PairDetailPopover pair={hover.pair} x={0} y={0} materials={materials} />
         </div>
       )}
 

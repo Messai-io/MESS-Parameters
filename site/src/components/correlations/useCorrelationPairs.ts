@@ -2,12 +2,19 @@ import { useEffect, useMemo, useState } from 'react';
 import { getProvenanceByIdMap, type ProvEntry } from '../../data/provenance';
 import { getAllRichParameters, type RichParameter } from '../../data/loader';
 import { bhAdjustPValues, computePairs, studentsTTwoTailP, type ComputedPair } from '../../data/correlationStats';
+import {
+  getMaterials,
+  buildPhysicsEntries,
+  isPhysicsEntryId,
+  type MaterialsFile,
+} from '../../data/materials';
 
 export type SystemType = 'all' | 'MFC' | 'MEC' | 'MDC' | 'BES';
 
 export interface Filters {
   systemType: SystemType;
   categories: Set<string>;
+  materials: Set<string>; // material slug whitelist; empty = no filter
   minAbsR: number;
   minN: number;
   significantOnly: boolean;
@@ -46,6 +53,7 @@ export interface UseCorrelationPairsResult {
   totalTests: number;
   totalPairs: number;
   systemPaperCount: number | null;
+  materials: MaterialsFile | null;
 }
 
 function nameToSlug(name: string): string {
@@ -58,10 +66,6 @@ function buildCategoryLookup(rich: RichParameter[]): (name: string) => string {
   return (name: string) => bySlug.get(nameToSlug(name)) ?? 'unknown';
 }
 
-// Precomputed global correlations (the 'all' systems branch). These were
-// already BH-adjusted at build time, so p_raw is reconstructed from the
-// stored pearson_r + n via Student's t so that we can re-apply BH across
-// the currently displayed (filtered) family on the fly.
 interface RawRow {
   a_id: string;
   a_name: string;
@@ -113,17 +117,28 @@ function countSystemPapers(entries: ProvEntry[], systemType: string): number {
   return dois.size;
 }
 
+function categoryFor(
+  id: string,
+  name: string,
+  lookup: (name: string) => string,
+): string {
+  if (isPhysicsEntryId(id)) return 'material_physics';
+  return lookup(name);
+}
+
 export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [entries, setEntries] = useState<ProvEntry[] | null>(null);
+  const [materials, setMaterials] = useState<MaterialsFile | null>(null);
 
   useEffect(() => {
     let cancelled = false;
-    getProvenanceByIdMap()
-      .then((map) => {
+    Promise.all([getProvenanceByIdMap(), getMaterials()])
+      .then(([map, mats]) => {
         if (cancelled) return;
         setEntries(Array.from(map.values()));
+        setMaterials(mats);
         setLoading(false);
       })
       .catch((e) => {
@@ -136,22 +151,50 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
 
   const categoryOf = useMemo(() => buildCategoryLookup(getAllRichParameters()), []);
 
+  // Synthetic physics ProvEntry objects, built once per materials load.
+  const physicsEntries = useMemo(() => {
+    return materials ? buildPhysicsEntries(materials) : [];
+  }, [materials]);
+
+  // Recompute-branch inputs: real parameter entries PLUS physics pseudo-params.
+  const allEntries = useMemo(() => {
+    if (!entries) return null;
+    return entries.concat(physicsEntries);
+  }, [entries, physicsEntries]);
+
+  // Build the active DOI allow-set derived from the material filter.
+  const doiAllow = useMemo(() => {
+    if (!materials || filters.materials.size === 0) return null;
+    const allow = new Set<string>();
+    for (const [doi, slugs] of Object.entries(materials.doi_to_slugs)) {
+      if (slugs.some((s) => filters.materials.has(s))) allow.add(doi);
+    }
+    return allow;
+  }, [materials, filters.materials]);
+
   return useMemo<UseCorrelationPairsResult>(() => {
-    if (!entries) {
+    if (!allEntries) {
       return {
         loading, error,
         pairs: [], nodes: [],
         totalTests: 0, totalPairs: 0,
         systemPaperCount: null,
+        materials,
       };
     }
 
+    // If the material filter is active or physics pseudo-params are present,
+    // we always take the recompute path (the precomputed 'all' slate has no
+    // physics or DOI-filter support).
+    const needsRecompute =
+      filters.systemType !== 'all' || filters.materials.size > 0 || physicsEntries.length > 0;
+
     let rawPairs: RawRow[];
-    if (filters.systemType === 'all') {
-      rawPairs = dedupedGlobalPairs(entries);
+    if (!needsRecompute) {
+      rawPairs = dedupedGlobalPairs(allEntries);
     } else {
-      const { pairs, nTests } = computePairs(entries, filters.systemType, filters.minN);
-      void nTests; // consumed indirectly via rawPairs.length
+      const sysForCompute = filters.systemType === 'all' ? null : filters.systemType;
+      const { pairs } = computePairs(allEntries, sysForCompute, filters.minN, doiAllow);
       rawPairs = pairs.map((p: ComputedPair) => ({
         a_id: p.a_id,
         a_name: p.a_name,
@@ -168,15 +211,12 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
 
     const decorated = rawPairs.map((p) => ({
       ...p,
-      a_category: categoryOf(p.a_name),
-      b_category: categoryOf(p.b_name),
+      a_category: categoryFor(p.a_id, p.a_name, categoryOf),
+      b_category: categoryFor(p.b_id, p.b_name, categoryOf),
     }));
 
     const totalPairs = decorated.length;
 
-    // Apply pre-significance filters (|r|, n, category). The significantOnly
-    // flag is applied *after* BH so the BH family equals what the user sees,
-    // minus the significance cut.
     const shortlist = decorated.filter((p) => {
       if (Math.abs(p.pearson_r) < filters.minAbsR) return false;
       if (p.n < filters.minN) return false;
@@ -187,8 +227,6 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
       return true;
     });
 
-    // Re-run BH across the currently displayed family so q-values track
-    // what's on screen (BH is family-dependent).
     const qs = bhAdjustPValues(shortlist.map((p) => p.p_raw));
     const withQ: PairRow[] = shortlist.map((p, i) => ({
       ...p,
@@ -213,7 +251,7 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
     const nodes = Array.from(nodeMap.values()).sort((a, b) => b.sumAbsR - a.sumAbsR);
 
     const systemPaperCount =
-      filters.systemType === 'all' ? null : countSystemPapers(entries, filters.systemType);
+      filters.systemType === 'all' ? null : countSystemPapers(allEntries, filters.systemType);
 
     return {
       loading, error,
@@ -221,8 +259,9 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
       totalTests: withQ.length,
       totalPairs,
       systemPaperCount,
+      materials,
     };
-  }, [entries, filters, loading, error, categoryOf]);
+  }, [allEntries, filters, loading, error, categoryOf, materials, physicsEntries, doiAllow]);
 }
 
 export { nameToSlug };

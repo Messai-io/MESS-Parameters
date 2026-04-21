@@ -234,10 +234,12 @@ interface JoinRow {
 function indexSourcesByDoi(
   entry: ProvEntry,
   systemType: string | null,
+  doiAllow: Set<string> | null,
 ): Map<string, JoinRow> {
   const map = new Map<string, JoinRow>();
   for (const s of entry.sources) {
     if (!s.doi) continue;
+    if (doiAllow && !doiAllow.has(s.doi)) continue;
     if (systemType && normalizeSystemType(s.system_type) !== systemType) continue;
     if (!Number.isFinite(s.value)) continue;
     const w = sourceWeight(s);
@@ -253,10 +255,11 @@ export function computePairs(
   entries: ProvEntry[],
   systemType: string | null,
   minN: number,
+  doiAllow: Set<string> | null = null,
 ): { pairs: ComputedPair[]; nTests: number } {
   const doiMaps: Array<{ entry: ProvEntry; dois: Map<string, JoinRow> }> = [];
   for (const entry of entries) {
-    const dois = indexSourcesByDoi(entry, systemType);
+    const dois = indexSourcesByDoi(entry, systemType, doiAllow);
     if (dois.size >= 3) doiMaps.push({ entry, dois });
   }
 

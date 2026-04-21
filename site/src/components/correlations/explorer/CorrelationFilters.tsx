@@ -1,10 +1,16 @@
 import type { Filters, SystemType } from '../useCorrelationPairs';
 import { categoryLabels } from '../../../styles/category-colors';
 
+export interface MaterialChip {
+  slug: string;
+  n_dois: number;
+}
+
 interface Props {
   filters: Filters;
   onChange: (next: Filters) => void;
   availableCategories: string[];
+  availableMaterials: MaterialChip[];
   totalPairs: number;
   shownPairs: number;
   onReset: () => void;
@@ -24,6 +30,7 @@ export function CorrelationFilters({
   filters,
   onChange,
   availableCategories,
+  availableMaterials,
   totalPairs,
   shownPairs,
   onReset,
@@ -33,6 +40,12 @@ export function CorrelationFilters({
     if (next.has(cat)) next.delete(cat);
     else next.add(cat);
     onChange({ ...filters, categories: next });
+  };
+  const toggleMaterial = (slug: string) => {
+    const next = new Set(filters.materials);
+    if (next.has(slug)) next.delete(slug);
+    else next.add(slug);
+    onChange({ ...filters, materials: next });
   };
 
   return (
@@ -96,7 +109,7 @@ export function CorrelationFilters({
             checked={filters.significantOnly}
             onChange={(e) => onChange({ ...filters, significantOnly: e.target.checked })}
           />
-          Bonferroni-significant only
+          BH-FDR significant only
         </label>
 
         <div className="ml-auto flex items-center gap-3 text-xs text-mes-text-muted">
@@ -141,6 +154,43 @@ export function CorrelationFilters({
             <button
               type="button"
               onClick={() => onChange({ ...filters, categories: new Set() })}
+              className="text-[11px] text-mes-text-link hover:underline"
+            >
+              clear
+            </button>
+          )}
+        </div>
+      )}
+
+      {availableMaterials.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2" data-testid="material-chips">
+          <span className="text-[10px] uppercase tracking-wider text-mes-text-muted mr-1">
+            Materials
+          </span>
+          {availableMaterials.map((m) => {
+            const active = filters.materials.has(m.slug);
+            return (
+              <button
+                key={m.slug}
+                type="button"
+                onClick={() => toggleMaterial(m.slug)}
+                title={`${m.n_dois} paper DOIs linked to this material`}
+                className={
+                  'text-[11px] font-mono px-2 py-0.5 border transition-colors ' +
+                  (active
+                    ? 'bg-mes-text-primary text-white border-mes-text-primary'
+                    : 'bg-white text-mes-text-secondary border-gray-300 hover:bg-gray-50')
+                }
+              >
+                {m.slug}
+                <span className="ml-1 text-[9px] opacity-60">({m.n_dois})</span>
+              </button>
+            );
+          })}
+          {filters.materials.size > 0 && (
+            <button
+              type="button"
+              onClick={() => onChange({ ...filters, materials: new Set() })}
               className="text-[11px] text-mes-text-link hover:underline"
             >
               clear

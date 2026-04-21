@@ -1,5 +1,11 @@
 import type { PairRow } from '../useCorrelationPairs';
 import { nameToSlug } from '../useCorrelationPairs';
+import { isPhysicsEntryId, physicsFeatureName } from '../../../data/materials';
+
+function labelFor(id: string, name: string): string {
+  if (isPhysicsEntryId(id)) return `⊕ ${physicsFeatureName(id) ?? name}`;
+  return name;
+}
 
 interface Props {
   pairs: PairRow[];
@@ -32,20 +38,22 @@ export function CorrelationPairTable({ pairs }: Props) {
           {pairs.map((r) => (
             <tr key={`${r.a_id}|${r.b_id}`} className="border-b border-gray-100 hover:bg-gray-50">
               <td className="px-3 py-2">
-                <a
-                  href={`#/parameter/${nameToSlug(r.a_name)}`}
-                  className="text-mes-text-link hover:underline"
-                >
-                  {r.a_name}
-                </a>
+                {isPhysicsEntryId(r.a_id) ? (
+                  <span className="text-[#3C5A7A]">{labelFor(r.a_id, r.a_name)}</span>
+                ) : (
+                  <a href={`#/parameter/${nameToSlug(r.a_name)}`} className="text-mes-text-link hover:underline">
+                    {r.a_name}
+                  </a>
+                )}
               </td>
               <td className="px-3 py-2">
-                <a
-                  href={`#/parameter/${nameToSlug(r.b_name)}`}
-                  className="text-mes-text-link hover:underline"
-                >
-                  {r.b_name}
-                </a>
+                {isPhysicsEntryId(r.b_id) ? (
+                  <span className="text-[#3C5A7A]">{labelFor(r.b_id, r.b_name)}</span>
+                ) : (
+                  <a href={`#/parameter/${nameToSlug(r.b_name)}`} className="text-mes-text-link hover:underline">
+                    {r.b_name}
+                  </a>
+                )}
               </td>
               <td className="px-3 py-2 text-right font-mono tabular-nums">
                 <span className={r.pearson_r > 0 ? 'text-[#5C7A5C]' : 'text-[#6B3E3E]'}>
