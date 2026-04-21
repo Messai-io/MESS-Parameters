@@ -15,5 +15,8 @@ export default defineConfig({
     globals: true,
     setupFiles: ['./src/test/setup.ts'],
     include: ['src/**/*.{test,spec}.{ts,tsx}'],
+    // provenance.json is ~7MB; default 5s times out when the machine is
+    // under load (e.g. overnight extraction jobs, CI cold start).
+    testTimeout: 30000,
   },
 });

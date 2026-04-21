@@ -140,6 +140,11 @@ export function SourcesTable({ sources, unit }: Props) {
                 <td className="px-3 py-2 text-xs text-mes-text-secondary">{s.system_type}</td>
                 <td className="px-3 py-2 text-right font-mono text-xs tabular-nums">
                   {s.value}
+                  {s.uncertainty_abs != null ? (
+                    <span className="text-mes-text-muted ml-1" title={`${s.uncertainty_kind ?? 'uncertainty'}${s.uncertainty_rel_pct != null ? ` · ±${s.uncertainty_rel_pct.toFixed(1)}%` : ''}`}>
+                      ± {s.uncertainty_abs}
+                    </span>
+                  ) : null}
                 </td>
                 <td className="px-3 py-2 text-right">
                   <ConfidenceBar value={s.confidence} />
