@@ -22,6 +22,7 @@
     "sync": "node scripts/sync-from-database.js",
     "build:provenance": "npx tsx scripts/build-provenance.ts",
     "build:materials": "npx tsx scripts/load-materials.ts",
+    "build:within-paper": "npx tsx scripts/rollup-tables.ts && npx tsx scripts/build-within-paper-correlations.ts",
     "build:conditional-stats": "npx tsx scripts/build-conditional-stats.ts",
     "analyze:contradictions": "npx tsx scripts/analyze/contradiction_detector.ts",
     "analyze:gaps": "npx tsx scripts/analyze/research_gaps.ts",

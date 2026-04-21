@@ -5,8 +5,9 @@ import { CorrelationFilters } from './CorrelationFilters';
 import { CorrelationMatrix } from './CorrelationMatrix';
 import { CorrelationNetwork } from './CorrelationNetwork';
 import { CorrelationPairTable } from './CorrelationPairTable';
+import { WithinPaperPairTable } from './WithinPaperPairTable';
 
-type ViewMode = 'matrix' | 'network' | 'table';
+type ViewMode = 'matrix' | 'network' | 'table' | 'within';
 
 const DEFAULT_FILTERS: Filters = {
   systemType: 'all',
@@ -24,7 +25,7 @@ const STORAGE_KEY = 'correlation-explorer-view';
 function loadView(): ViewMode {
   if (typeof window === 'undefined') return 'matrix';
   const v = window.sessionStorage?.getItem(STORAGE_KEY);
-  if (v === 'matrix' || v === 'network' || v === 'table') return v;
+  if (v === 'matrix' || v === 'network' || v === 'table' || v === 'within') return v;
   return 'matrix';
 }
 
@@ -77,8 +78,9 @@ export function CorrelationExplorer() {
     ? ` · filtered to ${filters.materials.size} material${filters.materials.size === 1 ? '' : 's'}: ${Array.from(filters.materials).join(', ')}`
     : '';
 
-  const banner =
-    filters.systemType === 'all' && filters.materials.size === 0 && (materials?.slugs.length ?? 0) === 0
+  const banner = view === 'within'
+    ? `Within-paper parameter sweeps from extracted tables. Correlations computed per table; distribution aggregates agreement across papers.`
+    : filters.systemType === 'all' && filters.materials.size === 0 && (materials?.slugs.length ?? 0) === 0
       ? `Using precomputed global correlations. ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.`
       : systemPaperCount !== null
       ? `Recomputed in-browser over ${systemPaperCount.toLocaleString()} ${filters.systemType} paper(s). ${totalTests.toLocaleString()} pair(s) in current family; BH-FDR q < 0.05.${materialPart}`
@@ -95,13 +97,15 @@ export function CorrelationExplorer() {
           </p>
         </div>
         <div className="inline-flex border border-gray-300">
-          {(['matrix', 'network', 'table'] as ViewMode[]).map((v) => {
+          {(['matrix', 'network', 'table', 'within'] as ViewMode[]).map((v) => {
             const active = view === v;
+            const label = v === 'within' ? 'within-paper' : v;
             return (
               <button
                 key={v}
                 type="button"
                 onClick={() => setView(v)}
+                title={v === 'within' ? 'Per-paper parameter-sweep correlations extracted from tables' : undefined}
                 className={
                   'px-3 py-1.5 text-xs font-mono capitalize border-r last:border-r-0 border-gray-300 transition-colors ' +
                   (active
@@ -109,7 +113,7 @@ export function CorrelationExplorer() {
                     : 'bg-white text-mes-text-secondary hover:bg-gray-50')
                 }
               >
-                {v}
+                {label}
               </button>
             );
           })}
@@ -138,8 +142,14 @@ export function CorrelationExplorer() {
             <CorrelationMatrix pairs={pairs} nodes={nodes} materials={materials} />
           ) : view === 'network' ? (
             <CorrelationNetwork pairs={pairs} nodes={nodes} materials={materials} />
-          ) : (
+          ) : view === 'table' ? (
             <CorrelationPairTable pairs={pairs} />
+          ) : (
+            <WithinPaperPairTable
+              minTables={Math.max(2, Math.round(filters.minN / 10))}
+              minAbsMedianR={filters.minAbsR}
+              categoryFilter={filters.categories}
+            />
           )}
         </div>
       </div>

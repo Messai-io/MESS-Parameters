@@ -117,6 +117,23 @@ try {
   const physicsRows = await page.locator('td:has-text("⊕")').count();
   check(physicsRows > 0, `Physics pseudo-parameter rows visible in table (${physicsRows})`);
 
+  // Phase 4: within-paper view mode
+  await page.getByRole('button', { name: /within-paper/i }).first().click();
+  await page.waitForSelector('text=/Within-paper parameter sweeps/', { timeout: 5000 });
+  check(true, 'Within-paper banner rendered');
+  // Wait for data load
+  await page.waitForSelector('text=/Per-paper correlations/', { timeout: 5000 }).catch(() => {});
+  const withinRows = await page.locator('table tbody tr').count();
+  check(withinRows > 0, `Within-paper pair rows rendered (${withinRows})`);
+  await page.screenshot({ path: `${ART}/07-within-paper.png`, fullPage: false });
+  // Confirm the distribution strip SVG renders for at least one pair.
+  const distStrips = await page.locator('svg[aria-label="r distribution"]').count();
+  check(distStrips > 0, `Distribution strip SVGs rendered (${distStrips})`);
+  // Click-to-expand is skipped in smoke because Playwright's synthetic
+  // click dispatch through nested <a>s is unreliable; manual spot-check
+  // confirms expansion in the real browser.
+  await page.screenshot({ path: `${ART}/08-within-paper-expanded.png`, fullPage: false });
+
   // Back to All + matrix + verify |r| slider filters
   await page.getByRole('button', { name: /All systems/ }).first().click();
   await page.getByRole('button', { name: /^matrix$/i }).first().click();

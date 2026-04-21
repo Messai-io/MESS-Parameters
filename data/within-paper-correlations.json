@@ -1,0 +1,1747 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-04-21T06:43:52.912Z",
+  "metadata": {
+    "total_tables": 265,
+    "total_pairs_computed": 165,
+    "pairs_emitted": 36,
+    "min_rows_per_table_pair": 3,
+    "min_tables_per_pair": 2
+  },
+  "pairs": [
+    {
+      "a_id": "cme1qmx9u008llllgtkaxr9do",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "Current Density",
+      "b_name": "Power Density",
+      "a_category": "MATERIALS",
+      "b_category": "MATERIALS",
+      "n_tables": 17,
+      "total_n_rows": 209,
+      "r_median": 0.9815,
+      "r_p25": 0.9199,
+      "r_p75": 0.9893,
+      "r_p10": 0.5728,
+      "r_p90": 0.9945,
+      "r_abs_median": 0.9815,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.61841/rae7bs08",
+          "paperKey": "4992b73718dc643d98574018329c14bd04a16b271a2d8543e5a428b9c5b1b669",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.9952
+        },
+        {
+          "paperDoi": "rae7bs08",
+          "paperKey": "rae7bs08",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.9952
+        },
+        {
+          "paperDoi": "10.15244/pjoes/168804",
+          "paperKey": "71fa5d8bb688481a6d595678069ff4b1ad62210b7a4db1e741dadb2b6877227f",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.9941
+        },
+        {
+          "paperDoi": "168804",
+          "paperKey": "168804",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.9941
+        },
+        {
+          "paperDoi": "10.4028/www.scientific.net/amm.855.91",
+          "paperKey": "4ffe28cf9cfb8503f11f90a039fbc9f626d2193a36f67c9588b97a34ad79932c",
+          "tableId": "table-03",
+          "n_rows": 9,
+          "r": 0.9893
+        },
+        {
+          "paperDoi": "AMM.855.91",
+          "paperKey": "AMM.855.91",
+          "tableId": "table-03",
+          "n_rows": 9,
+          "r": 0.9893
+        },
+        {
+          "paperDoi": "10.1038/s41598-024-80925-x - modification of glass screen printed electrodes with graphene quantum dots for e",
+          "paperKey": "0e84e5901c715175f163d613594d9a1b937226fb0a6e5f93daece914ca4f42de",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": 0.9832
+        },
+        {
+          "paperDoi": "10.54691/zs32n469",
+          "paperKey": "3ec4f8240a35d424e54b87d66b0c173bbd23d2b3338ee953b29353a5cd5cbd93",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.9815
+        },
+        {
+          "paperDoi": "zs32n469",
+          "paperKey": "zs32n469",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.9815
+        },
+        {
+          "paperDoi": "10.1038/s41598-023-48290-3 - investigation of microbial fuel cell performance based on the nickel thin film m",
+          "paperKey": "a8624b457c4760fb7a8cd0a33d2da5d680e01797ba238302c2b49edf27954760",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.9456
+        },
+        {
+          "paperDoi": "10.1038/s41598-020-74092-y",
+          "paperKey": "4969eca3e33c5b95a5d4e0f9d2630d4d1791b6dca22c052c45bdafa1a37b409d",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.9377
+        },
+        {
+          "paperDoi": "s41598-020-74092-y",
+          "paperKey": "s41598-020-74092-y",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.9377
+        },
+        {
+          "paperDoi": "10.19044/esj.2017.v13n30p173",
+          "paperKey": "36868d2e0da84b0f6a9535273ca1faa5b35a4cc5c4c4d3842020c99b8e549b1f",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.9199
+        },
+        {
+          "paperDoi": "esj.2017.v13n30p173",
+          "paperKey": "esj.2017.v13n30p173",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.9199
+        },
+        {
+          "paperDoi": "10.1038/s41598-023-48290-3 - investigation of microbial fuel cell performance based on the nickel thin film m",
+          "paperKey": "a8624b457c4760fb7a8cd0a33d2da5d680e01797ba238302c2b49edf27954760",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.603
+        },
+        {
+          "paperDoi": "10.24857/rgsa.v18n1-119",
+          "paperKey": "550f56428b731a56edd430067e79e0fc474d752163cbdcb2d1f117bbdacfcb27",
+          "tableId": "table-02",
+          "n_rows": 10,
+          "r": 0.5274
+        },
+        {
+          "paperDoi": "rgsa.v18n1-119",
+          "paperKey": "rgsa.v18n1-119",
+          "tableId": "table-02",
+          "n_rows": 10,
+          "r": 0.5274
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmhfs0046lllgaxitz0l1",
+      "b_id": "cme1qmhwa004clllg90sbuhnr",
+      "a_name": "BOD Concentration",
+      "b_name": "COD Concentration",
+      "a_category": "BIOLOGICAL",
+      "b_category": "BIOLOGICAL",
+      "n_tables": 12,
+      "total_n_rows": 60,
+      "r_median": 0.9955,
+      "r_p25": 0.9064,
+      "r_p75": 1,
+      "r_p10": 0.8016,
+      "r_p90": 1,
+      "r_abs_median": 0.9955,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-03",
+          "n_rows": 3,
+          "r": 1
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-06",
+          "n_rows": 5,
+          "r": 1
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-07",
+          "n_rows": 5,
+          "r": 1
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-03",
+          "n_rows": 3,
+          "r": 1
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-06",
+          "n_rows": 5,
+          "r": 1
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-07",
+          "n_rows": 5,
+          "r": 1
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-04",
+          "n_rows": 5,
+          "r": 0.9909
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-04",
+          "n_rows": 5,
+          "r": 0.9909
+        },
+        {
+          "paperDoi": "10.69721/tps.j.2023.15.2.03",
+          "paperKey": "816ad7612559ff3c8e55e245f49aa9193fa0fda9e066930368356242e3bf4ed9",
+          "tableId": "table-01",
+          "n_rows": 3,
+          "r": 0.9064
+        },
+        {
+          "paperDoi": "TPS.J.2023.15.2.03",
+          "paperKey": "TPS.J.2023.15.2.03",
+          "tableId": "table-01",
+          "n_rows": 3,
+          "r": 0.9064
+        },
+        {
+          "paperDoi": "10.31031/jbb.2019.02.000534",
+          "paperKey": "72528b9b10efe727d3151469c669b9c72d0460aa2cf1e10dcccd3ce9e6a81d4d",
+          "tableId": "table-01",
+          "n_rows": 9,
+          "r": 0.79
+        },
+        {
+          "paperDoi": "jbb.2019.02.000534",
+          "paperKey": "jbb.2019.02.000534",
+          "tableId": "table-01",
+          "n_rows": 9,
+          "r": 0.79
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprdi10002g3ncp3c2h79u",
+      "b_id": "cme1qmx9u008llllgtkaxr9do",
+      "a_name": "voltage",
+      "b_name": "Current Density",
+      "a_category": "ELECTROCHEMICAL",
+      "b_category": "MATERIALS",
+      "n_tables": 7,
+      "total_n_rows": 117,
+      "r_median": 0.9868,
+      "r_p25": 0.849,
+      "r_p75": 0.9934,
+      "r_p10": 0.7411,
+      "r_p90": 1,
+      "r_abs_median": 0.9868,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.55041/ijsrem30032",
+          "paperKey": "6d3547ae3b1028997ea7a3e68f8d9884cf684309ba1e98de6bc4d20362738b63",
+          "tableId": "table-01",
+          "n_rows": 6,
+          "r": 1
+        },
+        {
+          "paperDoi": "IJSREM30032",
+          "paperKey": "IJSREM30032",
+          "tableId": "table-01",
+          "n_rows": 6,
+          "r": 1
+        },
+        {
+          "paperDoi": "10.5821/dissertation-2117-168574",
+          "paperKey": "cce63b01e35a3f3d625022ca13561393bdac4030adafc787af8d81359812f685",
+          "tableId": "table-06",
+          "n_rows": 4,
+          "r": 0.9868
+        },
+        {
+          "paperDoi": "dissertation-2117-168574",
+          "paperKey": "dissertation-2117-168574",
+          "tableId": "table-06",
+          "n_rows": 4,
+          "r": 0.9868
+        },
+        {
+          "paperDoi": "10.1038/s41598-023-48290-3 - investigation of microbial fuel cell performance based on the nickel thin film m",
+          "paperKey": "a8624b457c4760fb7a8cd0a33d2da5d680e01797ba238302c2b49edf27954760",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.9568
+        },
+        {
+          "paperDoi": "10.61841/rae7bs08",
+          "paperKey": "4992b73718dc643d98574018329c14bd04a16b271a2d8543e5a428b9c5b1b669",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.7411
+        },
+        {
+          "paperDoi": "rae7bs08",
+          "paperKey": "rae7bs08",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.7411
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprdi10002g3ncp3c2h79u",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "voltage",
+      "b_name": "Power Density",
+      "a_category": "ELECTROCHEMICAL",
+      "b_category": "MATERIALS",
+      "n_tables": 4,
+      "total_n_rows": 104,
+      "r_median": 0.8913,
+      "r_p25": 0.7867,
+      "r_p75": 0.9965,
+      "r_p10": 0.7867,
+      "r_p90": 0.9974,
+      "r_abs_median": 0.8913,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-023-48290-3 - investigation of microbial fuel cell performance based on the nickel thin film m",
+          "paperKey": "a8624b457c4760fb7a8cd0a33d2da5d680e01797ba238302c2b49edf27954760",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.9981
+        },
+        {
+          "paperDoi": "10.1038/s41598-020-76668-0 - enhanced bioelectrochemical treatment of petroleum refinery wastewater with laba",
+          "paperKey": "752103fa4e2d19db0fb8a07542be92704b29cf90f9a0d33c1c937213a44dfff8",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.9959
+        },
+        {
+          "paperDoi": "10.61841/rae7bs08",
+          "paperKey": "4992b73718dc643d98574018329c14bd04a16b271a2d8543e5a428b9c5b1b669",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.7867
+        },
+        {
+          "paperDoi": "rae7bs08",
+          "paperKey": "rae7bs08",
+          "tableId": "table-01",
+          "n_rows": 46,
+          "r": 0.7867
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "b_id": "cod_removal",
+      "a_name": "Power Density",
+      "b_name": "Cod Removal",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 7,
+      "total_n_rows": 47,
+      "r_median": 0.5573,
+      "r_p25": 0.4267,
+      "r_p75": 0.8363,
+      "r_p10": 0.2961,
+      "r_p90": 0.9173,
+      "r_abs_median": 0.5573,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1080/09593330.2023.2179422",
+          "paperKey": "0266b953ee4bcb1c58c980dfbedef95a6b4ca339a0d52ff7c74bd18f35a3af48",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.9173
+        },
+        {
+          "paperDoi": "09593330.2023.2179422",
+          "paperKey": "09593330.2023.2179422",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.9173
+        },
+        {
+          "paperDoi": "10.1038/s41598-020-76668-0 - enhanced bioelectrochemical treatment of petroleum refinery wastewater with laba",
+          "paperKey": "752103fa4e2d19db0fb8a07542be92704b29cf90f9a0d33c1c937213a44dfff8",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.7552
+        },
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.5573
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.5573
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2024.1384463",
+          "paperKey": "051653347d1e19cbee634a379bd6a3268ddc9dc601275a45b6be6f99357dbb6a",
+          "tableId": "table-01",
+          "n_rows": 6,
+          "r": 0.2961
+        },
+        {
+          "paperDoi": "fmicb.2024.1384463",
+          "paperKey": "fmicb.2024.1384463",
+          "tableId": "table-01",
+          "n_rows": 6,
+          "r": 0.2961
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprh970008g3ncgt3vekhm",
+      "b_id": "cmduprix0000bg3ncjoo8oj0l",
+      "a_name": "temperature",
+      "b_name": "pH",
+      "a_category": "OPERATIONAL",
+      "b_category": "ENVIRONMENTAL",
+      "n_tables": 12,
+      "total_n_rows": 142,
+      "r_median": -0.4421,
+      "r_p25": -0.8846,
+      "r_p75": 0.4356,
+      "r_p10": -0.9014,
+      "r_p90": 0.4767,
+      "r_abs_median": 0.5468,
+      "positive_fraction": 0.333,
+      "per_table": [
+        {
+          "paperDoi": "10.1371/journal.pone.0233921",
+          "paperKey": "efcb9c183d98e6475778b1c4272cbc0321911051519e72235446b631adfac8cb",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.9033
+        },
+        {
+          "paperDoi": "journal.pone.0233921",
+          "paperKey": "journal.pone.0233921",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.9033
+        },
+        {
+          "paperDoi": "10.16966/2381-5299.189",
+          "paperKey": "3bb453048bd0abfed6e3552d4b346f901e7bd99b6d3038bcb2ca178b7fa0c6cb",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": -0.8846
+        },
+        {
+          "paperDoi": "2381-5299.189",
+          "paperKey": "2381-5299.189",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": -0.8846
+        },
+        {
+          "paperDoi": "10.7748/ns.31.52.7.s2",
+          "paperKey": "2b3c4ddd6ff1857aec84e3b5f8f002faa0187348535afd4af319849e90013f61",
+          "tableId": "table-06",
+          "n_rows": 18,
+          "r": -0.6123
+        },
+        {
+          "paperDoi": "ns.31.52.7.s2",
+          "paperKey": "ns.31.52.7.s2",
+          "tableId": "table-06",
+          "n_rows": 18,
+          "r": -0.6123
+        },
+        {
+          "paperDoi": "10.4172/2167-7972.1000144",
+          "paperKey": "e84ab20f8207645f5088fac2a568befbb5ea1cd8db4b0fda9a5e7baa0ecf5bbb",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.4813
+        },
+        {
+          "paperDoi": "2167-7972.1000144",
+          "paperKey": "2167-7972.1000144",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.4813
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2026.1793191",
+          "paperKey": "361ae0a505e22b5de59661a860c2d3b659853105b0b22e64354f4f25987a9b39",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.4356
+        },
+        {
+          "paperDoi": "fmicb.2026.1793191",
+          "paperKey": "fmicb.2026.1793191",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.4356
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2024.1434921",
+          "paperKey": "c4bc2dabd7662b4e917e6f20381bc08e088ef9631d7d5c1290d90a1a9866ef88",
+          "tableId": "table-01",
+          "n_rows": 24,
+          "r": -0.272
+        },
+        {
+          "paperDoi": "fmicb.2024.1434921",
+          "paperKey": "fmicb.2024.1434921",
+          "tableId": "table-01",
+          "n_rows": 24,
+          "r": -0.272
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprdi10002g3ncp3c2h79u",
+      "b_id": "coulombic_efficiency",
+      "a_name": "voltage",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "ELECTROCHEMICAL",
+      "b_category": "PERFORMANCE",
+      "n_tables": 2,
+      "total_n_rows": 6,
+      "r_median": -0.9947,
+      "r_p25": -0.9947,
+      "r_p75": -0.9947,
+      "r_p10": -0.9947,
+      "r_p90": -0.9947,
+      "r_abs_median": 0.9947,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.5821/dissertation-2117-168574",
+          "paperKey": "cce63b01e35a3f3d625022ca13561393bdac4030adafc787af8d81359812f685",
+          "tableId": "table-07",
+          "n_rows": 3,
+          "r": -0.9947
+        },
+        {
+          "paperDoi": "dissertation-2117-168574",
+          "paperKey": "dissertation-2117-168574",
+          "tableId": "table-07",
+          "n_rows": 3,
+          "r": -0.9947
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprk18000dg3nc7daetmui",
+      "b_id": "cme1qmhwa004clllg90sbuhnr",
+      "a_name": "volume",
+      "b_name": "COD Concentration",
+      "a_category": "MATERIALS",
+      "b_category": "BIOLOGICAL",
+      "n_tables": 2,
+      "total_n_rows": 8,
+      "r_median": 0.9936,
+      "r_p25": 0.9936,
+      "r_p75": 0.9936,
+      "r_p10": 0.9936,
+      "r_p90": 0.9936,
+      "r_abs_median": 0.9936,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.12974/2311-8741.2021.09.2",
+          "paperKey": "33c01c24cef0811e49927725710f9949ad2b83931a4301d1654cf38eba255935",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": 0.9936
+        },
+        {
+          "paperDoi": "2311-8741.2021.09.2",
+          "paperKey": "2311-8741.2021.09.2",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": 0.9936
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprk18000dg3nc7daetmui",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "volume",
+      "b_name": "Power Density",
+      "a_category": "MATERIALS",
+      "b_category": "MATERIALS",
+      "n_tables": 4,
+      "total_n_rows": 56,
+      "r_median": 0.6435,
+      "r_p25": 0.5794,
+      "r_p75": 0.7076,
+      "r_p10": 0.5794,
+      "r_p90": 0.7076,
+      "r_abs_median": 0.6435,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 8,
+          "r": 0.7076
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 8,
+          "r": 0.7076
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.5794
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.5794
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "b_id": "cme1qoa9x00q6lllgm2qj3hx8",
+      "a_name": "Power Density",
+      "b_name": "Flow Rate",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 4,
+      "total_n_rows": 62,
+      "r_median": 0.6403,
+      "r_p25": 0.2828,
+      "r_p75": 0.9977,
+      "r_p10": 0.2828,
+      "r_p90": 0.9977,
+      "r_abs_median": 0.6403,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.21595/jme.2024.23966",
+          "paperKey": "801452221568eb3ce8ac7a59aac42857959da5500b2abe27f3ede302793a1ede",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.9977
+        },
+        {
+          "paperDoi": "jme.2024.23966",
+          "paperKey": "jme.2024.23966",
+          "tableId": "table-01",
+          "n_rows": 11,
+          "r": 0.9977
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.2828
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.2828
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "b_id": "open_circuit_voltage",
+      "a_name": "Power Density",
+      "b_name": "Open Circuit Voltage",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 4,
+      "total_n_rows": 46,
+      "r_median": 0.6385,
+      "r_p25": 0.4839,
+      "r_p75": 0.793,
+      "r_p10": 0.4839,
+      "r_p90": 0.793,
+      "r_abs_median": 0.6385,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.7748/ns.31.52.7.s2",
+          "paperKey": "2b3c4ddd6ff1857aec84e3b5f8f002faa0187348535afd4af319849e90013f61",
+          "tableId": "table-03",
+          "n_rows": 10,
+          "r": 0.793
+        },
+        {
+          "paperDoi": "ns.31.52.7.s2",
+          "paperKey": "ns.31.52.7.s2",
+          "tableId": "table-03",
+          "n_rows": 10,
+          "r": 0.793
+        },
+        {
+          "paperDoi": "10.19044/esj.2017.v13n30p173",
+          "paperKey": "36868d2e0da84b0f6a9535273ca1faa5b35a4cc5c4c4d3842020c99b8e549b1f",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.4839
+        },
+        {
+          "paperDoi": "esj.2017.v13n30p173",
+          "paperKey": "esj.2017.v13n30p173",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.4839
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmhwa004clllg90sbuhnr",
+      "b_id": "coulombic_efficiency",
+      "a_name": "COD Concentration",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "BIOLOGICAL",
+      "b_category": "PERFORMANCE",
+      "n_tables": 4,
+      "total_n_rows": 28,
+      "r_median": 0.6207,
+      "r_p25": 0.5563,
+      "r_p75": 0.685,
+      "r_p10": 0.5563,
+      "r_p90": 0.685,
+      "r_abs_median": 0.6207,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1007/978-3-031-58456-5_6",
+          "paperKey": "3bb93f9e380b72509c976e2099d161429b77b091ab9eb86395b840dfdcb51feb",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.685
+        },
+        {
+          "paperDoi": "978-3-031-58456-5_6",
+          "paperKey": "978-3-031-58456-5_6",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.685
+        },
+        {
+          "paperDoi": "10.1007/978-3-031-58456-5_6",
+          "paperKey": "3bb93f9e380b72509c976e2099d161429b77b091ab9eb86395b840dfdcb51feb",
+          "tableId": "table-01",
+          "n_rows": 9,
+          "r": 0.5563
+        },
+        {
+          "paperDoi": "978-3-031-58456-5_6",
+          "paperKey": "978-3-031-58456-5_6",
+          "tableId": "table-01",
+          "n_rows": 9,
+          "r": 0.5563
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprh970008g3ncgt3vekhm",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "temperature",
+      "b_name": "Power Density",
+      "a_category": "OPERATIONAL",
+      "b_category": "MATERIALS",
+      "n_tables": 5,
+      "total_n_rows": 43,
+      "r_median": 0.5049,
+      "r_p25": -0.4222,
+      "r_p75": 0.8018,
+      "r_p10": -0.4222,
+      "r_p90": 0.8018,
+      "r_abs_median": 0.5049,
+      "positive_fraction": 0.6,
+      "per_table": [
+        {
+          "paperDoi": "10.33737/gpps24-tc-003",
+          "paperKey": "41370a6b807f0e0b3e61d7a15bbb3b6218bf04cb75a6abdb445a616e71ea9997",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.8018
+        },
+        {
+          "paperDoi": "978-3-642-33335-4_190457",
+          "paperKey": "978-3-642-33335-4_190457",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.8018
+        },
+        {
+          "paperDoi": "10.21203/rs.3.rs-1019496/v1",
+          "paperKey": "2f7660236c1d61ca64fa0632adb860203d09681267c7a5348cc4497c8d60d0a2",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0.5049
+        },
+        {
+          "paperDoi": "10.7748/ns.31.52.7.s2",
+          "paperKey": "2b3c4ddd6ff1857aec84e3b5f8f002faa0187348535afd4af319849e90013f61",
+          "tableId": "table-06",
+          "n_rows": 14,
+          "r": -0.4222
+        },
+        {
+          "paperDoi": "ns.31.52.7.s2",
+          "paperKey": "ns.31.52.7.s2",
+          "tableId": "table-06",
+          "n_rows": 14,
+          "r": -0.4222
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprix0000bg3ncjoo8oj0l",
+      "b_id": "cme1qmhfs0046lllgaxitz0l1",
+      "a_name": "pH",
+      "b_name": "BOD Concentration",
+      "a_category": "ENVIRONMENTAL",
+      "b_category": "BIOLOGICAL",
+      "n_tables": 2,
+      "total_n_rows": 6,
+      "r_median": -0.8188,
+      "r_p25": -0.8188,
+      "r_p75": -0.8188,
+      "r_p10": -0.8188,
+      "r_p90": -0.8188,
+      "r_abs_median": 0.8188,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.16966/2381-5299.189",
+          "paperKey": "3bb453048bd0abfed6e3552d4b346f901e7bd99b6d3038bcb2ca178b7fa0c6cb",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": -0.8188
+        },
+        {
+          "paperDoi": "2381-5299.189",
+          "paperKey": "2381-5299.189",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": -0.8188
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmwli008clllgcxk5qh5r",
+      "b_id": "cme1qmx9u008llllgtkaxr9do",
+      "a_name": "Internal Resistance",
+      "b_name": "Current Density",
+      "a_category": "MATERIALS",
+      "b_category": "MATERIALS",
+      "n_tables": 2,
+      "total_n_rows": 16,
+      "r_median": -0.811,
+      "r_p25": -0.811,
+      "r_p75": -0.811,
+      "r_p10": -0.811,
+      "r_p90": -0.811,
+      "r_abs_median": 0.811,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-020-74092-y",
+          "paperKey": "4969eca3e33c5b95a5d4e0f9d2630d4d1791b6dca22c052c45bdafa1a37b409d",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.811
+        },
+        {
+          "paperDoi": "s41598-020-74092-y",
+          "paperKey": "s41598-020-74092-y",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.811
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qondh00uxlllg6kh5gl1a",
+      "b_id": "cod_removal",
+      "a_name": "Hydraulic Retention Time",
+      "b_name": "Cod Removal",
+      "a_category": "OPERATIONAL",
+      "b_category": "PERFORMANCE",
+      "n_tables": 5,
+      "total_n_rows": 47,
+      "r_median": 0.4763,
+      "r_p25": -0.0265,
+      "r_p75": 0.4763,
+      "r_p10": -0.0265,
+      "r_p90": 0.7561,
+      "r_abs_median": 0.4763,
+      "positive_fraction": 0.6,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-020-76668-0 - enhanced bioelectrochemical treatment of petroleum refinery wastewater with laba",
+          "paperKey": "752103fa4e2d19db0fb8a07542be92704b29cf90f9a0d33c1c937213a44dfff8",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.9427
+        },
+        {
+          "paperDoi": "",
+          "paperKey": "1f34c78a0a2d7dc7304d4608d067dd7fe1d6d942265cd27b3bd79e0ed1f60097",
+          "tableId": "table-02",
+          "n_rows": 16,
+          "r": 0.4763
+        },
+        {
+          "paperDoi": "jenr-16000410",
+          "paperKey": "jenr-16000410",
+          "tableId": "table-02",
+          "n_rows": 16,
+          "r": 0.4763
+        },
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 4,
+          "r": -0.0265
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 4,
+          "r": -0.0265
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "b_id": "coulombic_efficiency",
+      "a_name": "Power Density",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 5,
+      "total_n_rows": 41,
+      "r_median": 0.4548,
+      "r_p25": -0.0636,
+      "r_p75": 0.7428,
+      "r_p10": -0.0636,
+      "r_p90": 0.7428,
+      "r_abs_median": 0.4548,
+      "positive_fraction": 0.6,
+      "per_table": [
+        {
+          "paperDoi": "10.1080/09593330.2023.2179422",
+          "paperKey": "0266b953ee4bcb1c58c980dfbedef95a6b4ca339a0d52ff7c74bd18f35a3af48",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.7428
+        },
+        {
+          "paperDoi": "09593330.2023.2179422",
+          "paperKey": "09593330.2023.2179422",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.7428
+        },
+        {
+          "paperDoi": "10.1038/s41598-023-38215-5 - modeling and experimental investigation of the effect of carbon source on the pe",
+          "paperKey": "adc27324a3b156138f10e95e1ce10baf75a5cd7f857e775891e6570fb8a88044",
+          "tableId": "table-03",
+          "n_rows": 9,
+          "r": 0.4548
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2024.1384463",
+          "paperKey": "051653347d1e19cbee634a379bd6a3268ddc9dc601275a45b6be6f99357dbb6a",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.0636
+        },
+        {
+          "paperDoi": "fmicb.2024.1384463",
+          "paperKey": "fmicb.2024.1384463",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.0636
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmwli008clllgcxk5qh5r",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "Internal Resistance",
+      "b_name": "Power Density",
+      "a_category": "MATERIALS",
+      "b_category": "MATERIALS",
+      "n_tables": 2,
+      "total_n_rows": 16,
+      "r_median": -0.7401,
+      "r_p25": -0.7401,
+      "r_p75": -0.7401,
+      "r_p10": -0.7401,
+      "r_p90": -0.7401,
+      "r_abs_median": 0.7401,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-020-74092-y",
+          "paperKey": "4969eca3e33c5b95a5d4e0f9d2630d4d1791b6dca22c052c45bdafa1a37b409d",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.7401
+        },
+        {
+          "paperDoi": "s41598-020-74092-y",
+          "paperKey": "s41598-020-74092-y",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": -0.7401
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmx9u008llllgtkaxr9do",
+      "b_id": "cme1qom0h00uflllgsqr27m62",
+      "a_name": "Current Density",
+      "b_name": "Batch Volume",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 2,
+      "total_n_rows": 8,
+      "r_median": -0.6576,
+      "r_p25": -0.6576,
+      "r_p75": -0.6576,
+      "r_p10": -0.6576,
+      "r_p90": -0.6576,
+      "r_abs_median": 0.6576,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-021-93844-y",
+          "paperKey": "c4d3dc32aa890470eb899376b98028be249e3cf44f4ea61dff85527ccdbdda78",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.6576
+        },
+        {
+          "paperDoi": "s41598-021-93844-y",
+          "paperKey": "s41598-021-93844-y",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.6576
+        }
+      ]
+    },
+    {
+      "a_id": "cod_removal",
+      "b_id": "coulombic_efficiency",
+      "a_name": "Cod Removal",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "PERFORMANCE",
+      "b_category": "PERFORMANCE",
+      "n_tables": 4,
+      "total_n_rows": 26,
+      "r_median": 0.4073,
+      "r_p25": 0.3327,
+      "r_p75": 0.4819,
+      "r_p10": 0.3327,
+      "r_p90": 0.4819,
+      "r_abs_median": 0.4073,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1080/09593330.2023.2179422",
+          "paperKey": "0266b953ee4bcb1c58c980dfbedef95a6b4ca339a0d52ff7c74bd18f35a3af48",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.4819
+        },
+        {
+          "paperDoi": "09593330.2023.2179422",
+          "paperKey": "09593330.2023.2179422",
+          "tableId": "table-01",
+          "n_rows": 8,
+          "r": 0.4819
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2024.1384463",
+          "paperKey": "051653347d1e19cbee634a379bd6a3268ddc9dc601275a45b6be6f99357dbb6a",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.3327
+        },
+        {
+          "paperDoi": "fmicb.2024.1384463",
+          "paperKey": "fmicb.2024.1384463",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0.3327
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprix0000bg3ncjoo8oj0l",
+      "b_id": "cme1qmhwa004clllg90sbuhnr",
+      "a_name": "pH",
+      "b_name": "COD Concentration",
+      "a_category": "ENVIRONMENTAL",
+      "b_category": "BIOLOGICAL",
+      "n_tables": 2,
+      "total_n_rows": 10,
+      "r_median": -0.5801,
+      "r_p25": -0.5801,
+      "r_p75": -0.5801,
+      "r_p10": -0.5801,
+      "r_p90": -0.5801,
+      "r_abs_median": 0.5801,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.69721/tps.j.2023.15.2.03",
+          "paperKey": "816ad7612559ff3c8e55e245f49aa9193fa0fda9e066930368356242e3bf4ed9",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": -0.5801
+        },
+        {
+          "paperDoi": "TPS.J.2023.15.2.03",
+          "paperKey": "TPS.J.2023.15.2.03",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": -0.5801
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmx9u008llllgtkaxr9do",
+      "b_id": "coulombic_efficiency",
+      "a_name": "Current Density",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 2,
+      "total_n_rows": 8,
+      "r_median": -0.5801,
+      "r_p25": -0.5801,
+      "r_p75": -0.5801,
+      "r_p10": -0.5801,
+      "r_p90": -0.5801,
+      "r_abs_median": 0.5801,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-021-93844-y",
+          "paperKey": "c4d3dc32aa890470eb899376b98028be249e3cf44f4ea61dff85527ccdbdda78",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.5801
+        },
+        {
+          "paperDoi": "s41598-021-93844-y",
+          "paperKey": "s41598-021-93844-y",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.5801
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprht80009g3ncxdbs0t0z",
+      "b_id": "cmduprk18000dg3nc7daetmui",
+      "a_name": "duration",
+      "b_name": "volume",
+      "a_category": "OPERATIONAL",
+      "b_category": "MATERIALS",
+      "n_tables": 6,
+      "total_n_rows": 48,
+      "r_median": 0.3031,
+      "r_p25": 0.0846,
+      "r_p75": 0.7526,
+      "r_p10": 0.0117,
+      "r_p90": 0.9025,
+      "r_abs_median": 0.3031,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.3389/fmicb.2025.1753983",
+          "paperKey": "9e8e6d20b08b22faccd85600ad78cdc692601730b1be6f8feeb96d23c0c78a73",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": 0.9025
+        },
+        {
+          "paperDoi": "fmicb.2025.1753983",
+          "paperKey": "fmicb.2025.1753983",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": 0.9025
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2025.1753983",
+          "paperKey": "9e8e6d20b08b22faccd85600ad78cdc692601730b1be6f8feeb96d23c0c78a73",
+          "tableId": "table-01",
+          "n_rows": 16,
+          "r": 0.3031
+        },
+        {
+          "paperDoi": "fmicb.2025.1753983",
+          "paperKey": "fmicb.2025.1753983",
+          "tableId": "table-01",
+          "n_rows": 16,
+          "r": 0.3031
+        },
+        {
+          "paperDoi": "10.3389/fmicb.2025.1753983",
+          "paperKey": "9e8e6d20b08b22faccd85600ad78cdc692601730b1be6f8feeb96d23c0c78a73",
+          "tableId": "table-04",
+          "n_rows": 5,
+          "r": 0.0117
+        },
+        {
+          "paperDoi": "fmicb.2025.1753983",
+          "paperKey": "fmicb.2025.1753983",
+          "tableId": "table-04",
+          "n_rows": 5,
+          "r": 0.0117
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qoa9x00q6lllgm2qj3hx8",
+      "b_id": "cme1qondh00uxlllg6kh5gl1a",
+      "a_name": "Flow Rate",
+      "b_name": "Hydraulic Retention Time",
+      "a_category": "OPERATIONAL",
+      "b_category": "OPERATIONAL",
+      "n_tables": 2,
+      "total_n_rows": 40,
+      "r_median": -0.5172,
+      "r_p25": -0.5172,
+      "r_p75": -0.5172,
+      "r_p10": -0.5172,
+      "r_p90": -0.5172,
+      "r_abs_median": 0.5172,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": -0.5172
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": -0.5172
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprh970008g3ncgt3vekhm",
+      "b_id": "cme1qmhfs0046lllgaxitz0l1",
+      "a_name": "temperature",
+      "b_name": "BOD Concentration",
+      "a_category": "OPERATIONAL",
+      "b_category": "BIOLOGICAL",
+      "n_tables": 2,
+      "total_n_rows": 6,
+      "r_median": 0.4566,
+      "r_p25": 0.4566,
+      "r_p75": 0.4566,
+      "r_p10": 0.4566,
+      "r_p90": 0.4566,
+      "r_abs_median": 0.4566,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.16966/2381-5299.189",
+          "paperKey": "3bb453048bd0abfed6e3552d4b346f901e7bd99b6d3038bcb2ca178b7fa0c6cb",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": 0.4566
+        },
+        {
+          "paperDoi": "2381-5299.189",
+          "paperKey": "2381-5299.189",
+          "tableId": "table-02",
+          "n_rows": 3,
+          "r": 0.4566
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmx9u008llllgtkaxr9do",
+      "b_id": "open_circuit_voltage",
+      "a_name": "Current Density",
+      "b_name": "Open Circuit Voltage",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 2,
+      "total_n_rows": 26,
+      "r_median": 0.4109,
+      "r_p25": 0.4109,
+      "r_p75": 0.4109,
+      "r_p10": 0.4109,
+      "r_p90": 0.4109,
+      "r_abs_median": 0.4109,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.19044/esj.2017.v13n30p173",
+          "paperKey": "36868d2e0da84b0f6a9535273ca1faa5b35a4cc5c4c4d3842020c99b8e549b1f",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.4109
+        },
+        {
+          "paperDoi": "esj.2017.v13n30p173",
+          "paperKey": "esj.2017.v13n30p173",
+          "tableId": "table-01",
+          "n_rows": 13,
+          "r": 0.4109
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprk18000dg3nc7daetmui",
+      "b_id": "cod_removal",
+      "a_name": "volume",
+      "b_name": "Cod Removal",
+      "a_category": "MATERIALS",
+      "b_category": "PERFORMANCE",
+      "n_tables": 2,
+      "total_n_rows": 12,
+      "r_median": 0.3904,
+      "r_p25": 0.3904,
+      "r_p75": 0.3904,
+      "r_p10": 0.3904,
+      "r_p90": 0.3904,
+      "r_abs_median": 0.3904,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.3904
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": 0.3904
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprk18000dg3nc7daetmui",
+      "b_id": "cme1qoa9x00q6lllgm2qj3hx8",
+      "a_name": "volume",
+      "b_name": "Flow Rate",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 2,
+      "total_n_rows": 40,
+      "r_median": 0.2826,
+      "r_p25": 0.2826,
+      "r_p75": 0.2826,
+      "r_p10": 0.2826,
+      "r_p90": 0.2826,
+      "r_abs_median": 0.2826,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.2826
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.2826
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "b_id": "cme1qondh00uxlllg6kh5gl1a",
+      "a_name": "Power Density",
+      "b_name": "Hydraulic Retention Time",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 5,
+      "total_n_rows": 59,
+      "r_median": -0.1457,
+      "r_p25": -0.6084,
+      "r_p75": -0.1457,
+      "r_p10": -0.6084,
+      "r_p90": 0.2854,
+      "r_abs_median": 0.5728,
+      "positive_fraction": 0.2,
+      "per_table": [
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": -0.6084
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 6,
+          "r": -0.6084
+        },
+        {
+          "paperDoi": "10.1038/s41598-020-76668-0 - enhanced bioelectrochemical treatment of petroleum refinery wastewater with laba",
+          "paperKey": "752103fa4e2d19db0fb8a07542be92704b29cf90f9a0d33c1c937213a44dfff8",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.5728
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": -0.1457
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": -0.1457
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmhwa004clllg90sbuhnr",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "COD Concentration",
+      "b_name": "Power Density",
+      "a_category": "BIOLOGICAL",
+      "b_category": "MATERIALS",
+      "n_tables": 2,
+      "total_n_rows": 13,
+      "r_median": 0.1723,
+      "r_p25": 0.1152,
+      "r_p75": 0.2293,
+      "r_p10": 0.0809,
+      "r_p90": 0.2636,
+      "r_abs_median": 0.1723,
+      "positive_fraction": 1,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-020-76668-0 - enhanced bioelectrochemical treatment of petroleum refinery wastewater with laba",
+          "paperKey": "752103fa4e2d19db0fb8a07542be92704b29cf90f9a0d33c1c937213a44dfff8",
+          "tableId": "table-01",
+          "n_rows": 7,
+          "r": 0.2864
+        },
+        {
+          "paperDoi": "1. doi=10.1149/ma2013-02/4/219",
+          "paperKey": "8fe418c1dd4ddbd6da9cf99367500304b647ed4f13f8c6c1cc79f30fe71e4fe1",
+          "tableId": "table-01",
+          "n_rows": 6,
+          "r": 0.0581
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprk18000dg3nc7daetmui",
+      "b_id": "cme1qondh00uxlllg6kh5gl1a",
+      "a_name": "volume",
+      "b_name": "Hydraulic Retention Time",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 4,
+      "total_n_rows": 54,
+      "r_median": -0.1089,
+      "r_p25": -0.4948,
+      "r_p75": 0.277,
+      "r_p10": -0.4948,
+      "r_p90": 0.277,
+      "r_abs_median": 0.3859,
+      "positive_fraction": 0.5,
+      "per_table": [
+        {
+          "paperDoi": "10.32388/4ynyhr",
+          "paperKey": "6fc061172549c4a92f9a4d75720f1c291fb6f54e03d5a944416b1099cb157620",
+          "tableId": "table-02",
+          "n_rows": 7,
+          "r": -0.4948
+        },
+        {
+          "paperDoi": "4YNYHR",
+          "paperKey": "4YNYHR",
+          "tableId": "table-02",
+          "n_rows": 7,
+          "r": -0.4948
+        },
+        {
+          "paperDoi": "10.1007/bf02472679",
+          "paperKey": "dacadacbab5a93dd7a601578874c030e7b22606050412e98e5586077e4155225",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.277
+        },
+        {
+          "paperDoi": "bf02472679",
+          "paperKey": "bf02472679",
+          "tableId": "table-10",
+          "n_rows": 20,
+          "r": 0.277
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprix0000bg3ncjoo8oj0l",
+      "b_id": "cme1qmy6n008xlllgn3t1ijkj",
+      "a_name": "pH",
+      "b_name": "Power Density",
+      "a_category": "ENVIRONMENTAL",
+      "b_category": "MATERIALS",
+      "n_tables": 2,
+      "total_n_rows": 28,
+      "r_median": -0.0726,
+      "r_p25": -0.0726,
+      "r_p75": -0.0726,
+      "r_p10": -0.0726,
+      "r_p90": -0.0726,
+      "r_abs_median": 0.0726,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.7748/ns.31.52.7.s2",
+          "paperKey": "2b3c4ddd6ff1857aec84e3b5f8f002faa0187348535afd4af319849e90013f61",
+          "tableId": "table-06",
+          "n_rows": 14,
+          "r": -0.0726
+        },
+        {
+          "paperDoi": "ns.31.52.7.s2",
+          "paperKey": "ns.31.52.7.s2",
+          "tableId": "table-06",
+          "n_rows": 14,
+          "r": -0.0726
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qom0h00uflllgsqr27m62",
+      "b_id": "coulombic_efficiency",
+      "a_name": "Batch Volume",
+      "b_name": "Coulombic Efficiency",
+      "a_category": "OPERATIONAL",
+      "b_category": "PERFORMANCE",
+      "n_tables": 2,
+      "total_n_rows": 8,
+      "r_median": -0.0336,
+      "r_p25": -0.0336,
+      "r_p75": -0.0336,
+      "r_p10": -0.0336,
+      "r_p90": -0.0336,
+      "r_abs_median": 0.0336,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.1038/s41598-021-93844-y",
+          "paperKey": "c4d3dc32aa890470eb899376b98028be249e3cf44f4ea61dff85527ccdbdda78",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.0336
+        },
+        {
+          "paperDoi": "s41598-021-93844-y",
+          "paperKey": "s41598-021-93844-y",
+          "tableId": "table-01",
+          "n_rows": 4,
+          "r": -0.0336
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qmx9u008llllgtkaxr9do",
+      "b_id": "cme1qn1op00a6lllg3fzqesnu",
+      "a_name": "Current Density",
+      "b_name": "Oxygen Concentration",
+      "a_category": "MATERIALS",
+      "b_category": "ENVIRONMENTAL",
+      "n_tables": 4,
+      "total_n_rows": 20,
+      "r_median": 0,
+      "r_p25": 0,
+      "r_p75": 0,
+      "r_p10": 0,
+      "r_p90": 0,
+      "r_abs_median": 0,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.34010/injiiscom.v6i1.13414",
+          "paperKey": "9b0a6deb2d4a1f0b541f873c7a8ad36274c94d4999098bc4bf9889eb9515d5e5",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0
+        },
+        {
+          "paperDoi": "10.34010/injiiscom.v6i1.13414",
+          "paperKey": "9b0a6deb2d4a1f0b541f873c7a8ad36274c94d4999098bc4bf9889eb9515d5e5",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0
+        },
+        {
+          "paperDoi": "cbo9780511791284.009",
+          "paperKey": "cbo9780511791284.009",
+          "tableId": "table-01",
+          "n_rows": 5,
+          "r": 0
+        },
+        {
+          "paperDoi": "cbo9780511791284.009",
+          "paperKey": "cbo9780511791284.009",
+          "tableId": "table-02",
+          "n_rows": 5,
+          "r": 0
+        }
+      ]
+    },
+    {
+      "a_id": "cme1qnmo100holllgyxbmhajz",
+      "b_id": "cme1qom0h00uflllgsqr27m62",
+      "a_name": "Electrode Surface Area",
+      "b_name": "Batch Volume",
+      "a_category": "MATERIALS",
+      "b_category": "OPERATIONAL",
+      "n_tables": 3,
+      "total_n_rows": 45,
+      "r_median": 0,
+      "r_p25": 0,
+      "r_p75": 0,
+      "r_p10": 0,
+      "r_p90": 0,
+      "r_abs_median": 0,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "",
+          "paperKey": "10dc5473c85b16c252a11418862b91ad25fc9fb8eaea5b5236504899f787bc",
+          "tableId": "table-01",
+          "n_rows": 15,
+          "r": 0
+        },
+        {
+          "paperDoi": "10.30574/gscarr.2023.16.2.0302",
+          "paperKey": "ab10dc5473c85b16c252a11418862b91ad25fc9fb8eaea5b5236504899f787bc",
+          "tableId": "table-01",
+          "n_rows": 15,
+          "r": 0
+        },
+        {
+          "paperDoi": "gscarr.2023.16.2.0302",
+          "paperKey": "gscarr.2023.16.2.0302",
+          "tableId": "table-01",
+          "n_rows": 15,
+          "r": 0
+        }
+      ]
+    },
+    {
+      "a_id": "cmduprdi10002g3ncp3c2h79u",
+      "b_id": "cme1qmjxx0050lllg1qiaj4j4",
+      "a_name": "voltage",
+      "b_name": "Buffer Concentration",
+      "a_category": "ELECTROCHEMICAL",
+      "b_category": "MATERIALS",
+      "n_tables": 2,
+      "total_n_rows": 40,
+      "r_median": 0,
+      "r_p25": 0,
+      "r_p75": 0,
+      "r_p10": 0,
+      "r_p90": 0,
+      "r_abs_median": 0,
+      "positive_fraction": 0,
+      "per_table": [
+        {
+          "paperDoi": "10.3389/fenrg.2024.1419785",
+          "paperKey": "f2f114310af943ce7eeb35f1a4368b7550627b63882cba934a75b9edded594d9",
+          "tableId": "table-01",
+          "n_rows": 20,
+          "r": 0
+        },
+        {
+          "paperDoi": "fenrg.2024.1419785",
+          "paperKey": "fenrg.2024.1419785",
+          "tableId": "table-01",
+          "n_rows": 20,
+          "r": 0
+        }
+      ]
+    }
+  ]
+}
