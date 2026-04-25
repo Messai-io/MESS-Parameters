@@ -1,5 +1,6 @@
 import type { PairRow } from '../useCorrelationPairs';
 import { isPhysicsEntryId, physicsFeatureName, type MaterialsFile } from '../../../data/materials';
+import { humanize, humanizePhysicsFeature } from '../../../lib/humanize';
 
 interface Props {
   pair: PairRow;
@@ -9,7 +10,7 @@ interface Props {
 }
 
 function displayName(id: string, name: string): string {
-  if (isPhysicsEntryId(id)) return `⊕ ${physicsFeatureName(id) ?? name}`;
+  if (isPhysicsEntryId(id)) return `⊕ ${humanizePhysicsFeature(physicsFeatureName(id) ?? name)}`;
   return name;
 }
 
@@ -39,7 +40,7 @@ function pourbaixStates(slugs: string[], materials?: MaterialsFile | null): stri
     if (states.length === 0) continue;
     // Use MFC cathode state as the representative badge; fall back to first available.
     const preferred = entry.pourbaix.mfc_cathode ?? entry.pourbaix.mec_cathode ?? Object.values(entry.pourbaix)[0];
-    out.push(`${slug}: ${preferred}`);
+    out.push(`${humanize(slug)}: ${preferred}`);
   }
   return out;
 }

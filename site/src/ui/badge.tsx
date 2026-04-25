@@ -2,7 +2,24 @@ import { forwardRef, type HTMLAttributes } from 'react';
 import { cn } from './utils';
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'outline' | 'ghost' | 'primary' | 'secondary' | 'error' | 'gray' | 'warning' | 'success' | 'info';
+  variant?:
+    | 'default'
+    | 'outline'
+    | 'ghost'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'gray'
+    | 'warning'
+    | 'success'
+    | 'info'
+    | 'sage'
+    | 'brass'
+    | 'burgundy'
+    | 'graphite'
+    | 'labcoat'
+    | 'shewanella'
+    | 'iron-bacteria';
   size?: 'sm' | 'base' | 'lg';
   dot?: boolean;
 }
@@ -19,6 +36,14 @@ const badgeVariants = {
     warning: 'bg-yellow-100 text-yellow-800 border-yellow-200',
     success: 'bg-green-100 text-green-800 border-green-200',
     info: 'bg-blue-100 text-blue-800 border-blue-200',
+    // Palette-native variants — match the warm academic system
+    sage: 'bg-mes-sage/10 text-mes-sage border-mes-sage',
+    brass: 'bg-mes-brass/10 text-mes-brass border-mes-brass',
+    burgundy: 'bg-mes-burgundy/10 text-mes-burgundy border-mes-burgundy',
+    graphite: 'bg-mes-graphite/10 text-mes-graphite border-mes-graphite',
+    labcoat: 'bg-mes-labcoat/10 text-mes-labcoat border-mes-labcoat',
+    shewanella: 'bg-mes-shewanella/10 text-mes-shewanella border-mes-shewanella',
+    'iron-bacteria': 'bg-mes-iron-bacteria/10 text-mes-iron-bacteria border-mes-iron-bacteria',
   },
   size: {
     sm: 'px-2 py-0.5 text-xs',

@@ -14,46 +14,50 @@ export function CorrelationsView() {
     (summary.moderate ?? 0) + (summary.strongPositive ?? 0) + (summary.strongNegative ?? 0);
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-5 animate-fade-in">
       <div>
-        <h1 className="text-3xl font-serif font-bold text-mes-text-primary">
+        <h1 className="text-2xl font-serif font-bold text-mes-text-primary leading-tight">
           Parameter-Metric Correlations
         </h1>
-        <p className="mt-2 text-mes-text-secondary text-sm">
+        <p className="mt-1 text-mes-text-secondary text-sm leading-relaxed">
           Pearson correlations computed across {fmtNum(data.totalPapersAnalyzed)} papers.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <StatCard label="Total" value={data.totalCorrelations ?? all.length} detail="Correlations tested" />
-        <StatCard label="Significant" value={data.significantCorrelations ?? 0} detail="p < 0.05" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <StatCard dense label="Total" value={data.totalCorrelations ?? all.length} detail="Tested" />
+        <StatCard dense label="Significant" value={data.significantCorrelations ?? 0} detail="p < 0.05" />
         <StatCard
+          dense
           label="Top r"
           value={top ? fmtFixed(top.pearsonR) : '—'}
           detail={top ? top.parameter : ''}
         />
-        <StatCard
-          label="Moderate+"
-          value={moderatePlus}
-          detail="Moderate or stronger"
-        />
+        <StatCard dense label="Moderate+" value={moderatePlus} detail="Moderate or stronger" />
       </div>
 
-      <Card padding="sm">
-        <CardTitle level={2} className="px-2 pt-2 mb-4">
-          Correlation Strengths
-        </CardTitle>
+      {/* Lead chart — above the fold */}
+      <Card padding="none">
+        <div className="px-4 pt-3 pb-1 flex items-baseline justify-between">
+          <CardTitle level={3} className="!text-base">Correlation Strengths</CardTitle>
+          <span className="text-[10px] uppercase tracking-wider text-mes-text-muted">
+            Sorted by |r|
+          </span>
+        </div>
         <CorrelationChart correlations={all} />
       </Card>
 
+      <CorrelationExplorer />
+
       <Card padding="none">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <CardTitle level={2}>All Correlations</CardTitle>
+        <div className="px-4 py-3 border-b border-gray-200 flex items-baseline justify-between">
+          <CardTitle level={3} className="!text-base">All Correlations</CardTitle>
+          <span className="text-[10px] uppercase tracking-wider text-mes-text-muted">
+            {all.length} rows
+          </span>
         </div>
         <CorrelationTable correlations={all} />
       </Card>
-
-      <CorrelationExplorer />
     </div>
   );
 }

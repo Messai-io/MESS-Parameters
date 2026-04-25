@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { PairRow, NodeMeta } from '../useCorrelationPairs';
-import { nameToSlug } from '../useCorrelationPairs';
+import { nameToSlug, displayNodeLabel } from '../useCorrelationPairs';
 import { PairDetailPopover } from './PairDetailPopover';
 import type { MaterialsFile } from '../../../data/materials';
 
@@ -73,25 +73,31 @@ export function CorrelationMatrix({ pairs, nodes, materials = null }: Props) {
       <div className="overflow-x-auto">
         <svg width={width} height={height} className="font-mono text-[10px]" style={{ fontFamily: 'DM Mono' }}>
           {/* Column labels — rotated */}
-          {ordered.map((n, i) => (
-            <g key={`col-${n.id}`} transform={`translate(${labelWidth + i * cellSize + cellSize / 2}, ${labelHeight - 4}) rotate(-45)`}>
-              <text
-                textAnchor="start"
-                className="fill-mes-text-secondary"
-                fontSize={10}
-              >
-                {n.name.length > 22 ? n.name.slice(0, 21) + '…' : n.name}
-              </text>
-            </g>
-          ))}
+          {ordered.map((n, i) => {
+            const label = displayNodeLabel(n.id, n.name);
+            return (
+              <g key={`col-${n.id}`} transform={`translate(${labelWidth + i * cellSize + cellSize / 2}, ${labelHeight - 4}) rotate(-45)`}>
+                <text
+                  textAnchor="start"
+                  className="fill-mes-text-secondary"
+                  fontSize={10}
+                >
+                  {label.length > 22 ? label.slice(0, 21) + '…' : label}
+                </text>
+              </g>
+            );
+          })}
           {/* Row labels */}
-          {ordered.map((n, i) => (
-            <g key={`row-${n.id}`} transform={`translate(${labelWidth - 6}, ${labelHeight + i * cellSize + cellSize / 2 + 3})`}>
-              <text textAnchor="end" className="fill-mes-text-secondary" fontSize={10}>
-                {n.name.length > 22 ? n.name.slice(0, 21) + '…' : n.name}
-              </text>
-            </g>
-          ))}
+          {ordered.map((n, i) => {
+            const label = displayNodeLabel(n.id, n.name);
+            return (
+              <g key={`row-${n.id}`} transform={`translate(${labelWidth - 6}, ${labelHeight + i * cellSize + cellSize / 2 + 3})`}>
+                <text textAnchor="end" className="fill-mes-text-secondary" fontSize={10}>
+                  {label.length > 22 ? label.slice(0, 21) + '…' : label}
+                </text>
+              </g>
+            );
+          })}
           {/* Cells */}
           {ordered.map((rowNode, r) =>
             ordered.map((colNode, c) => {

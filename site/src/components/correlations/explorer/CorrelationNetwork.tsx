@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { PairRow, NodeMeta } from '../useCorrelationPairs';
-import { nameToSlug } from '../useCorrelationPairs';
+import { nameToSlug, displayNodeLabel } from '../useCorrelationPairs';
 import { categoryColors } from '../../../styles/category-colors';
 import { PairDetailPopover } from './PairDetailPopover';
 import type { MaterialsFile } from '../../../data/materials';
@@ -137,7 +137,10 @@ export function CorrelationNetwork({ pairs, nodes, materials = null }: Props) {
                   transform={`rotate(${flip ? rot + 180 : rot} ${labelX} ${labelY})`}
                   className="pointer-events-none select-none"
                 >
-                  {n.name.length > 24 ? n.name.slice(0, 23) + '…' : n.name}
+                  {(() => {
+                    const label = displayNodeLabel(n.id, n.name);
+                    return label.length > 24 ? label.slice(0, 23) + '…' : label;
+                  })()}
                 </text>
               </g>
             );

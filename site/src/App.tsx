@@ -6,6 +6,7 @@ import { ParameterCatalog } from './components/parameters/ParameterCatalog';
 import { ParameterDetailPage } from './components/parameters/ParameterDetailPage';
 import { CorrelationsView } from './components/correlations/CorrelationsView';
 import { ReproducibilityView } from './components/reproducibility/ReproducibilityView';
+import { MethodologyView } from './components/methodology/MethodologyView';
 
 function useHashRoute(): string {
   const [route, setRoute] = useState(() => {
@@ -38,6 +39,8 @@ function Router({ route }: { route: string }) {
       return <CorrelationsView />;
     case '/reproducibility':
       return <ReproducibilityView />;
+    case '/methodology':
+      return <MethodologyView />;
     default:
       return <DashboardView />;
   }

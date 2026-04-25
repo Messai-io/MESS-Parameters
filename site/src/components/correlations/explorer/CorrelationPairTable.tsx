@@ -1,9 +1,10 @@
 import type { PairRow } from '../useCorrelationPairs';
 import { nameToSlug } from '../useCorrelationPairs';
 import { isPhysicsEntryId, physicsFeatureName } from '../../../data/materials';
+import { humanizePhysicsFeature } from '../../../lib/humanize';
 
 function labelFor(id: string, name: string): string {
-  if (isPhysicsEntryId(id)) return `⊕ ${physicsFeatureName(id) ?? name}`;
+  if (isPhysicsEntryId(id)) return `⊕ ${humanizePhysicsFeature(physicsFeatureName(id) ?? name)}`;
   return name;
 }
 

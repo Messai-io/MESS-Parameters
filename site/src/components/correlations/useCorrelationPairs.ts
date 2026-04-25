@@ -6,8 +6,10 @@ import {
   getMaterials,
   buildPhysicsEntries,
   isPhysicsEntryId,
+  physicsFeatureName,
   type MaterialsFile,
 } from '../../data/materials';
+import { humanizePhysicsFeature } from '../../lib/humanize';
 
 export type SystemType = 'all' | 'MFC' | 'MEC' | 'MDC' | 'BES';
 
@@ -265,3 +267,12 @@ export function useCorrelationPairs(filters: Filters): UseCorrelationPairsResult
 }
 
 export { nameToSlug };
+
+// Centralized humanizer used by every render site that draws a node label
+// (matrix axis, network ring, table cells, hover popover). Physics pseudo-
+// parameters carry raw feature keys as their `name`; everything else is
+// already humanized in the source data.
+export function displayNodeLabel(id: string, name: string): string {
+  if (isPhysicsEntryId(id)) return humanizePhysicsFeature(physicsFeatureName(id) ?? name);
+  return name;
+}

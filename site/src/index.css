@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    accent-color: #4A5D4E;
+  }
+
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -18,5 +22,108 @@
 
   ::selection {
     background-color: rgba(139, 115, 85, 0.15);
+  }
+
+  /* Range slider — sage thumb on glass track, sharp rectangular edges */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #D4CFC7; /* mes-instrument */
+    border: 1px solid #9E9B97; /* mes-steel */
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    background: transparent;
+    border: 0;
+  }
+
+  input[type="range"]::-moz-range-track {
+    height: 4px;
+    background: transparent;
+    border: 0;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 16px;
+    margin-top: -7px;
+    background: #4A5D4E; /* mes-sage */
+    border: 1px solid #2E2925; /* mes-bakelite */
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+
+  input[type="range"]::-moz-range-thumb {
+    width: 12px;
+    height: 16px;
+    background: #4A5D4E;
+    border: 1px solid #2E2925;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+  }
+
+  input[type="range"]:hover::-webkit-slider-thumb {
+    background: #3E5055; /* mes-graphite */
+  }
+  input[type="range"]:hover::-moz-range-thumb {
+    background: #3E5055;
+  }
+
+  input[type="range"]:focus-visible {
+    outline: 2px solid #8B7355; /* mes-brass */
+    outline-offset: 2px;
+  }
+
+  input[type="range"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  /* Checkbox — sage fill when checked, sharp rectangular edges */
+  input[type="checkbox"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    border: 1.5px solid #6B6966; /* mes-text-muted */
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 0;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  input[type="checkbox"]:hover {
+    border-color: #4A5D4E; /* mes-sage */
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: #4A5D4E;
+    border-color: #2E2925;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'><path d='M3 7.5l2.8 2.8L11 4.5' fill='none' stroke='%23FAF8F5' stroke-width='2' stroke-linecap='square' stroke-linejoin='miter'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  input[type="checkbox"]:focus-visible {
+    outline: 2px solid #8B7355;
+    outline-offset: 2px;
+  }
+
+  input[type="checkbox"]:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
   }
 }

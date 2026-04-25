@@ -3,6 +3,7 @@ import correlationCache from '@data/correlation-cache.json';
 import extractionStats from '@data/extraction-stats.json';
 import reproducibilitySummary from '@data/reproducibility-summary.json';
 import richDefinitions from '@data/parameter-definitions-rich.json';
+import provenanceSummary from '@data/provenance-summary.json';
 import type {
   Parameter,
   ParameterIndex,
@@ -81,6 +82,33 @@ export function getCorrelations() {
 
 export function getExtractionStats() {
   return stats;
+}
+
+export interface ProvenanceSummary {
+  generated_at: string;
+  corpus_snapshot_date?: string;
+  sources: {
+    total: number;
+    with_doi: number;
+    doi_coverage_pct: number;
+    verified_mes: number;
+    verified_mes_pct: number;
+  };
+  parameters_with_provenance: number;
+  tier1: {
+    overall_verdict: string;
+    grounding_rate: number;
+    literature_pass_count: string;
+    unit_coverage: number;
+    duplicate_agreement: number;
+    sub_verdicts: Record<string, string>;
+    pass_count: number;
+    total_checks: number;
+  };
+}
+
+export function getProvenanceSummary(): ProvenanceSummary {
+  return provenanceSummary as unknown as ProvenanceSummary;
 }
 
 export function getReproducibility() {

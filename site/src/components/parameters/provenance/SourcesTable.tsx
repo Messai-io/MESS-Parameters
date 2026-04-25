@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react';
 import type { ProvSource } from '../../../data/provenance';
 import { isDoi, doiUrl } from '../../../lib/doi';
+import { SystemTag, VerdictTag } from '../../../ui/tags';
 
 interface Props {
   sources: ProvSource[];
@@ -137,7 +138,9 @@ export function SourcesTable({ sources, unit }: Props) {
                 <td className="px-3 py-2 text-right font-mono text-xs text-mes-text-secondary tabular-nums">
                   {s.year ?? '—'}
                 </td>
-                <td className="px-3 py-2 text-xs text-mes-text-secondary">{s.system_type}</td>
+                <td className="px-3 py-2">
+                  <SystemTag type={s.system_type} size="sm" />
+                </td>
                 <td className="px-3 py-2 text-right font-mono text-xs tabular-nums">
                   {s.value}
                   {s.uncertainty_abs != null ? (
@@ -158,9 +161,7 @@ export function SourcesTable({ sources, unit }: Props) {
                 </td>
                 <td className="px-3 py-2">
                   {s.verified_mes ? (
-                    <span className="inline-block px-1.5 py-0.5 text-[10px] font-medium bg-green-50 text-green-700 border border-green-200">
-                      MES
-                    </span>
+                    <VerdictTag verdict="PASS" size="sm" />
                   ) : (
                     <span className="text-xs text-mes-text-muted">—</span>
                   )}

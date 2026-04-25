@@ -1,5 +1,6 @@
 import type { Filters, SystemType } from '../useCorrelationPairs';
 import { categoryLabels } from '../../../styles/category-colors';
+import { humanize } from '../../../lib/humanize';
 
 export interface MaterialChip {
   slug: string;
@@ -182,7 +183,7 @@ export function CorrelationFilters({
                     : 'bg-white text-mes-text-secondary border-gray-300 hover:bg-gray-50')
                 }
               >
-                {m.slug}
+                {humanize(m.slug)}
                 <span className="ml-1 text-[9px] opacity-60">({m.n_dois})</span>
               </button>
             );

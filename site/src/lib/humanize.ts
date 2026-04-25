@@ -64,6 +64,34 @@ export function categoryKey(raw: string | null | undefined): string {
   return raw.toLowerCase().replace(/_/g, '-');
 }
 
+// Physics feature keys are emitted by the materials pipeline as
+// `<stem>_<unit>` (e.g. `density_g_per_cm3`, `bulk_modulus_GPa`). Naive
+// humanize() turns those into "Density G Per Cm3" — useless. This helper
+// strips a known unit suffix and renders it with proper Unicode super/
+// subscripts in parentheses.
+const PHYSICS_UNIT_SUFFIXES: Array<{ suffix: string; unit: string }> = [
+  // Longest-match first so `_eV_per_atom` wins over `_eV`.
+  { suffix: '_eV_per_atom', unit: 'eV/atom' },
+  { suffix: '_J_per_m2', unit: 'J/m²' },
+  { suffix: '_g_per_cm3', unit: 'g/cm³' },
+  { suffix: '_GPa', unit: 'GPa' },
+  { suffix: '_MPa', unit: 'MPa' },
+  { suffix: '_kPa', unit: 'kPa' },
+  { suffix: '_eV', unit: 'eV' },
+];
+
+export function humanizePhysicsFeature(key: string | null | undefined): string {
+  if (!key) return '';
+  for (const { suffix, unit } of PHYSICS_UNIT_SUFFIXES) {
+    if (key.endsWith(suffix)) {
+      const stem = key.slice(0, -suffix.length);
+      const stemLabel = humanize(stem);
+      return stemLabel ? `${stemLabel} (${unit})` : `(${unit})`;
+    }
+  }
+  return humanize(key);
+}
+
 // Convert a parameter display name into a URL slug used by the hash router.
 // The same transform is used on read in getRichParameter() so links round-trip.
 export function paramNameToSlug(name: string): string {

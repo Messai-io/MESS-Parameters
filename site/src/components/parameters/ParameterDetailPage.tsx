@@ -1,8 +1,11 @@
 import { useMemo, useEffect, useState } from 'react';
 import { getRichParameter, getAllParameters, type RichParameter } from '../../data/loader';
 import { getProvenance, type ProvEntry } from '../../data/provenance';
+import { getObservations, type ParameterObservations } from '../../data/observations';
+import { ObservationStats } from './ObservationStats';
 import { Card, CardContent } from '../../ui/card';
 import { Badge } from '../../ui/badge';
+import { SystemTag, CoverageTag } from '../../ui/tags';
 import { RangeBar } from './RangeBar';
 import { categoryColors, categoryLabels } from '../../styles/category-colors';
 import { ProvenanceBadges } from './provenance/ProvenanceBadges';
@@ -126,6 +129,16 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
     return () => { cancelled = true; };
   }, [richParam?.id, richParam?.has_provenance]);
 
+  const [obs, setObs] = useState<ParameterObservations | null>(null);
+  useEffect(() => {
+    if (!richParam) return;
+    let cancelled = false;
+    getObservations(richParam.name)
+      .then((o) => { if (!cancelled && o && o.n_observations > 0) setObs(o); })
+      .catch(() => {});
+    return () => { cancelled = true; };
+  }, [richParam?.name]);
+
   if (!richParam && !indexParam) {
     return (
       <div className="space-y-6 animate-fade-in">
@@ -175,13 +188,13 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div className="min-w-0">
           <div
-            className="inline-block w-10 h-1 mb-3"
+            className="inline-block w-10 h-1 mb-2"
             style={{ backgroundColor: catColor }}
             aria-hidden
           />
-          <h1 className="text-3xl font-serif font-bold text-mes-text-primary">{p.name}</h1>
+          <h1 className="text-2xl font-serif font-bold text-mes-text-primary leading-tight">{p.name}</h1>
           {p.description && (
-            <p className="mt-2 text-mes-text-secondary text-sm max-w-2xl">
+            <p className="mt-1 text-mes-text-secondary text-sm max-w-2xl leading-relaxed">
               {p.description}
             </p>
           )}
@@ -190,9 +203,20 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
           <Badge variant="outline" size="lg" style={{ borderColor: catColor, color: catColor }}>
             {catLabel}
           </Badge>
-          {subcatLabel && (
-            <Badge variant="gray" size="sm">{subcatLabel}</Badge>
+          {subcatLabel && <Badge variant="gray" size="sm">{subcatLabel}</Badge>}
+          {prov && (
+            <CoverageTag
+              sources={prov.n_papers}
+              doiPct={
+                prov.n_papers > 0 ? (prov.n_verified / prov.n_papers) * 100 : null
+              }
+              size="sm"
+            />
           )}
+          {prov &&
+            Object.keys(prov.stats_by_system).map((sys) => (
+              <SystemTag key={sys} type={sys} size="sm" />
+            ))}
         </div>
       </div>
 
@@ -216,11 +240,15 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
           </span>
         </Card>
         <Card padding="sm" className="text-center">
-          <span className="text-xs text-mes-text-muted uppercase tracking-wider block">Papers</span>
+          <span className="text-xs text-mes-text-muted uppercase tracking-wider block">Observations</span>
           <span className="text-lg font-medium text-mes-text-primary mt-1 block">
-            {p.usage_count > 0 ? p.usage_count.toLocaleString() : '0'}
+            {obs ? obs.n_observations.toLocaleString() : p.usage_count > 0 ? p.usage_count.toLocaleString() : '0'}
           </span>
-          {p.usage_count === 0 && (
+          {obs ? (
+            <span className="text-[10px] text-mes-text-muted mt-0.5 block">
+              {obs.n_verified_mes.toLocaleString()} verified MES
+            </span>
+          ) : p.usage_count === 0 && (
             <span className="text-[10px] text-mes-text-muted mt-0.5 block">
               Not yet observed
             </span>
@@ -250,58 +278,48 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Main content — left 2 columns */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Definition */}
-          {p.definition && (
+        <div className="lg:col-span-2 space-y-5">
+          {/* Observed statistics — from 18K paper-parameter values */}
+          {obs && (
             <Card padding="sm">
               <CardContent>
-                <Section title="Definition">
-                  <TextBlock text={p.definition} />
+                <Section title="Observed in Literature">
+                  <ObservationStats obs={obs} />
                 </Section>
               </CardContent>
             </Card>
           )}
 
-          {/* Typical Values */}
-          {typicalItems.length > 0 && (
+          {/* Sources & Distribution explorer — promoted above the fold */}
+          {prov && (
             <Card padding="sm">
               <CardContent>
-                <Section title="Typical Values">
-                  <BulletList items={typicalItems} />
+                <Section title="Sources & Distribution">
+                  <SourcesExplorer prov={prov} unit={p.unit} />
                 </Section>
               </CardContent>
             </Card>
           )}
 
-          {/* Measurement Methods */}
-          {methodItems.length > 0 && (
+          {/* Correlated parameters — chart-like, stays high */}
+          {prov && prov.correlations.length > 0 && (
             <Card padding="sm">
               <CardContent>
-                <Section title="Measurement Methods">
-                  <BulletList items={methodItems} />
+                <Section title="Correlated Parameters">
+                  <CorrelationMiniMatrix
+                    correlations={prov.correlations}
+                    paramNameToSlug={paramNameToSlug}
+                  />
                 </Section>
               </CardContent>
             </Card>
           )}
 
-          {/* Affecting Factors */}
-          {factorItems.length > 0 && (
+          {/* Provenance placeholder while loading */}
+          {!prov && provLoading && p.has_provenance && (
             <Card padding="sm">
               <CardContent>
-                <Section title="Affecting Factors">
-                  <BulletList items={factorItems} />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
-
-          {/* Performance Impact */}
-          {p.performance_impact && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="Performance Impact">
-                  <TextBlock text={p.performance_impact} />
-                </Section>
+                <div className="text-sm text-mes-text-muted">Loading paper sources and distribution…</div>
               </CardContent>
             </Card>
           )}
@@ -316,9 +334,8 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
                 <p className="text-sm text-mes-text-secondary leading-relaxed">
                   <span className="font-medium text-mes-text-primary">{p.name}</span> is defined in the MESS
                   ontology, but hasn't been observed with acceptable confidence (≥ 0.3) in our paper corpus
-                  of ~21,000 MES publications. The sections above reflect the canonical definition, typical
-                  ranges, and measurement methods. Empirical sources, distribution, and correlations will
-                  appear here once extractions land.
+                  of ~21,000 MES publications. Empirical sources, distribution, and correlations will appear
+                  here once extractions land.
                 </p>
                 <div className="mt-3 flex flex-wrap gap-3 text-xs">
                   <a
@@ -342,72 +359,93 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
             </Card>
           )}
 
-          {/* Correlated parameters */}
-          {prov && prov.correlations.length > 0 && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="Correlated Parameters">
-                  <CorrelationMiniMatrix
-                    correlations={prov.correlations}
-                    paramNameToSlug={paramNameToSlug}
-                  />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
+          {/* Reference material — prose sections grouped under a single header */}
+          <div className="pt-2">
+            <h2 className="text-[10px] uppercase tracking-wider text-mes-text-muted mb-2 px-1">
+              Reference Material
+            </h2>
+            <div className="space-y-4">
+              {p.definition && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Definition">
+                      <TextBlock text={p.definition} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
 
-          {/* Sources & Distribution explorer */}
-          {prov && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="Sources & Distribution">
-                  <SourcesExplorer prov={prov} unit={p.unit} />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
+              {typicalItems.length > 0 && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Typical Values">
+                      <BulletList items={typicalItems} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
 
-          {/* Provenance placeholder while loading */}
-          {!prov && provLoading && p.has_provenance && (
-            <Card padding="sm">
-              <CardContent>
-                <div className="text-sm text-mes-text-muted">Loading paper sources and distribution…</div>
-              </CardContent>
-            </Card>
-          )}
+              {methodItems.length > 0 && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Measurement Methods">
+                      <BulletList items={methodItems} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
 
-          {/* Limitations */}
-          {p.limitations && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="Limitations">
-                  <TextBlock text={p.limitations} />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
+              {factorItems.length > 0 && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Affecting Factors">
+                      <BulletList items={factorItems} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
 
-          {/* Cost Analysis */}
-          {p.cost_analysis && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="Cost Analysis">
-                  <TextBlock text={p.cost_analysis} />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
+              {p.performance_impact && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Performance Impact">
+                      <TextBlock text={p.performance_impact} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
 
-          {/* References */}
-          {p.references && (
-            <Card padding="sm">
-              <CardContent>
-                <Section title="References">
-                  <ReferencesList text={p.references} />
-                </Section>
-              </CardContent>
-            </Card>
-          )}
+              {p.limitations && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Limitations">
+                      <TextBlock text={p.limitations} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
+
+              {p.cost_analysis && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="Cost Analysis">
+                      <TextBlock text={p.cost_analysis} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
+
+              {p.references && (
+                <Card padding="sm">
+                  <CardContent>
+                    <Section title="References">
+                      <ReferencesList text={p.references} />
+                    </Section>
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </div>
         </div>
 
         {/* Sidebar — right column */}

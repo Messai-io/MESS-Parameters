@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { humanize, categoryKey, paramNameToSlug } from './humanize';
+import { humanize, humanizePhysicsFeature, categoryKey, paramNameToSlug } from './humanize';
 
 describe('humanize', () => {
   it('replaces underscores and dashes with spaces and title-cases each word', () => {
@@ -22,6 +22,39 @@ describe('humanize', () => {
 
   it('collapses repeated separators', () => {
     expect(humanize('foo--bar__baz')).toBe('Foo Bar Baz');
+  });
+});
+
+describe('humanizePhysicsFeature', () => {
+  it('renders unit suffixes with Unicode super/subscripts', () => {
+    expect(humanizePhysicsFeature('density_g_per_cm3')).toBe('Density (g/cm³)');
+    expect(humanizePhysicsFeature('bulk_modulus_GPa')).toBe('Bulk Modulus (GPa)');
+    expect(humanizePhysicsFeature('shear_modulus_GPa')).toBe('Shear Modulus (GPa)');
+    expect(humanizePhysicsFeature('work_function_eV')).toBe('Work Function (eV)');
+    expect(humanizePhysicsFeature('band_gap_eV')).toBe('Band Gap (eV)');
+    expect(humanizePhysicsFeature('weighted_surface_energy_J_per_m2')).toBe(
+      'Weighted Surface Energy (J/m²)',
+    );
+    expect(humanizePhysicsFeature('energy_above_hull_eV_per_atom')).toBe(
+      'Energy Above Hull (eV/atom)',
+    );
+  });
+
+  it('prefers longest matching suffix', () => {
+    // Must match `_eV_per_atom`, not the shorter `_eV` followed by orphan stem.
+    expect(humanizePhysicsFeature('formation_energy_eV_per_atom')).toBe(
+      'Formation Energy (eV/atom)',
+    );
+  });
+
+  it('falls back to plain humanize for unknown suffixes', () => {
+    expect(humanizePhysicsFeature('porosity_ratio')).toBe('Porosity Ratio');
+  });
+
+  it('handles empty inputs', () => {
+    expect(humanizePhysicsFeature('')).toBe('');
+    expect(humanizePhysicsFeature(null)).toBe('');
+    expect(humanizePhysicsFeature(undefined)).toBe('');
   });
 });
 
