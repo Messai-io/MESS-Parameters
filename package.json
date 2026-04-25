@@ -48,7 +48,8 @@
     "papers:download-playwright": "papers/.venv/bin/python scripts/papers/download_playwright.py",
     "verify:tier1": "npx tsx scripts/verify/ontology_gate.ts && python3 scripts/verify/snippet_grounding.py && npx tsx scripts/verify/literature_crosscheck.ts && npx tsx scripts/verify/unit_audit.ts && npx tsx scripts/verify/outlier_report.ts && npx tsx scripts/verify/noise_floor.ts && npx tsx scripts/verify/duplicate_consistency.ts && npx tsx scripts/verify/tier1_rollup.ts",
     "verify:test": "papers/.venv/bin/python -m pytest tests/test_snippet_grounding_negative.py -v",
-    "recommend": "npx tsx scripts/analyze/recommend.ts"
+    "recommend": "npx tsx scripts/analyze/recommend.ts",
+    "build:observations": "npx tsx scripts/generate-parameter-observations.ts"
   },
   "keywords": [
     "parameters",
