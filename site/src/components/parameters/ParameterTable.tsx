@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '../../ui/table';
 import { Badge } from '../../ui/badge';
-import { categoryColors } from '../../styles/category-colors';
+import { categoryColors, categoryLabels } from '../../styles/category-colors';
+import { humanize } from '../../lib/humanize';
 import type { Parameter } from '../../data/types';
 
 type SortKey = 'name' | 'unit' | 'category' | 'subcategory' | 'typical';
@@ -106,11 +107,11 @@ function ParameterTableRow({
           size="sm"
           style={{ borderColor: categoryColors[p.category] || '#737373', color: categoryColors[p.category] || '#737373' }}
         >
-          {p.category}
+          {categoryLabels[p.category] || humanize(p.category)}
         </Badge>
       </TableCell>
       <TableCell className="hidden lg:table-cell text-mes-text-muted text-xs">
-        {p.subcategory}
+        {humanize(p.subcategory)}
       </TableCell>
       <TableCell className="hidden sm:table-cell">
         {p.range?.typical != null ? `${p.range.typical}` : '-'}
