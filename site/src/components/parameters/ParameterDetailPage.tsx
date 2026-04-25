@@ -1,19 +1,16 @@
 import { useMemo, useEffect, useState } from 'react';
 import { getRichParameter, getAllParameters, type RichParameter } from '../../data/loader';
 import { getProvenance, type ProvEntry } from '../../data/provenance';
-import { Card, CardHeader, CardContent, CardFooter } from '../../ui/card';
+import { Card, CardContent } from '../../ui/card';
 import { Badge } from '../../ui/badge';
-import { Button } from '../../ui/button';
 import { RangeBar } from './RangeBar';
 import { categoryColors, categoryLabels } from '../../styles/category-colors';
 import { ProvenanceBadges } from './provenance/ProvenanceBadges';
 import { SourcesExplorer } from './provenance/SourcesExplorer';
 import { CorrelationMiniMatrix } from './provenance/CorrelationMiniMatrix';
-import { linkifyCitations } from '../../lib/doi';
-
-function nameToSlug(name: string): string {
-  return name.toLowerCase().replace(/\s+/g, '_').replace(/[()\/]/g, '').replace(/:/, '');
-}
+import { RelatedParametersList } from './RelatedParametersList';
+import { ReferencesList } from './ReferencesList';
+import { humanize, categoryKey, paramNameToSlug } from '../../lib/humanize';
 
 interface ParameterDetailPageProps {
   paramId: string;
@@ -38,10 +35,10 @@ function formatList(val: unknown): string[] {
     const result: string[] = [];
     for (const [k, v] of Object.entries(obj)) {
       if (Array.isArray(v)) {
-        result.push(`**${k.charAt(0).toUpperCase() + k.slice(1)}**:`);
+        result.push(`**${humanize(k)}**:`);
         result.push(...formatList(v).map(s => `  ${s}`));
       } else {
-        result.push(`**${k}**: ${String(v)}`);
+        result.push(`**${humanize(k)}**: ${String(v)}`);
       }
     }
     return result;
@@ -99,7 +96,7 @@ function BulletList({ items }: { items: string[] }) {
 function InfoRow({ label, value, mono }: { label: string; value: React.ReactNode; mono?: boolean }) {
   return (
     <div className="flex items-baseline gap-3 py-2 border-b border-gray-100 last:border-0">
-      <span className="text-xs text-mes-text-muted uppercase tracking-wider w-36 flex-shrink-0">{label}</span>
+      <span className="text-xs text-mes-text-muted uppercase tracking-wider w-32 flex-shrink-0">{label}</span>
       <span className={`text-sm text-mes-text-primary ${mono ? 'font-mono' : ''}`}>{value}</span>
     </div>
   );
@@ -144,14 +141,15 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
   }
 
   const p = richParam as RichParameter;
-  const catId = p.category.toLowerCase().replace(/_/g, '-');
-  const catLabel = categoryLabels[catId] || p.category.replace(/_/g, ' ');
+  const catId = categoryKey(p.category);
+  const catLabel = categoryLabels[catId] || humanize(p.category);
   const catColor = categoryColors[catId] || '#737373';
+  const subcatLabel = humanize(p.subcategory ?? '');
+  const dataTypeLabel = humanize(p.data_type ?? '');
 
   const typicalItems = formatList(p.typical_values);
   const methodItems = formatList(p.measurement_methods);
   const factorItems = formatList(p.affecting_factors);
-  const relatedItems = formatList(p.related_parameters);
 
   const issueBase = `https://github.com/${REPO}/issues/new`;
   const issueBody = encodeURIComponent(`**Parameter:** ${p.name}\n**Category:** ${catLabel}\n\n`);
@@ -175,18 +173,25 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
 
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-        <div>
+        <div className="min-w-0">
+          <div
+            className="inline-block w-10 h-1 mb-3"
+            style={{ backgroundColor: catColor }}
+            aria-hidden
+          />
           <h1 className="text-3xl font-serif font-bold text-mes-text-primary">{p.name}</h1>
-          <p className="mt-2 text-mes-text-secondary text-sm max-w-2xl">
-            {p.description}
-          </p>
+          {p.description && (
+            <p className="mt-2 text-mes-text-secondary text-sm max-w-2xl">
+              {p.description}
+            </p>
+          )}
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-shrink-0 flex-wrap">
           <Badge variant="outline" size="lg" style={{ borderColor: catColor, color: catColor }}>
             {catLabel}
           </Badge>
-          {p.subcategory && (
-            <Badge variant="gray" size="sm">{p.subcategory}</Badge>
+          {subcatLabel && (
+            <Badge variant="gray" size="sm">{subcatLabel}</Badge>
           )}
         </div>
       </div>
@@ -207,7 +212,7 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
         <Card padding="sm" className="text-center">
           <span className="text-xs text-mes-text-muted uppercase tracking-wider block">Type</span>
           <span className="text-lg font-medium text-mes-text-primary mt-1 block">
-            {(p.data_type || '').toLowerCase()}
+            {dataTypeLabel || '--'}
           </span>
         </Card>
         <Card padding="sm" className="text-center">
@@ -243,7 +248,7 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
         </Card>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         {/* Main content — left 2 columns */}
         <div className="lg:col-span-2 space-y-6">
           {/* Definition */}
@@ -344,7 +349,7 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
                 <Section title="Correlated Parameters">
                   <CorrelationMiniMatrix
                     correlations={prov.correlations}
-                    paramNameToSlug={nameToSlug}
+                    paramNameToSlug={paramNameToSlug}
                   />
                 </Section>
               </CardContent>
@@ -392,18 +397,29 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
               </CardContent>
             </Card>
           )}
+
+          {/* References */}
+          {p.references && (
+            <Card padding="sm">
+              <CardContent>
+                <Section title="References">
+                  <ReferencesList text={p.references} />
+                </Section>
+              </CardContent>
+            </Card>
+          )}
         </div>
 
         {/* Sidebar — right column */}
-        <div className="space-y-6">
+        <div className="space-y-6 lg:sticky lg:top-6 lg:self-start">
           {/* Properties */}
           <Card padding="sm">
             <CardContent>
               <h3 className="text-sm font-semibold text-mes-text-primary mb-3">Properties</h3>
               <InfoRow label="Category" value={catLabel} />
-              {p.subcategory && <InfoRow label="Subcategory" value={p.subcategory} />}
+              {subcatLabel && <InfoRow label="Subcategory" value={subcatLabel} />}
               <InfoRow label="Unit" value={p.unit || 'Dimensionless'} mono />
-              <InfoRow label="Data type" value={(p.data_type || '').toLowerCase()} />
+              <InfoRow label="Data type" value={dataTypeLabel || '—'} />
               {p.min_value != null && <InfoRow label="Minimum" value={`${p.min_value} ${p.unit || ''}`} mono />}
               {p.max_value != null && <InfoRow label="Maximum" value={`${p.max_value} ${p.unit || ''}`} mono />}
               <InfoRow label="Papers" value={p.usage_count > 0 ? p.usage_count.toLocaleString() : 'None yet'} />
@@ -421,37 +437,11 @@ export function ParameterDetailPage({ paramId }: ParameterDetailPageProps) {
           )}
 
           {/* Related Parameters */}
-          {relatedItems.length > 0 && (
+          {!!p.related_parameters && (
             <Card padding="sm">
               <CardContent>
                 <h3 className="text-sm font-semibold text-mes-text-primary mb-3">Related Parameters</h3>
-                <BulletList items={relatedItems} />
-              </CardContent>
-            </Card>
-          )}
-
-          {/* References */}
-          {p.references && (
-            <Card padding="sm">
-              <CardContent>
-                <h3 className="text-sm font-semibold text-mes-text-primary mb-3">References</h3>
-                <div className="text-xs text-mes-text-secondary leading-relaxed whitespace-pre-line">
-                  {linkifyCitations(p.references).map((seg, i) =>
-                    seg.href ? (
-                      <a
-                        key={i}
-                        href={seg.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-mes-text-link hover:underline break-all"
-                      >
-                        {seg.text}
-                      </a>
-                    ) : (
-                      <span key={i}>{seg.text}</span>
-                    )
-                  )}
-                </div>
+                <RelatedParametersList related={p.related_parameters} />
               </CardContent>
             </Card>
           )}
